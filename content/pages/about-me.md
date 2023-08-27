@@ -4,8 +4,9 @@ description = "Student. Programmer. Arch and Neovim User."
 draft = false
 +++
 
-<img alt="Nathan Barry" style="height: 500px"  src="/images/me.jpg">
+<img alt="Nathan Barry" style="height: 350px; border-radius: 0; border: 1px solid #949494;"  src="/images/me.jpg">
 <p class="text-center">Me in the GDC elevator, August 2nd, 2023, 5:23 AM</p>
+<br>
 
 
 
