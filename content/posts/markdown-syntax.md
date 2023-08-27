@@ -1,9 +1,8 @@
 +++
 title = "Markdown Syntax Guide"
 description = "This article offers a bunch of basic Markdown syntax items that can be used in Hugo content files. This is usually used by me as a reference, and to make sure everything is rendering properly."
-date = "2023-08-26"
+date = 2023-08-26
 tags = ["Misc"]
-draft = false 
 +++
 
 {{< toc >}}

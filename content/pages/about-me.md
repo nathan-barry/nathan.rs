@@ -1,7 +1,6 @@
 +++
 title = "About Me"
 description = "Student. Programmer. Arch and Neovim User."
-draft = false
 +++
 
 <img alt="Nathan Barry" style="height: 350px; border-radius: 0; border: 1px solid #949494;"  src="/images/me.jpg">
