@@ -1,0 +1,7 @@
+{{ $id := md5 .Inner }}
+<div class="checkbox checked">
+    <div class="box">
+        &#x2714;
+    </div>
+    {{ .Inner }}
+</div>
