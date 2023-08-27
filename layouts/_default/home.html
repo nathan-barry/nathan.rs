@@ -18,15 +18,30 @@
             <h5 class="list-link"><a class="no-underline" href="https://www.linkedin.com/in/nathanrs/">&#x2751;&nbsp; LinkedIn</a></h5>
         </div>
 
-        <!-- Blog Posts -->
+        <!-- Primary Blog Posts -->
         {{ range $name, $pages := .Site.Taxonomies.tags }}
-        <div class="tag-column">
-            <h3>{{ $name | humanize | title }}</h3>
-            <hr>
-            {{ range .Pages }}
-            <h5 class="list-link"><a class="no-underline" href="{{ .RelPermalink }}">&#x2727;&nbsp; {{ .Title }}</a></h5>
+            {{ if not (in (slice "life" "misc") $name) }}
+            <div class="tag-column">
+                <h3>{{ $name | humanize | title }}</h3>
+                <hr>
+                {{ range .Pages }}
+                <h5 class="list-link"><a class="no-underline" href="{{ .RelPermalink }}">&#x2727;&nbsp; {{ .Title }}</a></h5>
+                {{ end }}
+            </div>
             {{ end }}
-        </div>
+        {{ end }}
+
+        <!-- Secondary Blog Posts -->
+        {{ range $name, $pages := .Site.Taxonomies.tags }}
+            {{ if (in (slice "life" "misc") $name) }}
+            <div class="tag-column">
+                <h3>{{ $name | humanize | title }}</h3>
+                <hr>
+                {{ range .Pages }}
+                <h5 class="list-link"><a class="no-underline" href="{{ .RelPermalink }}">&#x2727;&nbsp; {{ .Title }}</a></h5>
+                {{ end }}
+            </div>
+            {{ end }}
         {{ end }}
     </div>
 
