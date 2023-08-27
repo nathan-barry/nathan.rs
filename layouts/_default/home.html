@@ -34,9 +34,9 @@
             {{ end }}
         </div>
 
-        <!-- Primary Blog Posts -->
+        <!-- Primary Posts -->
         {{ range $name, $pages := .Site.Taxonomies.tags }}
-            {{ if not (in (slice "life" "misc") $name) }}
+            {{ if not (in (slice "draft" "life" "misc") $name) }}
             <div class="tag-column">
                 <h3>{{ $name | humanize | title }}</h3>
                 <hr>
@@ -49,9 +49,9 @@
             {{ end }}
         {{ end }}
 
-        <!-- Secondary Blog Posts -->
+        <!-- Secondary Posts -->
         {{ range $name, $pages := .Site.Taxonomies.tags }}
-            {{ if (in (slice "life" "misc") $name) }}
+            {{ if (in (slice "draft" "life" "misc") $name) }}
             <div class="tag-column">
                 <h3>{{ $name | humanize | title }}</h3>
                 <hr>
@@ -76,24 +76,13 @@
 
     <!-- Notes -->
     <div class="tag-columns">
-        <!-- Notes -->
+        <!-- Textbook Notes -->
         <div class="tag-column">
             <h3>Textbook Notes</h3>
             <hr>
             {{ range $notes, $pages := .Site.Taxonomies.notes }}
                 <h5 class="list-link">
                     &#x2727;&nbsp; <a href="{{ "notes/" | relURL }}{{ $notes | urlize }}">{{ $notes | humanize | title }}</a>
-                </h5>
-            {{ end }}
-        </div>
-
-        <!-- Classes -->
-        <div class="tag-column">
-            <h3>Class Notes</h3>
-            <hr>
-            {{ range $classes, $pages := .Site.Taxonomies.classes }}
-                <h5 class="list-link">
-                    &#x2727;&nbsp; <a href="{{ "classes/" | relURL }}{{ $classes | urlize }}">{{ $classes | humanize | title }}</a>
                 </h5>
             {{ end }}
         </div>

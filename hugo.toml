@@ -17,6 +17,5 @@ enableInlineShortcodes = true
 [taxonomies]
     tags = "tags"
     categories = "categories"
-    classes = "classes"
     notes = "notes"
 
