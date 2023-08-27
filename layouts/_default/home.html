@@ -1,11 +1,15 @@
 {{ define "main" }}
 <!-- HOME PAGE -->
 <div class="container" role="main">
+
+
     <!-- Top paragraph -->
     <p>THIS IS THE WEBSITE of Nathan Barry, a Computer Science and Mathematics major at UT Austin. There are many like it, but this one is mine.</p>
     <blockquote>"I believe that a man should strive for only one thing in life, and that is to have a touch of greatness"— <cite>Félix Martí-Ibáñez</cite></blockquote>
     <br> 
     <br> 
+
+
 
     <!-- Top -->
     <div class="tag-columns">
@@ -24,7 +28,9 @@
             <hr>
             {{ $filteredPages := where .Site.RegularPages "Type" "posts" }}
             {{ range first 2 (sort $filteredPages "Date" "desc") }}
-                <h5 class="list-link">&#x2727;&nbsp; <a class="" href="{{ .RelPermalink }}">{{ .Title }}</a></h5>
+                <h5 class="list-link">
+                    &#x2727;&nbsp; <a class="" href="{{ .RelPermalink }}">{{ .Title }}</a>
+                </h5>
             {{ end }}
         </div>
 
@@ -35,7 +41,9 @@
                 <h3>{{ $name | humanize | title }}</h3>
                 <hr>
                 {{ range .Pages }}
-                <h5 class="list-link">&#x2727;&nbsp; <a class="" href="{{ .RelPermalink }}">{{ .Title }}</a></h5>
+                <h5 class="list-link">
+                    &#x2727;&nbsp; <a class="" href="{{ .RelPermalink }}">{{ .Title }}</a>
+                </h5>
                 {{ end }}
             </div>
             {{ end }}
@@ -48,29 +56,49 @@
                 <h3>{{ $name | humanize | title }}</h3>
                 <hr>
                 {{ range .Pages }}
-                <h5 class="list-link">&#x2727;&nbsp; <a class="" href="{{ .RelPermalink }}">{{ .Title }}</a></h5>
+                <h5 class="list-link">
+                    &#x2727;&nbsp; <a class="" href="{{ .RelPermalink }}">{{ .Title }}</a>
+                </h5>
                 {{ end }}
             </div>
             {{ end }}
         {{ end }}
     </div>
 
+
+    
     <br>
     <br>
     <p class="text-center">&#x2735; &#x2735; &#x2735;</p>
     <br>
     
+
+
     <!-- Notes -->
     <div class="tag-columns">
-        {{ range $name, $pages := .Site.Taxonomies.categories }}
+        <!-- Notes -->
         <div class="tag-column">
-            <h3>{{ $name | humanize | title }}</h3>
+            <h3>Textbook Notes</h3>
             <hr>
-            {{ range .Pages }}
-            <h5 class="list-link">&#x2727;&nbsp; <a class="" href="{{ .RelPermalink }}">{{ .Title }}</a></h5>
+            {{ range $notes, $pages := .Site.Taxonomies.notes }}
+                <h5 class="list-link">
+                    &#x2727;&nbsp; <a href="{{ "notes/" | relURL }}{{ $notes | urlize }}">{{ $notes | humanize | title }}</a>
+                </h5>
             {{ end }}
         </div>
-        {{ end }}
+
+        <!-- Classes -->
+        <div class="tag-column">
+            <h3>Class Notes</h3>
+            <hr>
+            {{ range $classes, $pages := .Site.Taxonomies.classes }}
+                <h5 class="list-link">
+                    &#x2727;&nbsp; <a href="{{ "classes/" | relURL }}{{ $classes | urlize }}">{{ $classes | humanize | title }}</a>
+                </h5>
+            {{ end }}
+        </div>
     </div>
+
+
 </div>
 {{ end }}

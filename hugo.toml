@@ -13,3 +13,10 @@ enableInlineShortcodes = true
       endLevel = 3
   [markup.highlight]
     style = "gruvbox"
+
+[taxonomies]
+    tags = "tags"
+    categories = "categories"
+    classes = "classes"
+    notes = "notes"
+
