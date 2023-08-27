@@ -18,7 +18,7 @@ When I was in high school, I was absolutely fascinated with AI. I spent all of m
 I first got started around the time OpenAI’s GPT-2 was released and remember people’s sentiments at the time. {{% sidenote %}}I remember specifically trying to fine-tune GPT-2 on my journal entrees. Having a machine try and model "me" was what first intrigued me.{{% /sidenote %}} Most people thought that something as capable as GPT-4 wasn’t going to happen within the next two decades. And yet, here we are.
 
 
-In the worlds of artificial intelligence and machine learning, the scope of what is possible continues to expand. State-of-the-art large language models (LLMs) have already demonstrated remarkable capabilities in terms of learning from input and generating relevant output, but they still seem to be missing something to make them truly “alive”.
+In the worlds of artificial intelligence and machine learning, the scope of what is possible continues to expand. State-of-the-art large language models (LLMs) have already demonstrated remarkable capabilities in terms of learning from input and generating relevant output, but they still seem to be missing something to make them truly “alive”
 
 
 
@@ -47,7 +47,7 @@ As he said in 1979,
 
 
 
-## LMM Agents: Hype and Limitations
+## LLM Agents: Hype and Limitations
 ***
 
 Large language model agents emerge from complex interactions between it and vector databases that act as a memory store for previous output. This database allows the LLM to incrementally build upon prior knowledge, creating an iterative learning process that aids in generating novel and relevant responses. This, in essence, enables LLMs to "learn" and respond to new information in a contextually appropriate manner. While an intriguing idea, these agents fundamentally lack an integral part of intelligence.
@@ -90,4 +90,4 @@ As remarkable as ChatGPT and similar AI models are, they currently remain tools 
 
 What is certain though is that this technology will eventually completely change the fabric of society. Is that a controversial take? No. Phones, social media, computers, electricity, etc, all have changed society. Now to the extent of this coming revolution, only time can tell.
 
-> "Nothing is so painful to the human mind as a great and sudden change." - Mary Shelly, Frankenstein
+ "Nothing is so painful to the human mind as a great and sudden change." - Mary Shelly, Frankenstein
