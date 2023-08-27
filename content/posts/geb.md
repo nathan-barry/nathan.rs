@@ -90,4 +90,4 @@ As remarkable as ChatGPT and similar AI models are, they currently remain tools 
 
 What is certain though is that this technology will eventually completely change the fabric of society. Is that a controversial take? No. Phones, social media, computers, electricity, etc, all have changed society. Now to the extent of this coming revolution, only time can tell.
 
- "Nothing is so painful to the human mind as a great and sudden change." - Mary Shelly, Frankenstein
+> "Nothing is so painful to the human mind as a great and sudden change." - Mary Shelly, Frankenstein

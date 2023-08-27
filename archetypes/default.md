@@ -1,7 +1,7 @@
 +++
 title = "{{ replace .Name "-" " " | title }}"
 description = ""
-data = {{ .Date }}
+date = {{ .Date }}
 tags = [""]
 draft = true
 +++

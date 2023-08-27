@@ -13,9 +13,11 @@
       <!-- Content -->
       {{ .Content }}
 
+      <br>
       <!-- Bottom Tags -->
       {{ if .Params.tags }}
         <div class="blog-tags">
+          Tags: 
           {{ range .Params.tags }}
           <a href="{{ (urlize (printf "tags/%s/" .)) | absLangURL }}">{{ . }}</a>&nbsp;
           {{ end }}
@@ -23,12 +25,12 @@
       {{ end }}
       {{ if .Params.categories }}
         <div class="blog-tags">
+          Tags: 
           {{ range .Params.categories }}
           <a href="{{ (urlize (printf "categories/%s/" .)) | absLangURL }}">{{ . }}</a>&nbsp;
           {{ end }}
         </div>
       {{ end }}
-
     </article>
   </div>
 {{ end }}
