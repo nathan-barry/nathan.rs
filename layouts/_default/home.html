@@ -6,14 +6,23 @@
 
     <!-- Top -->
     <div class="tag-columns">
+        <!-- Custom first column -->
+        <div class="tag-column">
+            <h2>Personal</h2>
+            <hr>
+            <h5><a class="no-underline" href="/pages/about-me">&#x2727;&nbsp; About Me</a></h5>
+            <h5><a class="no-underline" href="/pages/about-me">&#x2727;&nbsp; Favorite Books</a></h5>
+            <h5><a class="no-underline" href="https://github.com/nathan-barry">&#x2751;&nbsp; Github</a></h5>
+            <h5><a class="no-underline" href="https://www.linkedin.com/in/nathanrs/">&#x2751;&nbsp; LinkedIn</a></h5>
+        </div>
+
+        <!-- Blog Posts -->
         {{ range $name, $pages := .Site.Taxonomies.tags }}
         <div class="tag-column">
             <h2>{{ $name | humanize | title }}</h2>
             <hr>
             {{ range .Pages }}
-            <article>
-                <h5><a class="no-underline" href="{{ .RelPermalink }}">&#x2727; {{ .Title }}</a></h5>
-            </article>
+            <h5><a class="no-underline" href="{{ .RelPermalink }}">&#x2727;&nbsp; {{ .Title }}</a></h5>
             {{ end }}
         </div>
         {{ end }}
@@ -28,9 +37,7 @@
             <h2>{{ $name | humanize | title }}</h2>
             <hr>
             {{ range .Pages }}
-            <article>
-                <h5><a class="no-underline" href="{{ .RelPermalink }}">&#x2727; {{ .Title }}</a></h5>
-            </article>
+            <h5><a class="no-underline" href="{{ .RelPermalink }}">&#x2727;&nbsp; {{ .Title }}</a></h5>
             {{ end }}
         </div>
         {{ end }}
