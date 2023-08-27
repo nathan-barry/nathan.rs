@@ -21,6 +21,13 @@
           {{ end }}
         </div>
       {{ end }}
+      {{ if .Params.categories }}
+        <div class="blog-tags">
+          {{ range .Params.categories }}
+          <a href="{{ (urlize (printf "categories/%s/" .)) | absLangURL }}">{{ . }}</a>&nbsp;
+          {{ end }}
+        </div>
+      {{ end }}
 
     </article>
   </div>

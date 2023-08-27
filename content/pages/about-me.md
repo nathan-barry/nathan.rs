@@ -1,7 +1,6 @@
 +++
 title = "About Me"
 description = "Student. Programmer. Arch and Neovim User."
-tags = ["Personal"]
 draft = false
 +++
 

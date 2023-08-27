@@ -1,17 +1,20 @@
 {{ define "main" }}
+<!-- HOME PAGE -->
 <div class="container" role="main">
     <!-- Top paragraph -->
     <p>THIS IS THE WEBSITE of Nathan Barry, a Computer Science and Mathematics major at UT Austin. There are many like it, but this one is mine.</p>
     <blockquote>"I believe that a man should strive for only one thing in life, and that is to have a touch of greatness"— <cite>Félix Martí-Ibáñez</cite></blockquote>
 
+    <br> 
+    <br> 
+
     <!-- Top -->
     <div class="tag-columns">
         <!-- Custom first column -->
         <div class="tag-column">
-            <h2>Personal</h2>
+            <h3>Personal</h3>
             <hr>
             <h5><a class="no-underline" href="/pages/about-me">&#x2727;&nbsp; About Me</a></h5>
-            <h5><a class="no-underline" href="/pages/about-me">&#x2727;&nbsp; Favorite Books</a></h5>
             <h5><a class="no-underline" href="https://github.com/nathan-barry">&#x2751;&nbsp; Github</a></h5>
             <h5><a class="no-underline" href="https://www.linkedin.com/in/nathanrs/">&#x2751;&nbsp; LinkedIn</a></h5>
         </div>
@@ -19,7 +22,7 @@
         <!-- Blog Posts -->
         {{ range $name, $pages := .Site.Taxonomies.tags }}
         <div class="tag-column">
-            <h2>{{ $name | humanize | title }}</h2>
+            <h3>{{ $name | humanize | title }}</h3>
             <hr>
             {{ range .Pages }}
             <h5><a class="no-underline" href="{{ .RelPermalink }}">&#x2727;&nbsp; {{ .Title }}</a></h5>
@@ -28,13 +31,15 @@
         {{ end }}
     </div>
 
+    <br>
     <p class="text-center">&#x2735; &#x2735; &#x2735;</p>
+    <br>
     
-    <!-- Top -->
+    <!-- Notes -->
     <div class="tag-columns">
-        {{ range $name, $pages := .Site.Taxonomies.tags }}
+        {{ range $name, $pages := .Site.Taxonomies.categories }}
         <div class="tag-column">
-            <h2>{{ $name | humanize | title }}</h2>
+            <h3>{{ $name | humanize | title }}</h3>
             <hr>
             {{ range .Pages }}
             <h5><a class="no-underline" href="{{ .RelPermalink }}">&#x2727;&nbsp; {{ .Title }}</a></h5>
