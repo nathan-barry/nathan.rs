@@ -13,9 +13,9 @@
         <div class="tag-column">
             <h3>Personal</h3>
             <hr>
-            <h5 class="list-link"><a class="no-underline" href="/pages/about-me">&#x2727;&nbsp; About Me</a></h5>
-            <h5 class="list-link"><a class="no-underline" href="https://github.com/nathan-barry">&#x2751;&nbsp; Github</a></h5>
-            <h5 class="list-link"><a class="no-underline" href="https://www.linkedin.com/in/nathanrs/">&#x2751;&nbsp; LinkedIn</a></h5>
+            <h5 class="list-link">&#x2727;&nbsp; <a class="" href="/pages/about-me">About Me</a></h5>
+            <h5 class="list-link">&#x2751;&nbsp; <a class="" href="https://github.com/nathan-barry">Github</a></h5>
+            <h5 class="list-link">&#x2751;&nbsp; <a class="" href="https://www.linkedin.com/in/nathanrs/">LinkedIn</a></h5>
         </div>
 
         <!-- Recent -->
@@ -24,7 +24,7 @@
             <hr>
             {{ $filteredPages := where .Site.RegularPages "Type" "posts" }}
             {{ range first 2 (sort $filteredPages "Date" "desc") }}
-                <h5 class="list-link"><a class="no-underline" href="{{ .RelPermalink }}">&#x2727;&nbsp; {{ .Title }}</a></h5>
+                <h5 class="list-link">&#x2727;&nbsp; <a class="" href="{{ .RelPermalink }}">{{ .Title }}</a></h5>
             {{ end }}
         </div>
 
@@ -35,7 +35,7 @@
                 <h3>{{ $name | humanize | title }}</h3>
                 <hr>
                 {{ range .Pages }}
-                <h5 class="list-link"><a class="no-underline" href="{{ .RelPermalink }}">&#x2727;&nbsp; {{ .Title }}</a></h5>
+                <h5 class="list-link">&#x2727;&nbsp; <a class="" href="{{ .RelPermalink }}">{{ .Title }}</a></h5>
                 {{ end }}
             </div>
             {{ end }}
@@ -48,7 +48,7 @@
                 <h3>{{ $name | humanize | title }}</h3>
                 <hr>
                 {{ range .Pages }}
-                <h5 class="list-link"><a class="no-underline" href="{{ .RelPermalink }}">&#x2727;&nbsp; {{ .Title }}</a></h5>
+                <h5 class="list-link">&#x2727;&nbsp; <a class="" href="{{ .RelPermalink }}">{{ .Title }}</a></h5>
                 {{ end }}
             </div>
             {{ end }}
@@ -67,7 +67,7 @@
             <h3>{{ $name | humanize | title }}</h3>
             <hr>
             {{ range .Pages }}
-            <h5><a class="no-underline" href="{{ .RelPermalink }}">&#x2727;&nbsp; {{ .Title }}</a></h5>
+            <h5 class="list-link">&#x2727;&nbsp; <a class="" href="{{ .RelPermalink }}">{{ .Title }}</a></h5>
             {{ end }}
         </div>
         {{ end }}

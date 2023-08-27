@@ -68,6 +68,8 @@ a:not([class]) {
 /* Make links red */
 a {
   color: #d4d4d4;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
 }
 
 a:hover {
