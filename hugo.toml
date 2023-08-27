@@ -1,0 +1,15 @@
+baseURL = "https://nathan.rs/"
+title = "nathan.rs"
+languageCode = "en"
+enableInlineShortcodes = true
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+    [markup.tableOfContents]
+      ordered = true
+      startLevel = 2
+      endLevel = 3
+  [markup.highlight]
+    style = "gruvbox"

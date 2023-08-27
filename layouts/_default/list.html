@@ -1,0 +1,17 @@
+{{ define "main" }}
+<div class="container" role="main">
+    <div class="posts-list">
+
+    <!-- Title -->
+    <p>Tag: {{ .Title }}</p>
+
+    <!-- List All Posts -->
+    {{ range .Data.Pages }}
+        <article>
+            <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+            <p>{{ .Description }}</p>
+        </article>
+    {{ end }}
+    </div>
+</div>
+{{ end }}

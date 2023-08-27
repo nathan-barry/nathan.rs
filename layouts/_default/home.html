@@ -1,0 +1,39 @@
+{{ define "main" }}
+<div class="container" role="main">
+    <!-- Top paragraph -->
+    <p>THIS IS THE WEBSITE of Nathan Barry, a Computer Science and Mathematics major at UT Austin. There are many like it, but this one is mine.</p>
+    <blockquote>"I believe that a man should strive for only one thing in life, and that is to have a touch of greatness"— <cite>Félix Martí-Ibáñez</cite></blockquote>
+
+    <!-- Top -->
+    <div class="tag-columns">
+        {{ range $name, $pages := .Site.Taxonomies.tags }}
+        <div class="tag-column">
+            <h2>{{ $name | humanize | title }}</h2>
+            <hr>
+            {{ range .Pages }}
+            <article>
+                <h5><a class="no-underline" href="{{ .RelPermalink }}">&#x2727; {{ .Title }}</a></h5>
+            </article>
+            {{ end }}
+        </div>
+        {{ end }}
+    </div>
+
+    <p class="text-center">&#x2735; &#x2735; &#x2735;</p>
+    
+    <!-- Top -->
+    <div class="tag-columns">
+        {{ range $name, $pages := .Site.Taxonomies.tags }}
+        <div class="tag-column">
+            <h2>{{ $name | humanize | title }}</h2>
+            <hr>
+            {{ range .Pages }}
+            <article>
+                <h5><a class="no-underline" href="{{ .RelPermalink }}">&#x2727; {{ .Title }}</a></h5>
+            </article>
+            {{ end }}
+        </div>
+        {{ end }}
+    </div>
+</div>
+{{ end }}

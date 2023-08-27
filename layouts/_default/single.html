@@ -1,0 +1,27 @@
+{{ define "main" }}
+  <div class="container" role="main">
+    <article class="article">
+
+      <!-- Title -->
+      <h1>{{ .Title }}</h1>
+      {{ if .Date}}
+      <p class="text-center"><i >{{ .Date.Format "January 2, 2006" }}</i></p>
+      {{ end }}
+      <h6 class="text-center">{{ .Params.description }}</h6>
+      <br>
+
+      <!-- Content -->
+      {{ .Content }}
+
+      <!-- Bottom Tags -->
+      {{ if .Params.tags }}
+        <div class="blog-tags">
+          {{ range .Params.tags }}
+          <a href="{{ (urlize (printf "tags/%s/" .)) | absLangURL }}">{{ . }}</a>&nbsp;
+          {{ end }}
+        </div>
+      {{ end }}
+
+    </article>
+  </div>
+{{ end }}
