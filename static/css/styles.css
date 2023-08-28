@@ -563,6 +563,9 @@ footer .theme-by {
     .title {
         margin: 0 0 3rem;
     }
+    .katex-html {
+        font-size: 1rem;
+    }
 }
 
 .text-center {
@@ -594,4 +597,7 @@ footer .theme-by {
     margin-bottom: 0;
 }
 
-
+.katex-html {
+    padding: 2rem 0;
+    overflow-x: auto;
+}

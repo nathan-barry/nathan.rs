@@ -5,6 +5,9 @@
     <!-- Title -->
     <h1>{{ .Title }}</h1>
     <h6 class="text-center">By {{ .Params.Author }}</h6>
+    {{ if .Description}}
+      <h6 class="text-center">{{ .Params.description }}</h6>
+    {{ end }}
 
     <br>
     <hr>
