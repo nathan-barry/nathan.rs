@@ -1,6 +1,6 @@
 +++
 title = "1. Introduction"
-description = ""
+description = "An introduction to algorithms and how to describe them."
 date = 2023-08-27T15:11:32-05:00
 notes = ["Algorithms"]
 +++

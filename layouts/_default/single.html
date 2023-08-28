@@ -23,11 +23,11 @@
           {{ end }}
         </div>
       {{ end }}
-      {{ if .Params.categories }}
+      {{ if .Params.notes }}
         <div class="blog-tags">
           Tags: 
-          {{ range .Params.categories }}
-          <a href="{{ (urlize (printf "categories/%s/" .)) | absLangURL }}">{{ . }}</a>&nbsp;
+          {{ range .Params.notes }}
+          <a href="{{ (urlize (printf "notes/%s/" .)) | absLangURL }}">{{ . }}</a>&nbsp;
           {{ end }}
         </div>
       {{ end }}
