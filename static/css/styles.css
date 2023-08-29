@@ -610,3 +610,20 @@ footer .theme-by {
     padding: 2rem 0;
     overflow-x: auto;
 }
+
+/* Books page */
+.hoverable:hover {
+  font-weight: bold;
+}
+
+.hidden {
+  display: none;
+}
+
+.text-highlight {
+  /* your special styles */
+    color: #f7be71;
+}
+.book-description {
+    margin: 1rem 1rem 2rem 2rem;
+}

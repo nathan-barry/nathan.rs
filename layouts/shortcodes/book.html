@@ -1,0 +1,15 @@
+<div class="book-item" onclick="toggleDescription(this)">
+  <p class="book-title 
+            {{ if .Get "description" }}hoverable{{ end }} 
+            {{ if .Get "special" }}text-highlight{{ end }}"
+     onmouseover="setHovering(true, this)" 
+     onmouseout="setHovering(false, this)">
+    <span class="font-bold book-number"></span>
+    <span class="font-bold">{{ .Get "title" }}</span> - {{ .Get "author" }} {{ with .Get "description" }}*{{ end }}
+  </p>
+  {{ with .Get "description" }}
+    <p class="hidden book-description">
+      {{ . }}
+    </p>
+  {{ end }}
+</div>
