@@ -3,12 +3,13 @@ title = "About Me"
 description = "Student. Programmer. Arch and Neovim User."
 +++
 
-<img alt="Nathan Barry" style="height: 350px; border-radius: 0; border: 1px solid #949494;"  src="/images/me.jpg">
-<p class="text-center">Me in the GDC elevator, August 2nd, 2023, 5:23 AM</p>
+<img alt="Nathan Barry" src="/images/racoon.png">
+<p class="text-center">Me in high school. Fellow Raccoon lover.</p>
 <br>
 
+{{< toc >}}
 
-## Nathan Barry 
+## Nathan Barry
 ***
 I am a Computer Science and Mathematics major at UT Austin. I was born in Saint Joseph, Missouri. I started programming in 2017 my freshman year of high school, with Python and JavaScript, serving PyTorch models with Flask and React. Currently, I can mainly be found taking notes and dabbling in side projects with Rust.
 
@@ -18,20 +19,43 @@ I am also a pepper farmer. I am currently growing 4 strains of Habanero Pepper a
 
 
 ## Personal Records
-***
-I've always loved and excelled in physical activities. From running and lifting to juggling, here are my more notable achievements.
+<div class="two-columns">
+<div>
+<hr>
+<p>
+I've always loved and excelled in physical activities. From running to lifting, here are my more notable achievements.
+</p>
+<br>
+<p>
+&nbsp;&nbsp;&#x2727;&nbsp; 1600m - 4:28
 
-✧ 1600m - 4:28
+&nbsp;&nbsp;&#x2727;&nbsp; 3200m - 9:51
 
-✧ 3200m - 9:51
+&nbsp;&nbsp;&#x2727;&nbsp; 5k - 15:56
 
-✧ 5k - 15:56
+&nbsp;&nbsp;&#x2727;&nbsp; Bench - 250 lbs
 
-✧ Bench - 250 lbs
+&nbsp;&nbsp;&#x2727;&nbsp; Bouldering Grade - V8
+</p>
+<br>
+<p>
+And the less notable:
+</p>
+<br>
+<p>
+&nbsp;&nbsp;&#x2727;&nbsp; StarCraft 2 Rank - Diamond
 
-✧ Bouldering Grade - V8
+&nbsp;&nbsp;&#x2727;&nbsp; CS:GO Rank - Gold Nova 
 
-✧ Balls Juggled - 4
+&nbsp;&nbsp;&#x2727;&nbsp; Balls Juggled - 4
+</p>
+</div>
+
+<div>
+    <img alt="Nathan Barry" src="/images/me.png">
+    <p class="text-center">Me in the GDC elevator, August 2nd, 2023, 5:23 AM</p>
+</div>
+</div>
 
 
 
@@ -53,3 +77,14 @@ Life should follow the format of the archetypal hero’s journey, a process of s
 
 > "His answer to every problem, every setback, was 'I will work harder!' – which he had adopted as his personal motto."--- George Orwell, Animal Farm
 
+
+
+## Why Raccoons???
+***
+It was my senior year of high school. My room had a loft bed with a desk under it which meant that I was only a few feet from the ceiling when I slept. One night, I saw eyes in the darkness staring at me. I shined a light and saw a raccoon staring back at me. There were Raccoons living in the ceiling above me and were causing a ruckus all night (at the expense of my sleep quality). 
+
+After a week of getting no sleep, my dad bought a raccoon trap and set it up in the attic. Over the course of that winter we caught 4 raccoons. We drove to the edge of the town and let them loose in a forest, but not before I got some funny pictures.
+
+
+<img alt="Nathan Barry" src="/images/racoon2.png">
+<p class="text-center">Raccoon reaching for pieces of ham I set out for him. He was the first one and his name was Ringo.</p>

@@ -517,6 +517,12 @@ footer .theme-by {
     margin: 0 -4rem 0;
 }
 
+.two-columns {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px; /* Adjust as per your requirement */
+}
+
 .title {
     margin: 3rem;
 }
@@ -553,6 +559,9 @@ footer .theme-by {
 /* For small screens */
 @media (max-width: 768px) {
     .tag-columns {
+        grid-template-columns: 1fr;
+    }
+    .two-columns {
         grid-template-columns: 1fr;
     }
     blockquote {

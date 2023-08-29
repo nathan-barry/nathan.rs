@@ -76,17 +76,29 @@
 
     <!-- Notes -->
     <div class="tag-columns">
-        <!-- Textbook Notes -->
-        <div class="tag-column">
-            <h3>Textbook Notes</h3>
-            <hr>
-            {{ range $notes, $pages := .Site.Taxonomies.notes }}
+        <!-- <!-1- Textbook Notes -1-> -->
+        <!-- <div class="tag-column"> -->
+        <!--     <h3>Textbook Notes</h3> -->
+        <!--     <hr> -->
+        <!--     {{ range $notes, $pages := .Site.Taxonomies.notes }} -->
+        <!--         <h5 class="list-link"> -->
+        <!--             &#x2727;&nbsp; <a href="{{ "notes/" | relURL }}{{ $notes | urlize }}">{{ $notes | humanize | title }}</a> -->
+        <!--         </h5> -->
+        <!--     {{ end }} -->
+        <!-- </div> -->
+        {{ range $name, $pages := .Site.Taxonomies.notes }}
+            <div class="tag-column">
+                <h3>{{ $name | humanize | title }}</h3>
+                <hr>
+                {{ range .Pages }}
                 <h5 class="list-link">
-                    &#x2727;&nbsp; <a href="{{ "notes/" | relURL }}{{ $notes | urlize }}">{{ $notes | humanize | title }}</a>
+                    &#x2727;&nbsp; <a class="" href="{{ .RelPermalink }}">{{ .Title }}</a>
                 </h5>
-            {{ end }}
-        </div>
+                {{ end }}
+            </div>
+        {{ end }}
     </div>
+
 
 
 </div>
