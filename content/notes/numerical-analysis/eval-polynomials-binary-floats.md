@@ -98,7 +98,6 @@ print("nested_polynomial", time.time() - start_2, "seconds")
 
 
 
-
 ## Binary Number Representation
 ***
 
@@ -146,6 +145,7 @@ $$(0.7)_{10}=(.0\overline{0110})_2$$
 <p>
 <i>Note from Nathan:</i> You might be thinking, "Well how do I know whether it repeats or not? I'm sure that \((.00110)_2\) is a legitimate number." We know that something repeats for infinity if we always get a non-zero integer part. If we ever end up with \(.5 * 2 = 0 + 1\), then the number ends.
 </p>
+
 
 ### Converting Binary to Decimal
 

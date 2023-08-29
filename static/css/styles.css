@@ -41,10 +41,7 @@ body {
   overflow-x: hidden;
   margin: 2rem auto;
   padding: 2rem 1.25rem;
-
-  counter-reset: theorem;
-  counter-reset: definition;
-  counter-reset: sidenote-counter;
+  counter-reset: theorem definition sidenote-counter;
 
   color: #d4d4d4;
   background-color: #191919;
@@ -308,9 +305,9 @@ dl dd {
 }
 
 /* sidenote counter */
-.sidenote-number {
-  counter-increment: sidenote-counter;
-}
+/* .sidenote-number { */
+/*   counter-increment: sidenote-counter; */
+/* } */
 
 .sidenote-number::after,
 .sidenote::before {
@@ -320,7 +317,8 @@ dl dd {
 
 /* add number in main content */
 .sidenote-number::after {
-  content: counter(sidenote-counter);
+  /* content: counter(sidenote-counter); */
+  content: '\2020';
   font-size: 0.7rem;
   top: -0.5rem;
   left: 0.1rem;
@@ -328,7 +326,8 @@ dl dd {
 
 /* add number in front of the sidenote */
 .sidenote-number ~ .sidenote::before {
-  content: counter(sidenote-counter) ' ';
+  /* content: counter(sidenote-counter) ' '; */
+  content: '\2020 ';
   font-size: 0.7rem;
   top: -0.5rem;
 }

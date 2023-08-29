@@ -9,6 +9,8 @@ description = "Student. Programmer. Arch and Neovim User."
 
 {{< toc >}}
 
+
+
 ## Nathan Barry
 ***
 I am a Computer Science and Mathematics major at UT Austin. I was born in Saint Joseph, Missouri. I started programming in 2017 my freshman year of high school, with Python and JavaScript, serving PyTorch models with Flask and React. Currently, I can mainly be found taking notes and dabbling in side projects with Rust.
@@ -16,6 +18,7 @@ I am a Computer Science and Mathematics major at UT Austin. I was born in Saint 
 In my free time, I enjoy climbing, biking, and playing ultimate frisbee with the CS Ultimate team. I also enjoy reading books a lot.
 
 I am also a pepper farmer. I am currently growing 4 strains of Habanero Pepper and one variant of Ghost Pepper.
+
 
 
 ## Personal Records
