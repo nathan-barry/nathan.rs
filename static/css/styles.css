@@ -142,6 +142,7 @@ table {
   overflow-x: auto; /* does not work because element is not block */
   /* white-space: nowrap; */
   counter-increment: caption;
+  margin: 2rem auto 2rem auto;
 }
 /* add bottom border on column table headings  */
 table tr > th[scope='col'] {

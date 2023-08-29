@@ -167,3 +167,84 @@ We would be here forever if we did this with an infinitely repeating binary repr
 Suppose \(x=(.\overline{1011})_2\). We can bit shift it to the left to get \(2^4x=(1011.\overline{1011})_2\). {{%sidenote%}}We have \(2^4x\) since bit shifting to the left doubles it each time, and we shifted 4 times.{{%/sidenote%}} If we subtract \(x\) from \(2^4x\), we end up with \((2^4 - 1)x = (1011)_2\) and thus \(x = (\frac{11}{15})_{10}\).
 </p>
 
+
+
+## Floating Point Representation
+***
+Floating point numbers are based on the IEEE 754 floating point standard. This standard uses scientific notation to represent real numbers. It consists of three parts: the sign (+ or -), the mantissa (significant bits), and the exponent.
+
+$$\pm1.bbb...\times2^p$$
+
+We have different commonly used levels of precision for floating point number: single and double. Each uses a different number of bits for the exponent and mantissa, allowing for more accuracy.
+
+|precision|sign|exponent|mantissa|total|
+|---|---|---|---|---|
+|single|1|8|23|32|
+|double|1|11|52|64|
+
+As we can see from above, a single precision float can only keep track of the first 24 significant digits. {{%sidenote%}}The IEEE 754 standard automatically sets the integer part to 1, so 1 + 23 (of our decimal digits) gives us 24{{%/sidenote%}} That means that in calculations, anything beyond that won't be accounted for. The digits are either chopped off (truncated) or rounded.
+
+> Although we would hope that small errors made during a long calculation have only a minor effect on the answer, this turns out to be wishful thinking in many cases. Simple algorithms, such as Gaussian eliminations or methods for solving differential equations, can magnify microscopic errors to macroscopic size.
+
+
+A good example of cascading errors is probability. Probability is typically represented in the range [0, 1] with 0 being impossible and 1 being guaranteed. Multiplying small numbers gives us even smaller numbers, and if we get a number small enough to where the precision can't account for it, it will get rounded to 0.
+
+This is called  an underflow. Any future multiplications with this number will zero everything out, leaving us with a botched calculation.
+
+Likewise, if we get a number too big, we can get an overflow. Most floating point implementations will convert the number into a `+Inf` value. Special values are explained further below.
+
+Another hiccup with floating point representation is that it can't perfectly represent every number. The Rust documentation for `f32` puts it well: 
+
+> Being able to represent this wide range of numbers comes at the cost of precision: floats can only represent some of the real numbers and calculation with floats round to a nearby representable number. For example, `5.0` and `1.0` can be exactly represented as `f32`, but `1.0 / 5.0` results in `0.20000000298023223876953125` since `0.2` cannot be exactly represented as `f32`.
+
+
+<p>
+We lose information from chopping, rounding, and slightly incorrect representations. Let \(x_c\) be a computed version of the actual quantity \(x\). Then we have the following two errors:
+</p>
+
+$$\textnormal{absolute} = |x_c - x|\quad\quad\quad\textnormal{relative} = \frac{|x_c - x|}{|x|}$$
+
+For the first week of my Numerical Analysis class, a hilarious Chinese PhD student taught the class since the professor was at a conference. He explained it like this:
+
+> If your paycheck was off by a thousand dollars, that wouldn't matter too much if you were a millionaire. If you are a PhD student however, with a monthly paycheck of $3,000, that is a matter of life and death.
+
+Relative error tends to give us more information because we know how much the value is off relative to the original value. The nominal absolute value alone might mean a lot or very little; we cannot tell without context.
+
+
+
+### Machine Representation
+Below we have the number 1 represented in double precision:
+
+$$+1.0000000000000000000000000000000000000000000000000000\times2^0$$
+
+<p>
+The next floating point number the machine can represent, \(1+2^{-52}\), is:
+</p>
+
+$$+1.0000000000000000000000000000000000000000000000000001\times2^0$$
+
+<p>
+This \(2^{-52}\) value is known as the machine epsilon, denoted by \(\epsilon_{mach}\). It is the distance btween 1 and the smallest floating point number greater than 1.
+</p>
+
+Let us look at the floating point representation of 1 again. The actual machine number form is:
+
+$$0\quad01111111111\quad0000000000000000000000000000000000000000000000000000$$
+
+The first digit is represents the sign, with 0 meaning positive. The next 11 represents the exponent. You might ask, "Isn't the exponent 0 supposed to be 0?" With floating point representations, we subtracts half of the maximum value (called a bias) to allow us to mimic negative exponent values.
+
+<p>
+For instance, our exponent covers the range from \([0,2^{11}-1]\). We subtract \(2^{10}\) so that we can treat it as the range \([-2^{10}, 2^{10}-1]\). Because we're subtract \(2^{10}\), our zero representation must be \(2^{10}\).
+</p>
+
+The mantissa consists of all 0s because the IEEE 754 format automatically puts a 1 at the front (as it must always be a 1, making it redundant to store it), saving us a bit.
+
+Below is the machine representation of 1 but in hexadecimal instead of binary. Notice how it is 16 bytes.
+
+$$7F\quad F0\quad00\quad00\quad00\quad00\quad00\quad00$$
+
+The IEEE 754 standard includes special values like `+Inf`, `-Inf`, `NaN`, and subnormal numbers (values between 0 and the smallest positive normalized floating-point number), including 0.
+
+These special values use special mantissa and exponential values. For an example, `+Inf` and `-Inf` both have every bit in the exponent set to 1 while the mantissa is zeroed out.
+
+In the other case where the exponent is zeroed out, the left most bit is no longer assumed to be one and we get subnormal floating point numbers.
