@@ -3,7 +3,7 @@ title = "About Me"
 description = "Student. Programmer. Arch and Neovim User."
 +++
 
-<img alt="Me in high school. Fellow Raccoon lover." src="/images/raccoon.png">
+<img alt="Me in high school. Fellow Raccoon lover." src="/images/raccoon.webp">
 <p class="text-center">Me in high school. Fellow Raccoon lover.</p>
 <br>
 
@@ -55,7 +55,7 @@ And the less notable:
 </div>
 
 <div>
-    <img alt="Nathan Barry" src="/images/me.png">
+    <img alt="Nathan Barry" src="/images/me.webp">
     <p class="text-center">Me in the GDC elevator, August 2nd, 2023, 5:23 AM</p>
 </div>
 </div>
@@ -89,5 +89,5 @@ It was my senior year of high school. My room had a loft bed with a desk under i
 After a week of getting no sleep, my dad bought a raccoon trap and set it up in the attic. Over the course of that winter we caught 4 raccoons. We drove to the edge of the town and let them loose in a forest, but not before I got some funny pictures.
 
 
-<img alt="Raccoon reaching for pieces of ham I set out for him. He was the first one and his name was Ringo." src="/images/raccoon2.png">
+<img alt="Raccoon reaching for pieces of ham I set out for him. He was the first one and his name was Ringo." src="/images/raccoon2.webp">
 <p class="text-center">Raccoon reaching for pieces of ham I set out for him. He was the first one and his name was Ringo.</p>

@@ -129,7 +129,7 @@ That's better. We'll also talk about hosting on Github pages here because it sim
 ***
 The easiest way to host this was to move the build output directory to `/docs` and then, in the Pages settings page in the github repository, select it to build from `/docs`. Below is a screenshot of what it should look like.
 
-<img src="/images/gh-pages.png">
+<img src="/images/gh-pages.webp">
 
 Github Pages will host your site at `http://<USERNAME>.github.io/`. If your repository is named `<USERNAME>.github.io` the site will be hosted at the base URL, `/`. Otherwise, it'll go live at code `/<REPO_NAME>`. I have my custom domain set up so it says `http://nathan.rs/` for me.
 
