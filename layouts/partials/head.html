@@ -1,20 +1,32 @@
 <meta charset="utf-8" />
 {{ if .IsHome }}
-  <title>{{ .Site.Title }}</title>
+<title>{{ .Site.Title }}</title>
 {{ else }}
-  <title>{{ .Title }} - {{ .Site.Title }}</title>
+<title>{{ .Title }} - {{ .Site.Title }}</title>
 {{ end }}
-  <meta name="description" content="Nathan Barry's Personal Website" />
-  <meta name="author" content="Nathan Barry"/>
+<meta name="description" content="Nathan Barry's Personal Website" />
+<meta name="author" content="Nathan Barry"/>
+
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <!-- {{ range .AlternativeOutputFormats -}} -->
 <!--     {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }} -->
 <!-- {{ end -}} -->
+
 <link rel="stylesheet" href="{{ .Site.BaseURL }}css/styles.css" />
+
+<!-- KaTeX -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" integrity="sha384-GvrOXuhMATgEsSwCs4smul74iXGOixntILdUW9XmUC6+HX0sLNAK3q71HotJqlAn" crossorigin="anonymous">
-<!-- The loading of KaTeX is deferred to speed up page rendering -->
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js" integrity="sha384-cpW21h6RZv/phavutF+AuVYrr+dA8xD9zs6FwLpaCct6O9ctzYFfFr4dgmgccOTx" crossorigin="anonymous"></script>
-<!-- To automatically render math in text elements, include the auto-render extension: -->
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1Y735N717D"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-1Y735N717D');
+</script>
 {{ hugo.Generator -}}
