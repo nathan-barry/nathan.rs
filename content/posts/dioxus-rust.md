@@ -92,12 +92,13 @@ Dioxus also has its own CLI tool that makes serving easy. You just run `dx serve
 
 ## Into the Dark Forest
 ***
-Once you leave tutorial zone, you'll quickly realize you’ve entered a dark forest, one with poor documentation. It is up to you to find your way to sanctuary. Here is a list of things that took me a second to figure out.
+Once you leave tutorial zone, you'll quickly realize you’ve entered a dark forest, one with poor documentation. It is up to you to find your way to sanctuary.
 
-✧ Why routing broke when I added Tailwind
-✧ Hosting on Github Pages
-✧ Loading JS libraries
-✧ Cleaning up memory leaks when components are dropped
+Here is a list of things that took me a second to figure out.
+- Why routing broke when I added Tailwind
+- Hosting on Github Pages
+- Loading JS libraries
+- Cleaning up memory leaks when components are dropped
 
 Many of these difficulties were due to poor documentation, a common occurrence in quickly growing projects. Luckily, their discord was invaluable for solving a lot of these issues, as many people have had similar questions in the past.
 
@@ -126,7 +127,7 @@ That's better. We'll also talk about hosting on Github pages here because it sim
 
 ## Hosting on Github Pages
 ***
-The easiest way to host this was to move the build output directory to /docs and then, in the Pages settings page in the github repository, select it to build from /docs. Below is a screenshot of what it should look like.
+The easiest way to host this was to move the build output directory to `/docs` and then, in the Pages settings page in the github repository, select it to build from `/docs`. Below is a screenshot of what it should look like.
 
 <img src="/images/dioxus-rust-1.png">
 
@@ -204,7 +205,7 @@ I mentioned above about loading a JS library via the index.html file. I included
 </body>
 ```
 
-I ended up making my own custom code syntax theme in `./public/hljs.css` and updated the link element to be `<link rel="stylesheet" href="hljs.css"` to use my new theme.
+I ended up making my own custom code syntax theme in `./public/hljs.css` and updated the link element to be `<link rel="stylesheet" href="hljs.css">` to use my new theme.
 
 Below is how to call the highlight.js library via Dioxus's `use_effect` hook to highlight rendered code blocks.
 
