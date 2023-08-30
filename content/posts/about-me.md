@@ -86,7 +86,7 @@ Life should follow the format of the archetypal hero’s journey, a process of s
 ***
 It was my senior year of high school. My room had a loft bed with a desk under it which meant that I was only a few feet from the ceiling when I slept. One night, I saw eyes in the darkness staring at me. I shined a light and saw a raccoon staring back at me. There were Raccoons living in the ceiling above me and were causing a ruckus all night (at the expense of my sleep quality). 
 
-After a week of getting no sleep, my dad bought a raccoon trap and set it up in the attic. Over the course of that winter we caught 4 raccoons. We drove to the edge of the town and let them loose in a forest, but not before I got some funny pictures.
+After a week of getting no sleep, my dad bought a raccoon trap and set it up in the attic. Over the course of that winter we caught 4 raccoons. We drove to the edge of the town and let them loose in a forest, but not before I got some legendary pictures.
 
 
 <img alt="Raccoon reaching for pieces of ham I set out for him. He was the first one and his name was Ringo." src="/images/raccoon2.webp">
