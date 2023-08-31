@@ -514,7 +514,7 @@ footer .theme-by {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px; /* Adjust as per your requirement */
-    margin: 0 -4rem 0;
+    margin: 0 -10rem 0;
 }
 
 .two-columns {

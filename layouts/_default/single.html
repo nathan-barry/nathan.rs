@@ -4,11 +4,21 @@
 
       <!-- Title -->
       <h1>{{ .Title }}</h1>
-      {{ if .Date}}
-      <p class="text-center"><i >{{ .Date.Format "January 2, 2006" }}</i></p>
-      {{ end }}
+    {{ if .Date }}
+      {{ $wordCount := len (split .Content " ") }}
+      {{ $readingTime := div $wordCount 200 }}
+      <p class="text-center"><i>
+        {{ .Date.Format "January, 06 2006" }} &bull; 
+        {{ $readingTime }} min read &bull; 
+        {{ $wordCount }} words
+        {{ if ne .Date.Unix .Lastmod.Unix }}
+          &bull; Updated {{ .Lastmod.Format "January, 06 2006" }}
+        {{ end }}
+      </i></p>
+    {{ end }}
       <h6 class="text-center">{{ .Params.description }}</h6>
       <br>
+
 
       <!-- Content -->
       {{ .Content }}

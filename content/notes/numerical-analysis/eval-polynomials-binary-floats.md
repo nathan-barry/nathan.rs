@@ -1,11 +1,13 @@
 +++
-title = "Evaluating a Polynomial, Binary Representation, and Floating Point"
+title = "Polynomial Evaluation & Machine Representation"
 description = "My notes over Chapter 0 of Timothy Sauer's Numerical Analysis textbook. Some sentences and examples are straight from the book. All Python programs are mine. This chapter covers calculus and function evaluation, machine arithmetic, and sources of errors."
 date = 2023-08-26
-notes = ["Numerical Analysis"]
+tags = ["Numerical Analysis"]
 +++
 
 {{< toc >}}
+
+
 
 ## Evaluating a Polynomial
 ***

@@ -2,8 +2,9 @@
 title = "2023 Summer Plan"
 description = "Below are some (if not most) of the things I plan on doing this summer, updated along the way."
 date = 2023-06-01
-tags = ["Life"]
+draft = true
 +++
+<!-- tags = ["Life"] -->
 
 ## Books Read
 ***

@@ -2,7 +2,7 @@
 title = "Gödel Escher Bach, Self-Reference, and Transformers"
 description = "A Brief Journey Through Gödel's Incompleteness Theorem, Strange Loops, the Nature of Intelligence, and Transformer Langauge Models."
 date = 2023-08-15
-tags = ["Machine Learning"]
+tags = ["Writings"]
 +++
 
 {{< toc >}}

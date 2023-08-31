@@ -1,5 +1,6 @@
 baseURL = "https://nathan.rs/"
 title = "nathan.rs"
+author = "Nathan Barry"
 languageCode = "en"
 enableInlineShortcodes = true
 
@@ -13,9 +14,3 @@ enableInlineShortcodes = true
       endLevel = 3
   [markup.highlight]
     style = "gruvbox"
-
-[taxonomies]
-    tags = "tags"
-    categories = "categories"
-    notes = "notes"
-
