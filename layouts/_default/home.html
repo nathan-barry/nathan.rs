@@ -10,7 +10,6 @@
 
 
 
-    <!-- Top -->
     <div class="tag-columns">
         <!-- Recent -->
         <div class="tag-column">
@@ -24,7 +23,7 @@
             {{ end }}
         </div>
 
-        <!-- Custom first column -->
+        <!-- Popular -->
         <div class="tag-column">
             <h3>Popular</h3>
             <hr>
@@ -39,7 +38,7 @@
             </h5>
         </div>
 
-        <!-- Custom first column -->
+        <!-- Personal -->
         <div class="tag-column">
             <h3>Personal</h3>
             <hr>
@@ -60,26 +59,12 @@
     
 
 
-    <!-- Notes -->
     <div class="tag-columns">
-        <!-- <!-1- Textbook Notes -1-> -->
-        {{ range $name, $pages := .Site.Taxonomies.notes }}
-            <div class="tag-column">
-                <h3>{{ $name | humanize | title }}</h3>
-                <hr>
-                {{ range .Pages }}
-                <h5 class="list-link">
-                    &#x2727;&nbsp; <a class="" href="{{ .RelPermalink }}">{{ .Title }}</a>
-                </h5>
-                {{ end }}
-            </div>
-        {{ end }}
-
         <!-- Primary Posts -->
         {{ range $name, $pages := .Site.Taxonomies.tags }}
-            {{ if not (in (slice "draft" "life" "misc") $name) }}
+            {{ if not (in (slice "misc") $name) }}
             <div class="tag-column">
-                <h3>{{ $name | humanize | title }}</h3>
+                <h3><a href="/tags/{{ $name }}">{{ $name | humanize | title }}</a></h3>
                 <hr>
                 {{ range .Pages }}
                 <h5 class="list-link">
@@ -92,9 +77,9 @@
 
         <!-- Secondary Posts -->
         {{ range $name, $pages := .Site.Taxonomies.tags }}
-            {{ if (in (slice "draft" "life" "misc") $name) }}
+            {{ if (in (slice "misc") $name) }}
             <div class="tag-column">
-                <h3>{{ $name | humanize | title }}</h3>
+                <h3><a href="/tags/{{ $name }}">{{ $name | humanize | title }}</a></h3>
                 <hr>
                 {{ range .Pages }}
                 <h5 class="list-link">
@@ -105,7 +90,6 @@
             {{ end }}
         {{ end }}
     </div>
-
 
 
 </div>
