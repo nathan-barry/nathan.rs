@@ -9,11 +9,11 @@
       {{ $readingTime := div $wordCount 200 }}
       <p class="text-center"><i>
         {{ .Date.Format "January, 06 2006" }} &bull; 
+        {{ if .Params.Status }}
+          {{ .Params.Status }} &bull; 
+        {{ end }}
         {{ $readingTime }} min read &bull; 
         {{ $wordCount }} words
-        {{ if .Params.Status }}
-          &bull; {{ .Params.Status }}
-        {{ end }}
         {{ if ne .Date.Unix .Lastmod.Unix }}
           &bull; Updated {{ .Lastmod.Format "January, 06 2006" }}
         {{ end }}
