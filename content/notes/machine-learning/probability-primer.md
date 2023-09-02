@@ -1,6 +1,6 @@
 +++
 title = "Probability Primer"
-description = "A possibly adequate overview of probability."
+description = "A mildly adequate overview of probability."
 date = 2023-09-02T11:14:53-05:00
 tags = ["Primers"]
 status = "Work In Progress"
@@ -65,7 +65,7 @@ $$Pr(A|B)=\frac{Pr(A\cap B)}{Pr(B)}$$
 From this, we have that \(Pr(A\cap B)\) is:
 </p>
 
-$$Pr(A\cap B)\quad=\quad Pr(B)\cdot Pr(A|B)\quad=\quad Pr(A)\cdot Pr(B|A)$$
+$$Pr(A\cap B) = Pr(B)\cdot Pr(A|B) = Pr(A)\cdot Pr(B|A)$$
 
 
 ### Independence
@@ -127,3 +127,118 @@ The probability of the outcome being any exact value is precisely 0, so we work 
 <p>
 In this case, we might represent the probability that the coin is in the air between 1 and 2 seconds as \(Pr(1\leq X\leq 2)\).
 </p>
+
+
+### Cumulative Distribution Functions (CDFs)
+
+<p>
+The Cumulative Distribution Function of a discrete random variable \(X\) is defined by:
+</p>
+
+$$F_X(x) := Pr(X \leq x)$$
+
+and for continuous random variables: 
+
+$$F_X(x) := Pr(-\infty < X \leq x)$$
+
+<p>
+That is, the value of the CDF of \(X\) at the point \(x\) is the probability of the event that \(X\) is less than or equal to \(x\).
+</p>
+
+#### CDF Properties
+
+1. <p>\(F_X(x)\) is a non-decreasing function with range [0,1].</p>
+2. <p>\(\lim_{x\rightarrow-\infty}\:F_X(x)=0\)</p>
+3. <p>\(\lim_{x\rightarrow\infty}\:F_x(x)=1\)</p>
+4. <p>The probability of \(X\) taking values between \(a\) and \(b\) is the same as the CDF at point \(b\) minus the CDF at point \(a\). In other words:</p>
+ $$Pr(a\le X\le b) = F_X(b)-F_X(a)$$
+
+
+### Probability Density Functions (PDFs)
+
+The probability density function (PDF) of a continuous random variable is similar to the probability mass function of a discrete random variable. 
+
+<p>
+Let \(X\) be a continuous random variable with CDF \(F_X(x)\) that is differentiable everywhere. The derivative of \(F_X(x)\), denoted by \(f_X(x)\), is called the <i>density function</i> of the random variable \(X\).
+</p>
+
+
+#### Relation between the CDF and the Density Function for X
+
+1. The density function is calculated from the CDF by differentiating: $$f_X(x)=F'(x)$$
+
+2. The CDF is calculated from the density function by integrating: $$F_X(x)=\int_{-\infty}^{x}f_X(t)dt$$
+
+#### PDF Properties
+
+1. <p>\(f_x(x) \ge 0\), that is, all density functions are non-negative.</p>
+2. <p>\(\int_{-\infty}^\infty f_X(x)dx = 1\)</p>
+3. <p>\(Pr(a\le X\le b)=\int_a^b f_X(x)dx\)</p>
+
+
+
+## Measures Of Central Tendency and Dispersion
+***
+
+Measures of central tendency are statistical measures used to represent the "middle" or "central point" of a data set with a single value. Common ones include:
+
+- Expected Value (Mean)
+- Median (50th Percentile)
+- Midrange
+- Mode
+- Quartiles and Percentiles
+
+Likewise, measures of dispersion is used to measure how spread out the values of a data set are. Common ones include:
+
+- Range
+- Variance
+- Standard Deviation
+- Coefficient of Variation
+
+We'll cover the most important and commonly used: expected value, variance, and standard deviation.
+
+
+### Expected Value
+
+<p>
+The expected value can be thought of the weighted average of a random variable. It is usually represented as either \(E[X]\) or as \(\mu_X\) where \(X\) is a random variable.
+</p>
+
+For the discrete case, we have:
+
+$$E[X]:=\sum_{x\in X} x\cdot Pr(X=x)$$
+
+For the continuous case, we have:
+
+$$E[X]:=\int_{-\infty}^{-\infty} x\cdot f_X(x) dx$$
+
+<p>
+<b>Example:</b> For a 6-sided die, the probability of each side is \(\frac16\). Let the random varaible \(X\) be the number of dots we roll. Thus:
+</p>
+
+$$E[X] = \bigg(\frac16\cdot 1\bigg)+\bigg(\frac16\cdot 2\bigg)+\bigg(\frac16\cdot 3\bigg)+\bigg(\frac16\cdot 4\bigg)+\bigg(\frac16\cdot 5\bigg)+\bigg(\frac16\cdot 6\bigg) = 3.5$$
+
+
+### Variance
+
+<p>
+The variance of a random variable represents the spread of its distribution around around its mean.
+It is often donated as \(Var[X]\) or \(\sigma_X^2\). It is formally defined as:
+</p>
+$$Var[X] = E[(X - E[X])^2]$$
+
+From this expression we can derive:
+$$Var[X] = E[X^2] - E[X]^2$$
+
+
+<p>
+The <b>standard deviation</b> is just the square root of the variance, denoted as \(\sigma_X\).
+</p>
+
+Many distributions (i.e. uniform, Poisson, etc.) have a quick way of finding the expected value, variance, and other measures of central tendency and dispersion.
+
+## Common Distributions
+***
+
+
+
