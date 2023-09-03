@@ -1,9 +1,8 @@
 +++
-title = "Probability Primer"
-description = "A mildly adequate overview of probability."
+title = "Univariate Probability Primer"
+description = "A mildly completely overview of basic univariate probability."
 date = 2023-09-02T11:14:53-05:00
 tags = ["Primers"]
-status = "Work In Progress"
 +++
 
 {{< toc >}}
@@ -254,10 +253,10 @@ For a random variable \(X\) and real numbers \(a\) and \(b\), we have:
 
 $$Var[a\cdot X+b] = a^2\cdot Var[X]$$
 
+
+
 ## Common Discrete Random Variables
 ***
-
-
 
 ### Discrete Uniform
 
@@ -377,7 +376,7 @@ $$E[X] = E[X_1 + X_2] = \lambda_1+\lambda_2$$
 
 
 
-## Continuous Random Variables
+## Common Continuous Random Variables
 ***
 
 ### Uniform on Interval [A, B]
@@ -524,7 +523,8 @@ $$Var[X]=\sigma_X^2=a^2$$
 
 $$(X+Y)\sim N(\mu_X+\mu_Y,\sigma_X^2+\sigma_Y^2)$$
 
-
-
+<br>
+That's about as much as I have to write on univariate probability. If you're reading this, I'll probably have a primer on multivariate probability written, which you should check out.
+<br>
 
 
