@@ -8,7 +8,7 @@
       {{ $wordCount := len (split .Content " ") }}
       {{ $readingTime := div $wordCount 150 }}
       <p class="text-center"><i>
-        {{ .Date.Format "January, 06 2006" }} &bull; 
+        {{ .Date.Format "January, 02 2006" }} &bull; 
         {{ if .Params.Status }}
           {{ .Params.Status }} &bull; 
         {{ end }}
