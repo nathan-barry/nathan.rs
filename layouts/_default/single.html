@@ -6,7 +6,7 @@
       <h1>{{ .Title }}</h1>
     {{ if .Date }}
       {{ $wordCount := len (split .Content " ") }}
-      {{ $readingTime := div $wordCount 200 }}
+      {{ $readingTime := div $wordCount 150 }}
       <p class="text-center"><i>
         {{ .Date.Format "January, 06 2006" }} &bull; 
         {{ if .Params.Status }}
