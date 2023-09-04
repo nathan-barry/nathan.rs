@@ -1,6 +1,6 @@
 +++
 title = "Univariate Probability Primer"
-description = "A mildly completely overview of basic univariate probability."
+description = "A mildly complete overview of basic univariate probability."
 date = 2023-09-02T11:14:53-05:00
 tags = ["Primers"]
 +++
