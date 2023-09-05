@@ -579,6 +579,11 @@ footer .theme-by {
     margin: 1rem 1rem 1.5rem 1.5rem;
 }
 
+.sub {
+    border: 1px dashed;
+    border-color: #191919;
+}
+
 /* For medium-sized screens */
 @media (max-width: 1050px) {
   label.sidenote-toggle:not(.sidenote-number) {
