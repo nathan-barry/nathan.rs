@@ -1,8 +1,8 @@
 +++
-title = "Algorithms Primer"
+title = "Greedy Algorithms"
 description = "These are my notes from Greg Plaxton's Algorithms class at UT Austin. Most of the content closely follows the slides covered in lecture."
 date = 2023-08-27T15:11:32-05:00
-tags = ["Primers"]
+tags = ["Algorithms"]
 status = "Work In Progress"
 +++
 
@@ -10,34 +10,21 @@ status = "Work In Progress"
 
 
 
-## Growth Of Functions
-***
-
-## Stable Marriage
-***
-
-## Graph Traversal
-***
-
-## Greedy Algorithms
-***
-
-### The Activity Selection Problem
+## The Activity Selection Problem
+*** 
 
 We are given a list of n activities. $n_i$ has start time $s_i$ and finish time $f_i$.
 We cannot participate in two activities that overlap and wish to find the largest set of non-overlapping activities (the maximum-cardinality set).
 
-#### A Key Observation
+###### A Key Observation
 
 Let $i$ be an activity with minimum finish time. We can prove the claim that some optimal solution includes $i$. To prove this claim, we can choose an "exchange argument".
 
 Suppose $S$ is an optimal solution that does not include $i$. Let $j$ be the first activity in $S$. Then we know that $(S-j)+i$ is an optimal solution that includes $i$.
 
-#### Greedy Algorithm Psuedo-Code
+### Greedy Algorithm Psuedo-Code
 
-We can re-index the activities in non-decreasing order of finish time.
-
-We initialize the set of activities, $I$, to $\\{1,\dots,n\\}$, and our optimal solution to the empty set, $S=\emptyset$. Below is psuedo-code for a greedy implementation.
+We can re-index the activities in non-decreasing order of finish time. We initialize the set of activities $I$ to $\\{1,\dots,n\\}$ and our optimal solution $S$ to the empty set, $S=\emptyset$. Below is psuedo-code for a greedy implementation.
 
 ```python
 let I = {1, ..., n} # Sorted earliest finish time to latest 
@@ -70,8 +57,8 @@ while I not empty:
 With this implementation, we start with the first activity in our solutions because we know that it can be in any optimal solution. We will then iterate through each activity (from earliest finish time to latest) and add any that don't overlap with the last activity we added. 
 
 
-### Scheduling to Minimize Maximum Lateness
-<hr class="sub">
+## Scheduling to Minimize Maximum Lateness
+***
 
 In this version of the problem, instead of maximizing the number of activities we can fit, where each activity is given a set start and finish time, we have a set of activities with deadlines.
 
@@ -81,7 +68,7 @@ Each task $i\in I$ has a has a positive integer deadline $d_i$ and a positive in
 
 We can restrict out attention to gap-free schedules and thus are optimizing over $n!$ schedules.
 
-#### Key Lemma
+###### Key Lemma
 
 Suppose $S$ is a schedule in which task $j$ is executed immediately after task $i$ and $d_j\le d_i$. Let $l_i, l_i$ denote the lateness of task $i, j\in S$ .
 
@@ -99,7 +86,7 @@ I = {1, ..., n} # Sorted from earliest deadline to latest
 
 Of course, sorting in of itself takes $O(n\log(n))$ depending on what algorithm you use, but there is nothing more to the algorithm than that.
 
-#### Proof of the Key Lemma
+### Proof of the Key Lemma
 
 Since $d_j \le d_i$ and the termination time of task $j$ in $S$ is equal to the termination of task $i$ in $S'$, we have $l_j \ge l_i'$. In other words, $i$ will be less late than $j$ because, since $i$ and $j$ both end at the same time and because $j$'s deadline is before $i$'s, more time will have passed, thus making $j$ more late.
 
@@ -108,8 +95,8 @@ Since task $j$ terminates earlier in $S'$ than in $S$, we have $l_j \ge l_j'$. T
 From these two remarks, we conclude that $l_j \ge max(l_i', l_j')$.
 
 
-### The Fractional Knapsack Problem 
-<hr class="sub">
+## The Fractional Knapsack Problem 
+***
 
 In the knapsack problem, we are given a positive integer knapsack capacity $W$ and $n$ items indexed from 1 to $n$. Item $i$ has a positive integer value $v_i$ and a weight $w_i$. We wish to identify a maximum-value set of items with weight at most $W$.
 
@@ -117,7 +104,7 @@ This problem can be framed as a burglar going house to house figuring out what i
 
 No polynomial-time algorithm is known for this problem. In the fractional knapsack problem we are allowed to take a fractional amount of any item.
 
-#### Key Observation
+###### Key Observation
 
 Let $i$ be an item with maximum "value density" (highest unit value per unit weight), $v_i/w_i$ . We claim that some optimal solution includes a $z=min(1, W/w_i)$ fraction of the item $i$. To prove this claim, we can use an exchange argument.
 
@@ -125,7 +112,7 @@ Let $S$ be an optimal solution that includes a fraction $z' \lt z$ of item $i$ a
 
 In other words, if you have a bag full of the most value dense stuff and lesser value dense stuff, replacing the lesser value dense stuff with the more value dense gives you a higher overall value.
 
-#### Greedy Algorithm Python Code
+### Greedy Algorithm Python Code
 
 Re-index the items in non-increasing order of value density.{{% sidenote %}}In the code and pseudo-code, we indexed it in non-decreasing order for efficiency with the pop operation.{{% /sidenote %}}
 
@@ -170,7 +157,7 @@ def knapsack_normal(items: list[Item], capacity: int) -> list[Item]:
 
 This algorithm uses $O(n\log(n))$ operations due to the sorting (re-indexing) step.
 
-#### A Faster Implementation
+### A Faster Implementation
 
 Let $\pi$ denote the permutation of the set $\\{1, ..., n \\}$ of item indices that arranges the items in non-increasing order of value density (ties are broken using the item indices). Thus, $\pi(1)$ is the item with the highest value density and $\pi(n)$ is the item with the minimum value density.
 
