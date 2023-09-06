@@ -7,10 +7,8 @@
 
     <!-- List All Posts -->
     {{ range .Data.Pages }}
-        <article>
-            <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
-            <p>{{ .Description }}</p>
-        </article>
+        <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+        <p>{{ .Description }}</p>
     {{ end }}
     </div>
 </div>

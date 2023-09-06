@@ -584,6 +584,14 @@ footer .theme-by {
     border-color: #191919;
 }
 
+article h2 {
+    margin-left: -2rem;
+}
+
+article hr {
+    margin-left: -2rem;
+}
+
 /* For medium-sized screens */
 @media (max-width: 1050px) {
   label.sidenote-toggle:not(.sidenote-number) {
@@ -610,6 +618,12 @@ footer .theme-by {
   }
   .tag-columns {
       margin: 0;
+  }
+  article hr {
+    margin-left: 0rem;
+  }
+  article h2 {
+    margin-left: 0rem;
   }
 }
 

@@ -3,7 +3,6 @@ title = "Common Random Variables"
 description = "An overview of different common random variables and their properties (and perhaps a few uncommon ones too)."
 date = 2023-09-06T11:40:24-05:00
 tags = ["Probability Notes"]
-status = "Work In Progress"
 +++
 
 {{< toc >}}
@@ -291,9 +290,5 @@ $$Var[X]=\sigma_X^2=a^2$$
 7. If \\(X\sim N(\mu_X, \sigma_X^2)\\) and \\(Y\sim N(\mu_Y,\sigma_Y^2)\\) are independent random variables, then:
 
 $$(X+Y)\sim N(\mu_X+\mu_Y,\sigma_X^2+\sigma_Y^2)$$
-
-<br>
-That's about as much as I have to write on univariate probability. If you're reading this, I'll probably have a primer on multivariate probability written, which you should check out.
-<br>
 
 

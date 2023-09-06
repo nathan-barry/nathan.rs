@@ -3,7 +3,6 @@ title = "Graph Basics"
 description = "These are my notes from Greg Plaxton's Algorithms class at UT Austin. Most of the content closely follows the slides covered in lecture."
 date = 2023-09-06T09:29:35-05:00
 tags = ["Algorithms Notes"]
-status = "Work In Progress"
 +++
 
 {{< toc >}}

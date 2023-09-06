@@ -3,7 +3,6 @@ title = "Greedy Algorithms"
 description = "These are my notes from Greg Plaxton's Algorithms class at UT Austin. Most of the content closely follows the slides covered in lecture."
 date = 2023-08-27T15:11:32-05:00
 tags = ["Algorithms Notes"]
-status = "Work In Progress"
 +++
 
 {{< toc >}}

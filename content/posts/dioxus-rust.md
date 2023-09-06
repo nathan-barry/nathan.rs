@@ -104,8 +104,7 @@ Many of these difficulties were due to poor documentation, a common occurrence i
 
 
 
-## Fixing Routing
-***
+### Fixing Routing
 To let the CLI know that you are using Tailwind, you must explicitly define it in a Dioxus config via a `Dioxus.toml` file. Here is what is provided in the [docs](https://dioxuslabs.com/learn/0.4/cookbook/tailwind).
 
 I eventually learned that the Dioxus CLI was updated after this documentation was created. Since then, routing was completely reworked and the CLI must use a newer default config. When I added Tailwind, I had to override the newer deployment configuration with an old config that didn't account for routing. Luckily, the solution was a simple fix, I just needed to add this line in the toml:

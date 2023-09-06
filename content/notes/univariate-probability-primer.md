@@ -255,3 +255,6 @@ $$Var[a\cdot X+b] = a^2\cdot Var[X]$$
 
 
 
+<br>
+That's about as much as I have to write on univariate probability. If you're reading this, I'll probably have a primer on multivariate probability written, which you should check out.
+<br>
