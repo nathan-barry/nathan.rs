@@ -1,8 +1,8 @@
 +++
-title = "Basic Graph Algorithms"
-description = ""
+title = "Graph Basics"
+description = "These are my notes from Greg Plaxton's Algorithms class at UT Austin. Most of the content closely follows the slides covered in lecture."
 date = 2023-09-06T09:29:35-05:00
-tags = ["Algorithms"]
+tags = ["Algorithms Notes"]
 status = "Work In Progress"
 +++
 
@@ -165,7 +165,6 @@ Whenever we explore a directed edge $(u, v)$, vertex $u$ is gray.
 - If $v$ is black, then $(u, v)$ is classified as a **cross** or **forward edge**{{%sidenote%}}Cross and forward edges are not relevant to any of the applications shown here.{{%/sidenote%}}
 
 ###### The White Path Lemma
-
 Suppose that at some point in the execution of $DFS$ on a given digraph, we discover a white vertex $u$. Let $U$ be the set of all white vertices reachable form $u$ via a directed path of white vertices.
 
 **Lemma:** A vertex $v$ is a descendant of $u$ in the $DFS$ forest if and only if $v\in U$.
@@ -176,13 +175,12 @@ For the "if" direction we can use a proof by contradiction. For the "only if" di
 
 Recall that an undirected graph $G$ contains a cycle if and only if any $DFS$ of $G$ yields a non-tree edge. There is an analogous result for digraphs: A digraph $G$ contains a directed cycle if and only if any $DFS$ of $G$ yields a back edge.
 
-###### "If" direction:
-
+###### Proving the "If" direction
 Suppose a $DFS$ of $G$ yields a back edge $(u, v)$. 
 At the point in the execution when edge $(u, v)$ is explored and identified as a back edge, vertices $u$ and $v$ are gray and all of the gray vertices lie on a directed path $P$ from the root $r$ of the current arborescence to $u$.
 The suffix $P'$ of $P$ beginning at $v$ forms a directed path from $v$ to $u$. Observe that $P'+(u,v)$ forms a directed cycle in $G$.
 
-###### "Only If" Direction:
+###### Proving the "Only If" direction
 Suppose that $G$ contains a directed cycle $C$, and let $u$ be the first vertex on $C$ that is discovered in some $DFS$ of $G$. We claim that the edge $(v,u)$ is a back edge, where $v$ denotes the predecessor of $u$ on $C$. By the white path lemma, vertex $v$ will be discovered and finished before vertex $u$ is finished. Thus vertex $u$ is gray when edge $(v, u)$ is explored.
 
 ## Directed Acyclic Graphs
@@ -194,16 +192,14 @@ A digraph is a DAG (**directed acyclic graph**) if and only if it is acyclic (co
 
 Let $G=(V,E)$ be a given DAG. A topological ordering of $G$ is an indexing of the vertices of $V$ from 1 to $|V|$ such that for every edge $(u,v)\in E$, the index of $u$ is less than the index of $v$. **Every DAG has a topological ordering.**
 
-###### Claim:
-
+###### Claim
 We can obtain a topological ordering of a given DAG $G=(V,E)$ by running directed $DFS$ and arranging the vertices of $V$ from left to right in the order of decreasing finish time.
 
 Fix the point in the execution of $DFS$ when some edge $(u, v)\in E$ is explored. At this point, vertex $v$ is either black or white since $(u,v)$ cannot be a back edge.
 If $v$ is black, then the finish time of $v$ precedes that of $u$, as required.
 If $v$ is white, then $v$ is a descendant of $u$ in the $DFS$ forest and once again the finish time of $v$ precedes that of $u$.
  
-###### Time Complexity:
-
+###### Time Complexity
 Notice that a general purpose sorting routine does not need to be invoked in order to sort the vertices by finish time.
 Instead, we can simply maintain a list of the finished vertices. When a vertex finishes, we prepend it to the list. Upon termination, the list contains all the vertices in descending order of finish time. Thus we can compute a topological ordering of a given DAG in linear time.
 
@@ -215,7 +211,3 @@ Directed $DFS$ provides an elegant two-pass linear time algorithm for computing 
 First, we run $DFS$ on $G$ and arrange the vertices in descending order of finish time.
 Next, we form the *reversal* of $G$, i.e., the graph $G'=(V,E')$ where $E'=\\{(v, u) | (u,v)\in E\\}$.
 Then we run $DFS$ on $G'$ where the outer loop of the $DFS$ processes the vertices in the order given by the first pass. Each arborescence produced in the second $DFS$ spans an $SCC$ of $G$.
-
-###### Visualizing the First Pass:
-
-When drawing an arborescence, arrange the children of any given node from left to right in increasing order of finish time.

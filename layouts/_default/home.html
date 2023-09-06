@@ -11,11 +11,18 @@
 
 
     <div class="tag-columns">
-        <!-- Recent -->
+        <!-- Recent Posts -->
         <div class="tag-column">
-            <h3>Recent</h3>
+            <h3>Recent Posts</h3>
             <hr>
-            {{ $filteredPages := .Site.RegularPages }}
+            {{ $filteredPages := slice }}
+            {{ range $name, $pages := .Site.Taxonomies.tags }}
+                {{ if not (strings.HasSuffix $name "-notes") }}
+                    {{ range $pages }}
+                        {{ $filteredPages = $filteredPages | append . }}
+                    {{ end }}
+                {{ end }}
+            {{ end }}
             {{ range first 3 (sort $filteredPages "Date" "desc") }}
                 <h5 class="list-link">
                     &#x2727;&nbsp; <a class="" href="{{ .RelPermalink }}">{{ .Title }}</a>
@@ -23,19 +30,23 @@
             {{ end }}
         </div>
 
-        <!-- Popular -->
+        <!-- Recent Notes -->
         <div class="tag-column">
-            <h3>Popular</h3>
+            <h3>Recent Notes</h3>
             <hr>
-            <h5 class="list-link">
-                &#x2727;&nbsp; <a class="" href="/posts/dioxus-rust">My Experience with Rust for Front-End Development</a>
-            </h5>
-            <h5 class="list-link">
-                &#x2727;&nbsp; <a class="" href="/posts/geb">Gödel Escher Bach, Self-Reference, and Transformers</a>
-            </h5>
-            <h5 class="list-link">
-                &#x2727;&nbsp; <a class="" href="/notes/poly-eval-machine-rep/">Polynomial Evaluation & Machine Representation</a>
-            </h5>
+            {{ $filteredPages := slice }}
+            {{ range $name, $pages := .Site.Taxonomies.tags }}
+                {{ if strings.HasSuffix $name "-notes" }}
+                    {{ range $pages }}
+                        {{ $filteredPages = $filteredPages | append . }}
+                    {{ end }}
+                {{ end }}
+            {{ end }}
+            {{ range first 4 (sort $filteredPages "Date" "desc") }}
+                <h5 class="list-link">
+                    &#x2727;&nbsp; <a class="" href="{{ .RelPermalink }}">{{ .Title }}</a>
+                </h5>
+            {{ end }}
         </div>
 
         <!-- Personal -->
@@ -47,7 +58,6 @@
             <h5 class="list-link">&#x2751;&nbsp; <a class="" href="https://github.com/nathan-barry">Github</a></h5>
             <h5 class="list-link">&#x2751;&nbsp; <a class="" href="https://www.linkedin.com/in/nathanrs/">LinkedIn</a></h5>
         </div>
-
     </div>
 
 
@@ -62,7 +72,7 @@
     <div class="tag-columns">
         <!-- Primary Posts -->
         {{ range $name, $pages := .Site.Taxonomies.tags }}
-            {{ if not (in (slice "misc") $name) }}
+            {{ if not (or (strings.HasSuffix $name "-notes") (in (slice "misc") $name)) }}
             <div class="tag-column">
                 <h3><a href="/tags/{{ $name }}">{{ $name | humanize | title }}</a></h3>
                 <hr>
@@ -92,5 +102,28 @@
     </div>
 
 
+    <br>
+    <br>
+    <p class="text-center">&#x2735; &#x2735; &#x2735;</p>
+    <br>
+
+
+    <div class="tag-columns">
+        <!-- Notes -->
+        {{ range $name, $pages := .Site.Taxonomies.tags }}
+            {{ if strings.HasSuffix $name "-notes" }}
+            <div class="tag-column">
+                <h3><a href="/tags/{{ $name }}">{{ $name | humanize | title }}</a></h3>
+                <hr>
+                {{ range .Pages }}
+                <h5 class="list-link">
+                    &#x2727;&nbsp; <a class="" href="{{ .RelPermalink }}">{{ .Title }}</a>
+                </h5>
+                {{ end }}
+            </div>
+            {{ end }}
+        {{ end }}
+    </div>
 </div>
 {{ end }}
+

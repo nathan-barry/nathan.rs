@@ -2,7 +2,7 @@
 title = "Greedy Algorithms"
 description = "These are my notes from Greg Plaxton's Algorithms class at UT Austin. Most of the content closely follows the slides covered in lecture."
 date = 2023-08-27T15:11:32-05:00
-tags = ["Algorithms"]
+tags = ["Algorithms Notes"]
 status = "Work In Progress"
 +++
 
@@ -16,13 +16,13 @@ status = "Work In Progress"
 We are given a list of n activities. $n_i$ has start time $s_i$ and finish time $f_i$.
 We cannot participate in two activities that overlap and wish to find the largest set of non-overlapping activities (the maximum-cardinality set).
 
-###### A Key Observation
+<h6>A Key Observation</h6>
 
 Let $i$ be an activity with minimum finish time. We can prove the claim that some optimal solution includes $i$. To prove this claim, we can choose an "exchange argument".
 
 Suppose $S$ is an optimal solution that does not include $i$. Let $j$ be the first activity in $S$. Then we know that $(S-j)+i$ is an optimal solution that includes $i$.
 
-### Greedy Algorithm Psuedo-Code
+### Pseudo-Code Implementation
 
 We can re-index the activities in non-decreasing order of finish time. We initialize the set of activities $I$ to $\\{1,\dots,n\\}$ and our optimal solution $S$ to the empty set, $S=\emptyset$. Below is psuedo-code for a greedy implementation.
 
@@ -68,7 +68,7 @@ Each task $i\in I$ has a has a positive integer deadline $d_i$ and a positive in
 
 We can restrict out attention to gap-free schedules and thus are optimizing over $n!$ schedules.
 
-###### Key Lemma
+<h6>Key Lemma</h6>
 
 Suppose $S$ is a schedule in which task $j$ is executed immediately after task $i$ and $d_j\le d_i$. Let $l_i, l_i$ denote the lateness of task $i, j\in S$ .
 
@@ -104,7 +104,8 @@ This problem can be framed as a burglar going house to house figuring out what i
 
 No polynomial-time algorithm is known for this problem. In the fractional knapsack problem we are allowed to take a fractional amount of any item.
 
-###### Key Observation
+
+<h6>Key Observation</h6>
 
 Let $i$ be an item with maximum "value density" (highest unit value per unit weight), $v_i/w_i$ . We claim that some optimal solution includes a $z=min(1, W/w_i)$ fraction of the item $i$. To prove this claim, we can use an exchange argument.
 
@@ -112,7 +113,7 @@ Let $S$ be an optimal solution that includes a fraction $z' \lt z$ of item $i$ a
 
 In other words, if you have a bag full of the most value dense stuff and lesser value dense stuff, replacing the lesser value dense stuff with the more value dense gives you a higher overall value.
 
-### Greedy Algorithm Python Code
+### Python Code Implementation
 
 Re-index the items in non-increasing order of value density.{{% sidenote %}}In the code and pseudo-code, we indexed it in non-decreasing order for efficiency with the pop operation.{{% /sidenote %}}
 
