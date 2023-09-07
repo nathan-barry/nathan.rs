@@ -109,8 +109,17 @@ pre,
 kbd {
   font-family: Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
     monospace;
-  font-size: .85rem;
+  font-size: 85%;
 }
+
+/* Fixes iOS font sizing anomaly */
+code {
+    text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+
 pre {
   padding: 1rem 1.4rem;
   max-width: 100%;

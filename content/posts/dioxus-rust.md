@@ -215,7 +215,7 @@ pub fn Home(cx: Scope) -> Element {
 
     // Calls highlight.js code when page loads
     use_effect(cx, (), move |_| {
-      async move {
+        async move {
             let js_code = "hljs.highlightAll();";
             js_sys::eval(js_code).expect("Error highlighting code");
         }
