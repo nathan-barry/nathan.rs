@@ -134,14 +134,9 @@ Let the binary relation $R$ denote the set of pairs $(u,v)$ in $V\times V$ such 
 
 The connected component structure of any undirected graph has the property that both endpoints of any edge belong to the same connected component and thus each edge belongs to a particular connected component. The $SCC$ structure of a digraph does not enjoy this property. A directed edge can connect vertices in distinct $SCC$s.
 
-<!-- #### Identifying the SCC of a Given Vertex -->
-
-<!-- Let $G=(V,E)$ be a given digraph, and let $s$ be a specified vertex in $V$. We can determine the $SCC$ of $s$ in linear time. -->
-
-<!-- ADD MORE HERE -->
 
 ## Directed DFS
-<hr class="sub">
+***
 
 There are many important applications of $DFS$ in digraphs, some which we'll discuss below.
 

@@ -584,6 +584,10 @@ footer .theme-by {
     border-color: #191919;
 }
 
+.sidenote .katex-html { /* MAKE THIS WORK TODO */
+    font-size: .8rem;
+}
+
 article h2 {
     margin-left: -2rem;
 }
