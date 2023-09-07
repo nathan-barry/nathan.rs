@@ -360,6 +360,13 @@ blockquote {
     margin: 2rem;
 }
 
+.view-all {
+    border-left: #646464 solid;
+    color: #646464;
+    font-style: italic;
+    padding: 0 0 0 1.15rem;
+}
+
 label.sidenote-toggle {
   margin-left: -.4rem;
   display: inline;
@@ -656,6 +663,7 @@ article hr {
     }
     .title {
         margin: 0 0 3rem;
+        font-size: 2.25rem;
     }
     .katex-html {
         font-size: 1rem;
@@ -671,7 +679,11 @@ article hr {
       padding-left: 1rem;
     }
     h1 {
-      font-size: 2.25rem;
-      line-height: 3rem;
+      font-size: 2rem;
+      line-height: 2.5rem;
+    }
+    h2 {
+      font-size: 1.5rem;
+      line-height: 2rem;
     }
 }

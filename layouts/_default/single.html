@@ -3,22 +3,25 @@
     <article class="article">
 
       <!-- Title -->
-      <h1>{{ .Title }}</h1>
-    {{ if .Date }}
-      {{ $wordCount := len (split .Content " ") }}
-      {{ $readingTime := div $wordCount 150 }}
-      <p class="text-center"><i>
-        {{ .Date.Format "January, 02 2006" }} &bull; 
-        {{ if .Params.Status }}
-          {{ .Params.Status }} &bull; 
+        {{ $title := .Title }}
+        {{ with index .Params.tags 0 }}
+            <h1><a href="{{ (urlize (printf "tags/%s/" .)) | absLangURL }}">{{ $title }}</a></h1>
         {{ end }}
-        {{ $readingTime }} min read &bull; 
-        {{ $wordCount }} words
-        {{ if ne .Date.Unix .Lastmod.Unix }}
-          &bull; Updated {{ .Lastmod.Format "January, 06 2006" }}
+        {{ if .Date }}
+          {{ $wordCount := len (split .Content " ") }}
+          {{ $readingTime := div $wordCount 150 }}
+          <p class="text-center"><i>
+            {{ .Date.Format "January, 02 2006" }} &bull; 
+            {{ if .Params.Status }}
+              {{ .Params.Status }} &bull; 
+            {{ end }}
+            {{ $readingTime }} min read &bull; 
+            {{ $wordCount }} words
+            {{ if ne .Date.Unix .Lastmod.Unix }}
+              &bull; Updated {{ .Lastmod.Format "January, 06 2006" }}
+            {{ end }}
+          </i></p>
         {{ end }}
-      </i></p>
-    {{ end }}
       <h6 class="text-center">{{ .Params.description }}</h6>
       <br>
 
@@ -28,22 +31,12 @@
 
       <br>
       <!-- Bottom Tags -->
-      {{ if .Params.tags }}
-        <div class="blog-tags">
-          Tags: 
-          {{ range .Params.tags }}
-          <a href="{{ (urlize (printf "tags/%s/" .)) | absLangURL }}">{{ . }}</a>&nbsp;
-          {{ end }}
-        </div>
-      {{ end }}
-      {{ if .Params.notes }}
-        <div class="blog-tags">
-          Tags: 
-          {{ range .Params.notes }}
-          <a href="{{ (urlize (printf "notes/%s/" .)) | absLangURL }}">{{ . }}</a>&nbsp;
-          {{ end }}
-        </div>
-      {{ end }}
+      <div class="blog-tags">
+        Tags: 
+        {{ with index .Params.tags 0 }}
+        <a href="{{ (urlize (printf "tags/%s/" .)) | absLangURL }}">{{ . }}</a>&nbsp;
+        {{ end }}
+      </div>
     </article>
   </div>
 {{ end }}

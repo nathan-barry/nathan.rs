@@ -25,7 +25,7 @@
             {{ end }}
             {{ range first 3 (sort $filteredPages "Date" "desc") }}
                 <h5 class="list-link">
-                    &#x2727;&nbsp; <a class="" href="{{ .RelPermalink }}">{{ .Title }}</a>
+                    &#x2727;&nbsp; <a href="{{ .RelPermalink }}">{{ .Title }}</a>
                 </h5>
             {{ end }}
         </div>
@@ -44,7 +44,7 @@
             {{ end }}
             {{ range first 4 (sort $filteredPages "Date" "desc") }}
                 <h5 class="list-link">
-                    &#x2727;&nbsp; <a class="" href="{{ .RelPermalink }}">{{ .Title }}</a>
+                    &#x2727;&nbsp; <a href="{{ .RelPermalink }}">{{ .Title }}</a>
                 </h5>
             {{ end }}
         </div>
@@ -78,7 +78,7 @@
                 <hr>
                 {{ range .Pages }}
                 <h5 class="list-link">
-                    &#x2727;&nbsp; <a class="" href="{{ .RelPermalink }}">{{ .Title }}</a>
+                    &#x2727;&nbsp; <a href="{{ .RelPermalink }}">{{ .Title }}</a>
                 </h5>
                 {{ end }}
             </div>
@@ -93,7 +93,7 @@
                 <hr>
                 {{ range .Pages }}
                 <h5 class="list-link">
-                    &#x2727;&nbsp; <a class="" href="{{ .RelPermalink }}">{{ .Title }}</a>
+                    &#x2727;&nbsp; <a href="{{ .RelPermalink }}">{{ .Title }}</a>
                 </h5>
                 {{ end }}
             </div>
@@ -117,9 +117,10 @@
                 <hr>
                 {{ range .Pages }}
                 <h5 class="list-link">
-                    &#x2727;&nbsp; <a class="" href="{{ .RelPermalink }}">{{ .Title }}</a>
+                    &#x2727;&nbsp; <a href="{{ .RelPermalink }}">{{ .Title }}</a>
                 </h5>
                 {{ end }}
+                <!-- <h5><i><a class="view-all" href="/tags/{{ $name }}">View All</a></i></h5> -->
             </div>
             {{ end }}
         {{ end }}

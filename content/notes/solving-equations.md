@@ -1,6 +1,6 @@
 +++
 title = "Solving Equations: Bisection, Fixed-Iteration, and Newton's Method"
-description = "My notes over chapter 1 of Timothy Sauer's Numerical Analysis textbook. Most examples and some sentences were taken directly from the book."
+description = "My notes over chapter 1 of Timothy Sauer's Numerical Analysis textbook. This chapter covers multiple iterative ways to solve for the roots of an equation."
 date = 2023-09-06T12:19:28-05:00
 tags = ["Numerical Analysis Notes"]
 status = "Work In Progress"
