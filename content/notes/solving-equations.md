@@ -78,3 +78,14 @@ A solution is **correct within $p$ decimal places** if the error is less than $0
 
 $$\frac{b - a}{2^{n+1}} < 0.5\times 10^{-p}$$
 
+
+## Fixed-Point Iteration
+***
+
+Some functions, if recursively nested, converge to a number no matter what the original input. Lets look at `sqrt()`. For any number $x$, the nested function `sqrt(sqrt(sqrt(...sqrt(x)...)))` will converge to $1$ as the number of nested layers goes to infinity.
+
+Let us look at $cos$. It seems that the sequence of numbers produced by iteratively calling the function appears to converge to a number $r=0.7390851332$. Subsequent applications of $cos$ does not change the number. For this input, the output of the cosine function is equal to the input, or $cos(r) = r$.
+
+###### Definition
+
+The real number $r$ is a **fixed point** of the function $g$ if $g(r)=r$.
