@@ -176,7 +176,7 @@ As you can see, `dx serve` and `dx build --release` now builds everything in `/d
 
 
 
-## Interacting with JavaScript Libraries from Rust
+## Interacting with JS Libraries from Rust
 ***
 The wasm-bindgen project provides developers with a few tools for interacting with JS and browser APIs.
 

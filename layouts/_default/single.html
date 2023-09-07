@@ -33,7 +33,7 @@
       <!-- Bottom Tags -->
       <div class="blog-tags">
         Tags: 
-        {{ with index .Params.tags 0 }}
+        {{ range .Params.tags }}
         <a href="{{ (urlize (printf "tags/%s/" .)) | absLangURL }}">{{ . }}</a>&nbsp;
         {{ end }}
       </div>
