@@ -13,7 +13,7 @@
     <div class="tag-columns">
         <!-- Recent Posts -->
         <div class="tag-column">
-            <h3>Recent Posts</h3>
+            <h3><a href="/posts">Recent Posts</a></h3>
             <hr>
             {{ $filteredPages := slice }}
             {{ range $name, $pages := .Site.Taxonomies.tags }}
@@ -32,7 +32,7 @@
 
         <!-- Recent Notes -->
         <div class="tag-column">
-            <h3>Recent Notes</h3>
+            <h3><a href="/notes">Recent Notes</a></h3>
             <hr>
             {{ $filteredPages := slice }}
             {{ range $name, $pages := .Site.Taxonomies.tags }}
@@ -51,7 +51,7 @@
 
         <!-- Personal -->
         <div class="tag-column">
-            <h3>Personal</h3>
+            <h3><a href="/tags/personal">Personal</a></h3>
             <hr>
             <h5 class="list-link">&#x2727;&nbsp; <a class="" href="/posts/about-me">About Me</a></h5>
             <h5 class="list-link">&#x2727;&nbsp; <a class="" href="/posts/favorite-books">Favorite Books</a></h5>
@@ -72,7 +72,7 @@
     <div class="tag-columns">
         <!-- Primary Posts -->
         {{ range $name, $pages := .Site.Taxonomies.tags }}
-            {{ if not (or (strings.HasSuffix $name "-notes") (in (slice "misc") $name)) }}
+            {{ if not (or (strings.HasSuffix $name "-notes") (in (slice "misc" "personal") $name)) }}
             <div class="tag-column">
                 <h3><a href="/tags/{{ $name }}">{{ $name | humanize | title }}</a></h3>
                 <hr>

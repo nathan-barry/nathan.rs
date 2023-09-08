@@ -1,6 +1,7 @@
 +++
 title = "About Me"
 description = "Student. Programmer. Arch and Neovim User."
+tags = ["Personal"]
 +++
 
 <img alt="Me in high school. Fellow Raccoon lover." src="/images/raccoon.webp">

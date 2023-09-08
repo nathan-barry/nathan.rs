@@ -1,6 +1,7 @@
 +++
 title = "Favorite Books"
 description = "I've always enjoyed seeing what books other people have read. Below are all the books I've read since middle school, roughly in order. Those highlighted orange were those I particularly enjoyed or found impactful. An asterisk (*) indicates you can click to see some of my thoughts on the book :)"
+tags = ["Personal"]
 +++
 
 <script>
@@ -757,8 +758,6 @@ function setHovering(isHovering, element) {
     special="true"
     description="">}}
 
-<br>
-<br>
 <br>
 
 > "The average person puts only 25% of his energy and ability into his work. The world takes off its hat to those who put in more than 50% of their capacity, and stands on its head for those few and far between souls who devote 100%" - Andrew Carnegie
