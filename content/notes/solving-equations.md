@@ -51,9 +51,9 @@ Below is Python code implementing the method:{{%sidenote%}}Omitted for type hint
 def bisection_method(f, a, b, tolerance=.0005):
     while (b - a)/2 > tolerance: # while distance from center > tolerance
         c = (b + a)/2
-        if f(c) = 0:
+        if f(c) == 0:
             break
-        if f(a)f(c) < 0: # f(c) is positive
+        if f(a)*f(c) < 0: # f(c) is positive
             b = c
         else: # f(c) is negative
             a = c
@@ -73,10 +73,55 @@ The method takes $n+2$ function evaluations. The $n$ comes from evaluating $f(c)
 Realistically, if $a$ and $b$ happen to be both positive or both negative, the range doesn't bracket the root, so another $a$ or $b$ must be chosen. Thus, the constant is however many evaluations it takes to satisfy $f(a)f(b)<0$.
 
 ###### Definition
-
 A solution is **correct within $p$ decimal places** if the error is less than $0.5 \times 10^{-p}$. To find the number of steps it would take to reach a solution correct within $p$ decimal places, you just solve for $n$ below:
 
 $$\frac{b - a}{2^{n+1}} < 0.5\times 10^{-p}$$
+
+###### Example
+Here is the same code as above but modified to where we only perform a given number of steps. We will see how fast the function $cos(x) + x$ converges to the root $r\approx 0.7390851332$.
+
+We also made it a little more efficient by caching the function evaluations and also added a check to enforce that $a$ and $b$ evaluated to different signs.
+
+```python
+def bisection_method(f, a, b, steps):
+    f_a, f_b = f(a), f(b)
+    if f_a * f_b > 0:
+        raise Exception("Both same size")
+
+    for i in range(steps):
+        c = (b + a)/2
+        print(f"Guess {i + 1}:", c)
+        f_c = f(c)
+        if f_c == 0:
+            break
+        if f_a * f_c < 0:
+            b, f_b = c, f_c
+        else:
+            a, f_a = c, f_c
+
+bisection_method(lambda x: math.cos(x) - x, 0, 1, 10)
+```
+
+```
+>>> bisection_method(lambda x: math.cos(x) - x, 0, 1, 10)
+Guess 1: 0.5
+Guess 2: 0.75
+Guess 3: 0.625
+Guess 4: 0.6875
+Guess 5: 0.71875
+Guess 6: 0.734375
+Guess 7: 0.7421875
+Guess 8: 0.73828125
+Guess 9: 0.740234375
+Guess 10: 0.7392578125
+```
+
+It looks like we were correct to 3 places after 10 iterations. We see that this matches the calculation above. By solving for $n$ where $a=0, b=1$ and $p=3$, we see that:
+
+
+$$\frac{1}{2^{n+1}} < 0.5\times 10^{-3}\implies n > 9.966 $$
+
+
 
 
 ## Fixed-Point Iteration
@@ -84,8 +129,177 @@ $$\frac{b - a}{2^{n+1}} < 0.5\times 10^{-p}$$
 
 Some functions, if recursively nested, converge to a number no matter what the original input. Lets look at `sqrt()`. For any number $x$, the nested function `sqrt(sqrt(sqrt(...sqrt(x)...)))` will converge to $1$ as the number of nested layers goes to infinity.
 
-Let us look at $cos$. It seems that the sequence of numbers produced by iteratively calling the function appears to converge to a number $r=0.7390851332$. Subsequent applications of $cos$ does not change the number. For this input, the output of the cosine function is equal to the input, or $cos(r) = r$.
+
+<h6>Definition</h6>
+
+The real number $r$ is a **fixed point** of the function $g$ if $g(r)=r$.
+
+Every equation $f(x)=0$ can be turned into a fixed point problem $g(x) = x$. If we have an equation like $cos(x) - x = 0$ that we can morph into the form $cos(x) = x$, when the output is equivalent to the input ($output = input$), the statement $output - input = 0$ is vacuously true.
+
+
+Once the equation is written as $g(x)=x$, Fixed-Point Iteration proceeds by starting with an initial guess $x_0$ adn iterating the function $g$.
+
+```python
+x_0 = input("Initial Guess: ")
+
+def g(x):
+    # some function
+
+x_1 = g(x_0)
+x_2 = g(x_1)
+x_3 = g(x_4)
+# ... and so on
+# x_{i+1} = g(x_i)
+```
+
+The sequence $x_i$ may or may not converge as the number of steps goes to infinity. If $g$ is continuous and $x_i$ converges to a number $r$, we say that $r$ is a fixed point of $g$.
+
+<h6>Example</h6>
+Here's a python snippet that calculates the 10th iteration of $cos(x)=x$.
+
+```python
+def fpi(g, x_0, steps):
+    x = x_0
+    for i in range(steps):
+        print(f"x_{i}:", x)
+        x = g(x)
+    print(f"x_{steps}:", x)
+
+fpi(lambda x: math.cos(x), 100, 10)
+```
+
+```
+>>> fpi(lambda x: math.cos(x), 100, 10)
+x_0: 100
+x_1: 0.8623188722876839
+x_2: 0.6506783754890694
+x_3: 0.795673071780365
+x_4: 0.699804126006342
+x_5: 0.7649683581026606
+x_6: 0.7214042702600874
+x_7: 0.7508790338894986
+x_8: 0.7310894026923415
+x_9: 0.7444474707269703
+x_10: 0.7354623894268724
+```
+
+
+### From Equation to Fixed Point Problems
+
+We saw from above that any function $f(x) = 0$ can be turned into the form $g(x) = x$. Sometimes, there are multiple $g$'s we can choose from. Let's take the example below:
+
+$$x^3 + x - 1 = 0$$
+
+We can rewrite it as any of the following:
+
+$$x = 1 - x^3\qquad x = (1 - x)^{1/3} \qquad x = \frac{1+2x^3}{1+3x^2}$$
+
+Below are the three functions in python code, from left to right, and the results of the first 10 fixed point iteration steps for each. The initial guess for all is $x_0 = 0.5$ and the actual root is $r\approx
+```python
+g_1 = lambda x: (1 - x**3)
+g_2 = lambda x: (1 - x)**(1/3)
+g_3 = lambda x: (1 + 2*x**3)/(1 + 3*x**2)
+```
+
+```
+>>> fpi(g_1, .5, 10)
+x_0: 0.5
+x_1: 0.875
+x_2: 0.330078125
+x_3: 0.9640374705195427
+x_4: 0.10405418832767732
+x_5: 0.9988733767808354
+x_6: 0.003376063247859995
+x_7: 0.999999961520296
+x_8: 1.1543910749534092e-07
+x_9: 1.0
+x_10: 0.0
+```
+
+For $g_1$, instead of converging, it tends to alternate between 0 and 1. Neither value is a fixed point since $g(0)=1$ and $g(1)=0$. With the bisection method, we know that if $f$ is continuous and $f(a)f(b) < 0$ on the original interval, then it will converge to the root. This is not guaranteed for FPI.
+
+```
+>>> fpi(g_2, .5, 10)
+x_0: 0.5
+x_1: 0.7937005259840998
+x_2: 0.5908801132751771
+x_3: 0.7423639321680063
+x_4: 0.6363102034816613
+x_5: 0.7138008141442069
+x_6: 0.6590061456223998
+x_7: 0.6986326057302191
+x_8: 0.670448496228072
+x_9: 0.6907291205891408
+x_10: 0.6762589249268274
+```
+
+We can see that $g_2$ seems to hone in on a fixed point.
+
+```
+>>> fpi(g_3, .5, 10)
+x_0: 0.5
+x_1: 0.7142857142857143
+x_2: 0.6831797235023042
+x_3: 0.6823284233045783
+x_4: 0.682327803828347
+x_5: 0.6823278038280193
+x_6: 0.6823278038280194
+x_7: 0.6823278038280193
+x_8: 0.6823278038280194
+x_9: 0.6823278038280193
+x_10: 0.6823278038280194
+```
+We can see that $g_3$ hones in on a fixed point, but at a significantly faster rate than $g_2$. We'll discuss what determines these behaviors in the next section.
+
+
+### The Behavior of Fixed Point Problems
+
+The behavior of fixed point problems are defined by the derivative of the function at the fixed point. For the function $g(x)$, if the derivative $|g'(x)| < 1$, then we converge to the root. If $|g'(x)| > 1$, then we diverge from the root. 
+
+Let $e_i = |r-x_i|$ as the error at step $i$. A property of Fixed-Point iteration is that as $i$ goes to infinity, we have that $e_{i+1}/e_i = |g'(x)| = S$. Thus:
+
+$$\lim_{i\rightarrow\infty}\frac{e_{i+1}}{e_i}=S\lt 1$$
+
+The method is said to obey **linear convergence** with rate $S$.
+
+Let's quickly analyze the three functions we had in the previous section. The derivative of $g_1$ is $|g_1'(x)| = 3x^2$. When evaluated at the root $r\approx .68232780$ we get around $1.3967=S\gt 1$ thus it diverges.
+
+For the derivative $|g_2'(x)|=-\frac13(1-x)^{-\frac{2}3}$, when evaluated at the root $r$, we get around $0.716=S\lt 1$ and thus it converges.
+
+The derivative of $g_3$ is when evaluated at $r$ gives $0=S \lt\lt 1$. This is the smallest $S$ can get, leading to the fastest convergence rate.
+
+###### Theorem
+Assume that $g$ is continuously differentiable, that $g(r)=r$, and that $S=|g'(r)|\lt 1$. Then Fixed-Point Iteration converges linearly with rate $S$ to the fixed point $r$ for initial guesses close to $r$.
+
+According to the theorem, the error relationship $e_{i+1} = S e_i$ holds as convergence is approached.
 
 ###### Definition
 
-The real number $r$ is a **fixed point** of the function $g$ if $g(r)=r$.
+An iterative method is called **locally convergent** to $r$ if the method converges to $r$ for initial guesses sufficiently close to $r$.
+
+In other words, the method is locally convergent to $r$ if there exists a range $(r - \epsilon, r + \epsilon)$ where $\epsilon \gt 0$ such that all guesses in that range converges to $r$. The error relationships between $e_{i+1}$ and $e_i$ is only guaranteed to hold near $r$. Even if $S\lt 1$, if the initial guess is too far away, we might not get a convergence.
+
+
+### Stopping Criteria
+
+Unlike the case with bisection, the number of steps reqeuired for FPI to converge within a given tolerance is rarely predictable beforehand, thus we must have a stopping criterion.
+
+For a set tolerance, TOL, we may ask for an absolute error stopping criterion, 
+
+$$|x_{x+1}-x_i| \lt TOL$$
+
+or in the case the solution is not too near zero, the relative error stopping criterion:
+
+$$\frac{|x_{x+1}-x_i|}{|x_{i+1}|} \lt TOL$$
+
+We also tend to set a limit on the maximum number of steps in case the convergence fails.
+
+The Bisection Method is guaranteed to converge linearly. FPI is only locally convergent, and when it does converge it is linearly convergent. Bisection cuts uncertainty by 1/2 for each step. FPI may converge faster or slower than bisection, depending on whether $S$ is smaller or larger than 1/2.
+
+
+
+
+## Limits of Accuracy
+***
+
+
