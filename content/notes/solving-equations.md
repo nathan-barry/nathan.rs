@@ -298,8 +298,81 @@ The Bisection Method is guaranteed to converge linearly. FPI is only locally con
 
 
 
-
 ## Limits of Accuracy
 ***
 
+<h6>Definition</h6>
 
+Assume that $f$ is a function and that $r$ is a root, meaning that it satisfies $f(r)=0$. Assume that $x_a$ is an approximation to $r$. The **forward error** of the approximation $x_a$ is $|r-x_a|$ and the **backward error** is $|f(x_a)|$.
+
+Forwards error is the amount we would need to change the approximate solution $x_a$ to be correct.
+Backwards error is the amount we would need to change the function $f$ to make the equation balance with the output approximation $x_a$.
+
+If we plotted the function $f$, the forwards error would be the distance $x_a$ is from $r$ on the x axis. The backwards error would be the distance $f(x_a)$ is from $f(x)$ on the y axis, where $f(x)=0$.
+
+
+<h6>Definition</h6>
+
+Assume that $r$ is a root of the differentiable function $f$. If $0=f(r)=f'(r)=f''(r)=...=f^{m-1}(r)$ but $f^m(r)\ne 0$, then we say that $f$ has a root of **multiplicity** $m$ at $r$. We say that $f$ has a **multiple root** at $r$ if the multiplicity is greater than one. The root is called **simple** if the multiplicity is one.
+
+An example is $f(x) = x^2$. We have that $f(0)=0$, $f'(0)=0$, and $f''(0) = 2$. Thus, $x^2$ has a root of 0 with multiplicity 2.
+
+Because the graph of the function is relatively flat near a multiple root, a great disparity exists between backwards and forwards errors for nearby approximate solutions. The backwards error, measured in the vertical direction, is often much smaller than the forward error, measured in the horizontal direction.
+
+The backward and forward error is relevant to stopping criteria for equation solvers. Whether forward or backwards error is more appropriate to minimize depends on the circumstances surrounding the problem. For instance, for bisection, both errors are easy to measure. However, for FPI, the forward error would require us to know the true root, which we are trying to find, so the backwards error might be the only error we can observe.
+
+### Sensitivity of Root-Finding
+
+Small floating point errors in the equation translate into large errors in the root. A problem is called **sensitive** if small errors in the input, in this the actual equation being solved, lead to large errors in the output, or solution.
+
+To be clear, we are talking about when we modify the existing equation, not the input into the equation, i.g. modify $3x^2 + 1 \implies 3.001x^2 + 1$ where the input $x$ stays the same. The reason why we care is because with double precision, coefficients like 3 and 1 might be a tiny bit off. It is important to see how much the output is impacted by small floating point arithmetic errors in the calculation.
+
+We can see what causes this magnification of error by establishing a formula predicting how far a root moves when the equation is changed.
+Assume that the problem is to find a root $r$ of $f(x)=0$, but that a small change $\epsilon g(x)$ is made to the equation where $\epsilon$ is small. Let $\Delta r$ be the corresponding change in the root, so that
+
+$$f(r+\Delta r)+\epsilon g(r+\Delta r) = 0$$
+
+We can do a bunch of work (expanding via Taylor polynomials, approximating with small $\Delta r$) to show that
+
+$$\Delta r \approx -\frac{\epsilon g(r)}{f'(r)}$$
+
+if $\epsilon \lt\lt f'(r)$.
+
+###### Example
+Estimate the largest root of $P(x)=(x-1)(x-2)(x-3)(x-4)(x-5)(x-6)-10^{-6}x^7$.
+
+We can think of $P(x)$ as a "base" polynomial f(x) that has been perturbed. The goal is to understand how this perturbation effects the roots of $P(x)$ by analyzing how similar perturbations would effect the roots of the base polynomial $f(x)$.
+
+Let $f(x)=(x-1)(x-2)(x-3)(x-4)(x-5)(x-6)$ be the base polynomial and the perturbed amount, $\epsilon g(x)=10^{-6} x^7$, where $\epsilon=10^{-6}$ and $g(x)=x^7$. Without the $\epsilon g(x)$ term, the largest root is $r=6$. The question is, how far does the root move when we add the extra term?
+
+The Sensitivity Formula yields
+
+$$\Delta r\approx -\frac{\epsilon 6^7}{5!}=-2332.8\epsilon$$
+
+meaning that equation errors of relative size $\epsilon$ in $f(x)$ are magnified by a factor of over 2000 into the output root.
+We estimate that the largest output root of $P(x)$ to be $r+\Delta r=6-2332.8\epsilon=6.0023328$.
+
+### The Error Magnification Factor
+
+The estimate above is good enough to tell us how errors propagate in the root-finding problem. An error in the sixth digit of the input caused an error in the third digit of the output due to the factor of 2332.8. This factor is the of how much the root is perturbed due to the addition of $\epsilon g(x)$.
+
+For a general algorithm that produces an approximation $x_c$, we define its
+
+$$\textnormal{error magnification factor} = \frac{\textnormal{relative forward error}}{\textnormal{relative backward error}}$$
+
+The relative forward error is the relative change in the root due to the perturbation, which is $\frac{\Delta r}{r}$. The relative backwards error is the relative size of the perturbation, which is just $\epsilon$. The formula is
+
+$$\textnormal{error magnification factor} = \frac{|\Delta r/ r|}{|\epsilon g(r)/ g(r)|} = \frac{|g(r)|}{|r f'(r)|}$$
+
+Different perturbations can lead to different error magnification factors. For instance, with the equation $3x^2+1$, the first perturbation $3.001x^2 + 1$ might have a higher magnification factor than $3x^2 + 1.001$.
+
+The significance of the error magnification factor is that it tells us how many of the 16 digits of operation precision are lost. A problem with error magnification factor of 10^{12}, we expect to lose 12 of the 16 and ahve only four correct significant digits left in the root.
+
+### Conditioning
+
+The preceeding error magnification example shows the sensitivity of root finding when the equation itself changes. The **condition number** of a problem is defined to be the maximum error magnification over all input changes (changes of equation, of literal input x, etc). A problem with a high condition number is called **ill-conditioned** and a problem with a condition number near 1 is called **well-conditioned**.
+
+
+
+## Newton's Method
+***
