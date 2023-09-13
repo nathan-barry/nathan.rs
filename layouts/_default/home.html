@@ -42,7 +42,7 @@
                     {{ end }}
                 {{ end }}
             {{ end }}
-            {{ range first 4 (sort $filteredPages "Date" "desc") }}
+            {{ range first 3 (sort $filteredPages "Date" "desc") }}
                 <h5 class="list-link">
                     &#x2727;&nbsp; <a href="{{ .RelPermalink }}">{{ .Title }}</a>
                 </h5>
