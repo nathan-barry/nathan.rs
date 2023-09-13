@@ -397,7 +397,7 @@ def newton_method(x_0, f, f_derivative, num_iter):
     x_i = x_0
     for i in range(num_iter):
         print(f"x_{i}: {x_i}")
-        x_i -= (f(x_i) / f_derivative(x_i))
+        x_i -= f(x_i) / f_derivative(x_i)
     return x_i
 ```
 
@@ -505,3 +505,84 @@ Instead of using the derivative, we replace it a secant line which passes throug
 An approximation for the derivative at the current guess $x_i$ is the difference quotient:
 
 $$\frac{f(x_i)-f(x_{i-1})}{x_i - x_i{i-1}}$$
+
+Replacing $f'(x_i)$ in Newton's Method with this approximation yields the Secant Method.
+
+```python
+def secant_method(x_0, x_1, f, num_iter):
+    x_cur, x_last = x_1, x_0
+    for i in range(num_iter):
+        print(f"x_{i+1}: {x_cur}")
+        temp = x_cur
+        x_cur -= (f(x_cur)*(x_cur - x_last)) / (f(x_cur) - f(x_last))
+        x_last = temp
+    return x_cur
+```
+
+```python 
+f = lambda x: x**3 + x - 1
+
+print("x_7:", secant_method(0, 1, f, 6))
+```
+
+```
+x_1: 1
+x_2: 0.5
+x_3: 0.6363636363636364
+x_4: 0.6900523560209424
+x_5: 0.6820204196481856
+x_6: 0.6823257814098928
+x_7: 0.6823278043590257
+```
+
+Unlike FPI and Newton's Method, two starting guesses are needed initially. 
+
+### Method of False Position
+
+This method can be thought of as the bisection method and the secant method combined. It is similar to the bisection method, where we bracket a root, but instead of using a midpoint approximation, we use a secant approximation instead.
+
+Given an interval $[a,b]$ that brackets a root (assume that $f(a)f(b) \lt 0$), we define the next point as
+
+$$c=a-\frac{f(a)(a-b)}{f(a)-f(b)}=\frac{bf(a)-af(b)}{f(a)-f(b)}$$
+
+Unlike with the normal Secant Method, the new point is guaranteed to lie between the two brackets.
+
+Below is an implementation of the false point method using the same equation we used to originally test our bisection implementation.
+
+```python
+def false_point_method(f, a, b, steps):
+    f_a, f_b = f(a), f(b)
+    if f_a * f_b > 0:
+        raise Exception("Both same size")
+
+    for i in range(steps):
+        c = (b*f_a - a*f_b) / (f_a - f_b)
+        print(f"Guess {i + 1}:", c)
+        f_c = f(c)
+        if f_c == 0:
+            break
+        if f_a * f_c < 0:
+            b, f_b = c, f_c
+        else:
+            a, f_a = c, f_c
+
+false_point_method(lambda x: math.cos(x) - x, 0, 1, 10)
+```
+
+```
+Guess 1: 0.6850733573260451
+Guess 2: 0.736298997613654
+Guess 3: 0.7389453559657132
+Guess 4: 0.7390781308800257
+Guess 5: 0.7390847824489231
+Guess 6: 0.7390851156443783
+Guess 7: 0.7390851323349952
+Guess 8: 0.7390851331710708
+Guess 9: 0.7390851332129521
+Guess 10: 0.73908513321505
+```
+
+We can see that this converges significantly faster than our previous bisection implementation. However, this isn't always the case. The Bisection Method guarantees cutting the uncertainty by a half on each step. False Position makes no such promise, and for some examples it converges much more slowly.
+
+We can fix this by checking resorting to use the midpoint if our calculated $c$ does not cut the uncertainty by a half, guaranteeing that it should converge faster or at least as fast as the Bisection Method.
+

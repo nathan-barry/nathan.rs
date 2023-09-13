@@ -213,7 +213,7 @@ $$T(n)\le aT(n/b)+n^c$$
 
 can be understood as:
 
-- $T(n)$: The tie it takes to solve a problem of size $n$
+- $T(n)$: The time it takes to solve a problem of size $n$
 - $a$: The number of sub problems we divide into.
 - $n/b$: The size of each of these subproblems.
 - $n^c$: The "overhead" or time taken to split the problem and/or combine the solutions.
