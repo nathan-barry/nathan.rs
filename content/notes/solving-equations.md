@@ -376,3 +376,132 @@ The preceeding error magnification example shows the sensitivity of root finding
 
 ## Newton's Method
 ***
+
+Newton's Method usually converges much faster than the linearly convergent methods we previously saw. 
+
+To find a root of $f(x)=x$, a starting guess $x_0$ is given, and the tangent line to the function $f$ at $x_0$ is drawn. The intersection point of the tangent line and x-axis is an approximate root. We iterate this step to get better and better approximations.
+
+The tangent line at $x_0$ has slope given by the derivative $f'(x_0)$. We have that one point on the tangent line is $(x_0, f(x_0))$. The point-slope formula for the equation of a line is 
+
+$$y - f(x_0) = f'(x_0)(x-x_0)$$
+
+Looking for the intersection point of the tangent line with the x-axis is the same as substituting $y=0$.
+
+$$f'(x_0)(x-x_0) = 0 - f(x_0) \implies x-x_0 = \frac{f(x_0)}{f'(x_0)}$$
+$$x = x_0 + \frac{f(x_0)}{f'(x_0)}$$
+
+Solving for $x$ gives an approximation for the root, which we can $x_1$. We can iteratively repeat this step to get better approximations.
+
+```python
+def newton_method(x_0, f, f_derivative, num_iter):
+    x_i = x_0
+    for i in range(num_iter):
+        print(f"x_{i}: {x_i}")
+        x_i -= (f(x_i) / f_derivative(x_i))
+    return x_i
+```
+
+Let us try this with the equation $x^3 + x - 1 = 0$. After calculating the derivative, we will have:
+
+$$x_{i+1}=x_i-\frac{x_i^3+x_i-1}{3x_i^2+1}$$
+
+We can calculate the first 5 iterations with the snippet below:
+
+```python
+f = lambda x: x**3 + x - 1
+f_derivative = lambda x: 3*x**2 + 1
+
+print("x_5:", newton_method(-0.7, f, f_derivative, 7))
+```
+```
+x_0: -0.7
+x_1: 0.12712550607287465
+x_2: 0.957678119175661
+x_3: 0.7348277949945015
+x_4: 0.6845917706849266
+x_5: 0.6823321742044841
+x_6: 0.6823278038443323
+x_7: 0.6823278038280193
+```
+
+After only six steps, the root is know to eight correct digits. We can see that the number of correct places in $x_i$ approximately doubles on each iteration. This is a characterization of "quadratically convergent" methods.
+
+### Quadratic Convergence 
+
+###### Definition
+Let $e_i$ denote the error after step $i$ of an iterative method. The iteration is **quadratically convergent** if 
+
+$$M=\lim_{i\rightarrow\infty}\frac{e_i+1}{e_i^2}\lt\infty$$
+
+###### Theorem 
+Let $f$ be twice continuously differentiable and $f(r)=0$. If $f'(r)\ne 0$, then Newton's Method is locally and quadratically convergent to $r$. {{%sidenote%}}Proof is omitted since I myself do not understand it.{{%/sidenote%}} The error $e_i$ at steps $i$ satisfies 
+
+$$\lim_{i\rightarrow \infty}\frac{e_i+1}{e_i^2}=M$$
+
+where
+
+$$M = \frac{f''(r)}{2f'(r)}$$
+
+The error formula for this can be viewed as
+
+$$e_{i+1}\approx Me_i^2$$
+
+The approximation gets better as Newton's Method converges. This error formula should be compared with $e_{i+1} \approx Se_i$ for the linearly convergent methods, where $S = |g'(r)|$ for FPI and $S=1/2$ for bisection.
+
+Although the value of $S$ is critical for linearly convergent methods, the value of $M$ is less critical, because the formula involves the square of the previous error. Once when the error gets significantly below 1, squaring will cause a further decrease. As long as $M$ is not too large, the error will decrease as well.
+
+### Linear Convergence
+
+Newton's Method isn't always guaranteed to converge quadratically.
+Recall that we needed to be able to divide by the derivative of $f$.
+In cases where we have a root with a multiplicity higher than 1, this derivative will be 0, which breaks the presumption we've been making.
+In the case of $f(x)=x^2$, Newton's Method will converge in linear time. This is the general behavior of Newton's Method at multiple roots.
+
+```python
+print("x_7:", newton_method(1, lambda x: x**2, lambda x: 2*x, 7))
+```
+
+```
+x_0: 1
+x_1: 0.5
+x_2: 0.25
+x_3: 0.125
+x_4: 0.0625
+x_5: 0.03125
+x_6: 0.015625
+x_5: 0.0078125
+```
+
+We can see that the error is decreasing by a factor 2 each time. Thus, $S=1/2$, and we are linearly converging.
+
+If the multiplicity of a root is known in advance, convergence of Newton's Method can be improved with a small modification. We can just multiply $f(x_i)$ by the multiplicity and it converges quadratically again.
+
+$$x_{i+1} = x_i + \frac{mf(x_i)}{f'(x_i)}$$
+
+If we apply this to the example above, it converges perfectly after 1 step. {{%sidenote%}}This is actually the case for any function of the form $f(x)=x^m$, in that it will converge after one step.{{%/sidenote%}}
+
+```python
+print("x_1:", newton_method(1, lambda x: 2*x**2, lambda x: 2*x, 1))
+```
+
+```
+x_0: 1
+x_1: 0.0
+```
+
+An important thing to note is that Newton's method, just like FPI, is not guaranteed to converge to a root. It is only guaranteed to converge if the initial guess is somewhat close to the root.
+
+
+
+## Root-Finding Without Derivatives
+***
+
+In some circumstances, we might not be able to calculate the derivative. There are a few methods that converge faster than linear convergence. The secant method is very similar to Newton's Method, but we are using a secant line approximation of the tangent line. There are also variants that we'll discuss below.
+
+### Secant Method and Variants
+
+Instead of using the derivative, we replace it a secant line which passes through the last two guesses. The intersection point of the secant line and the x-axis is the new guess.
+
+An approximation for the derivative at the current guess $x_i$ is the difference quotient:
+
+$$\frac{f(x_i)-f(x_{i-1})}{x_i - x_i{i-1}}$$
