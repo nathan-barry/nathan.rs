@@ -32,15 +32,13 @@ Below are some threads basics and their relation to processes:
 - A single process can have multiple threads, but it must have at least one.
 - Threads essentially virtualize the processor, making it seem as though many actions are happening concurrently when, in reality, they might be taking turns rapidly.
 
-#### Thread Properties 
-- *States of a Thread:*
-    - Similar to processes, threads also traverse a set of the same states: New, Ready, Running, Blocking, and Terminated.
+Similar to processes, threads also traverse a set of the same states: New, Ready, Running, Blocking, and Terminated.
 
-- *Threads and Memory Addressing:*
-  - A process sets an address space. However, **all threads within the same process share this address space.**
-  - Thus, any data of the process, especially global data, can be accessed by all its threads.
-  - Notably, while each thread maintains its own stack, **they all share the heap**. A potential problem arises here since any thread can modify another thread's stack, typically seen as a bug.
-  - **Each active thread has the exclusive use of CPU registers.** If a thread is preempted, its register values are preserved as part of its state, allowing the succeeding thread to utilize the registers.
+#### Threads and Memory Addressing
+- A process sets an address space. However, **all threads within the same process share this address space.**
+- Thus, any data of the process, especially global data, can be accessed by all its threads.
+- Notably, while each thread maintains its own stack, **they all share the heap**. A potential problem arises here since any thread can modify another thread's stack, typically seen as a bug.
+- **Each active thread has the exclusive use of CPU registers.** If a thread is preempted, its register values are preserved as part of its state, allowing the succeeding thread to utilize the registers.
 
 #### Threads & Processes Data Structures
   - *Process Control Block (PCB):*
@@ -75,10 +73,6 @@ Below shows some of the efficiency advantages one gets from threads.
 
 In summary, threads provide a more granular and lightweight approach to concurrent execution compared to processes. By understanding threads, developers can create more efficient and responsive applications.
 
-
-
-## Utilizing Threads in Programming
-***
 
 ### Understanding Thread Creation
 
