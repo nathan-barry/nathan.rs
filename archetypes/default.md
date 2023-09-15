@@ -5,3 +5,8 @@ date = {{ .Date }}
 tags = [""]
 status = "Work In Progress"
 +++
+
+{{< toc >}}
+
+
+
