@@ -3,6 +3,7 @@ title = "Common Random Variables"
 description = "An overview of different common random variables and their properties (and perhaps a few uncommon ones too)."
 date = 2023-09-06T11:40:24-05:00
 tags = ["Probability Notes"]
+priority = 2
 +++
 
 {{< toc >}}

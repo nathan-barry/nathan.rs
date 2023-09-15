@@ -4,6 +4,7 @@ description = "My notes over chapter 1 of Timothy Sauer's Numerical Analysis tex
 date = 2023-09-06T12:19:28-05:00
 tags = ["Numerical Analysis Notes"]
 status = "Work In Progress"
+priority = 2
 +++
 
 {{< toc >}}

@@ -6,7 +6,7 @@
     <h5>Tag: {{ .Title }}</h5>
 
     <!-- List All Posts -->
-    {{ range .Data.Pages }}
+    {{ range sort .Data.Pages "Params.priority" "asc"}}
         <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
     {{ if .Date }}
       {{ $wordCount := len (split .Content " ") }}

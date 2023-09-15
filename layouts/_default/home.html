@@ -115,12 +115,24 @@
             <div class="tag-column">
                 <h3><a href="/tags/{{ $name }}">{{ $name | humanize | title }}</a></h3>
                 <hr>
-                {{ range .Pages }}
+                
+                <!-- Check if there are more than 5 posts and limit display to the first 5 -->
+                {{ $postsToShow := .Pages }}
+                {{ if gt (len .Pages) 5 }}
+                    {{ $postsToShow = first 5 .Pages }}
+                {{ end }}
+
+                <!-- Sort and display posts -->
+                {{ range sort $postsToShow "Params.priority" "asc" }}
                 <h5 class="list-link">
                     &#x2727;&nbsp; <a href="{{ .RelPermalink }}">{{ .Title }}</a>
                 </h5>
                 {{ end }}
-                <!-- <h5><i><a class="view-all" href="/tags/{{ $name }}">View All</a></i></h5> -->
+
+                <!-- Display 'View All' link if there are more than 5 posts -->
+                {{ if gt (len .Pages) 5 }}
+                    <h5><i><a class="view-all" href="/tags/{{ $name }}">View All</a></i></h5>
+                {{ end }}
             </div>
             {{ end }}
         {{ end }}

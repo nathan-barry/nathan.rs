@@ -4,6 +4,7 @@ description = ""
 date = 2023-09-15T08:55:38-05:00
 tags = ["Operating Systems Notes"]
 status = "Work In Progress"
+priority = 3
 +++
 
 {{< toc >}}
