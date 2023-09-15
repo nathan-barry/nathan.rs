@@ -4,7 +4,7 @@ description = ""
 date = 2023-09-15T14:01:27-05:00
 tags = ["Operating Systems Notes"]
 status = "Work In Progress"
-priority = 7
+priority = 5
 +++
 
 {{< toc >}}
@@ -154,7 +154,6 @@ CondVar::Broadcast(lock) {
     return
 }
 ```
-
 
 
 
