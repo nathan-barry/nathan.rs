@@ -46,7 +46,8 @@ Similar to processes, threads also traverse a set of the same states: New, Ready
   - *Thread Control Block (TCB):* 
     - This holds data unique to a thread, such as the stack pointer, PC, thread state (running, etc.), register values, and a pointer back to its PCB.
 
-### Why Use Threads?
+## Why Use Threads?
+***
 There are a few reasons on why to use threads. One reason is for **Structural Representation.** We often think linearly, but many tasks in the real world happen concurrently. Threads allow us to better align our software with this reality.
 
 We also get a **Performance Boost.** While one thread waits (for example, for some I/O operation), another can continue processing. Moreover, in systems with multiple processors, different threads can run on different processors simultaneously.
