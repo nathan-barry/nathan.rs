@@ -11,38 +11,24 @@ priority = 1
 
 
 
-## An Insight into Processes
+## Processes
 ***
 
-The operating system (OS) is an intricate part of computer systems, managing the computer's hardware and providing services for computer programs. Over time, the OS has taken on multiple roles due to technological and economic shifts. Here's a refined version of your notes on the topic of processes in operating systems.
+A process is essentially a program in its execution phase. While a program is a static entity (akin to a blueprint), a process is dynamic and consists of the program combined with its current execution state.
 
+Processes are the basic execution unit within an OS. Processes also need resources for execution: memory (for code & data) and CPU registers.
 
-<!-- ### **The Core Roles of the OS** -->
-
-<!-- 1. **The Referee**: Manages resources and ensures that applications don’t interfere with each other. -->
-<!-- 2. **The Illusionist**: Provides the impression to processes that they are using private, virtualized resources. -->
-<!-- 3. **The Glue**: Provides standard libraries and user interfaces to bind different components together. -->
-
-<!-- *Note*: The emergence of these roles was evolutionary; they didn’t instantly appear in their entirety. -->
-
-
-### **Processes Basics**
-
-**Definition**: A process is essentially a program in its execution phase. While a program is a static entity (akin to a blueprint), a process is dynamic and consists of the program combined with its current execution state.
-
-###### Some characteristics
-Processes are the basic execution unit within an OS. Multiple processes can execute instances of the same program. For instance, two users may run the same instance of the GNU C compiler, each as a distinct process. Processes also need resources for execution: memory (for code & data) and CPU registers.
+The process serves two main purposes:
+1. **Protection**: It represents an application program executing with limited rights to prevent interference.
+2. **Efficiency**: Despite the restrictions, it ensures hardware is used efficiently and allows for secure communication between processes.
   
-
-#### **Deciphering Process State**
-
 A process's state encompasses:
 - **Address Space**: Contains the program's code, static data, execution stack (with the call chain), and the heap (for dynamic data).
 - **Registers & Their Contents**: This includes the heap pointer (HP), the program counter (PC) that points to the next instruction, and the stack pointer (SP).
 - **OS Resources**: This could be open files, the process identifier (PID), and the process's current execution status (like ready, running, etc.).
 
 
-#### **Life Cycle of a Process**
+### **Life Cycle of a Process**
 
 At any given point, a process can be:
 - **New**: The OS sets up the process state.
@@ -61,45 +47,11 @@ To keep track of processes, the OS employs a **Process Control Block (PCB)**. He
   
 - **Purpose of PCB**: It's a dynamic data structure in the kernel, maintained in memory. It represents the execution state and position of each process when it isn't actively executing. PCBs are initialized when a process is formed and discarded once the process ends.
 
-#### **Processes as Application Boxes**
-
-The process serves two main purposes:
-1. **Protection**: It represents an application program executing with limited rights to prevent interference.
-2. **Efficiency**: Despite the restrictions, it ensures hardware is used efficiently and allows for secure communication between processes.
 
 
 
 ## Dual Mode Execution
 ***
-
-<!-- Delving deeper into the realm of Operating Systems, let's explore the concept of Dual Mode Execution and the various interfaces the OS operates with. -->
-
-
-<!-- ### **OS Interfaces** -->
-
-<!-- The operating system interacts with various components through three primary interfaces: -->
-
-<!-- 1. **Abstract Machine Interface (AMI)**: -->
-<!--    - Serves as the bridge between the OS and applications. -->
-<!--    - Comprises the API, the memory access model, and the set of instructions executable by law. -->
-  
-<!-- 2. **Application Programming Interface (API)**: -->
-<!--    - Provides function calls for applications to utilize. -->
-
-<!-- 3. **Hardware Abstraction Layer (HAL)**: -->
-<!--    - Creates an abstraction of the hardware for the internal functioning of the OS. -->
-
-
-<!-- #### **The Logical Structure of the OS** -->
-
-<!-- - **Applications & AMI/API**: This includes applications like Quake, system utilities, shells, SQL servers, and windowing & graphics. -->
-  
-<!-- - **HAL**: At this level, you have CPU scheduling, networking, virtual memory, file systems, access control, process management, and device drivers. -->
-  
-<!-- - **Hardware-specific Software**: This encompasses elements like disks, cache, physical memory, TLB, and other hardware devices. -->
-
-
-<!-- ### **Enforcement of Restricted Rights by the OS** -->
 
 A vital question arises: how does the OS maintain the boundaries for processes?
 
@@ -118,7 +70,7 @@ A vital question arises: how does the OS maintain the boundaries for processes?
 However, in kernel mode, the OS has the freedom to perform all these operations. Attempting a privileged operation in user mode results in a processor exception, handing control over to the kernel.
 
 
-### **Transitioning Between User Mode and Kernel Mode**
+### **Transitioning Between User and Kernel Mode**
 
 Switching from user to kernel mode is often termed as "entering the kernel". This transition can occur due to:
 
@@ -289,13 +241,3 @@ The `wait()` system call allows a parent process to pause until one of its child
 - **Debugging Support**: The `ptrace()` system call lets a process be controlled by another, enabling debugging mechanisms like setting breakpoints and examining registers.
 
 - **Time Management**: Functions like `sleep()` allow processes to be put on a timer queue, essentially setting up alarms.
-
-### Practical Tips
-
-To manage processes in a UNIX system:
-
-1. Use `ps -au <login_name>` to view running processes.
-2. If you need to terminate a process, determine its PID with `ps –au <login_name> | grep <program_name>`.
-3. Use `kill -9 <PID>` to kill the desired process.
-
-Understanding process control is essential when working with operating systems, as it governs how tasks are managed and resources are allocated. Properly harnessing these tools ensures efficient system performance and task execution.
