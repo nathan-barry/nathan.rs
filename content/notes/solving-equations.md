@@ -505,7 +505,7 @@ Instead of using the derivative, we replace it a secant line which passes throug
 
 An approximation for the derivative at the current guess $x_i$ is the difference quotient:
 
-$$\frac{f(x_i)-f(x_{i-1})}{x_i - x_i{i-1}}$$
+$$\frac{f(x_i)-f(x_{i-1})}{x_i - x_{i-1}}$$
 
 Replacing $f'(x_i)$ in Newton's Method with this approximation yields the Secant Method.
 
