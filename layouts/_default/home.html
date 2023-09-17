@@ -134,7 +134,7 @@
 
                 <!-- Display 'View All' link if there are more than 5 posts -->
                 {{ if gt (len $sortedPosts) 5 }}
-                    <h5><i><a class="view-all" href="/tags/{{ $name }}">View All...</a></i></h5>
+                    <h5><i><a class="view-all" href="/tags/{{ $name }}">View All ({{ len $sortedPosts }})</a></i></h5>
                 {{ end }}
             </div>
             {{ end }}
