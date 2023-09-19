@@ -5,25 +5,28 @@
     <!-- Title -->
     <h5>Tag: {{ .Title }}</h5>
 
+    {{ $name := .Title }}
     <!-- List All Posts -->
     {{ range sort .Data.Pages "Params.priority" "asc"}}
         <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
-    {{ if .Date }}
-      {{ $wordCount := len (split .Content " ") }}
-      {{ $readingTime := div $wordCount 150 }}
-      <p><i>
-        {{ .Date.Format "January, 02 2006" }} &bull; 
-        {{ if .Params.Status }}
-          {{ .Params.Status }} &bull; 
+        {{ if .Date }}
+          {{ $wordCount := len (split .Content " ") }}
+          {{ $readingTime := div $wordCount 150 }}
+          <p><i>
+            {{ .Date.Format "January, 02 2006" }} &bull; 
+            {{ if .Params.Status }}
+              {{ .Params.Status }} &bull; 
+            {{ end }}
+            {{ $readingTime }} min read &bull; 
+            {{ $wordCount }} words
+            {{ if ne .Date.Unix .Lastmod.Unix }}
+              &bull; Updated {{ .Lastmod.Format "January, 06 2006" }}
+            {{ end }}
+          </i></p>
         {{ end }}
-        {{ $readingTime }} min read &bull; 
-        {{ $wordCount }} words
-        {{ if ne .Date.Unix .Lastmod.Unix }}
-          &bull; Updated {{ .Lastmod.Format "January, 06 2006" }}
+        {{ if not (strings.HasSuffix $name "Notes") }}
+            <p>{{ .Description }}</p>
         {{ end }}
-      </i></p>
-    {{ end }}
-        <p>{{ .Description }}</p>
     {{ end }}
     </div>
 </div>
