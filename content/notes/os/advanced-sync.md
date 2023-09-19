@@ -1,9 +1,8 @@
 +++
 title = "Transactions & Advanced Synchronization"
-description = ""
+description = "These are my notes over Professor Norman's Operating Systems course. Notes closely follow the in class lecture slides."
 date = 2023-09-15T15:18:51-05:00
 tags = ["Operating Systems Notes"]
-status = "Work In Progress"
 priority = 6
 +++
 
@@ -12,7 +11,6 @@ priority = 6
 
 ## Advanced Synchronization
 ***
-
 
 ### One Big Lock Approach
 - **Advantage:** Simplicity

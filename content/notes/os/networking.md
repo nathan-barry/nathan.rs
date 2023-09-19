@@ -1,9 +1,8 @@
 +++
-title = "Networking"
-description = ""
+title = "Networking & Sockets"
+description = "These are my notes over Professor Norman's Operating Systems course. Notes closely follow the in class lecture slides."
 date = 2023-09-16T13:56:14-05:00
 tags = ["Operating Systems Notes"]
-status = "Work In Progress"
 priority = 16
 +++
 
@@ -257,3 +256,95 @@ Data transfer over the internet, whether it's a simple web page request or strea
   - **Overhead**: This refers to the CPU time required to prepare data for transfer or to process incoming data. This includes time taken for protocol processing.
 
 
+
+## Ports and Sockets
+***
+
+At their core, clients and servers exchange data by transmitting streams of bytes over connections.
+
+Every process in a system is identified uniquely by a port. Technically, a port is a 16-bit number that acts as an identifier for a process.
+
+- **Well-known Port**: Certain ports are designated for specific services. For instance, port 80 is primarily associated with web servers.
+    
+- **Ephemeral Port**: These are ports automatically assigned by the client's kernel when a connection request is made.
+        
+Sockets, integral to internet applications today, were first introduced in the early '80s. They came as part of the original Berkeley distribution of UNIX, which included an early version of the Internet protocols.
+
+A socket can be visualized as the endpoint of a connection. Each socket is associated with a unique address, which is a combination of an IP address and a port, often represented as `IPaddress:port`.
+
+### Dissecting an Internet Connection
+
+- **Client and Server Addresses**: In any internet connection, both the client and server have unique addresses that determine the endpoints of communication. An example:
+    - Client socket address: `128.2.194.242:51213`
+    - Server socket address: `208.216.181.15:80`
+
+   This pairing of client and server addresses is called a *Connection socket pair*.
+
+   - **Client Host Address**: `128.2.194.242`
+   - **Server Host Address**: `208.216.181.15`
+
+    Notably, `80` is a well-known port associated with web servers, while `51213` represents an ephemeral port that is allocated dynamically by the kernel.
+
+### Understanding Well-known Ports and Service Names
+
+- **Defined Ports**: For seamless operation, certain services are permanently assigned specific ports, known as "well-known ports". Alongside, these ports also have corresponding service names to make identification easier. Here are some examples:
+    - Echo server: `7/echo`
+    - SSH servers: `22/ssh`
+    - Email servers: `25/smtp`
+    - Web servers: `80/http`
+    - HTTPS servers: `443/https`
+
+- **Port-to-Service Mapping**: The relationship between well-known ports and their respective service names can be found in the `/etc/services` file on Linux machines.
+
+### The Nuts and Bolts of Sockets
+
+- **Defining a Socket**:
+    - From the kernel's perspective, a socket is merely an endpoint of communication.
+    - For an application, a socket is a gateway to the network. It's seen as a file descriptor that permits the application to read and write data from and to the network.
+    
+- **Unix Philosophy**: In Unix and its derivatives, all I/O devices, including networks, follow a simple philosophy: they're modeled as files. This makes it intuitive for applications to interact with the network. By simply reading from or writing to socket descriptors, clients and servers can communicate.
+
+    ``` 
+    Client      Server
+    clientfd -> serverfd 
+    ```
+
+    One key distinction that sets apart regular file I/O from socket I/O is the methodology through which applications "open" the socket descriptors.
+
+
+
+## Client-Server Interaction
+***
+
+* **Server Side**:
+    1. `getaddrinfo`: Resolve server's own hostname.
+    2. `socket`: Create a socket descriptor.
+    3. `bind`: Assign the server's address to the socket.
+    4. `listen`: Listen for incoming connection requests.
+    5. `accept`: Accept the connection from a client.
+    
+    Upon accepting a client's connection request, the server enters into a communication session, exchanging data until either side chooses to end it.
+
+* **Client Side**:
+    1. `getaddrinfo`: Translate the server's hostname to an address.
+    2. `socket`: Create a socket descriptor.
+    3. `connect`: Initiate a connection to the server.
+    
+    After successfully connecting, the client is in the communication session, sending and receiving data.
+
+This interaction continues with data being exchanged in the form of `send()` and `recv()` calls. The session concludes when the connection is closed, typically marked by an end-of-file (EOF) event.
+
+### Distinguishing Between Listening and Connected Descriptors
+
+The server works with two kinds of socket descriptors:
+
+1. **Listening Descriptor**:
+    - Acts as the server's "door" for new connection requests.
+    - Once created, it's there for the lifetime of the server.
+
+2. **Connected Descriptor**:
+    - Represents an active connection between the client and the server.
+    - Every time a new client connects, a fresh connected descriptor is minted.
+    - This descriptor's life is transient; it lasts just long enough to service the client.
+
+This distinction allows the server to manage multiple client connections at the same time.

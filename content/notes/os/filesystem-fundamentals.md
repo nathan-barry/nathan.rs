@@ -1,9 +1,8 @@
 +++
 title = "Filesystem Fundamentals"
-description = ""
+description = "These are my notes over Professor Norman's Operating Systems course. Notes closely follow the in class lecture slides."
 date = 2023-09-16T13:26:37-05:00
 tags = ["Operating Systems Notes"]
-status = "Work In Progress"
 priority = 14
 +++
 

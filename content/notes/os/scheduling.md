@@ -1,9 +1,8 @@
 +++
 title = "Scheduling Policies & Boot Sequence"
-description = ""
+description = "These are my notes over Professor Norman's Operating Systems course. Notes closely follow the in class lecture slides."
 date = 2023-09-15T08:09:21-05:00
 tags = ["Operating Systems Notes"]
-status = "Work In Progress"
 priority = 2
 +++
 
