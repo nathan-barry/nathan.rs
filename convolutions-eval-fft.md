@@ -1,5 +1,5 @@
 +++
-title = "Convolutions & Polynomial Interpolation"
+title = "Convolutions, Polynomial Multiplication, & Fast Fourier Transforms"
 description = ""
 date = 2023-09-18T15:00:50-05:00
 tags = ["Algorithms Notes"]
@@ -49,25 +49,23 @@ priority = 4
 3. **Implication:** The process of computing the coefficients of $ C(x) $ is equivalent to computing the convolution of vectors $ a $ and $ b $.
 
 
-### Fundamental Theorem of Algebra
-
-**Statement:** Every non-zero, degree-$ n $ polynomial with complex coefficients has, when counted with multiplicity, exactly $ n $ complex roots.
-
-**Implication:** This theorem guarantees that every polynomial equation has a solution in the complex number domain. Even if the polynomial doesn't have real roots, it will have complex roots.
 
 
 ## Unique Interpolating Polynomial
 ***
 
-1. **Theorem:** Given $ n + 1 $ data points $ (x_0, y_0), (x_1, y_1), ..., (x_n, y_n) $ where the $ x_k $'s are distinct, there exists a unique polynomial $ p(x) $ of degree at most $ n $ such that $ p(x_k) = y_k $ for all $ 0 \leq k \leq n $.
+**Theorem:** Given $ n + 1 $ data points $ (x_0, y_0), (x_1, y_1), ..., (x_n, y_n) $ where the $ x_k $'s are distinct, there exists a unique polynomial $ p(x) $ of degree at most $ n $ such that $ p(x_k) = y_k $ for all $ 0 \leq k \leq n $.
 
-2. **Existence:** An interpolating polynomial of degree at most $ n $ can be represented as:
+**Existence:** An interpolating polynomial of degree at most $ n $ can be represented as:
    $$
    \sum_{0 \leq s \leq n} \left( \prod_{0 \leq t \leq n, t \neq s} \frac{x - x_t}{x_s - x_t} \right) y_s
    $$
-   This formula gives the polynomial that passes through the given data points.
+This formula gives the polynomial that passes through the given data points.
 
-3. **Uniqueness:** Using the fundamental theorem of algebra, we can establish that this polynomial is unique. If there were two different polynomials passing through the same set of points, their difference would have more than $ n $ roots, contradicting the theorem.{{%sidenote%}}This point is essential. Because of uniqueness, we can represent the polynomial by its points instead of by its coefficients.{{%/sidenote%}}
+**Uniqueness:** Using the fundamental theorem of algebra {{%sidenote%}}
+**Fundamental Theorem of Algebra:** Every non-zero, degree-$ n $ polynomial with complex coefficients has, when counted with multiplicity, exactly $ n $ complex roots.
+In other words, even if the polynomial doesn't have real roots, it will have complex roots.
+{{%/sidenote%}}, we can establish that this polynomial is unique. If there were two different polynomials passing through the same set of points, their difference would have more than $ n $ roots, contradicting the theorem.
 
 ### A “Point-Based” Representation of a Polynomial
 
@@ -81,33 +79,43 @@ priority = 4
 
 4. **Flexibility:** There are multiple point-based representations for a polynomial since we can choose different sets of $ x_k $'s.
 
-### A Framework for Polynomial Multiplication
+
+## Polynomial Multiplication: The Meat and Potatoes
+***
 
 **Concept:** To multiply two polynomials, we can use their point-based representations.
 
-1. **Steps:**
-   - **Selection:** Choose a set $ S $ of at least $ 2n - 1 $ distinct values.
-   - **Evaluation:** Evaluate polynomials $ A(x) $ and $ B(x) $ at all values in $ S $ to get their point-based representations.
-   - **Multiplication:** For each $ x $ in $ S $, compute $ C(x) = A(x) \times B(x) $ to get a point-based representation of $ C(x) $.
-   - **Recovery:** Obtain the coefficients of $ C(x) $ using polynomial interpolation.
+This is the main point of this post.{{%sidenote%}}**This point is critical.** Everything in this post is about efficiently solving Polynomial Multiplication, which is the same as Vector Convolutions, in $O(n\log n)$ time.{{%/sidenote%}} Vector Convolution is essentially the same thing as Polynomial Multiplication. We saw above a way to do it in $O(n^2)$ time, but we can do it in $O(n \log n)$ time. Everything beyond this section are all components to solving this problem.
+
+**Steps:**
+- **Selection:** Choose a set $ S $ of at least $ 2n - 1 $ distinct values.
+- **Evaluation:** Evaluate polynomials $ A(x) $ and $ B(x) $ at all values in $ S $ to get their point-based representations.
+- **Multiplication:** For each $ x $ in $ S $, compute $ C(x) = A(x) \times B(x) $ to get a point-based representation of $ C(x) $.
+- **Recovery:** Obtain the coefficients of $ C(x) $ using polynomial interpolation.
 
 
 
-## Polynomial Evaluation
+## Polynomial Evaluation: A Tool
 ***
 
 **Goal:** Efficiently evaluate a polynomial at multiple points and interpolate to find its coefficients.
 
-1. **Horner’s Rule:** A method to evaluate a polynomial at a single point using $ \Theta(n) $ operations.
+- **Horner’s Rule:** A method to evaluate a polynomial at a single point using $ \Theta(n) $ operations.
 
-2. **Efficiency Question:** Do we need $ \Theta(n^2) $ operations to evaluate the polynomial at $ 2n - 1 $ points? The answer is no; we can be more efficient.
+- **Efficiency Question:** Do we need $ \Theta(n^2) $ operations to evaluate the polynomial at $ 2n - 1 $ points? The answer is no; we can be more efficient.
 
-3. **Complex Numbers:** To achieve this efficiency, we'll delve into some properties of complex numbers.
+- **Complex Numbers:** To achieve this efficiency, we'll delve into some properties of complex numbers.
+
+Now what I'm about to say is critical. The reason why we care about polynomial evaluation is because we can evaluate $2n-1$ points. This number comes from the number of terms in polynomial $C(x)$, which is the product of $A(x)$ and $B(x)$ which we are just acting like they both have $n$ terms (and thus require $n$ points to evaluate each).
+
+Polynomial multiplication normally takes $O(n^2)$ time. We can evaluate at $2n-1$ points to get a Point Set representation of the polynomials $A(x)$ and $B(x)$ in $O(n\log n)$ time and can then get $C(x)$ in linear time.
+
+Below all explains how to evaluate $2n-1$ points in $O(n\log n)$ time.
 
 ### Euler’s Formula
 
 **Theorem:** For any real number $ \theta $, 
-$$ \exp(i\theta) = \cos \theta + i \sin \theta $$
+$$ e^{i\theta} = \cos \theta + i \sin \theta $$
 
 1. **Implication:** The complex number $ e^{i\theta} $ lies on the unit circle in the complex plane. Its position is determined by an angle $ \theta $ (measured counterclockwise) from the positive real axis.
 
@@ -120,7 +128,7 @@ $$ \exp(i\theta) = \cos \theta + i \sin \theta $$
 
 **Definition:** The complex roots of unity are the solutions to the equation $x^N = 1$, where $N$ is a positive integer.
 
-1. **Roots Representation:** For any positive integer $N$, let $\omega_N$ be defined as $ \exp(2\pi i/N) $. The set $S_N$ contains $N$ complex numbers defined as $\\{ \omega_N^k | 0 \leq k < N \\}$.
+1. **Roots Representation:** For any positive integer $N$, let $\omega_N$ be defined as $ e^{2\pi ik/N} $. The set $S_N$ contains $N$ complex numbers defined as $\\{ \omega_N^k | 0 \leq k < N \\}$.
 
 2. **Position on Complex Plane:** Any integer power $k$ of $\omega_N$ lies on the unit circle in the complex plane. Its position is determined by an angle $2\pi k/N$ from the positive real axis.
 
@@ -129,7 +137,7 @@ $$ \exp(i\theta) = \cos \theta + i \sin \theta $$
 
 **Lemma 1:** For any integer $k$ that isn't a multiple of $N$, $\omega_N^k$ is a root of the polynomial $\sum_{0 \leq s < N} x^s$.
 
-**Proof:** We know that $x^N - 1 = (x - 1) \sum_{0 \leq s < N} x^s$. Since $\omega_N^k$ is a root of $x^N - 1$ and not a root of $x - 1$, it must be a root of the polynomial $\sum_{0 \leq s < N} x^s$.
+**Proof:** We know that $x^N - 1 = (x - 1) \sum_{0 \leq s < N} x^s$.{{%sidenote%}}We know this since $x^N-1$ is a geometric series.{{%/sidenote%}} Since $\omega_N^k$ is a root of $x^N - 1$ and not a root of $x - 1$, it must be a root of the polynomial $\sum_{0 \leq s < N} x^s$.
 
 ### Fast Polynomial Evaluation
 
@@ -151,7 +159,7 @@ $$ \exp(i\theta) = \cos \theta + i \sin \theta $$
 
 
 
-## Polynomial Interpolation
+## Polynomial Interpolation: A Tool
 ***
 
 **Definition:** Polynomial interpolation is the process of determining a polynomial that fits a given set of points.
@@ -162,7 +170,7 @@ $$ \exp(i\theta) = \cos \theta + i \sin \theta $$
 
 3. **New Polynomial:** Let $ D(x) $ be the polynomial defined as $ D(x) = \sum_{0 \leq s < 2n} C(\omega_s^{2n})x^s $.
 
-**Lemma 2:** For any integer $ k $ such that $ 1 \leq k \leq 2n $, $ D(\omega_k^{2n}) = 2nc_{2n-k} $.
+**Lemma 2:** For any integer $ k $ such that $ 1 \leq k \leq 2n $, $ D(\omega_k^{2n}) = 2nc_{2n-k} $.{{%sidenote%}}Basically, evaluating a polynomial $D(x)$ at the roots of unity (where the coefficients of $D(x)$ are the output of $C(x)$ at the roots of unity which is already calculated from the point-based representation) we get a coefficient of $C(x)$ back.{{%/sidenote%}}
 
 #### Proof of Lemma 2
 
@@ -219,5 +227,3 @@ Alright, let's provide a detailed and intuitive summary of the concepts presente
 4. **Generalization:** While our focus has been on cases where $ N $ is a power of 2, the FFT can be generalized to handle any $ N $ efficiently.
 
 **In Layman's Terms:** Imagine you have two large numbers, and you want to multiply them. Instead of multiplying them directly, you transform these numbers into a different representation (like changing a song into its frequency components). In this new representation, multiplication becomes easier. After multiplying, you transform the result back to get your answer. This is the essence of the FFT when applied to polynomial multiplication.
-
-I hope this summary provides a clearer understanding of the concepts. If you have further questions or need more details on any topic, please let me know!
