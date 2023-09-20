@@ -71,7 +71,7 @@ Instead of trying all possible cuts, we can use previously computed values to de
 
 **Key Concepts:**
 1. **Value of Rod**: Let $ v_i $ denote the value of a rod of length $ i $.
-2. **Recursive Relation**: If we decide to cut a piece of length $ j $ from the rod of length $ i $, the value we get is the price of the piece of length $ j $ plus the value of the remaining rod of length $ i-j $. This gives us the relation: $ v_i = p_j + v_{i-j} $.
+2. **Recursive Relation**: If we decide to cut a piece of length $ j $ from the rod of length $ i $, the value we get is the price of the piece of length $ j $ plus the value of the remaining rod of length $ i-j $. This gives us the relation: $ v_i = v_j + v_{i-j} $.
 3. **Computing $ v_i $**: To find the maximum value for a rod of length $ i $, we check all possible $ j $ values (from 1 to $ i $) and select the one that gives the maximum value. This can be done in $ O(i) $ operations.
 
 ### Dynamic Programming Solution
@@ -80,7 +80,7 @@ Dynamic programming is a method for solving problems by breaking them down into 
 **Key Concepts:**
 1. **Recursive Formula**: 
    - $ v_i = 0 $ if $ i = 0 $
-   - $ v_i = \max_{1 \leq j \leq i} (p_j + v_{i-j}) $ if $ i > 0 $
+   - $ v_i = \max_{1 \leq j \leq i} (v_j + v_{i-j}) $ if $ i > 0 $
 2. **Computing All Values**: We can compute all values from $ v_0 $ to $ v_n $ in $ O(n^2) $ operations.
 3. **Tracing the Solution**: Once we have the table of $ v_i $ values, we can trace back to find the actual cuts that give the optimal solution. This can be done in $ O(n^2) $ operations.
 4. **Optimizing the Trace**: If we also store an "optimal j-value" for each $ i $ while computing the $ v_i $ values, we can recover the optimal solution in just $ O(n) $ operations.
@@ -103,7 +103,7 @@ def rodCutting(prices, n):
         values[i] = max_val
 
     # Trace the solution to find the cuts
-    cuts = empty list
+    cuts = []
     while n > 0:
         for j from 1 to n:
             if values[n] == prices[j-1] + values[n-j]:
