@@ -1,9 +1,8 @@
 +++
-title = "Divide and Conquer"
+title = "Recurrence Relations, Divide & Conquer"
 description = ""
 date = 2023-09-23T15:05:06-05:00
 tags = ["Algorithms Notes"]
-status = "Work In Progress"
 priority = 5
 +++
 

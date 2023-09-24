@@ -598,6 +598,7 @@ footer .theme-by {
 .sub {
     border: 1px dashed;
     border-color: #191919;
+    margin-left: 0rem;
 }
 
 .sidenote .katex-html { /* MAKE THIS WORK TODO */
