@@ -388,8 +388,8 @@ $$y - f(x_0) = f'(x_0)(x-x_0)$$
 
 Looking for the intersection point of the tangent line with the x-axis is the same as substituting $y=0$.
 
-$$f'(x_0)(x-x_0) = 0 - f(x_0) \implies x-x_0 = \frac{f(x_0)}{f'(x_0)}$$
-$$x = x_0 + \frac{f(x_0)}{f'(x_0)}$$
+$$f'(x_0)(x-x_0) = 0 - f(x_0) \implies x-x_0 = -\frac{f(x_0)}{f'(x_0)}$$
+$$x = x_0 - \frac{f(x_0)}{f'(x_0)}$$
 
 Solving for $x$ gives an approximation for the root, which we can $x_1$. We can iteratively repeat this step to get better approximations.
 
