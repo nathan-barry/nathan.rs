@@ -72,7 +72,7 @@
     <div class="tag-columns">
         <!-- Primary Posts -->
         {{ range $name, $pages := .Site.Taxonomies.tags }}
-            {{ if not (or (strings.HasSuffix $name "-notes") (in (slice "misc" "personal") $name)) }}
+            {{ if not (or (strings.HasSuffix $name "-notes") (in (slice "misc" "personal" "note-topics") $name)) }}
             <div class="tag-column">
                 <h3><a href="/tags/{{ $name }}">{{ $name | humanize | title }}</a></h3>
                 <hr>

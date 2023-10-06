@@ -1,6 +1,5 @@
 +++
 title = "Parallel & Distributed Computing"
-description = "These are my notes over Professor Norman's Operating Systems course. Notes closely follow the in class lecture slides."
 date = 2023-09-19T08:08:52-05:00
 tags = ["Operating Systems Notes"]
 priority = 17

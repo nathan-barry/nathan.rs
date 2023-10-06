@@ -1,6 +1,5 @@
 +++
 title = "Page Replacement & The Working Set Model"
-description = "These are my notes over Professor Norman's Operating Systems course. Notes closely follow the in class lecture slides."
 date = 2023-09-16T12:13:55-05:00
 tags = ["Operating Systems Notes"]
 priority = 10

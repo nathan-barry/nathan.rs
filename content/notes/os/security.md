@@ -1,6 +1,5 @@
 +++
 title = "Security"
-description = "These are my notes over Professor Norman's Operating Systems course. Notes closely follow the in class lecture slides."
 date = 2023-09-19T09:40:28-05:00
 tags = ["Operating Systems Notes"]
 priority = 19

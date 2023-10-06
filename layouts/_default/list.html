@@ -9,8 +9,8 @@
     <!-- List All Posts -->
     {{ range sort .Data.Pages "Params.priority" "asc"}}
         <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
-        {{ if .Date }}
-          {{ $wordCount := len (split .Content " ") }}
+        {{ $wordCount := len (split .Content " ") }}
+        {{ if and .Date (gt $wordCount 20) }}
           {{ $readingTime := div $wordCount 150 }}
           <p><i>
             {{ .Date.Format "January, 02 2006" }} &bull; 
@@ -24,9 +24,7 @@
             {{ end }}
           </i></p>
         {{ end }}
-        {{ if not (strings.HasSuffix $name "Notes") }}
-            <p>{{ .Description }}</p>
-        {{ end }}
+        <p>{{ .Description }}</p>
     {{ end }}
     </div>
 </div>
