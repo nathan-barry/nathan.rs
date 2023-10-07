@@ -17,7 +17,7 @@
             <hr>
             {{ $filteredPages := slice }}
             {{ range $name, $pages := .Site.Taxonomies.tags }}
-                {{ if not (strings.HasSuffix $name "-notes") }}
+                {{ if not (or (strings.HasSuffix $name "-notes") (strings.HasSuffix $name "-topics"))}}
                     {{ range $pages }}
                         {{ $filteredPages = $filteredPages | append . }}
                     {{ end }}
