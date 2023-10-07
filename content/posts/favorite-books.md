@@ -5,7 +5,7 @@ tags = ["Personal"]
 +++
 
 <script>
-let bookNumber = 130;  // Initialize book number
+let bookNumber = 132;  // Initialize book number
 
 document.addEventListener("DOMContentLoaded", function() {
   // Auto-increment book numbers
@@ -36,10 +36,16 @@ function setHovering(isHovering, element) {
 ## [2023 | Age 20]
 ***
 {{< book
+    title="The Contrarian"
+    author="Max Chafkin"
+    special="true"
+    description="\"The Contrarian: Peter Thiel and Silicon Valley's Pursuit of Power\" is the full name of the book.">}}
+
+{{< book
     title="Elon Musk"
     author="Walter Isaacson"
     special="true"
-    description="A crazy book. Really puts life in perspective. Life is really as full as we make it to be. We all should carry more responsibility and strive to do more.">}}
+    description="">}}
 
 {{< book
     title="The House of Morgan"
