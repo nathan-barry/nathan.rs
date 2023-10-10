@@ -17,7 +17,8 @@
             <hr>
             {{ $filteredPages := slice }}
             {{ range $name, $pages := .Site.Taxonomies.tags }}
-                {{ if not (or (strings.HasSuffix $name "-notes") (strings.HasSuffix $name "-topics"))}}
+                <!-- Filter out notes -->
+                {{ if not (strings.HasSuffix $name "-notes")}}
                     {{ range $pages }}
                         {{ $filteredPages = $filteredPages | append . }}
                     {{ end }}
@@ -36,6 +37,7 @@
             <hr>
             {{ $filteredPages := slice }}
             {{ range $name, $pages := .Site.Taxonomies.tags }}
+                <!-- Filter out posts -->
                 {{ if strings.HasSuffix $name "-notes" }}
                     {{ range $pages }}
                         {{ $filteredPages = $filteredPages | append . }}
@@ -72,6 +74,7 @@
     <div class="tag-columns">
         <!-- Primary Posts -->
         {{ range $name, $pages := .Site.Taxonomies.tags }}
+            <!-- Filter out tags here -->
             {{ if not (or (strings.HasSuffix $name "-notes") (in (slice "misc" "personal" "note-topics") $name)) }}
             <div class="tag-column">
                 <h3><a href="/tags/{{ $name }}">{{ $name | humanize | title }}</a></h3>
@@ -87,6 +90,7 @@
 
         <!-- Secondary Posts -->
         {{ range $name, $pages := .Site.Taxonomies.tags }}
+            <!-- Add tag here -->
             {{ if (in (slice "misc") $name) }}
             <div class="tag-column">
                 <h3><a href="/tags/{{ $name }}">{{ $name | humanize | title }}</a></h3>
