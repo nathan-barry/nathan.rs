@@ -2,7 +2,6 @@
 title = "Garbage Collection"
 date = 2023-09-16T12:44:08-05:00
 tags = ["Operating Systems Notes"]
-priority = 11
 +++
 
 {{< toc >}}

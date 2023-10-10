@@ -2,7 +2,6 @@
 title = "Parallel & Distributed Computing"
 date = 2023-09-19T08:08:52-05:00
 tags = ["Operating Systems Notes"]
-priority = 17
 +++
 
 {{< toc >}}

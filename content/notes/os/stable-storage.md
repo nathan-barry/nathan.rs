@@ -2,7 +2,6 @@
 title = "External Device Communication & Stable Storage"
 date = 2023-09-16T13:09:24-05:00
 tags = ["Operating Systems Notes"]
-priority = 13
 +++
 
 {{< toc >}}

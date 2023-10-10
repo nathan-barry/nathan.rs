@@ -1,9 +1,7 @@
 +++
 title = "Generative & Discriminative Models"
-description = ""
 date = 2023-10-07T14:36:35-05:00
 tags = ["NLP Notes"]
-priority = 1
 +++
 
 {{< toc >}}

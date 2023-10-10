@@ -2,7 +2,6 @@
 title = "Security"
 date = 2023-09-19T09:40:28-05:00
 tags = ["Operating Systems Notes"]
-priority = 19
 +++
 
 {{< toc >}}

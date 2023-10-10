@@ -2,7 +2,6 @@
 title = "Shortest Path & Minimum Spanning Trees"
 date = 2023-09-11T09:45:15-05:00
 tags = ["Algorithms Notes"]
-priority = 4
 +++
 
 {{< toc >}}

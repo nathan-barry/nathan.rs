@@ -7,7 +7,7 @@
 
     {{ $name := .Title }}
     <!-- List All Posts -->
-    {{ range sort .Data.Pages "Params.priority" "asc"}}
+    {{ range sort .Data.Pages }}
         <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
         {{ $wordCount := len (split .Content " ") }}
         {{ if and .Date (gt $wordCount 20) }}

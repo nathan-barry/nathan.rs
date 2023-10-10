@@ -2,7 +2,6 @@
 title = "Multi-level Paging"
 date = 2023-09-16T11:55:20-05:00
 tags = ["Operating Systems Notes"]
-priority = 9
 +++
 
 {{< toc >}}

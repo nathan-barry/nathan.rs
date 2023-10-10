@@ -2,7 +2,6 @@
 title = "Solving Equations: Bisection, Fixed-Iteration, and Newton's Method"
 date = 2023-09-06T12:19:28-05:00
 tags = ["Numerical Analysis Notes"]
-priority = 2
 +++
 
 {{< toc >}}

@@ -2,7 +2,6 @@
 title = "Virtual Memory, Paging, & Address Translation"
 date = 2023-09-15T21:23:09-05:00
 tags = ["Operating Systems Notes"]
-priority = 8
 +++
 
 {{< toc >}}

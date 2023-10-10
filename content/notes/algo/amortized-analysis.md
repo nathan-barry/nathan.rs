@@ -1,9 +1,7 @@
 +++
 title = "Amortized Analysis"
-description = ""
 date = 2023-09-24T14:51:35-05:00
 tags = ["Algorithms Notes"]
-priority = 10
 +++
 
 {{< toc >}}

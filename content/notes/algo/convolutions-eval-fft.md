@@ -1,9 +1,7 @@
 +++
 title = "Vector Convolutions, Polynomial Multiplication, & Fast Fourier Transforms"
-description = ""
 date = 2023-09-18T15:00:50-05:00
 tags = ["Algorithms Notes"]
-priority = 6
 +++
 
 {{< toc >}}

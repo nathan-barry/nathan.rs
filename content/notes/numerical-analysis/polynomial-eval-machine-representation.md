@@ -2,7 +2,6 @@
 title = "Polynomial Evaluation & Machine Representation"
 date = 2023-08-26
 tags = ["Numerical Analysis Notes"]
-priority = 1
 +++
 
 {{< toc >}}

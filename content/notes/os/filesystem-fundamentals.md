@@ -2,7 +2,6 @@
 title = "Filesystem Fundamentals"
 date = 2023-09-16T13:26:37-05:00
 tags = ["Operating Systems Notes"]
-priority = 14
 +++
 
 {{< toc >}}

@@ -1,9 +1,7 @@
 +++
 title = "Recurrence Relations, Divide & Conquer"
-description = ""
 date = 2023-09-23T15:05:06-05:00
 tags = ["Algorithms Notes"]
-priority = 5
 +++
 
 {{< toc >}}

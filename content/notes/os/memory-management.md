@@ -2,7 +2,6 @@
 title = "Memory Management: Allocation & Relocation"
 date = 2023-09-15T17:09:08-05:00
 tags = ["Operating Systems Notes"]
-priority = 7
 +++
 
 {{< toc >}}

@@ -1,9 +1,7 @@
 +++
 title = "Dynamic Programming"
-description = ""
 date = 2023-09-18T16:50:34-05:00
 tags = ["Algorithms Notes"]
-priority = 7
 +++
 
 {{< toc >}}

@@ -2,7 +2,6 @@
 title = "Graph Basics & Greedy Algorithms"
 date = 2023-09-06T09:29:35-05:00
 tags = ["Algorithms Notes"]
-priority = 3
 +++
 
 {{< toc >}}

@@ -2,7 +2,6 @@
 title = "Page Replacement & The Working Set Model"
 date = 2023-09-16T12:13:55-05:00
 tags = ["Operating Systems Notes"]
-priority = 10
 +++
 
 {{< toc >}}

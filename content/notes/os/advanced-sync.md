@@ -2,7 +2,6 @@
 title = "Transactions & Advanced Synchronization"
 date = 2023-09-15T15:18:51-05:00
 tags = ["Operating Systems Notes"]
-priority = 6
 +++
 
 {{< toc >}}

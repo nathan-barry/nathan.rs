@@ -2,7 +2,6 @@
 title = "RPC, Consistency Models, & NFS and GFS"
 date = 2023-09-19T09:32:54-05:00
 tags = ["Operating Systems Notes"]
-priority = 18
 +++
 
 {{< toc >}}

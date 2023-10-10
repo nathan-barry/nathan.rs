@@ -107,39 +107,6 @@
     <p class="text-center">&#x2735; &#x2735; &#x2735;</p>
     <br>
 
-
-    <!-- <div class="tag-columns"> -->
-    <!--     <!-1- Notes -1-> -->
-    <!--     {{ range $name, $pages := .Site.Taxonomies.tags }} -->
-    <!--         {{ if strings.HasSuffix $name "-notes" }} -->
-    <!--         <div class="tag-column"> -->
-    <!--             <h3><a href="/tags/{{ $name }}">{{ $name | humanize | title }}</a></h3> -->
-    <!--             <hr> -->
-                
-    <!--             <!-1- Sort posts by priority -1-> -->
-    <!--             {{ $sortedPosts := sort .Pages "Params.priority" "asc" }} -->
-                
-    <!--             <!-1- Check if there are more than 5 posts and limit display to the first 5 -1-> -->
-    <!--             {{ $postsToShow := $sortedPosts }} -->
-    <!--             {{ if gt (len $sortedPosts) 5 }} -->
-    <!--                 {{ $postsToShow = first 5 $sortedPosts }} -->
-    <!--             {{ end }} -->
-
-    <!--             <!-1- Display posts -1-> -->
-    <!--             {{ range $postsToShow }} -->
-    <!--             <h5 class="list-link"> -->
-    <!--                 &#x2727;&nbsp; <a href="{{ .RelPermalink }}">{{ .Title }}</a> -->
-    <!--             </h5> -->
-    <!--             {{ end }} -->
-
-    <!--             <!-1- Display 'View All' link if there are more than 5 posts -1-> -->
-    <!--             {{ if gt (len $sortedPosts) 5 }} -->
-    <!--                 <h5><i><a class="view-all" href="/tags/{{ $name }}">View All ({{ len $sortedPosts }})</a></i></h5> -->
-    <!--             {{ end }} -->
-    <!--         </div> -->
-    <!--         {{ end }} -->
-    <!--     {{ end }} -->
-    <!-- </div> -->
 </div>
 {{ end }}
 

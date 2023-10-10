@@ -1,9 +1,7 @@
 +++
 title = "Maximum Flow, Ford-Fulkerson, & Edmonds-Karp"
-description = ""
 date = 2023-10-10T08:49:47-05:00
 tags = ["Algorithms Notes"]
-priority = 11
 +++
 
 {{< toc >}}

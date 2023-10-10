@@ -1,9 +1,7 @@
 +++
 title = "The Knapsack Problem & Psuedo-Polynomial Time"
-description = ""
 date = 2023-09-24T11:02:29-05:00
 tags = ["Algorithms Notes"]
-priority = 9
 +++
 
 {{< toc >}}

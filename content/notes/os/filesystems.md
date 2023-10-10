@@ -2,7 +2,6 @@
 title = "Filesystem Layout, Caching, & Recovery"
 date = 2023-09-16T13:43:34-05:00
 tags = ["Operating Systems Notes"]
-priority = 15
 +++
 
 {{< toc >}}

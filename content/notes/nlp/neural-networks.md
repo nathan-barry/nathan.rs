@@ -1,9 +1,7 @@
 +++
 title = "Neural Networks: RNNs, Seq2Seq, & CNNs"
-description = ""
 date = 2023-10-07T14:55:20-05:00
 tags = ["NLP Notes"]
-priority = 2
 +++
 
 {{< toc >}}

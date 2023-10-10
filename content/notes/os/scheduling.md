@@ -2,7 +2,6 @@
 title = "Scheduling Policies & Boot Sequence"
 date = 2023-09-15T08:09:21-05:00
 tags = ["Operating Systems Notes"]
-priority = 2
 +++
 
 {{< toc >}}

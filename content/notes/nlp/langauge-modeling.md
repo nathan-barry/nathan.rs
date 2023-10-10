@@ -1,9 +1,7 @@
 +++
 title = "Langauge Modeling: Word Embedings & Architectures"
-description = ""
 date = 2023-10-07T15:54:05-05:00
 tags = ["NLP Notes"]
-priority = 3
 +++
 
 {{< toc >}}

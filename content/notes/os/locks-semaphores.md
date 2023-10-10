@@ -2,7 +2,6 @@
 title = "Locks & Semaphores"
 date = 2023-09-15T12:35:15-05:00
 tags = ["Operating Systems Notes"]
-priority = 4
 +++
 
 {{< toc >}}

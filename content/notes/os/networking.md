@@ -2,7 +2,6 @@
 title = "Networking & Sockets"
 date = 2023-09-16T13:56:14-05:00
 tags = ["Operating Systems Notes"]
-priority = 16
 +++
 
 {{< toc >}}

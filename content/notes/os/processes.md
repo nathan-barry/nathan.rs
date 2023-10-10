@@ -2,7 +2,6 @@
 title = "Processes & Dual Mode Execution"
 date = 2023-09-14T18:49:27-05:00
 tags = ["Operating Systems Notes"]
-priority = 1
 +++
 
 {{< toc >}}
