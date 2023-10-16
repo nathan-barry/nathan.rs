@@ -1,2 +1,2 @@
 run:
-	hugo server --noHTTPCache
+	hugo server -D --noHTTPCache

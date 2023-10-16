@@ -3,7 +3,6 @@ title = "What Happened to Defi?"
 description = ""
 date = 2023-09-19T11:10:46-05:00
 tags = ["Draft"]
-status = "Work In Progress"
 draft = true
 +++
 
