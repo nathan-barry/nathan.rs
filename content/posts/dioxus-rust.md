@@ -13,7 +13,9 @@ tags = ["Web Development"]
 ***
 I’ve been using React and Next.js for front-end development ever since high school, it was one of the first few things I learned when it came to programming. Recently, I’ve had the itch to learn something new, specifically Rust front-end. As someone with a ".rs" domain, it felt like an inevitable fate. Finally, I can say I put the ".rs" in the "nathan.rs".
 
-The front-end Rust ecosystem has come a long way in the last few years. We are at a point where we now have Rust frameworks that are competitive with the fastest JavaScript front-end frameworks. The tyranny of React has come to an end. While frameworks like Svelte, Astro, and Solid are making people rethink their approach to front-end development, Rust frameworks like Leptos and Dioxus are also maturing. I've never been a fan of TypeScript or JS but have always loved Rust. I decided to rewrite my website in Rust using Dioxus. In addition to being more enjoyable to work on, any Rust code I write for other personal projects, I can compile down to WebAssembly and show on this site.{{% sidenote %}} I actually ended up rewriting my site again using Hugo. Most of my content is just text and it is pretty unnecessary to use a SPA app just for a blog. I decided to make my site statically generated for fast load times and minimum bundle size. It is the right tool for the job. {{% /sidenote %}}
+The front-end Rust ecosystem has come a long way in the last few years. We are at a point where we now have Rust frameworks that are actually somewhat usable{{%sidenote%}}Huge asterisk{{%/sidenote%}}.While frameworks like Svelte, Astro, and Solid are making people rethink their approach to front-end development, Rust frameworks like Leptos and Dioxus are also maturing.
+
+I've never been a fan of TypeScript or JS but have always loved Rust. I decided to rewrite my website in Rust using Dioxus. In addition to being more enjoyable to work on, any Rust code I write for other personal projects, I can compile down to WebAssembly and show on this site.{{% sidenote %}} Eventually rewrote the site again with Hugo. Most of my content is just text and it is pretty unnecessary to use a SPA app just for a blog. I decided to make my site statically generated for fast load times and minimum bundle size. It is the right tool for the job. {{% /sidenote %}}
 
 
 
@@ -78,33 +80,21 @@ fn main() {
 
 Above is the bare-bones stripped-down version of my site. If you're familiar with React or Next.js, it should look very familiar.
 
-Snippet 1 contains two things. The first is a macro that suppresses warnings about snake case. Normally, functions in rust use snake_case and the compiler will give a warning if you don’t follow the standard convention, but in the React ecosystem, we tend to use PascalCase for function components. Below the macro are project imports. For external crates, we have dioxus and dioxus router. The other imports are just two pages components in different files.
+Below is an explanation of each of the 4 snippets above:
 
-Snippet 2 consists of the router. The code is fairly self-explanatory. The main thing of note is that the last enum variant is the catch all route. Any URL that doesn't pattern match to any above it will be directed to this custom 404 page.
+1. This snippet contains two things. The first is a macro that suppresses warnings about snake case. Normally, functions in rust use `snake_case` and the compiler will give a warning if you don’t follow the standard convention, but in the React ecosystem, we tend to use PascalCase for function components. Below the macro are project imports. For external crates, we have dioxus and dioxus router. The other imports are just two pages components in different files.
 
-Snippet 3 is a component that is used as the home page. The base URL will route to and render this component. Dioxus uses RSX, but they do provide an html macro that allows you to write a more familiar JSX style. RSX supports TailwindCSS which is what I use for styling in this example.
+2. This consists of the router. The code is fairly self-explanatory. The main thing of note is that the last enum variant is the catch all route. Any URL that doesn't pattern match to any above it will be directed to this custom 404 page.
 
-Snippet 4 is just the entry point for the web app. The function app() renders the current route which is ran by main. It's just boilerplate you should keep in main.rs.
+3. This is a component that is used as the home page. The base URL will route to and render this component. Dioxus uses RSX, but they do provide an html macro that allows you to write a more familiar JSX style. RSX supports TailwindCSS which is what I use for styling in this example.
+
+4. This is just the entry point for the web app. The function app() renders the current route which is ran by main. It's just boilerplate you should keep in main.rs.
 
 Dioxus also has its own CLI tool that makes serving easy. You just run `dx serve` to host it locally. It should say to open `https://localhost:8080/` to view the site. You can read more about how to get started with Dioxus [here](https://dioxuslabs.com/learn/0.4/getting_started).
 
 
 
-## Into the Dark Forest
-***
-Once you leave tutorial zone, you'll quickly realize you’ve entered a dark forest, one with poor documentation. It is up to you to find your way to sanctuary.
-
-Here is a list of things that took me a second to figure out.
-- Why routing broke when I added Tailwind
-- Hosting on Github Pages
-- Loading JS libraries
-- Cleaning up memory leaks when components are dropped
-
-Many of these difficulties were due to poor documentation, a common occurrence in quickly growing projects. Luckily, their discord was invaluable for solving a lot of these issues, as many people have had similar questions in the past.
-
-
-
-### Fixing Routing
+### Fixing Routing with Tailwind
 To let the CLI know that you are using Tailwind, you must explicitly define it in a Dioxus config via a `Dioxus.toml` file. Here is what is provided in the [docs](https://dioxuslabs.com/learn/0.4/cookbook/tailwind).
 
 I eventually learned that the Dioxus CLI was updated after this documentation was created. Since then, routing was completely reworked and the CLI must use a newer default config. When I added Tailwind, I had to override the newer deployment configuration with an old config that didn't account for routing. Luckily, the solution was a simple fix, I just needed to add this line in the toml:
@@ -128,7 +118,7 @@ That's better. We'll also talk about hosting on Github pages here because it sim
 ***
 The easiest way to host this was to move the build output directory to `/docs` and then, in the Pages settings page in the github repository, select it to build from `/docs`. Below is a screenshot of what it should look like.
 
-<img src="/images/gh-pages.webp">
+<!-- <img src="/images/gh-pages.webp"> -->
 
 Github Pages will host your site at `http://<USERNAME>.github.io/`. If your repository is named `<USERNAME>.github.io` the site will be hosted at the base URL, `/`. Otherwise, it'll go live at code `/<REPO_NAME>`. I have my custom domain set up so it says `http://nathan.rs/` for me.
 
@@ -239,12 +229,10 @@ In another post, I'll talk about I discovered a memory leak when testing my Conw
 
 
 
-## My Takeaways
+## Conclusion
 ***
 I had a very enjoyable time reimplementing my website in Rust using this framework.
 
 All of these Rust front-end libraries are very new and share the same characteristics as any frontier. There is usually poor documentation. Sometimes things just don't work. At times you'll have to dive deep into the source code to find answers. On the other hand, the codebase is 'small' enough to where one person can comprehend it. Such a challenge is possible and rewarding.
 
 I think that such projects are lovely to work on. It requires you to get your hands dirty and actually understand what is going on under the hood. In the past, I was a classic React user that only knew the abstraction, not the layers of complexity beneath it. This project helped uncover some of that complexity while teaching me the basics of WebAssembly. I can recommend giving this library a try.
-
-> In some ways, programming is like painting. You start with a blank canvas and certain basic raw materials. You use a combination of science, art, and craft to determine what to do with them.--- Andrew Hunt

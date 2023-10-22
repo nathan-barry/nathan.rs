@@ -9,18 +9,6 @@ tags = ["Writings"]
 
 
 
-## Growing Up 
-***
-
-When I was in high school, I was absolutely fascinated with AI. I spent all of my time free time investigating different kinds of machine learning model architectures and the rate fields like computer vision and natural language processing were progressing. I don’t know what started the fascination, but what fueled it was Ray Kurzweil, Lex Fridman, Andrew Ng, Nick Bostrom, and all others that produced books, online courses, and ideas on the matter.
-
-I first got started around the time OpenAI’s GPT-2 was released and remember people’s sentiments at the time. {{% sidenote %}}I remember specifically trying to fine-tune GPT-2 on my journal entrees. Having a machine try and model "me" was what first intrigued me.{{% /sidenote %}} Most people thought that something as capable as GPT-4 wasn’t going to happen within the next two decades. And yet, here we are.
-
-
-In the worlds of artificial intelligence and machine learning, the scope of what is possible continues to expand. State-of-the-art large language models (LLMs) have already demonstrated remarkable capabilities in terms of learning from input and generating relevant output, but they still seem to be missing something to make them truly “alive”
-
-
-
 ## Gödel Escher Bach and Strange Loops
 ***
 

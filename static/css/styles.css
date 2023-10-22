@@ -110,6 +110,8 @@ kbd {
   font-family: Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
     monospace;
   font-size: 85%;
+  background-color: #444
+  
 }
 
 /* Fixes iOS font sizing anomaly */
@@ -605,13 +607,13 @@ footer .theme-by {
     font-size: .8rem;
 }
 
-article h2 {
-    margin-left: -2rem;
-}
+/* article h2 { */
+/*     margin-left: -2rem; */
+/* } */
 
-article hr {
-    margin-left: -2rem;
-}
+/* article hr { */
+/*     margin-left: -2rem; */
+/* } */
 
 /* For medium-sized screens */
 @media (max-width: 1050px) {
@@ -686,4 +688,8 @@ article hr {
       font-size: 1.5rem;
       line-height: 2rem;
     }
+}
+
+pre {
+    background-color: #191919 !important;
 }
