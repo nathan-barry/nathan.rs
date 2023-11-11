@@ -5,8 +5,6 @@ date = 2023-11-11T08:57:53-06:00
 tags = ["Go"]
 +++
 
-> You can find the full code at [https://github.com/nathan-barry/go-micrograd](https://github.com/nathan-barry/go-micrograd)
-
 {{< toc >}}
 
 
@@ -308,4 +306,4 @@ data -1.0000 | grad 0.0000
 -----------------------------------------------------------
 ```
 
-That's it for now. You can check out my github repo that contains a much larger model (41 parameters, 3 layers, with tanh activation functions) and implementation details on the other operations <3.
+That's it for now. You can check out the github repo [here](https://github.com/nathan-barry/go-micrograd). It contains a much larger model (41 parameters, 3 layers, with tanh activation functions) and the implementation details of the other operations <3.
