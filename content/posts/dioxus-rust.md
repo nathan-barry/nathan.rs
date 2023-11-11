@@ -2,7 +2,7 @@
 title = "My Experience with Rust for Front-End Development"
 description = "The Good, the Bad, and the Ugly. Below is an overview of the Dioxus framework, steps on how to host via Github Pages, and how to interact with JS libraries from Rust."
 date = 2023-08-16 
-tags = ["Web Development"]
+tags = ["Rust"]
 +++
 
 {{< toc >}}

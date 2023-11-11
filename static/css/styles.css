@@ -110,8 +110,7 @@ kbd {
   font-family: Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
     monospace;
   font-size: 85%;
-  background-color: #444
-  
+  color: #ebdbb2;
 }
 
 /* Fixes iOS font sizing anomaly */

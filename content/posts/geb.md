@@ -2,10 +2,10 @@
 title = "Gödel Escher Bach, Self-Reference, and Transformers"
 description = "A Brief Journey Through Gödel's Incompleteness Theorem, Strange Loops, the Nature of Intelligence, and Transformer Langauge Models."
 date = 2023-08-15
-tags = ["Writings"]
+tags = [""]
+draft = true
 +++
 
-{{< toc >}}
 
 
 
@@ -41,9 +41,9 @@ Large language model agents emerge from complex interactions between it and vect
 
 > "No one knows where the borderline between non-intelligent behavior and intelligent behavior lies; in fact, to suggest that a sharp borderline exists is probably silly."
 
-A system that doesn't understand its own workings is inherently capped in the complex actions it can take. By not comprehending the intricacies of the system they operate in or that they are comprised of, these LLMs are restricted in their ability to optimize their responses or troubleshoot their processes. An LLM without self-knowledge can only perform tasks to the extent of its pre-defined capabilities. They cannot dynamically adapt to new scenarios that require an internal modification of their operation.
+A system that doesn't understand its own workings is inherently capped in the complex actions it can take. By not comprehending the intricacies of the system they operate in or that they are comprised of, these LLMs are restricted in their ability to optimize their responses or troubleshoot their processes. An LLM that doesn't understanding it's own behavior can only perform tasks to the extent of its pre-defined capabilities. 
 
-Possibly, in the future when the context width is large enough, making the system a strange loop by loading in the model’s source code in the input might lead to surprising emergent properties. That is the amount of detail the model will have to know to begin making suggestions to its own code.
+Possibly, in the future when the context width is large enough, making the system a strange loop by providing context of it's own nature, such the model’s source code, might lead to additional awareness. That is the amount of detail the model will have to know to begin making suggestions to its own code.
 
 > "The flexibility of intelligence comes from the enormous number of different rules, and levels of rules… Strange Loops involving rules that change themselves, directly or indirectly, are at the core of intelligence"
 

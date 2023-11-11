@@ -12,9 +12,6 @@
           {{ $readingTime := div $wordCount 150 }}
           <p class="text-center"><i>
             {{ .Date.Format "January, 02 2006" }} &bull; 
-            {{ if .Params.Status }}
-              {{ .Params.Status }} &bull; 
-            {{ end }}
             {{ $readingTime }} min read &bull; 
             {{ $wordCount }} words
             {{ if ne .Date.Unix .Lastmod.Unix }}
