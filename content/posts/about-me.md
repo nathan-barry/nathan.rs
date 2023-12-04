@@ -12,9 +12,9 @@ tags = ["Personal"]
 
 ## Nathan Barry
 ***
-<span class="sidenote"><b>Image Backstory:</b> There were raccoons were living in my attic. I caught a few of them and released them in a forest away from my house. For each one caught, I took a photo a photo with them (this is raccoon #2).</span>
+<span class="sidenote"><b>Image Backstory:</b> There were once raccoons living in my attic. I caught them and released them away from my house. I took a photo with each one caught (this is raccoon #2).</span>
 
-I am a Computer Science and Mathematics major at UT Austin. I was born in Saint Joseph, Missouri. I started programming in 2017 my freshman year of high school, with Python and JavaScript, serving PyTorch models with Flask and React. Currently, I spend most of my time on school work and working on side projects.
+I am a Computer Science and Mathematics major at UT Austin. I was born in Saint Joseph, Missouri. I started programming in 2017 my freshman year of high school, with Python and JavaScript, serving PyTorch models with Flask and React. Currently, I spend most of my time on schoolwork, side projects, and (hopefully) writing.
 
 In my free time, I enjoy climbing, biking, and playing ultimate frisbee with the CS Ultimate team. I also enjoy [reading books a lot](/posts/favorite-books/). Currently, I am growing 12 pepper plants. I'm growing 4 different strains of Habanero Pepper and one variant of Ghost Pepper.
 
@@ -62,11 +62,11 @@ My life philosophy started crystalizing when I was 15 and has remained more or l
 
 <!-- We consist of a community of different versions of ourselves propagated across time. You aren't just who you are now, but also you a day from now, a year, a decade, etc. What you choose to do today will directly affect all of those future versions of you. One should act in accordance with whatever will maximize the expected value of fulfillment across all of those versions, not just the version of you today. -->
 
-I recall once hearing the quote, *"Bees make honey. Beavers build dams. Humans create progress".* **Progress seems to be the general motif of humanity**. I think that being able to create new things which are recognized to have value is a fundamental desire humans have and is necessary to live a fulfilled life.
+I recall once hearing the quote, *"Bees make honey. Beavers build dams. Humans create progress".* **Progress seems to be the general motif of humanity**. I think that being able to create new things that are recognized to have value is a fundamental desire humans have and is necessary to live a fulfilled life.
 
-The only consistent things that regularly leads to the creation of value and novelty is competence and hard work. Competence is having the proper knowledge and ability to solve problems. Hard work is having the endurance to actually solve them.
+The only consistent things that regularly lead to the creation of value and novelty are competence and hard work. Competence is having the proper knowledge and ability to solve problems. Hard work is having the endurance to actually solve them.
 
-The word **MORE** describes humanity at all levels, from individuals to corporations, states, societies, and humanity as a whole. On an individual level, one desires to become more than who they are. To be more, have more; we have a bottomless appetite. Becoming better as time passes is what characterizes life. It is a necessity. 
+The word **MORE** describes humanity at all levels, from individuals to corporations, states, societies, and humanity as a whole. On an individual level, one desires to become more than who they are. Becoming better as time passes is what characterizes life. It is a necessity. 
 
 Life should follow the format of the archetypal hero’s journey; a process of self-growth. One should adopt as much responsibility as one can and always be pushing beyond what they think they are capable are. We must do our part in driving humanity forward. We must do our part to make our lives better, and the lives of all generations going forward.
 

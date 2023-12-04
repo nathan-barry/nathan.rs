@@ -1,5 +1,5 @@
 +++
-title = "Go Slow Generics"
+title = "Why Go Doesn't Use Zero Cost Abstractions (And Why Rust Does)"
 description = ""
 date = 2023-10-15T09:03:22-05:00
 tags = ["Draft"]
@@ -8,6 +8,11 @@ draft = true
 
 {{< toc >}}
 
+
+- preprocessor
+ research shit
+
+What does zero cost mean? To most, it specifically means zero cost in runtime performance, but that doesn't mean "zero cost".
 
 ChatGPT:
 Yes, the design decisions of Go regarding generics and its absence of a preprocessor and monomorphization are somewhat related. Let's delve into these aspects:
