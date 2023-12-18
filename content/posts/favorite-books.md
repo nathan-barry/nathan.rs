@@ -5,7 +5,7 @@ tags = ["Personal"]
 +++
 
 <script>
-let bookNumber = 132;  // Initialize book number
+let bookNumber = 137;  // Initialize book number
 
 document.addEventListener("DOMContentLoaded", function() {
   // Auto-increment book numbers
@@ -36,10 +36,34 @@ function setHovering(isHovering, element) {
 ## [2023 | Age 20]
 ***
 {{< book
+    title="Napoleon"
+    author="Andrew Roberts"
+    special="true"
+    description="It's strange, reading this book. I've read dozens of books about entrepreneurs, statesmen, scientists, etc, but this book is different. Napoleon was one of the last Great individuals. We today have great people everywhere which is great for humanity, but long gone is the time when an era could be named after an individual alone. He is put in the group of great conquerors of history, along side Caesar and Alexander, and he is the last." >}}
+
+{{< book
+    title="A Tour of C++"
+    author="Bjarne Stroustrup"
+    special=""
+    description="I've never seen a language so great and terrible. I've yet to dive deep in a project with it. My biggest gripe about it is just the lack of decent tooling around it. I'd rather use something like Zig and Rust, where making it deployable seems like a sane task. Having to deal with the lack of coherence (tooling, package management, different versions) just makes it seem like a pain. Things like C++ supporting Modules, but 3 years later GCC doesn't support it is just wild to me.">}}
+
+{{< book
+    title="Efficient Go"
+    author="Bartiomiej Plotka"
+    special=""
+    description="This book was alright. The first half was about Go and the second half was just a review of computer architecture. I half read a handful of books covering Go, but since I only half read them, this is the only one that is included.">}}
+
+{{< book
+    title="Writing an Interpreter In Go"
+    author="Thorsten Ball"
+    special=""
+    description="So much of life is just Abstract Syntax Trees.">}}
+
+{{< book
     title="The Contrarian"
     author="Max Chafkin"
     special="true"
-    description="\"The Contrarian: Peter Thiel and Silicon Valley's Pursuit of Power\" is the full name of the book.">}}
+    description="">}}
 
 {{< book
     title="Elon Musk"
@@ -51,6 +75,12 @@ function setHovering(isHovering, element) {
     title="The House of Morgan"
     author="Ron Chernow"
     description="This behemoth of a book is about the Morgan banking dynasty, from George Peabody and J.S. Morgan to now. Because the Morgan Dynasty has been around for 200 years, this book also is nearly a history of modern banking as a whole. What I thought was interesting was the evolution of the relation between bank and the state. From king makers to diplomats to tools of the state, their power (and power of bankers in general) has diminished greatly.">}}
+
+{{< book
+    title="The Rust Programming Language"
+    author="Steve Klabnik & Carol Nichols"
+    special=""
+    description="This is not the first time I've read this, nor will it be the last. When I first read this two years ago, I didn't know shit from Shinola. Now, I'm marginally smarter. I've actually taken a computer architecture and OS class, understand memory, etc. I went ahead and made a few small Rust projects (a WASM blog and basic symbolic math library). Perhaps one day I'll actually use Rust for something non-trivial.">}}
 
 {{< book
     title="The Odyssey"
