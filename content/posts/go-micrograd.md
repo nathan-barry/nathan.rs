@@ -1,6 +1,6 @@
 +++
 title = "Intro to Autograd Engines: Karpathy's Micrograd Implemented in Go"
-description = ""
+description = "Below goes over the fundamentals of machine learning, along with the basics of autograd engines and how to build one."
 date = 2023-11-11T08:57:53-06:00
 tags = ["Go"]
 +++
