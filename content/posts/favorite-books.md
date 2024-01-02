@@ -5,7 +5,7 @@ tags = ["Personal"]
 +++
 
 <script>
-let bookNumber = 137;  // Initialize book number
+let bookNumber = 138;  // Initialize book number
 
 document.addEventListener("DOMContentLoaded", function() {
   // Auto-increment book numbers
@@ -33,13 +33,21 @@ function setHovering(isHovering, element) {
 
 
 
+## [2024 | Age 21]
+***
+{{< book
+    title="Titan: The Life of John D. Rockefeller"
+    author="Ron Chernow"
+    special=""
+    description="One of the great trailblazers of capitalism. Sometimes we see what man is capable of when convinced of having God given Providence." >}}
+
 ## [2023 | Age 20]
 ***
 {{< book
     title="Napoleon"
     author="Andrew Roberts"
     special="true"
-    description="It's strange, reading this book. I've read dozens of books about entrepreneurs, statesmen, scientists, etc, but this book is different. Napoleon was one of the last Great individuals. We today have great people everywhere which is great for humanity, but long gone is the time when an era could be named after an individual alone. He is put in the group of great conquerors of history, along side Caesar and Alexander, and he is the last." >}}
+    description="I've read dozens of books about entrepreneurs, statesmen, scientists, etc, but this book makes me feel something more than just inspiration for worldly pursuits. Napoleon was one of the last Great individuals. We today have great people everywhere which is great for humanity, but long gone is the time when an era could be named after an individual alone. He is put in the group of great conquerors of history, along side Caesar and Alexander, and he is the last." >}}
 
 {{< book
     title="A Tour of C++"
@@ -60,7 +68,7 @@ function setHovering(isHovering, element) {
     description="So much of life is just Abstract Syntax Trees.">}}
 
 {{< book
-    title="The Contrarian"
+    title="The Contrarian: Peter Thiel and Silicon Valley's Pursuit of Power"
     author="Max Chafkin"
     special="true"
     description="">}}
