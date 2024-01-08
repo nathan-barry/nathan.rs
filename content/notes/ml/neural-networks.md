@@ -1,5 +1,6 @@
 +++
 title = "Neural Networks: RNNs, Seq2Seq, & CNNs"
+description = "These are a few of my notes from Eunsol Choi's NLP class at UT Austin."
 date = 2023-10-07T14:55:20-05:00
 tags = ["NLP Notes"]
 +++

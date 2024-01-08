@@ -1,6 +1,6 @@
 +++
 title = "Gradient Descent & Optimizers"
-description = "These are actually notes over ML 2. I was too lazy to make another category (more so, fill it up)."
+description = "My notes over Machine Learning 2. Title covers all."
 date = 2023-10-10T10:24:32-05:00
 tags = ["NLP Notes"]
 +++
