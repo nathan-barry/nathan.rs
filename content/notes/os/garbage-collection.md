@@ -1,5 +1,6 @@
 +++
 title = "Garbage Collection"
+description = "An overview of garbace collection and different types."
 date = 2023-09-16T12:44:08-05:00
 tags = ["Operating Systems Notes"]
 +++

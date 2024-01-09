@@ -1,5 +1,6 @@
 +++
 title = "Networking & Sockets"
+description = "This is an overview of IP addresses, DNS, Ethernet, OSI model, TCP Flow, Ports, Sockets, and client-server interactions."
 date = 2023-09-16T13:56:14-05:00
 tags = ["Operating Systems Notes"]
 +++

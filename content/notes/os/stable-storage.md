@@ -1,5 +1,6 @@
 +++
 title = "External Device Communication & Stable Storage"
+description = "An overview of external device communication, polling, DMA, Disk Drives, and SSDs."
 date = 2023-09-16T13:09:24-05:00
 tags = ["Operating Systems Notes"]
 +++
@@ -17,17 +18,15 @@ While CPU and main memory are pivotal, they alone can't make a computer function
 
 - **Exploring External Devices**: Think of everything that's not RAM in your computer. That's right, from your keyboard, mouse, hard drive, to the monitor, network card, microphone, printer, and beyond. These are all external devices, playing a pivotal role in your computer's functioning.
 
-Given the myriad of external devices, how does the OS manage them?
+**Data Handling**: Managing external devices revolves around two main tasks. Firstly, the transfer of data to and from the device. Secondly, handling scenarios when devices aren't ready to accept or send data.
 
-- **Data Handling**: Managing external devices revolves around two main tasks. Firstly, the transfer of data to and from the device. Secondly, handling scenarios when devices aren't ready to accept or send data.
-
-- **Special Mention: Disks**: Disks hold a special place in this ecosystem. Their speeds (or often, the lack of it) make disk management a priority for OS. OS employs disk head scheduling to optimize disk access speeds. With the advent of SSDs, many challenges associated with traditional disks are effectively bypassed.
+**Disks**: Disks hold a special place in this ecosystem. Their speeds (or often, the lack of it) make disk management a priority for OS. OS employs disk head scheduling to optimize disk access speeds. With the advent of SSDs, many challenges associated with traditional disks are effectively bypassed.
 
 ### Architecture of External Devices
 
-The world inside a CPU is vast. Most of the functionalities we've discussed, like scheduling and memory management, reside on the CPU. However, external devices communicate with the CPU via system buses. Imagine a system bus as a conference call where everyone can hear you.
+Most of the functionalities we've discussed, like scheduling and memory management, reside on the CPU. However, external devices communicate with the CPU via system buses.
 
-When we delve deeper into the architecture of an external device, we find:
+On external devices, we find:
 
 - A **bus** facilitating communication with the CPU.
 - A **device port** with registers:
@@ -38,7 +37,6 @@ When we delve deeper into the architecture of an external device, we find:
 - A **controller** that interprets the commands and mediates between the bus and the device.
 - And, of course, the **device** itself.
 
-This intricate interplay ensures smooth communication between the CPU and external devices, bringing the computer to life.
 
 ### The Process of Communication
 
@@ -49,7 +47,7 @@ For the Operating System (OS) to interact with an external device, a series of s
 3. **Waiting Phase**: Here, the OS waits for the device or its controller to complete the required operation.
 4. **Data Reception**: Once the operation completes, the controller puts the result at a location where the OS can access it.
 
-However, communication with external devices isn't always instantaneous. For instance, while a tape drive may need several seconds, asynchronous devices, like keyboards, might necessitate longer durations. It poses a challenge when the waiting time is uncertain, as with the humorous scenario of a user vacationing in Hawaii while the system awaits a keyboard input. This necessitates mechanisms to handle such prolonged waits efficiently.
+Communication with external devices isn't always instantaneous. For instance, while a tape drive may need several seconds, asynchronous devices, like keyboards, might necessitate longer durations. This necessitates mechanisms to handle such prolonged waits efficiently.
 
 
 
@@ -84,7 +82,7 @@ int read(){
 **Polling without Busy Waiting**:
 ```c
 void timer_interrupt(){
-    // Check the device once! If not ready, wait until the next interrupt to check again
+    // Check the device once. If not ready, wait until next interrupt
     for(device in busy_device_list){
         if(device.status_is_ready()){
             device->waiting_thread->read_sema.up();
@@ -111,7 +109,7 @@ Instead of the CPU incessantly checking the device's status, in interrupt-driven
   
 - **Handling Interrupts**: Once the I/O operation is complete, the device triggers an interrupt on the CPU, akin to a timer interrupt. The CPU then handles it using established protocols, like pushing registers, jumping to the interrupt vector, and indexing by interrupt number.
 
-The obvious advantage here is the elimination of the need for constant checks. But what about reading larger chunks of data? The process would look something like this:
+The obvious advantage here is the elimination of the need for constant checks. The process would look something like this:
 1. Initiate the I/O operation.
 2. Wait for an interrupt.
 3. Read a small chunk of data (e.g., 4 bytes).
@@ -138,16 +136,12 @@ To better understand the process, consider reading 4KB of data using DMA:
 
 Despite the abstraction, this process transfers much of the complexity to the hardware. While this introduces challenges for hardware designers, it simplifies the task for programmers, making the system faster and more efficient.
 
-### Method Selection
-
-Which method is superior when reading a large file? **DMA**, if the hardware costs can be justified. But for devices like microphones that produce regular data, either **polling or interrupts** could be optimal.
-
-It's crucial to realize there's no one-size-fits-all. Every method comes with its advantages, and its superiority depends on the specific use-case and goal.
 
 
-## Disk Drive Overview
+
+
+## Disk Drives
 ***
-
 
 ### Anatomy of a Hard Disk Drive (HDD)
 
@@ -196,10 +190,9 @@ When the CPU wants to read or write to the disk:
 
 
 
-## Disk Drive Performance
-***
+### Disk Drive Performance
 
-### Disk Drive's Major Time Costs
+Major time costs for disk drives are:
 
 - **Seek Time**: Time taken to move the head to the correct track. It varies:
   - **Maximum**: Time required from the innermost to the outermost track.
