@@ -1,6 +1,6 @@
 +++
 title = "Distributed Lab 1"
-description = "This is specifically made just for Kavya"
+description = "This is specifically made just for Kavya. Instructions for Lab 1 of Ken McMillan's Distributed Computing (CS 371D) at UT Austin, spring 2024."
 date = 2024-01-19T23:51:44-06:00
 tags = [""]
 +++
