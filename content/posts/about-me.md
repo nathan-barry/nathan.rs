@@ -34,7 +34,7 @@ I've always been a competitive person and have enjoyed excelling in various acti
 
 &nbsp;&nbsp;&#x2727;&nbsp; 5k - 15:56
 
-&nbsp;&nbsp;&#x2727;&nbsp; Bench - 250 lbs
+&nbsp;&nbsp;&#x2727;&nbsp; Bench - 265 lbs
 
 &nbsp;&nbsp;&#x2727;&nbsp; Bouldering Grade - V8
 </p>
@@ -56,7 +56,7 @@ I've always been a competitive person and have enjoyed excelling in various acti
 
 ## Life Philosophy
 ***
-My life philosophy started crystalizing when I was 15 and has remained more or less constant ever since. Below is a quick snippet of my thoughts.
+My life philosophy started crystalizing when I was 15 and has remained more or less constant ever since. Below is a quick snippet of my thoughts:
 
 <!-- One of the main things that makes humans special is that we are cognisant that time passes and the concept of a future. We acknowledge that we can sacrifice today to make a better tomorrow, not just for you but for all those after. -->
 
