@@ -13,8 +13,8 @@ Below are a few screenshots I've taken for websites that I've seen this on:
 
 
 <div class="two-columns">
-<img alt="Me in high school. Fellow Raccoon lover." src="/images/IMG_9051.PNG">
-<img alt="Me in high school. Fellow Raccoon lover." src="/images/IMG_9057.PNG">
+<img alt="iovec.net code block issue" src="/images/IMG_9051.png">
+<img alt="shyam.blog code block issue" src="/images/IMG_9057.png">
 </div>
 
 As you can see, the font size isn't uniform across code block lines. This seem to be common for many blogs that compile markdown files to HTML such as Hugo or Jekyll sites.
