@@ -1,5 +1,5 @@
 +++
-title = "My Experience with Rust for Front-End Development"
+title = "Rust Front-End Development with Dioxus"
 description = "The Good, the Bad, and the Ugly. Below is an overview of the Dioxus framework, steps on how to host via Github Pages, and how to interact with JS libraries from Rust."
 date = 2023-08-16 
 tags = ["Rust"]
@@ -32,8 +32,9 @@ Finally, they have `dioxus_fullstack` which does SSR (Server Side Rendering). Th
 I chose `dioxus_web` mainly since GitHub Pages support only static web apps which basically eliminated the other two options. I'm also familiar with React, and as we know, old habits die hard. Now that we've covered that, let's go through the basics.
 
 
-`./src/main.rs`
 ```rust
+// ./src/main.rs
+
 // Snippet 1
 #![allow(non_snake_case)]
 use dioxus::prelude::*;
@@ -99,8 +100,9 @@ To let the CLI know that you are using Tailwind, you must explicitly define it i
 
 I eventually learned that the Dioxus CLI was updated after this documentation was created. Since then, routing was completely reworked and the CLI must use a newer default config. When I added Tailwind, I had to override the newer deployment configuration with an old config that didn't account for routing. Luckily, the solution was a simple fix, I just needed to add this line in the toml:
 
-`./Dioxus.toml`
 ```toml
+# ./Dioxus.toml
+
 # --snip--
 
 [web.watcher]
@@ -123,8 +125,9 @@ The easiest way to host this was to move the build output directory to `/docs` a
 Github Pages will host your site at `http://<USERNAME>.github.io/`. If your repository is named `<USERNAME>.github.io` the site will be hosted at the base URL, `/`. Otherwise, it'll go live at code `/<REPO_NAME>`. I have my custom domain set up so it says `http://nathan.rs/` for me.
 
 
-`./Dioxus.toml`
 ```toml
+# ./Dioxus.toml
+
 [application]
 
 # --snip--
@@ -174,8 +177,9 @@ The web-sys crate contains bindings to browser web APIs. This includes things li
 
 I mentioned above about loading a JS library via the index.html file. I included a link element that downloads highlight.js' default stylesheet and a script element that downloads the highlight.js library.
 
-`./index.html`
 ```html
+<!-- ./index.html -->
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -198,8 +202,9 @@ I ended up making my own custom code syntax theme in `./public/hljs.css` and upd
 
 Below is how to call the highlight.js library via Dioxus's `use_effect` hook to highlight rendered code blocks.
 
-`./src/main.rs`
 ```rust
+// ./src/main.rs
+
 #[inline_props]
 pub fn Home(cx: Scope) -> Element {
 
