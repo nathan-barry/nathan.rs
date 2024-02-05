@@ -201,7 +201,7 @@ Decaying the learning rate is one of several techniques used to balance bias and
 
 
 
-## Polyak-Lojasiewicz (PL) Inequality}
+## Polyak-Lojasiewicz (PL) Inequality
 ***
 
 The Polyak-Lojasiewicz (PL) inequality is a crucial concept in the analysis of optimization algorithms, providing valuable insights into their convergence properties. This inequality characterizes the geometry of the objective functions and establishes conditions under which optimization algorithms converge to the unique solution at a linear rate.
