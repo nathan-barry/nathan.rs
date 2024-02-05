@@ -5,7 +5,7 @@ tags = ["Misc"]
 +++
 
 
-## Overview
+## The Rendering Issue
 
 Lately I've been coming across many blogs that have weird font rendering issues for code blocks on iOS. Basically, in a code snippet, the font size would seemingly randomly be much larger for some lines than others.
 
