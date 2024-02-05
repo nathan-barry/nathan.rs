@@ -16,41 +16,25 @@ tags = ["Personal"]
 
 I am a Computer Science and Mathematics major at UT Austin. I was born in Saint Joseph, Missouri. I started programming in 2017 my freshman year of high school, with Python and JavaScript, serving PyTorch models with Flask and React. Currently, I spend most of my time on schoolwork, side projects, and (hopefully) writing.
 
-In my free time, I enjoy climbing, biking, and playing ultimate frisbee with the CS Ultimate team. I also enjoy [reading books a lot](/posts/favorite-books/). Currently, I am growing 12 pepper plants. I'm growing 4 different strains of Habanero Pepper and one variant of Ghost Pepper.
+In my free time, I enjoy climbing, biking, and playing ultimate frisbee with the CS Ultimate team (now bowling with the CS squad). I also enjoy [reading books a lot](/posts/favorite-books/). Currently, I am growing 12 pepper plants. I'm growing 4 different strains of Habanero Pepper and one variant of Ghost Pepper.
 
 
 
 ### Personal Records
 
-I've always been a competitive person and have enjoyed excelling in various activities. From lifting PRs to my StarCraft 2 rank, here are a few of my records.
-<div class="two-columns">
-<div>
-<p>
-<b>The more notable:</b>
+I've always been a competitive person and have enjoyed excelling in various activities. From lifting PRs to my highest bowling score, here are a few of my records.
 
-&nbsp;&nbsp;&#x2727;&nbsp; 1600m - 4:28
-
-&nbsp;&nbsp;&#x2727;&nbsp; 3200m - 9:51
-
-&nbsp;&nbsp;&#x2727;&nbsp; 5k - 15:56
-
-&nbsp;&nbsp;&#x2727;&nbsp; Bench - 265 lbs
-
-&nbsp;&nbsp;&#x2727;&nbsp; Bouldering Grade - V8
-</p>
-</div>
-<div>
-<p>
-<b>And the less notable:</b>
-
-&nbsp;&nbsp;&#x2727;&nbsp; StarCraft 2 Rank - Diamond (Protoss)
-
-&nbsp;&nbsp;&#x2727;&nbsp; CS:GO Rank - Gold Nova (middle school)
-
-&nbsp;&nbsp;&#x2727;&nbsp; Balls Juggled - 4 (15 consecutive catches)
-</p>
-</div>
-</div>
+Event | Record
+--- | ---
+1600m | 4:28
+3200m | 9:51
+5k | 15:56
+Bench | 265 lbs
+Bouldering Grade | V8
+Starcraft 2 Rank | Diamond (Protoss)
+CS:GO Rank | Gold Nova (middle school)
+Balls Juggled | 4
+Bowling Score | 138 (about to go way up)
 
 
 
