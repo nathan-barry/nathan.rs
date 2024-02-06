@@ -7,7 +7,7 @@ tags = ["Misc"]
 
 ## The Rendering Issue
 
-Lately, I've been coming across many blogs that have weird font-size rendering issues for code blocks on iOS. Basically, in a code snippet, the font size would seemingly randomly be much larger for some lines than others.
+Lately, I've been coming across many blogs that have weird font-size rendering issues for code blocks on iOS. Basically, in a code snippet, the text-size would sometimes be much larger for some lines than others.
 
 Below are a few screenshots I've taken for websites that I've seen this on:
 
@@ -17,9 +17,9 @@ Below are a few screenshots I've taken for websites that I've seen this on:
 <img alt="shyam.blog code block issue" src="/images/IMG_9057.png">
 </div>
 
-As you can see, the font-size isn't uniform across code block lines. This seems to be common for many blogs that compile markdown files to HTML such as Hugo or Jekyll sites.
+As you can see, the text-size isn't uniform across code block lines. I've seen this issue across many blogs that compile markdown files to HTML such as Hugo or Jekyll sites.
 
-This issue seems to happen on every browser on iOS (at least Safari, Firefox, and Chrome in my testing).
+This issue seems to happen on every browser on iOS (Safari, Firefox, and Chrome in my testing).
 
 ## Solution
 
@@ -43,9 +43,9 @@ If I have sent you this post, it means that I've spotted this issue on your site
 
 ## Why Does It Break In The First Place?
 
-The CSS snippet above explicitly tells the browser to render the text size at its original size (the `-ms`, `-moz`, and `-webkit` are for IE, Firefox, and Safari respectively). Without this, it for some reason decides it's fine to change the text size.
+The CSS snippet above explicitly tells the browser to render the text size at its original size (the `-ms`, `-moz`, and `-webkit` are for IE, Firefox, and Safari respectively). Without this, the browser decides it's fine to change the text size for certain lines. But why?
 
-I did some investigation on my own site by removing the CSS snippet. After looking at a couple posts, there was an obvious pattern to what lines were rendered large: line length.
+I did some investigation on my own site by removing the CSS snippet. After looking at a couple of posts, there was an obvious pattern to what lines were rendered large: line length.
 
 Below are two screenshots of different code blocks on my site:
 
@@ -54,7 +54,7 @@ Below are two screenshots of different code blocks on my site:
 <img alt="shyam.blog long lines in code block, issue" src="/images/IMG_9077.png">
 </div>
 
-The first image above comprises of short lines where each line renders normally. In the latter, each line longer than a certain number of characters (including spaces) renders large. This appears to be true at all the code blocks I've looked at.
+The first image above is composed of short lines where each line renders normally. In the latter, each line longer than a certain number of characters (including spaces) is rendered large. This has been true for every code block I've looked at.
 
 ### My Guess
 
@@ -73,7 +73,7 @@ func buildTopo(v *Value, topo []*Value, visited map[*Value]bool) []*Value { // 1
 }
 ```
 
-This is a code snippet from a previous post of mine. The first and fifth line (the two longest) both render large without the `text-size-adjust: 100%` CSS block.
+This is a code snippet from a previous post of mine. The first and fifth lines (the two longest) both render large without the `text-size-adjust: 100%` CSS block.
 
 If we inspect element, we can view the HTML of the code block.
 
