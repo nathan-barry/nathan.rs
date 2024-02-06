@@ -45,14 +45,16 @@ If I have sent you this post, it means that I've spotted this issue on your site
 
 The CSS snippet above explicitly tells the browser to render the text size at its original size (the `-ms`, `-moz`, and `-webkit` are for IE, Firefox, and Safari respectively). Without this, it for some reason decides it's fine to change the text size.
 
-I did some investigation on my own site by removing the CSS snippet. After looking at a couple posts, there was an obvious pattern to what lines were rendered large: line length. 
+I did some investigation on my own site by removing the CSS snippet. After looking at a couple posts, there was an obvious pattern to what lines were rendered large: line length.
+
+Below are two screenshots of different code blocks on my site:
 
 <div class="two-columns">
 <img alt="nathan.rs short code block, no issue" src="/images/IMG_9069.png">
-<img alt="shyam.blog long lines in code block, issue" src="/images/IMG_9074.png">
+<img alt="shyam.blog long lines in code block, issue" src="/images/IMG_9077.png">
 </div>
 
-The first image above comprises of short lines where each line renders at the normal size. In the latter, each line longer than a certain number of characters renders large. This appears to be true at all the code blocks I've looked at.
+The first image above comprises of short lines where each line renders normally. In the latter, each line longer than a certain number of characters renders large. This appears to be true at all the code blocks I've looked at.
 
 ### My Guess
 
