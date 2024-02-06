@@ -54,7 +54,7 @@ Below are two screenshots of different code blocks on my site:
 <img alt="shyam.blog long lines in code block, issue" src="/images/IMG_9077.png">
 </div>
 
-The first image above comprises of short lines where each line renders normally. In the latter, each line longer than a certain number of characters renders large. This appears to be true at all the code blocks I've looked at.
+The first image above comprises of short lines where each line renders normally. In the latter, each line longer than a certain number of characters (including spaces) renders large. This appears to be true at all the code blocks I've looked at.
 
 ### My Guess
 
