@@ -1,5 +1,5 @@
 +++
-title = "Fixing the iOS Code-Block Font Rendering Issue"
+title = "Fixing the iOS Code-Block Text-Size Rendering Issue"
 date = 2024-02-04T17:23:27-06:00
 tags = ["Misc"]
 +++
@@ -7,7 +7,7 @@ tags = ["Misc"]
 
 ## The Rendering Issue
 
-Lately, I've been coming across many blogs that have weird font rendering issues for code blocks on iOS. Basically, in a code snippet, the font size would seemingly randomly be much larger for some lines than others.
+Lately, I've been coming across many blogs that have weird font-size rendering issues for code blocks on iOS. Basically, in a code snippet, the font size would seemingly randomly be much larger for some lines than others.
 
 Below are a few screenshots I've taken for websites that I've seen this on:
 
@@ -17,7 +17,7 @@ Below are a few screenshots I've taken for websites that I've seen this on:
 <img alt="shyam.blog code block issue" src="/images/IMG_9057.png">
 </div>
 
-As you can see, the font size isn't uniform across code block lines. This seems to be common for many blogs that compile markdown files to HTML such as Hugo or Jekyll sites.
+As you can see, the font-size isn't uniform across code block lines. This seems to be common for many blogs that compile markdown files to HTML such as Hugo or Jekyll sites.
 
 This issue seems to happen on every browser on iOS (at least Safari, Firefox, and Chrome in my testing).
 
@@ -37,7 +37,7 @@ code {
 }
 ```
 
-This should fix the rendering issue and make the font in code blocks look correct. 
+This should fix the rendering issue and make the text-size in code blocks look correct. 
 
 If I have sent you this post, it means that I've spotted this issue on your site. Should be an easy fix.
 
