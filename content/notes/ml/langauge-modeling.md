@@ -2,7 +2,7 @@
 title = "Langauge Modeling: Word Embedings & Architectures"
 description = "These are a few of my notes from Eunsol Choi's NLP class at UT Austin."
 date = 2023-10-07T15:54:05-05:00
-tags = ["NLP Notes"]
+tags = ["Machine Learning Notes"]
 +++
 
 {{< toc >}}

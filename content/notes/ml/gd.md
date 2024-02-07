@@ -2,7 +2,7 @@
 title = "Gradient Descent & Optimizers"
 description = "My notes over Machine Learning 2. Title covers all."
 date = 2023-10-10T10:24:32-05:00
-tags = ["NLP Notes"]
+tags = ["Machine Learning Notes"]
 +++
 
 {{< toc >}}
