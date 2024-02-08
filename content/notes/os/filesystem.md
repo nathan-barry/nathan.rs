@@ -1,20 +1,14 @@
 +++
-title = "Filesystems, Layout, Caching, & Recovery"
-description = "This is an overview over filesystems, block allocation, directories, UNIX, NTFS, caching, and file recovery."
+title = "Filesystems, Transactions, & Journaling"
+description = "This is an overview over filesystems, block allocation, directories, caching, and file recovery."
 date = 2023-09-16T13:26:37-05:00
 tags = ["Operating Systems Notes"]
 +++
 {{< toc >}}
 
 
-## Filesystems
+## Filesystems Basics
 ***
-
-To manage the vast, slow, and intricately structured persistent storage, we introduced the concept of a filesystem. When evaluating the quality of a filesystem design, three primary criteria emerge:
-
-1. Speed: How swiftly can the design execute operations? How many disk accesses does it demand for common tasks?
-2. Usability: Will this design frustrate or overwhelm developers? Does it hide system complexities, or does it demand in-depth system understanding?
-3. Reliability: What happens when the system faces issues like sudden power cuts? Can it get corrupted? If so, how feasible and quick is the recovery process?
 
 ### Bits, Bytes, Sectors, and Blocks
 
@@ -29,9 +23,7 @@ Blocks are the smallest units that software typically uses to access the disk. T
 
 ### File Design and Layout
 
-Files, at their core, consist of two components: Data and Metadata.
-
-Metadata offers crucial insights about the file:
+Files consist of two components: Data and Metadata. Metadata offers crucial insights about the file:
 - Where is the file located on the disk?
 - Who owns the file?
 - What's the size of the file?
@@ -39,12 +31,10 @@ Metadata offers crucial insights about the file:
 - When was it created or last modified?
 - Where are the data blocks situated?
 
-The operating system always keeps the metadata at a predetermined, easily accessible location. Data embodies the actual content that users are interested in. This comprises sectors of data strategically placed on the disk.
+The operating system keeps the metadata at a predetermined, easily accessible location. Data is actual content that users are interested in. This comprises sectors of data placed on the disk.
 
 
 #### Design Properties for an Ideal Filesystem
-
-Understanding typical file patterns helps us delineate what an ideal filesystem might look like:
 
 1. Quick access to smaller files.
 2. Efficient access to larger files.
@@ -52,13 +42,39 @@ Understanding typical file patterns helps us delineate what an ideal filesystem 
 4. Facilitate files to expand beyond their initial size.
 5. Ensure decent speeds for both random and sequential access.
 
+### Superblocks
+
+There's essential data intrinsic to every filesystem:
+
+- The filesystem type (Is it FFS? FAT32?)
+- The total number of blocks.
+- Block size.
+  
+There are also elements like file headers, free space, etc we must manage. All this data is stored in what's known as a **superblock**. Each filesystem possesses at least one superblock, and it's feasible to have numerous filesystems on a singular physical disk using partitions. There could be backup superblocks distributed across the disk, furthering reliability.
+
+### Filesystem's Physical Layout
+
+Within a partition (or filesystem), the superblock retains details like the starting point of inode arrays, block dimensions, and free disk space management techniques.
+
+**Partitions** have multiple utilities:
+
+- They can segregate a disk into multiple filesystems.
+- Every partition can effectively function as an independent filesystem but within the same disk.
+- The **Partition Table** (a component of the GPT Header) indicates the locations of different partitions.
+  
+Uses of partitions encompass:
+- Housing multiple OSs on a single physical disk (useful for dual-booting systems).
+- Creating a swap partition for pages that are removed from the primary memory.
+- Designating physical disk regions for optimizing seek latency.
+
+
 
 
 
 ## Data Block Allocation
 ***
 
-A pivotal decision in file management is how to allocate data blocks to hold a file. 
+An important decision in file management is how to allocate data blocks to hold a file. 
 
 ### Contiguous Allocation
 
@@ -68,14 +84,6 @@ When focusing on access in contiguous allocation:
 
 1. Disk Read Requirement: To fetch a specific block, how many disk reads are necessary? Note that one must always be aware of the block number of the relevant file header. 
 2. All data fetches from the disk must specify a block number. For instance, one can request "read block 27". However, vague requests like "read the succeeding block" or "read the next file" are not permissible.
-
-#### Contiguous Allocation: The Memory Constraint
-
-A key constraint in this discussion is the available memory for storing data. In our current discussion, we're limiting ourselves to two memory spots. 
-
-This simplification is a strategic choice. In real-world scenarios, a system could have millions of memory spots, each capable of holding vast amounts of data. Operating in such an environment makes it hard to determine the efficiency of an algorithm due to the sheer number of variables at play. 
-
-By restricting ourselves to just two memory spots, we can clearly visualize how various file layouts impact access speed. While this might not mirror real-world complexities, the principles derived can be extrapolated to more intricate systems.
 
 ###### Contiguous Allocation Access: A Step-by-Step
 
@@ -97,12 +105,11 @@ The reason why random access is efficient here is due to the contiguous nature o
 
 #### Assessment of Contiguous Allocation
 
-- **Simplicity:** The contiguous allocation method is straightforward, which is always a merit in design.
-- **Sequential Access Speed:** Excellent.
-- **Random Access Speed:** Excellent.
-- **File Growth:** One major downside. If you wish to expand a file but another file obstructs its path, reallocation becomes necessary.
-- **Fragmentation:** There's a significant amount of external fragmentation.
-- **Overcoming Challenges:** The issues with contiguous allocation lead us to explore alternatives, like linked allocation.
+- Simplicity: The contiguous allocation method is straightforward, which is always a merit in design.
+- Sequential Access Speed: Excellent.
+- Random Access Speed: Excellent.
+- File Growth: One major downside. If you wish to expand a file but another file obstructs its path, reallocation becomes necessary.
+- Fragmentation: There's a significant amount of external fragmentation.
 
 
 ### Linked Allocation
@@ -151,7 +158,6 @@ For the linked allocation:
 - Random Access Speed: Essentially equates to sequential access to the Nth block.
 - Corrupted Disk Block: Corruption of a single block obstructs access to subsequent blocks.
 
-Both contiguous and linked allocation have their unique strengths and weaknesses. While contiguous allocation excels in both sequential and random access due to its simple structure, it struggles with file growth and fragmentation. On the other hand, linked allocation offers more flexibility in file growth, but at the cost of slower random access speeds.
 
 ### Direct Allocation
 
@@ -172,82 +178,28 @@ The File Allocation Table (FAT) system originated with MS-DOS in the late 1970s.
 - Poor Random Access: Requires sequential traversal of linked blocks.
 - Limited Access Control: There's no differentiation between file owner or group ID, making all files readable/writable by any user.
 - Size Limitations: With FAT-32, for instance, using 4KB blocks, the file system can't exceed 2TB. Individual files have a cap at 4GB.
-- No Transactional Updates Support: This topic will be delved into further later.
-- Lack of Features: No support for hard links, and the volume and file size are bounded.
 
 
-### Variable-Sized File Headers: Why It's Not Ideal
-
-While it might be tempting to employ variable-sized file headers, especially for large files, this approach presents severe drawbacks:
-
-1. Complex Indexing: Fixed-size headers allow for easy indexing arithmetic. Variable-sized headers, on the other hand, complicate direct access.
-2. Increased Disk Access: You'd need to traverse from the start for every file header access. So, to access header 27, you'd need a minimum of 27 disk reads.
-3. Efficiency Concern: Disk reads are resource-intensive. Having to execute millions of disk accesses to locate the millionth file is far from optimal.
-
-While each file allocation method offers unique advantages, it's crucial to weigh these benefits against the drawbacks to make an informed choice. Linked allocation shines for sequential access but falters with random access. FAT is universal but has its limitations, and direct allocation prompts critical questions about file growth, metadata management, and fragmentation.
 
 
 
 ## Directories
 ***
 
-While we have managed to access a file's data using its metadata (file header) and can identify file headers via their index in the file header array, our current system lacks the capability for file naming. Not being able to name files presents a direct challenge to making the system user-friendly and efficient.
-
-Directories provide the crucial framework for organizing, accessing, and protecting files within a filesystem.
-
-### What is a Directory?
-
 A directory is essentially a file that holds a mapping from file names to their corresponding inode numbers. Think of this as an address book where you can look up the address (inode number or `inumber`) for any person (file name).
 
-- The Special Reserved Area: Remember the "special reserved area" we discussed? That was a rudimentary example of a directory.
-  
 - Inumber: This is the identifier for the inode and is often referred to as the `inumber`.
 
-- Protection from Tampering: To prevent security breaches or accidental errors, only the operating system has permission to alter directories. This way, the mappings remain secure.
+- Protection from Tampering: Only the operating system has permission to alter directories for securities and safety.
 
 - User-level Access: While users cannot modify directories, they can read them, which aids in navigation and file retrieval.
 
-- Name Spaces: Directories maintain unique name spaces. This means that within one directory, all file names must be distinctive. However, the same name can be reused in another directory.
+- Name Spaces: Directories maintain unique name spaces. This means that within one directory, all file names must be distinctive.
 
 
-A fascinating fact about directories is that an `inumber` within a directory can actually point to another directory, not just typical files. To distinguish between the two, the OS designates a special bit in the inode. 
+An `inumber` within a directory can point to another directory, not just typical files. To distinguish between the two, the OS designates a special bit in the inode. 
 
 There is always a unique root directory, which acts as the entry point to the entire file system. This root is often identified by `inumber` 0, 1, or 2.
-
-Example: 
-
-Imagine a directory with entries each 16 bytes long:
-
-| i#   | Filename   |
-| --- | --- |
-| 3226 | .bashrc    |
-| 251  | Documents  |
-| 7193 | pintos     |
-| 2086 | todo.txt   |
-| 1793 | Pictures   |
-
-### Traversing the File System
-
-To access a file's data, you need to:
-1. Find its `inode` (file header) - which requires the `inumber`.
-2. To get the `inumber`, read the directory holding the file.
-3. However, since the directory is also a file, you need to find its data blocks too!
-
-It might seem like we're going in circles, but in actuality, the start and end data blocks are distinct — one belongs to the target file, and the other to its containing directory.
-
-But to prevent getting stuck in an endless loop, a fixed point of reference is required.
-
-### Breaking the Infinite Loop
-
-The solution to this seemingly infinite cycle is the root directory. This directory serves as the base or starting point from which all other files can be accessed. In UNIX systems, this root directory is denoted as "/". Typically, in many UNIX systems, the root directory has an `inumber` of 2.
-
-
-
-
-
-
-## Understanding UNIX Filesystem Internals
----
 
 ### Tracing the File Open Process
 
@@ -266,7 +218,7 @@ int config_fd = open("/home/user1/.bashrc", O_RDONLY);
 
 This process required 6 disk reads to merely open the file, without even fetching any content from it.
 
-### Optimization: The Current Working Directory (cwd)
+### The Current Working Directory (cwd)
 
 Problem: Opening files, especially those nested deep within directories, can be quite read-intensive.
 
@@ -284,244 +236,20 @@ While we've detailed how to:
 
 Users shouldn't need to know or perform any of these steps. The OS masks this complexity, presenting users with a straightforward interface.
 
-### Enhancing Usability with the UNIX Filesystem API
 
-The UNIX Filesystem API provides a set of functions that allow users to interact with files and directories without needing to understand the underpinnings of the filesystem.
 
-While many of these functions may already be familiar, understanding their implementations, given our deep dive into the filesystem, will be enlightening. Before we explore them, however, there's one last piece of the API we need to discuss...
-
-This approach ensures that even as we dive deep into the technicalities, the content remains structured and easy to follow. It's the OS's job to handle these complexities, and our job to present them in an organized manner!
-
-
-### Filesystem Structures in Memory and On-Disk
-
-The following components are crucial:
-
-- User Memory: This is where processes reside and operate. It has limited direct interaction with the filesystem.
-- Per-Process Memory: This memory contains process-specific data, like the file table for each process.
-- Global System Memory: A centralized memory zone holding data that is globally accessible to all processes.
-- On Disk: The physical storage where the file data and inodes exist.
-
-When a user interacts with the filesystem (like opening a file), they primarily deal with structures in the user memory, accessing the disk indirectly through system calls.
-
-### Recap
-
-1. Computers without persistent storage are frustrating to work with.
-2. The unique nature of persistent storage (considering aspects like speed, resilience, and request ordering) steers us towards the creation of file systems.
-3. In filesystem design, the main priorities are:
-    - Speed: Efficient file access and operations.
-    - Reliability: Data integrity and resilience against failures.
-    - Usability: User-friendly operations and structure.
-4. Filesystem utilization encompasses the filesystem API, in-memory tracking structures, and the data's on-disk architecture. All these elements must be contemplated when formulating a filesystem.
-
-
-
-
-
-
-
-
-
-
-
-## Filesystem Recap
-***
-
-To understand the workings of a filesystem, let's delve into its individual components:
-
-1. **Syscall API**: This is the set of system call interfaces that allow user programs to interact with the operating system, facilitating operations on files and directories.
-  
-2. **File and Data Layout**: This is about the organization of files and data on the disk. It defines how data is stored, accessed, and retrieved.
-
-3. **Directories and Organization**: Instead of having users remember intricate inode numbers (inumbers) for every file, we introduced directories. Directories associate file names with their respective inumbers. For instance:
-   - `.bashrc` ➔ 27
-   - `Documents` ➔ 30
-   - `Pictures` ➔ 3392
-   - `.ssh` ➔ 7
-   
-   Users navigate and access files using paths, a series of directory names. For example, `/Documents/Assignment1.txt`. The starting point, `/`, denotes the root directory. Navigating from the root might require multiple disk lookups. To enhance efficiency, a concept called the current working directory was established. This way, users don't always have to start from the root; they can work within their current directory.
-
-### Disk Access Model
-
-When we initiate operations on our disk, it's not as straightforward as merely asking the disk to "read the next file." Instead, we employ a structured approach:
-
-- We always begin with the inode number (i#) of the root directory, typically designated as 2.
-  
-- The CPU is capable of storing data equivalent to two blocks in memory. For any additional data, a request has to be sent to the disk.
-
-- Any such request needs to be precise. It should be in the form of a block number. For instance, "read block 27" is a valid request. Ambiguous requests like "read next block" or "read next file" are not entertained.
-
-
-
-## Foundational Filesystems
-***
-
-- **File Allocation Table (FAT)**: A prominent example of filesystems is FAT, which employs linked allocation with links in the header. This mechanism allocates the first available free block to a file. Although the FAT system is straightforward, it lacks several advanced features.
-
-- **Berkeley Fast Filesystem (FFS)**: Designed for efficiency, FFS employs multilevel indexing. This system facilitates swift access to smaller files using direct allocation and supports large files via indirect blocks. Modern descendants of FFS, often referred to as "UFS2," still dominate many BSD systems today.
-
-### Modern Developments: NTFS Insights
-
-Today, we'll explore NTFS - the New Technology File System, the default filesystem for Windows.
-
-- **History & Relevance**: Introduced by Microsoft in July 1993, NTFS remains the primary filesystem for all Windows devices. Anyone who has operated a Windows PC has interacted with an NTFS filesystem.
-
-- **Innovations in NTFS**: 
-
-  - **Extents**: These track a range of consecutive blocks rather than individual blocks. For instance, instead of marking blocks like 192, 193, 194, 657, 658, 659 individually, it can be represented as two extents: (192,3) and (657, 3).
-
-  - **Flexible Trees**: In NTFS, files are illustrated through variable-depth trees. A massive file with few extents will have a shallow depth. The Master File Table (MFT) maintains the trees' roots, akin to the inode table. These entries are known as records. Each record houses a sequence of variable-sized attribute records.
-
-#### NTFS File Categories
-
-1. **Normal Files**
-  
-2. **Tiny Files**
-
-3. **Files with Abundant Metadata**: These are files that have so much metadata that there isn't sufficient space for data pointers.
-
-4. **Varying Sizes**: From small to really, really large files, NTFS can handle them all. For extremely vast files, even the attribute list might be external!
-
-5. **Special Files**: NTFS houses most metadata in regular files with specific numbers such as:
-   - 5 for the root directory
-   - 6 for free space management
-   - 8 for the list of flawed blocks
-
-   Other key files include:
-   - **$Secure (file 9)**: Manages access controls for each file. It's essential to note that this isn't directly stored in the file record. Each file is indexed by a fixed-length key found in the Standard Info field of the file record.
-   - **$MFT (file 0)**: Contains the Master File Table. The MFT is dynamic, starting small and expanding as needed. NTFS smartly reserves a segment of the volume for MFT expansion to counter fragmentation.
-
-NTFS combines traditional and innovative structures:
-
-- **Traditional Structures**:
-  - A unified array for file headers, named file records.
-  - Predetermined, global file records for crucial files.
-  - File records house pointers leading to data blocks.
-
-- **Novelties**:
-  - For tiny files, NTFS can store file data directly within a record, which avoids unnecessary disk access.
-  - For extensive file records that exceed their limits, they can overflow to other MFT entries. This setup circumvents file size limitations due to file record size constraints.
-  - Uses extents to store data block information related to a file more compactly.
-
-
-
-## Filesystem Layout
-***
-There's essential data intrinsic to every filesystem:
-
-- The filesystem type (Is it FFS? FAT32?)
-- The total number of blocks.
-- Block size.
-  
-Moreover, we must manage elements like file headers, free space, etc. All this data is stored in what's known as a **superblock**. Each filesystem possesses at least one superblock, and it's feasible to have numerous filesystems on a singular physical disk using partitions.
-
-### Filesystem's Physical Layout
-
-Within a partition (or filesystem), the superblock retains details like the starting point of inode arrays, block dimensions, and free disk space management techniques.
-
-**Partitions** have multiple utilities:
-
-- They can segregate a disk into multiple filesystems.
-- Every partition can effectively function as an independent filesystem but within the same disk.
-- The **Partition Table** (a component of the GPT Header) indicates the locations of different partitions.
-  
-Uses of partitions encompass:
-- Housing multiple OSs on a single physical disk (useful for dual-booting systems).
-- Creating a swap partition for pages that are removed from the primary memory.
-- Designating physical disk regions for optimizing seek latency.
-
-
-**Filesystem Layout: A Quick Summary**
-
-1. The **superblock** holds crucial details about the filesystem:
-   - Filesystem type.
-   - Block size.
-   - Starting points of other essential segments, such as the inode array.
-
-2. Bitmaps, separate for inodes and file data, help in tracking free blocks.
-
-3. **Inode arrays** are vital as they store key file metadata.
-
-4. There could be backup superblocks distributed across the disk, furthering reliability.
-
-5. Consequently, parts of the disk are not available for storing file data, in part because many contemporary filesystems set aside around 10% of data blocks for optimizing file locality.
-
-## Reliability and Consistency
-***
-
-*Consistency as a Measure of Reliability*:
-
-- **Consistency** is pivotal: It ensures that the data aligns with itself.
-- Although this might seem a basic requirement, maintaining it is fundamental for a filesystem.
-- The overarching goal is to ensure the filesystem's "correctness" post any failure.
-
-**How Inconsistencies Might Arise**:
-
-- When appending data to a file, several changes to the filesystem may occur, like:
-   1. Addition of a new data block.
-   2. Update to the inode.
-   3. Update to the data bitmap.
-
-- However, if only one of these writes succeeds, it could lead to complications:
-  1. **Data Block Write Success**:
-     - The new data block has been written.
-     - But, the bitmap indicates the block isn't in use.
-     - The inode doesn't direct to this new block.
-     - Result: The data block's purpose is nullified. 
-
-  2. **Inode Write Success**:
-     - The inode has a pointer, but it might just point to irrelevant data.
-     - The data bitmap suggests the block is free, contradicting the inode.
-     - Result: FILESYSTEM INCONSISTENCY. Reconciliation is needed.
-
-  3. **Data Bitmap Write Success**:
-     - The data block is labeled as allocated, yet contains only irrelevant data.
-     - The data bitmap denotes the block as in use, but there's no inode pointing to it.
-     - Result: FILESYSTEM INCONSISTENCY. Determining which file utilizes the data block becomes a challenge.
-
-**Challenges in Handling Write Failures**:
-
-- If two writes are successful, inconsistencies can still arise:
-  - Inode and bitmap updates are successful but reading the new block only returns irrelevant data.
-  - Inode and data block updates succeed, but the data bitmap doesn't mark the block as used.
-  - Both the data bitmap and data block succeed, but no inode points to the data block.
-
-In essence, no matter the write sequence, failures can induce inconsistencies.
 
 
 
 ## Caching
 ***
 
-Disk caching drastically improves our interaction speed with the filesystem. Modern operating systems utilize caching extensively. However, RAM's volatile nature poses a question: What happens during a power outage, especially if there's unsaved data in memory?
+Disk caching drastically improves our interaction speed with the filesystem. Modern operating systems utilize caching extensively.
 
-### Disk Writing
-- Should a user be informed of a successful write if it's only cached in RAM?
-   - **Write-through caching**: Ensures the data is immediately written to the disk, retaining a cached copy for future reads. While it upholds consistency, it's slow due to waiting for the disk's confirmation.
-   - **Write-back caching**: Delays writing to the disk, storing the changed copy in-memory. It offers superior performance, but there's a risk of losing modified data during crashes.
+- **Write-through caching**: Ensures memory is immediately written to the disk, retaining a cached copy for future reads. While it upholds consistency, it's slow due to waiting for the disk's confirmation.
+- **Write-back caching**: Delays writing to the disk, storing the changed copy in-memory. It offers superior performance, but there's a risk of losing modified data during crashes.
 
-#### A Deep Dive into Cache Writing
-- **Write-through** vs. **Write-back**:
-  - Write-through ensures immediate data writing to the disk. It's more consistent but slower.
-  - Write-back defers disk writing, relying on the in-memory copy for subsequent read requests. It's faster but prone to inconsistencies during system crashes.
-  
-- This distinction is also relevant for CPU caches. The speed gap between CPU cache and RAM is approximately 100x, whereas it's around 20,000x between RAM and disk.
-
-- **Crux of the Matter**: No write operation sequence can guarantee a consistent filesystem, a dilemma compounded by caching. While write-through caching preserves data consistency, it's slow. Write-back caching, being faster, raises the chances of data loss.
-
-### Caching’s Impact on Consistency
-- Even without factoring in disk caching, inconsistencies can emerge. Write-back caching can make things even more complex.
-- Let's consider an example:
-   - With **write-through caching**, updating the inode, data block, and data bitmap requires three separate disk writes, taking about 30-40ms. During this window, power failures can result in inconsistencies.
-   - With **write-back caching**, after the initial write, the subsequent two are held in cache. If there's a power outage before the cache flushes, inconsistencies can arise, especially since the write-back delay is typically much longer than 30ms.
-
-**Traditional UNIX Approach to Consistency: `fsck`**
-- Historically, up to the early 2000s, UNIX systems employed `fsck` to tackle consistency concerns.
-
-
-
-## UNIX Filesystem
-***
+### UNIX Filesystem Caching
 
 **Handling User Data in UNIX**
 - UNIX opts for **write-back caching** when dealing with user data.
@@ -536,38 +264,6 @@ Disk caching drastically improves our interaction speed with the filesystem. Mod
 - If the system crashes, one must:
   - Run the `fsck` tool, which stands for filesystem check. This tool scans partitions for inconsistencies and rectifies incomplete operations if detected.
 
-**An Example: Creating a File**
-Considering a system with direct allocation, the following operations are essential when creating a file:
-1. Write to the inode bitmap.
-2. Update the data bitmap.
-3. Write to the inode for the new file.
-4. Write to the data block.
-5. Update the inode.
-6. Update the inode bitmap.
-7. Update the data bitmap.
-8. Update the directory.
-
-### Post-Crash Scenario: The Role of `fsck`
-Consider the operations in file creation:
-1. Write to the data block.
-2. Update the inode.
-3. Update the inode bitmap.
-4. Update the data bitmap.
-5. Update the directory.
-
-Ponder upon this: What if a crash occurred before the first operation or between the first and second operations?
-
-**The Challenges with `fsck`**
-- `fsck` isn't based on a highly principled approach. There's always the lingering worry about overlooked edge cases that might disrupt everything.
-- Ensuring its accuracy is a challenge, as minor errors can lead to severe repercussions.
-- Leveraging write-through caching for metadata can degrade performance.
-- The recovery process is tedious. At the very least, a comprehensive scan is needed for:
-  1. The inode bitmap.
-  2. The data block bitmap.
-  3. Every inode.
-  4. Every directory.
-  
-Further, the recovery task might intensify if any inconsistencies arise.
 
 
 ## Transactions & Journaling
@@ -583,9 +279,7 @@ In the transactional process, actions are tentatively applied. If all goes well,
 
 ### Handling Rollbacks
 
-Directly undoing disk writes (rollback) is tricky. A prime example being anyone who wished they could revert to a previous version of a project.
-
-The solution? Use a **transaction log**:
+Directly undoing disk writes (rollback) is tricky. The solution is to use a **transaction log**:
 
 1. **Write-Ahead Logging**: Log each intended operation without immediately executing it.
 2. **Commit**: Indicate that the transaction is complete and its effects are now permanent.
@@ -595,7 +289,7 @@ The solution? Use a **transaction log**:
 
 After committing, even though the new data hasn't been written to disk, it's still considered as the "official" data. This raises the question: How can the system provide access to this data?
 
-The operating system plays a bit of an illusionist role here. A straightforward approach is for the OS to update its disk cache to mirror what the disk would look like post-transaction. If any process tries to access the modified pages between the logging of the COMMIT and the actual disk update, the OS reroutes the request to the in-memory cache.
+A straightforward approach is for the OS to update its disk cache to mirror what the disk would look like post-transaction. If any process tries to access the modified pages between the logging of the COMMIT and the actual disk update, the OS reroutes the request to the in-memory cache.
 
 ### Recovery and Partial Transactions
 
@@ -607,7 +301,7 @@ Recovering from incomplete transactions is somewhat similar to the `fsck` proces
 
 Thus, transactions and journaling collectively ensure that data remains consistent, even in scenarios with unexpected failures. By logging operations and deferring actual changes, the system can maintain atomicity and durability, while also allowing recovery when things go awry.
 
-### Journaling Filesystems: A Comprehensive Look
+### Journaling Filesystems
 
 From the 1990s onwards, **journaling filesystems** became a foundational element in filesystem design. They work on a simple principle: all metadata changes that might cause inconsistencies are first written to a **transaction log** (commonly known as the journal) before being eventually persisted to the relevant disk blocks.
 

@@ -110,10 +110,10 @@ Dual Mode Execution is a core concept in OS protection. It allows the OS to main
 
 
 
-## Accessing System Resources
+## Handling Processes
 ***
 
-### System Calls
+### Accessing System Resources: System Calls
 
 When applications need to communicate with the operating system, they make use of system calls. System calls provide the interface between an application and the operating system (often known as the API). They are typically accessed via system-level libraries. A system call is a request by a user-level process to call a function in the kernel. Some examples include `read()`, `write()`, and `exit()`.
 
@@ -137,8 +137,7 @@ Some interesting features are that when appending `&` to a command, Unix runs th
 
 
 
-## Spawning Processes
-***
+### Spawning Processes
 
 A process can spawn other processes. The original is known as the parent, while the new ones are called child processes. In many systems, the parent can allocate resources and permissions to its children. Processes can either run concurrently or one can wait for the other to finish.
 
@@ -147,7 +146,7 @@ Unix uses the `fork()` function to create processes. This function duplicates th
 
 The `exec()` function overlays a new program onto a process. Notably, the Process ID (PID) remains unchanged. This function is necessary for child processes in Unix that wish to run a different program. When `exec()` succeeds, even though it’s the same process, a new program runs.
 
-### A Practical Example: `fork()` and `exec()`
+#### A Practical Example: `fork()` and `exec()`
 
 Let's consider a simple example to understand the interplay between `fork()` and `exec()`:
 
@@ -160,12 +159,11 @@ Let's consider a simple example to understand the interplay between `fork()` and
 This combination allows for a high degree of flexibility and concurrency in program execution, playing a pivotal role in how Unix and many other operating systems function.
 
 
-## Process Control
-***
+### Process Control
 
 When diving into operating systems, one of the core concepts to understand is how processes are managed and controlled. Let's take a closer look at this intricate dance between processes.
 
-### Process Creation with `fork()` and `exec()`
+#### Process Creation with `fork()` and `exec()`
 
 **`fork()`**: The fork system call is used to create a new process. When a process calls `fork()`, an identical process is created. Here's a general idea of how it works:
   
@@ -201,8 +199,7 @@ if (fork() == 0) {
 
 It's important to understand that after a successful call to `exec()`, the subsequent lines in the calling process will not be executed, as the process's memory gets replaced.
 
-## Handling Process Termination
-***
+### Handling Process Termination
 
 Processes can either terminate normally or be killed:
 
@@ -218,7 +215,7 @@ Processes can either terminate normally or be killed:
 
 - **`kill()`**: This system call can terminate another process. Notably, it's also used for interprocess communication by sending signals to specified processes. If a receiving process doesn't have a handler for a particular signal, a default action is taken. 
 
-### Waiting on Child Processes with `wait()`
+#### Waiting on Child Processes with `wait()`
 
 The `wait()` system call allows a parent process to pause until one of its child processes terminates. It serves multiple purposes:
 
@@ -226,13 +223,13 @@ The `wait()` system call allows a parent process to pause until one of its child
 - Blocks the parent until the child completes.
 - Upon a child's `exit()`, the OS allows the parent to resume, returning the exit value.
 
-### Zombie and Orphan Processes
+#### Zombie and Orphan Processes
 
 - **Zombie Processes**: A process that has completed execution but still has an entry in the process table is a zombie process. The OS retains some information about the zombie process so the parent can retrieve the child's exit status.
   
 - **Orphan Processes**: When a parent process terminates before its child processes complete, the children become orphan processes. In UNIX systems, the `init` process automatically adopts orphaned processes.
 
-### Other Process Control Mechanisms
+#### Other Process Control Mechanisms
 
 - **Priority Manipulation**: UNIX systems have the `nice()` call, which specifies the base process priority. Over time, as a process consumes CPU, its priority may change.
   
@@ -283,7 +280,7 @@ Multiprogramming, also known as concurrency, is when a program has a single proc
 
 <!-- It's essential to recognize that at any given moment, all the processes that the OS manages will be present in one of these state queues. -->
 
-### Scheduling Basics
+There are two kinds of scheduling:
 
 - **Long-Term Scheduling**:
   - How does the OS decide on the level of multiprogramming, particularly the quantity of jobs that can concurrently reside in primary memory?
@@ -363,7 +360,7 @@ Context switching is the primary overhead for any scheduling strategy.
 - Care must be taken as continuous execution of high-priority tasks can result in starvation for lower-priority tasks.
 - Time slices for round-robin increment exponentially for lower priority levels.
 
-### How Multilevel Feedback Queues Approximate SJF
+#### How Multilevel Feedback Queues Approximate SJF
 Usually, if a process is I/O bound in the past, it's likely to continue to be I/O bound in the future. Thus, by prioritizing jobs that historically consumed minimal CPU time, the scheduler can approximate the SJF policy. This approach is adaptive, reacting dynamically to changes in a job's behavior.
 
 1. Jobs commence in the highest priority queue.
@@ -372,7 +369,7 @@ Usually, if a process is I/O bound in the past, it's likely to continue to be I/
    
 **Outcome**: CPU-bound tasks rapidly plummet in priority, while I/O-bound tasks maintain a high priority.
 
-### Enhancing Fairness
+#### Enhancing Fairness
 Although SJF is optimal, it might not always be fair. Fairness is important because it prevents **starvation**, when a process never gets to run. A low priority task might never get to run because there might always be higher priority tasks above it. Some possible fixes include:
 
 - Allocating each queue a fixed fraction of CPU time. This only works if job distribution across queues is even.

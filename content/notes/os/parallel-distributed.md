@@ -1,5 +1,6 @@
 +++
 title = "Parallel & Distributed Computing"
+description = "This is an overview of Parallel & Distributed Computing, Two-Phase commit, Leader Election, RPC, NFS, and GFS."
 date = 2023-09-19T08:08:52-05:00
 tags = ["Operating Systems Notes"]
 +++
@@ -17,7 +18,7 @@ In the realm of parallel computing, we deal with **tightly-coupled systems**. Th
 - A unified memory, implying a singular physical address space.
 - Operation under a single OS.
 
-Common manifestations of parallel computing can be seen in **Multicore systems** and **Symmetric Multi Processor (SMP) systems**. Moreover, it's intriguing to note that SMP systems can further incorporate multicore processors.
+Common manifestations of parallel computing can be seen in **Multicore systems** and **Symmetric Multi Processor (SMP) systems**.
 
 Parallel programming isn't just about running things simultaneously. It involves:
 
@@ -27,9 +28,7 @@ Parallel programming isn't just about running things simultaneously. It involves
 
 3. **Coordination**: Ensuring these processes communicate and sync up properly. Remember, while they work independently, they're all aiming for a common goal.
 
-So, how exactly have we been leveraging parallel programming? Reflecting on our journey so far this semester might provide some clues.
-
-### Choosing the Right Parallel Programming Model
+### Shared Memory and Message Passing Models
 
 There are primarily two models of parallel programming:
 
@@ -49,23 +48,20 @@ There are primarily two models of parallel programming:
       
     - **Tools**: Libraries like MPI help abstract the intricacies of message passing.
 
-### Distinguishing Between Shared Memory and Message Passing Models
 
-*Shared Memory*:
+Shared Memory:
 - **Advantages**: Quick communication since everything is in shared memory.
   
 - **Challenges**: Requires explicit synchronization. Works best when all processes are on the same machine.
   
 - **Use Cases**: Ideal for multi-core or multi-threaded applications on a single machine.
 
-*Message Passing*:
+Message Passing:
 - **Advantages**: Great for distributed systems where processes span multiple machines. Synchronization is inherently built-in.
   
 - **Challenges**: Need to format data into messages, which might add overhead.
   
 - **Use Cases**: Best for cluster computing or scenarios where the computational load needs to be distributed across machines, e.g., cloud computing.
-
-Both shared memory and message passing have their own set of advantages, and the choice between them depends largely on the architecture and nature of the problem. As our computational problems grow in complexity, mastering these parallel programming techniques becomes increasingly essential. In the end, the goal is to maximize efficiency, reduce latency, and achieve faster results.
 
 
 
@@ -92,8 +88,6 @@ As a consequence, communication in distributed systems tends to be more costly c
 - The World Wide Web.
 - Supercomputers, Clusters, and Massively Parallel Machines.
 
-A tangible example would be **Frontera**, which is a TACC Supercomputer, or a cluster composed of 64 dual-processor PCs all connected by a 100Mb/Sec Ethernet switch.
-
 Beyond traditional distributed systems, we have **Grid computing** and **Cloud computing**.
 
 - **Grid computing**: This involves computations spread across multiple locations and can involve heterogeneous architectures. An instance of this would be XSEDE.
@@ -102,10 +96,10 @@ Beyond traditional distributed systems, we have **Grid computing** and **Cloud c
 
 
 
-## Unique Challenges in Distributed Systems
+## Challenges in Distributed Systems
 ***
 
-Distributed systems, though robust and scalable, present unique challenges. Two particularly intricate issues involve the ordering of events and maintaining atomicity across servers. 
+Distributed systems, though robust and scalable, present unique challenges. Two big issues involve the ordering of events and maintaining atomicity across servers. 
 
 ### Event Ordering in Distributed Systems
 
@@ -114,9 +108,7 @@ For distributed systems to coordinate requests fairly and effectively, there mus
 - **Stand-alone Systems/Parallel Computing**: Where there's a shared clock and memory.
 - **Distributed Systems**: Where there's no global clock and each individual clock can drift due to differing speeds.
 
-The primary question that arises is: *How can we order events that execute on physically separate systems?* 
-
-In standalone systems, the shared clock aids in determining order. But in distributed systems, this isn't a luxury we possess. So, we rely on time-stamps for determining the order of events. This then raises another question: What does "time" even mean in a distributed context?
+In standalone systems, the shared clock aids in determining the order of events. But in distributed systems, this isn't a luxury we possess. So, we rely on time-stamps for determining the order of events.
 
 #### Addressing Event Ordering: Happened-Before Relation
 
@@ -126,10 +118,9 @@ To address this, the **Happened-Before Relation** comes into play:
 2. If A is a message send event and B is the message's receipt, then A ® B.
 3. If A ® B and B ® C, then A ® C.
 
-To further explain:
+When we're trying to determine event ordering in distributed systems, a significant realization is that a message must be sent before it can be received. Thus, Send/Receive events can synchronize clocks.
 
-- When we're trying to determine event ordering in distributed systems, a significant realization is that a message must be sent before it can be received. Thus, Send/Receive events can synchronize clocks.
-- For **total event ordering**, a logical clock is maintained for each process. When an event occurs, the logical clock increments. If Process X sends a message to Process Y, it attaches a timestamp. Upon receiving, Process Y adjusts its clock based on this timestamp.
+For **total event ordering**, a logical clock is maintained for each process. When an event occurs, the logical clock increments. If Process X sends a message to Process Y, it attaches a timestamp. Upon receiving, Process Y adjusts its clock based on this timestamp.
 
 ### Atomicity in Distributed Systems
 
@@ -235,12 +226,11 @@ The Two-Phase Commit protocol, despite its challenges, serves as a foundational 
 - Assess whether such risks are acceptable.
 - If 2PC falls short, delve into advanced distributed coordination methods or consider specialized courses in distributed computing for deeper insights.
 
-By grasping the nuances of protocols like 2PC, one can better navigate the complexities of distributed systems, ensuring robust and synchronized operations across multiple nodes.
 
 
 
 
-## Leader Election in Distributed Systems
+## Leader Election
 ***
 
 In distributed systems, where multiple machines or processes collaborate to achieve a goal, deciding which machine leads the charge can be crucial. This is especially true when a previously appointed leader fails or when the system starts up without an initial leader. One common solution to this problem is the use of leader election algorithms.
@@ -282,13 +272,7 @@ One popular election algorithm for leader election is the **Bully Algorithm**. L
 
 
 
-
-
-
-
-
-
-## Delving into Remote Procedure Calls (RPC)
+## Remote Procedure Calls (RPC)
 ***
 
 Remote Procedure Calls, or RPCs, are an essential mechanism for executing services across different systems in a distributed environment. 
@@ -319,7 +303,7 @@ As with any technology, RPCs come with their own set of challenges:
 
 
 
-## Understanding Consistency Models in Distributed Systems
+## Consistency Models
 ***
 Consistency models govern how data, kept in data stores such as registers, file systems, or databases, behaves when accessed concurrently by multiple entities. The models act as contracts between the data store and its clients, defining the results a client can expect when they access the data.
 
@@ -348,9 +332,9 @@ Consistency models govern how data, kept in data stores such as registers, file 
 
 ## Network File System (NFS)
 ***
-- **Network File System (NFS)**: A distributed file system developed by Sun Microsystems in 1984.
-- **Prominence**: It stands as one of the most extensively used distributed file systems and is even utilized by UTCS.
-- **Functionality**: Files are stored on remote file servers, and clients can access these files transparently, sometimes without even realizing they are not stored locally.
+The Network File System is a distributed file system developed by Sun Microsystems in 1984. It stands as one of the most extensively used distributed file systems and is even utilized by UTCS.
+
+Files are stored on remote file servers, and clients can access these files transparently, sometimes without even realizing they are not stored locally.
 
 **Locating Files in NFS**
 - **Naming**: NFS uses implicit naming, offering location transparency. This means the file's name doesn't disclose the server on which it's stored. This is different from explicit naming which might look like `<file server: file name>` or `//anslaptop/Users/ans/Desktop`.
@@ -390,7 +374,7 @@ Consistency models govern how data, kept in data stores such as registers, file 
 
 
 
-## Google File System (GFS) Explained
+## Google File System (GFS)
 ***
 **Design Considerations for GFS**
 
@@ -431,12 +415,3 @@ Consistency models govern how data, kept in data stores such as registers, file 
   - Record appends are atomically committed at least once, ensuring integrity even during simultaneous updates.
   - To maintain consistency across replicas, updates are applied in a uniform sequence. Chunk version numbers aid in identifying outdated replicas.
   - Although a client might occasionally access outdated data, this staleness is restricted by cache entry timeouts.
-
-**Wrapping it Up: Comparing Distributed & Local Systems**
-
-- **Challenges**: Distributed file systems like GFS present more complications than local systems due to their scale and intricacies in data management.
-- **Consistency Guarantees**: Models like that of GFS provide users with assurances on how and when updates become visible.
-- **NFS vs. GFS**: 
-  - **NFS**: Developed by Sun in 1984, uses Remote Procedure Calls (RPC) and abstraction layers for seamless access. It employs 'mount' to amalgamate multiple file systems into a singular user-visible system.
-  - **GFS**: Tailored for gigantic files with specific access tendencies and engineered to handle an immense number of concurrent users.
-
