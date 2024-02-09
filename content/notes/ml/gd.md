@@ -14,11 +14,10 @@ tags = ["Machine Learning Notes"]
 
 Gradient Descent is a fundamental, first-order iterative optimization algorithm designed for minimizing a function. The primary objective of Gradient Descent is to find the minimum value of a function by iteratively moving towards the minimum of the gradient.
 
-### Update Rule
-The parameters $ \theta $ are updated as follows in each iteration:
+**Update Rule:** The parameters $ \theta $ are updated as follows in each iteration:
 
 $$
-\theta^{t+1} = \theta^t - \alpha \nabla L(\theta^t),
+\theta^{t+1} = \theta^t - \alpha \nabla L(\theta^t)
 $$
 
 where:
@@ -32,8 +31,7 @@ where:
 
 Adagrad is an optimization algorithm that adaptively adjusts the learning rates during the training process, which can be especially helpful when dealing with sparse data. The algorithm modifies the general learning rate at each time step $ t $ for every parameter based on the historical gradients that have been computed for that parameter.
 
-### Update Rule
-The update mechanism for Adagrad is as follows:
+**Update Rule:** The update mechanism for Adagrad is as follows:
 
 $$
     g_{t} = \nabla L(\theta^t),
@@ -53,8 +51,7 @@ where:
 
 RMSprop adjusts the learning rate during training, allowing for the individual adaptation of each parameter’s learning rate during the optimization process. The algorithm works as follows:
 
-### Update Rules
-The gradients, exponentially decaying average, and parameter updates are computed using the following equations:
+**Update Rule:** The gradients, exponentially decaying average, and parameter updates are computed using the following equations:
 
 $$
     g_{t} = \nabla L(\theta_t),
@@ -82,7 +79,7 @@ RMSprop can be seen as a modification of Adagrad. Below is a quick comparison be
     - Compute weighted average with decay factor: $ v_{t} = \beta v_{t-1} + (1 - \beta) (g_{t}\odot g_{t})$.
     - Update rule: $ \theta_{\text{new}} = \theta_{\text{old}} - \frac{\alpha}{\sqrt{v_{t} + \epsilon}} g_{t} $.
 
-#### Insights
+**Insights:**
 - In RMSprop, $ v_t $ acts like a moving average of squared gradients, with the contribution of older gradients decaying exponentially.
 - This approach makes the algorithm sensitive to recent gradients while still considering past information, thereby addressing limitations seen in Adagrad, such as rapid decrease in learning rate.
 - As a result, RMSprop is often more suitable for non-convex optimization problems and deep learning applications.
@@ -94,8 +91,7 @@ RMSprop can be seen as a modification of Adagrad. Below is a quick comparison be
 
 Momentum is inspired by physical momentum: it helps the optimizer to navigate along the relevant directions and dampens oscillations in the learning process. Momentum works by accumulating an exponential decay of past gradients and continues to move in that direction.
 
-### Update Rule
-The update mechanism for parameters using Momentum is expressed as follows:
+**Update Rule:** The update mechanism for parameters using Momentum is expressed as follows:
 
 $$
     g_{t} = \nabla L(\theta_t),
@@ -109,7 +105,7 @@ where:
 - $ \beta $ is the momentum coefficient that determines the contribution of the previous velocity to the current one. It’s a hyperparameter typically set between $0$ and $1$, often initialized to $0.9$.
 - $ \alpha $ is the learning rate.
 
-#### Insights
+**Insights:**
 - The Momentum method introduces a velocity vector that combines the current gradient with the previous velocity, acting as a smoothing mechanism for the optimization path.
 - The momentum term $ \beta v_{t-1} $ effectively adds inertia to the parameter updates, helping the optimizer to overcome local minima and saddle points.
 - It provides a form of implicit regularization, helping the model to generalize better.
@@ -122,8 +118,7 @@ where:
 
 Adam is known for combining the best properties of the algorithms Momentum and RMSprop. It uses both moving averages of the parameters (momentum) and the squared gradients (RMSprop) to adaptively adjust learning rates for each parameter, making it well-suited for problems with noisy or sparse gradients.
 
-### Update Rule
-The update mechanism for Adam is as follows:
+**Update Rule:** The update mechanism for Adam is as follows:
 $$
     m_t = \beta_1 m_{t-1} + (1 - \beta_1) g_t, \qquad
     v_t = \beta_2 v_{t-1} + (1 - \beta_2) (g_t\odot g_t), \qquad
@@ -137,7 +132,7 @@ where:
 - $ \alpha $ is the learning rate.
 - $ \epsilon $ is a small constant added to prevent division by zero (smoothing term).
 
-#### Insights
+**Insights:**
 - Adam is effective in practice and requires little memory.
 - It works well with problems that have large datasets or parameters.
 - The algorithm is invariant to diagonal rescaling of the gradients.
@@ -150,8 +145,7 @@ where:
 
 Unlike GD that computes the gradient using the entire dataset, SGD approximates the gradient using a single or a few randomly selected samples, hence the name 'stochastic'. This approach makes SGD faster and able to handle large-scale datasets efficiently.
 
-### Update Rule
-The update mechanism for parameters using SGD is straightforward:
+**Update Rule:** The update mechanism for parameters using SGD is straightforward:
 $$
     g_t = \nabla L_i(\theta_t), \quad \text{where } L_i \text{ is the loss for the i-th sample}, \qquad
     \theta_{t+1} = \theta_t - \alpha g_t,
@@ -160,7 +154,7 @@ where:
 - $ g_t $ represents the gradient of the loss function with respect to the parameters $ \theta $ for the selected sample at time step $ t $.
 - $ \alpha $ is the learning rate, a hyperparameter that determines the step size at each iteration.
 
-#### Insights
+**Insights:**
 - Since SGD uses a subset of the dataset to compute the gradient, it's computationally more efficient than batch GD, especially for large datasets.
 - The stochastic nature of the algorithm can help escape local minima and saddle points but also introduces noise in the convergence process, leading to oscillations in the loss function.
 - To mitigate the oscillations, variants like Mini-batch SGD (which uses a small random subset of data, rather than a single sample) or SGD with momentum (which smoothens the gradient updates) are often used in practice.
@@ -171,7 +165,7 @@ where:
 ## Bias-Variance Decomposition of Stochastic Gradient Descent
 ***
 
-Understanding the bias-variance trade-off is crucial for comprehending the behavior of SGD and its performance on training and testing data. The error of a machine learning model can be decomposed into bias, variance, and irreducible error, providing insights into SGD’s convergence and generalization capabilities.
+Understanding the bias-variance trade-off is critical for comprehending the behavior of SGD. The error of a machine learning model can be decomposed into bias, variance, and irreducible error.
 
 ### Bias-Variance Decomposition
 The expected mean squared error of a model can be expressed as the sum of the bias squared, variance, and irreducible error:
@@ -186,14 +180,14 @@ where:
 - $\epsilon$ is the irreducible error due to noise in the data.
 
 ### SGD Bias-Variance
-- Bias: SGD introduces bias in parameter updates by approximating gradients with subsets of data. While individual updates may be biased, SGD is unbiased in expectation as the expected value of updates equals the true gradient over different samples.
-- Variance: SGD exhibits high variance due to using different data subsets for updates. This variance can aid in escaping local minima but may also impede convergence.
+- **Bias:** SGD introduces bias in parameter updates by approximating gradients with subsets of data. While individual updates may be biased, SGD is unbiased in expectation as the expected value of updates equals the true gradient over different samples.
+- **Variance:** SGD exhibits high variance due to using different data subsets for updates. This variance can aid in escaping local minima but may also impede convergence.
 
 ### Decaying Learning Rate
 Utilizing a decaying learning rate (decreasing it over time) is a common practice to mitigate the variance in SGD while ensuring convergence. As the learning rate decays:
 
-- Reduced Bias:} The decaying learning rate causes updates to become more conservative, reducing the risk of overshooting and thereby decreasing bias towards the optimization process end.
-- Lower Variance:} Smaller updates inherently possess lower variance, making the optimization process more stable and reliable as it progresses.
+- **Reduced Bias:** The decaying learning rate causes updates to become more conservative, reducing the risk of overshooting and thereby decreasing bias towards the optimization process end.
+- **Lower Variance:** Smaller updates inherently possess lower variance, making the optimization process more stable and reliable as it progresses.
 - Ultimately, a properly scheduled decay in the learning rate brings both bias and variance closer to zero, promoting convergence to the true minimum of the loss function.
 
 #### Balancing Bias and Variance
@@ -206,8 +200,7 @@ Decaying the learning rate is one of several techniques used to balance bias and
 
 The Polyak-Lojasiewicz (PL) inequality is a crucial concept in the analysis of optimization algorithms, providing valuable insights into their convergence properties. This inequality characterizes the geometry of the objective functions and establishes conditions under which optimization algorithms converge to the unique solution at a linear rate.
 
-### Definition of PL Inequality
-Given a differentiable function $ f: \mathbb{R}^d \rightarrow \mathbb{R} $, the function satisfies the PL inequality if there exists a constant $ \mu > 0 $ such that for all $ x \in \mathbb{R}^d $:
+**PL Inequality Definition:** Given a differentiable function $ f: \mathbb{R}^d \rightarrow \mathbb{R} $, the function satisfies the PL inequality if there exists a constant $ \mu > 0 $ such that for all $ x \in \mathbb{R}^d $:
 
 $$
 \|\nabla L(x)\|_2 \geq 2\mu (L(x) - L(x^*))
@@ -217,17 +210,10 @@ Where:
 - $ \mu $ is the PL constant.
 - $ x^* $ is the optimal value that minimizes the loss.
 
-### Significance of PL Inequality
-- Convergence Insights: The PL inequality provides guarantees on the convergence rates of optimization algorithms, ensuring that they converge linearly to the minimizer under specific conditions.
-- Geometry Characterization: It characterizes the geometry of the objective function's landscape, providing a measure of its "smoothness" or "conditioning".
-- Algorithm Analysis: It is extensively used in the analysis and design of optimization algorithms, especially for proving convergence rates of first-order methods.
-\end{itemize}
-
-#### Applications
-The PL inequality is pivotal in understanding and analyzing various optimization algorithms, including Gradient Descent, Stochastic Gradient Descent (SGD), and more advanced optimization techniques. Its implications are broadly recognized in machine learning, statistics, and applied mathematics, helping researchers and practitioners design and select appropriate algorithms for their optimization problems.
-
-#### Considerations
-While the PL inequality is a powerful tool for analyzing optimization problems, it may not apply to all functions. Therefore, it's crucial to verify whether the objective function under consideration satisfies the PL inequality before relying on it for algorithm analysis and design.
+**Significance of PL Inequality:**
+- **Convergence Insights:** The PL inequality provides guarantees on the convergence rates of optimization algorithms, ensuring that they converge linearly to the minimizer under specific conditions.
+- **Geometry Characterization:** It characterizes the geometry of the objective function's landscape, providing a measure of its "smoothness" or "conditioning".
+- **Algorithm Analysis:** It is extensively used in the analysis and design of optimization algorithms, especially for proving convergence rates of first-order methods.
 
 
 
@@ -249,9 +235,7 @@ Where:
 - $ \nabla^2 L(\theta_t) $ is the Hessian matrix (matrix of second-order partial derivatives) of $ L $ at $ \theta_t $.
 
 #### Interpretation and Use
-- Function Approximation: The Taylor approximation offers a local approximation of the function around $ \theta_t $, which is especially useful for analyzing or optimizing functions that are complex or not easily solvable.
-- Algorithm Analysis: In optimization, Taylor approximations are often used to analyze the convergence and stability of algorithms, providing insights into how parameter updates affect the loss function.
-- Insights into Loss Landscape: The second-order term in the approximation helps to capture the curvature of the loss function, providing important information about the geometry of the loss landscape.
+- **Function Approximation:** The Taylor approximation offers a local approximation of the function around $ \theta_t $, which is especially useful for analyzing or optimizing functions that are complex or not easily solvable.
+- **Algorithm Analysis:** In optimization, Taylor approximations are often used to analyze the convergence and stability of algorithms, providing insights into how parameter updates affect the loss function.
+- **Insights into Loss Landscape:** The second-order term in the approximation helps to capture the curvature of the loss function, providing important information about the geometry of the loss landscape.
 
-#### Considerations
-While Taylor approximations are widely used, it is crucial to acknowledge their limitations. The approximation is accurate only near the expansion point $ \theta_t $, and its accuracy diminishes as we move away from this point. Furthermore, for functions with high curvature or discontinuities, even second-order Taylor approximations might not provide accurate representations.
