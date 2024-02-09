@@ -1,16 +1,15 @@
 +++
 title = "Common Probability Distributions"
-description = ""
+description = "An overview of common discrete and continuous distributions found in probability and statistics."
 date = 2024-02-08T12:29:32-06:00
 tags = ["Math Notes"]
-draft = true
 +++
 
 {{< toc >}}
 
 
 
-## Discrete Distributions
+## Common Discrete Distributions
 ---
 
 ### Discrete Uniform
@@ -243,7 +242,7 @@ $$M_X(t)=e^{\lambda\cdot(e^t-1)}$$
 <br>
 <br>
 
-## Continuous Distributions
+## Common Continuous Distributions
 ---
 
 ### Uniform on Interval [A, B]
@@ -279,7 +278,7 @@ $$Pr[a\le X\le b]=\frac{b-a}{B-A}=\frac{\textnormal{Length of Event}}{\textnorma
 
 ---
 ### Exponential
-\\(X \sim Exponential(\lambda)\\)
+\\(X \sim Exponential(\beta)\\)
 
 The exponential distribution is closely related to the Poisson Distribution. Recall that a Poisson process is a way of modeling certain random and sporadically occurring phenomena in which the overall mean rate of occurrence is \\(\lambda\\) per unit time.
 
@@ -358,7 +357,7 @@ $$\mu_Z=0$$
 $$\sigma_Z^2=1$$
 
 #### Additional Properties
-- Mode is 0
+- Median and mode are 0
 
 - Moment Generating Function:
 $$M_Z(t)=e^{t^2/2}$$
@@ -440,6 +439,7 @@ This is common in modeling exponential growth or decay when the rate of growth i
 
 #### Properties
 Let $Y=e^X$ where $X\sim N(\mu_X, \sigma_X^2)$.
+
 - Density Function:
 $$f_Y(y)=\frac{1}{y\sigma_X\sqrt{2\pi}}e^{-\frac12(\frac{\ln y-\mu_X}{\sigma_X})^2}$$
 
@@ -455,3 +455,86 @@ $$Var[Y]=e^{2\mu_X+\sigma_X^2}\cdot(e^{\sigma_X^2}-1)$$
 #### Additional Properties
 - For $0<a<b$,
 $$Pr[a<Y\le b ]=\Phi\bigg(\frac{\ln b-\mu_X}{\sigma_X}\bigg)-\Phi\bigg(\frac{\ln a-\mu_X}{\sigma_X}\bigg)$$
+
+
+
+
+<br>
+
+---
+### Gamma
+$X \sim \Gamma(\alpha,\beta)$
+
+The Gamma distribution generalizes the Exponential distribution. It makes use of the gamma function as explained below.
+
+The definition of the Gamma function is:
+$$\Gamma(\alpha)=\int_0^\infty x^{\alpha-1}e^{-x}dx \qquad 0\lt\alpha\lt\infty$$
+
+Properties of the Gamma function are:
+1. Iteration Formula: $\Gamma(\alpha) = (\alpha - 1)\cdot\Gamma(\alpha-1)$ for all $\alpha > 1$.
+2. If $\alpha=n$ is a positive integer, then $\Gamma(n)=(n-1)!$
+3. $\Gamma(\frac12)=\sqrt\pi$
+
+#### Parameters
+- $\alpha$ - shape parameter (number of events)
+- $\beta$ - scale parameter (average time until occurrence)
+
+#### Properties
+- Density Function:
+$$f_X(x)=\frac1{\beta^\alpha\cdot\Gamma(\alpha)}\cdot x^{\alpha-1}e^{-(1/\beta)x} \qquad 0 \le x < \infty$$
+
+- CDF: Integrate the density function (no cookie-cutter solution)
+
+- Expected Value:
+$$E[X ]= \alpha\cdot\beta$$
+
+- Variance:
+$$Var[X ]= \alpha\cdot\beta^2$$
+
+#### Additional Properties
+- Moment Generating Function (defined for all $t<\lambda$)
+$$M_X(t)=\big(\frac{\lambda}{\lambda-t}\big)^\alpha=\big(\frac{1}{1-\beta t}\big)^\alpha$$
+
+- If $X$ and $Y$ are independent Gamma random variables, then $X+Y\sim\Gamma(\alpha_X+\alpha_Y, \beta)$
+
+- If $X\sim\Gamma(\alpha, \beta)$ and $Y=k\cdot X$, then $Y\sim\Gamma(\alpha, k\cdot\beta)$
+
+- For any $\alpha, \beta>0$, 
+$$\int_0^\infty x^{\alpha-1}e^{-(1/\beta)x}dx = \beta^\alpha\cdot\Gamma(\alpha)$$
+
+- $Z^2\sim\Gamma(\frac12, 2)$. This distribution is called chi-square with 1 degree of freedom, denoted as $\chi^2(1)$
+
+
+
+
+<br>
+
+---
+### Beta
+$X \sim Beta(\alpha,\beta)$
+
+This distribution lives on the unit interval $[0, 1]$. It is based on the Beta function which is explained below.
+
+The beta function is defined as the following definite integral:
+$$B(\alpha, \beta) = \int_0^1 x^{\alpha-1}(1-x)^{\beta-1}dx$$
+
+Properties of the beta function are:
+1. $B(\alpha, \beta) = B(\beta, \alpha)$
+2. $B(\alpha, \beta) = 2\int_0^{\pi/2}(sin^{2\alpha-1}\theta)(cos^{2\beta-1}\theta)d\theta$
+1. $B(\alpha, \beta) = \frac{\Gamma(\alpha)\Gamma(\beta)}{\Gamma(\alpha+\beta)}$
+
+#### Parameters
+- $\alpha$ - Shape parameter
+- $\beta$ - Shape parameter
+
+#### Properties
+- Density Function:
+$$f_X(x)=\frac{\Gamma(\alpha+\beta)}{\Gamma(\alpha)\Gamma(\beta)}\cdot x^{\alpha-1}\cdot(1-x)^{\beta-1} \qquad 0<x<1$$
+
+- CDF: Integrate the density function (no cookie-cutter solution)
+
+- Expected Value:
+$$E[X ]=\frac{\alpha}{\alpha + \beta}$$
+
+- Variance:
+$$Var[X ]=\frac{\alpha\beta}{(\alpha + \beta)^2(\alpha + \beta + 1)}$$
