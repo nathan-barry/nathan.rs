@@ -99,7 +99,7 @@ $$M_S(t)=(q+pe^t)^n$$
 <p>
 Consider a series of independent Bernoulli Trials with probability of success \(p\) and let the random variable \(X\) be <i>the number of failures before the first success.</i>
 \(X\) has the probability function given by
-$$Pr(X=k)=p\cdot q^{k-1}$$
+$$Pr(X=k)=p\cdot q^k$$
 where \(k\in \{0,1,2,\dots\}\) and \(0\lt p\lt 1\).
 The random variable \(X\) is called a <b>geometric random variable</b> with <i>parameter</i> \(p\).
 </p>
