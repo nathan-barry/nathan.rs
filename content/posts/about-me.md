@@ -22,7 +22,7 @@ In my free time, I enjoy climbing, biking, and playing ultimate frisbee with the
 
 ### Personal Records
 
-I've always been a competitive person and have enjoyed excelling in various activities. From lifting PRs to my highest bowling score, here are a few of my records.
+I've always been a competitive person and have enjoyed excelling in various activities. As you can see below, I am a man of many talents.
 
 Event | Record
 --- | ---
