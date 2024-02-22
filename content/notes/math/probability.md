@@ -1,5 +1,5 @@
 +++
-title = "Probability Review"
+title = "Probability"
 description = "A mildly complete overview of basic univariate probability."
 date = 2023-09-02T11:14:53-05:00
 tags = ["Math Notes"]
