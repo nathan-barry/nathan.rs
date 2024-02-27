@@ -54,4 +54,4 @@ The word **MORE** describes humanity at all levels, from individuals to corporat
 
 > "His answer to every problem, every setback, was 'I will work harder!' – which he had adopted as his personal motto."--- George Orwell, Animal Farm
 
-Many of my core views came from Huxley and Nietzsche. Read [*Pleasures*](/posts/pleasures) by Aldous Huxley [here](/posts/pleasures) to read more.
+Many of my core views and values came from Huxley and Nietzsche. One can read [*Pleasures*](/posts/pleasures) by Aldous Huxley to tell what person I am.

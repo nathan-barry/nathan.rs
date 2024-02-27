@@ -1,12 +1,12 @@
 +++
 title = "Pleasures, by Aldous Huxley"
-description = "Preface: This is a text copy of one of Huxley's works. He was a large influence in my life. This copy is for my personal reference."
+description = "Preface: This is one of Huxley's works. I keep a copy here so I'll always know where I can find it."
 date = 2024-01-19T23:51:44-06:00
-tags = ["Misc"]
+tags = [""]
 +++
 
 ## Pleasures
----
+*By Auldous Huxley*
 
 We have heard a great deal, since 1914, about the things which are a menace to civilization. First it was Prussian militarism; then the Germans at large; then the prolongation of the war; then the shortening of the same; then, after a time, the Treaty of Versailles; then French militarism - with, all the while, a running accompaniment of such minor menaces as Prohibition, Lord Northcliffe, Mr. Bryan, Comstockery....
 
