@@ -34,7 +34,7 @@ Bouldering Grade | V8
 Starcraft 2 Rank | Diamond (Protoss)
 CS:GO Rank | Gold Nova (middle school)
 Balls Juggled | 4
-Bowling Score | 147 (still going way up)
+Bowling Score | 155 (still going way up)
 
 
 
