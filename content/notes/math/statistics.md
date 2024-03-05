@@ -189,3 +189,29 @@ Let $(X_i)_{i=1}^n$ be a random sample taken from the Bernoulli trial population
 4. For large $n$, an (approximate) symmetric $1-\alpha$ confidence interval for $p$ is given by $\hat{p}\pm \epsilon$, where:
 $$\epsilon=\text{margin of error}=z_{\alpha/2}\cdot \sqrt{\frac{\hat{p}(1-\hat{p})}{n}}$$
 
+
+## Estimating the Difference Between Means
+
+A common question is whether or not two populations have the same mean.
+
+Let $X$ and $Y$ be independent normal populations. Assume that $\sigma_X^2$ and $\sigma_Y^2$ are known. Let each have sample means $\bar{X}$ and $\bar{Y}$ with samples of size $m$ and $n$ respectively. Let $W=X-Y$ and let $\bar{W}=\bar{X}-\bar{Y}$. Then:
+
+1. $$E[\bar{W}] = E[W] = \mu_X - \mu_Y$$
+2. $$Var[\bar{W}] = Var[\bar{X}] - Var[\bar{Y}] = \frac{\sigma_X^2}{m} - \frac{\sigma_Y^2}{n}$$
+3. For a confidence level of $1-\alpha$, the margin of error in estimating $\mu_X - \mu_Y$ with $\bar{W}=\bar{X}-\bar{Y}$ is given by:
+$$\epsilon=z_{\alpha/2}\sqrt{\frac{\sigma_X^2}{m} - \frac{\sigma_Y^2}{n}}$$
+4. $\bar{W}\pm\epsilon$ is a symmetric $1-\alpha$ confidence interval for $\mu_X - \mu_Y$.
+
+For small populations, we assume that the two populations have equal variances (works only for this case).
+
+Let independent normal populations $X$ and $Y$ have the sample variances $S_X^2$ and $S_Y^2$ respectively. Define the **pooled sample variance** $S_p^2$ by:
+
+$$S_P^2 = \frac{(m-1)S_X^2 + (n-1)S_Y^2}{(m+n-2)}$$
+
+Then we have the following properties:
+
+1. $$E[S_P^2]=\sigma^2$$
+2. $$\frac{(m+n-2)S_P^2}{\sigma^2}\sim \chi^2(m+n-2)$$
+3. $$\frac{\bar{W}-\mu_W}{S_P \sqrt{\frac1m + \frac1n}}\sim t(m+n-2)$$
+
+In general, for a fixed sample size, the higher the confidence level, the larger the margin of error and vice versa.
