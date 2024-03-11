@@ -1,8 +1,8 @@
 +++
 title = "Parallel & Distributed Computing"
-description = "This is an overview of Parallel & Distributed Computing, Two-Phase commit, Leader Election, RPC, NFS, and GFS."
+description = "Notes from OS. An overview of Parallel & Distributed Computing, Two-Phase commit, Leader Election, RPC, NFS, and GFS."
 date = 2023-09-19T08:08:52-05:00
-tags = ["Operating Systems Notes"]
+tags = ["Computer Science Notes"]
 +++
 
 {{< toc >}}

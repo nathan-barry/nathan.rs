@@ -1,8 +1,8 @@
 +++
 title = "Memory Management, Paging, & Page Replacement"
-description = "An overview of address spaces, relocation, allocation policies, virtual memory, paging, page replacement, the working set, and more."
+description = "Notes from OS. An overview of address spaces, relocation, allocation policies, virtual memory, paging, page replacement, the working set, and more."
 date = 2023-09-15T17:09:08-05:00
-tags = ["Operating Systems Notes"]
+tags = ["Computer Science Notes"]
 +++
 
 {{< toc >}}

@@ -1,8 +1,8 @@
 +++
 title = "External Device Communication & Stable Storage"
-description = "An overview of external device communication, polling, DMA, Disk Drives, and SSDs."
+description = "Notes from OS. An overview of external device communication, polling, DMA, Disk Drives, and SSDs."
 date = 2023-09-16T13:09:24-05:00
-tags = ["Operating Systems Notes"]
+tags = ["Computer Science Notes"]
 +++
 
 {{< toc >}}

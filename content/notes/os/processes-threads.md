@@ -1,8 +1,8 @@
 +++
 title = "Processes, Threads, & Scheduling"
-description = "This covers processes, threads, scheduling, dual mode execution, and boot sequences."
+description = "Notes from OS. Covers processes, threads, scheduling, dual mode execution, and boot sequences."
 date = 2023-09-14T18:49:27-05:00
-tags = ["Operating Systems Notes"]
+tags = ["Computer Science Notes"]
 +++
 
 {{< toc >}}

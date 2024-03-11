@@ -1,8 +1,8 @@
 +++
 title = "Filesystems, Transactions, & Journaling"
-description = "This is an overview over filesystems, block allocation, directories, caching, and file recovery."
+description = "Notes from OS. An overview over filesystems, block allocation, directories, caching, and file recovery."
 date = 2023-09-16T13:26:37-05:00
-tags = ["Operating Systems Notes"]
+tags = ["Computer Science Notes"]
 +++
 {{< toc >}}
 
