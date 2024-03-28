@@ -313,6 +313,13 @@ $$Z\approx\frac{p_X - p_Y - (p_x - p_y)}{\sqrt{\frac{\hat p_X(1 - \hat p_X)}{m} 
 
 
 
+
+
+
+
+
+
+
 ## Appendix 
 ---
 ### Chi-Squared
@@ -395,6 +402,31 @@ $$\bigg(\frac{S_X^2}{S_Y^2}\cdot\frac{1}{F_{\alpha/2}(m-1,n-1)}, \frac{S_X^2}{S_
 1. $$F(n,m) = \frac1{F(m,n)}$$
 1. $$[t(n)]^2 = F(1,n)$$
 3. $$F_{1-\alpha}(m,n) = \frac1{F_{\alpha}(n,m)}$$
+
+<br><br>
+
+
+
+### Testing for Independence by a Contingency Table
+
+Let $X$ and $Y$ be discrete jointly distributed random variables with actual frequencies given by $f_{ij}$. Let $e_{ij}$ be the frequencies resulting from the assumption that $X$ and $Y$ have independent marginal probability distributions:
+
+$$e_{ij} = \frac{f_i \cdot f_j}{f}$$
+
+where $i$ and $j$ are the number of rows and columns. Let the test statistic
+
+$$T=\sum_{i=1}^r \sum_{j=1}^c \frac{(f_{ij}-e_{ij})^2}{e_{ij}}$$
+
+Then, 
+
+1. $$T\approx \chi^2\big((r-1)\cdot(c-1)\big)$$
+
+2. The hypothesis of independence between $X$ and $Y$ can be rejected at the $\alpha$ level of significance providing $T\geq \chi_\alpha^2\big((r-1)\cdot(c-1)\big)$
+
+Test statistic $T$ represents the sum of suitably standardized square deviations between the actual frequencies and the expected frequencies under the assumption of independence. Thus, the null hypothesis of independence is rejected if %$T$ is sufficiently large.
+
+
+
 
 
 
