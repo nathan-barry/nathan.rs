@@ -39,7 +39,7 @@ function setHovering(isHovering, element) {
     title="Titan: The Life of John D. Rockefeller"
     author="Ron Chernow"
     special=""
-    description="One of the great trailblazers of capitalism. Sometimes we see what man is capable of when convinced of having God given Providence." >}}
+    description="" >}}
 
 ## [2023 | Age 20]
 ***
@@ -137,7 +137,7 @@ function setHovering(isHovering, element) {
     title="Gödel's Proof"
     author="Ernest Nagel & James R. Newman"
     special="true"
-    description="For the first time in my life, I feel like I actually have a fairly intuitive understanding of Gödel's Incompleteness Theorem, to a point to where I could explain it to a child. I decided to read this because I started Gödel Escher Bach and wanted to truly understand the concept that sparked it all before reading such a Tour De Force." >}}
+    description="For the first time in my life, I feel like I actually have a fairly intuitive understanding of Gödel's Incompleteness Theorem (EDIT: forgot it already). I decided to read this because I started Gödel Escher Bach and wanted to truly understand the concept that sparked it all before reading such a Tour De Force." >}}
 
 {{< book
     title="The Joy of X"
