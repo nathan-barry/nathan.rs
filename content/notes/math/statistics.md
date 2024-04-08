@@ -423,7 +423,7 @@ Then,
 
 2. The hypothesis of independence between $X$ and $Y$ can be rejected at the $\alpha$ level of significance providing $T\geq \chi_\alpha^2\big((r-1)\cdot(c-1)\big)$
 
-Test statistic $T$ represents the sum of suitably standardized square deviations between the actual frequencies and the expected frequencies under the assumption of independence. Thus, the null hypothesis of independence is rejected if %$T$ is sufficiently large.
+Test statistic $T$ represents the sum of suitably standardized square deviations between the actual frequencies and the expected frequencies under the assumption of independence. Thus, the null hypothesis of independence is rejected if $T$ is sufficiently large.
 
 
 
