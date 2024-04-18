@@ -5,7 +5,7 @@ tags = ["Personal"]
 +++
 
 <script>
-let bookNumber = 138;  // Initialize book number
+let bookNumber = 140;  // Initialize book number
 
 document.addEventListener("DOMContentLoaded", function() {
   // Auto-increment book numbers
@@ -35,6 +35,18 @@ function setHovering(isHovering, element) {
 
 ## [2024 | Age 21]
 ***
+{{< book
+    title="Computer Architecture: A Quantitative Approach"
+    author="John L. Hennessy & David A. Patterson"
+    special="true"
+    description="Went through a bit of this for Advanced Computer Architecture. The Appendix was a great review of normal comp arch. Good book and good class." >}}
+
+{{< book
+    title="Alexander Hamilton"
+    author="Ron Chernow"
+    special="true"
+    description="I just found out that Ron Chernow was the author of the book that the musical was largely inspired from. Decided to give it a read, and it's my favorite of his work. Certainly a book worth reading. I realized that I knew much less about the early founding period than I previously thought." >}}
+
 {{< book
     title="Titan: The Life of John D. Rockefeller"
     author="Ron Chernow"
