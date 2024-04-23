@@ -5,7 +5,7 @@ tags = ["Personal"]
 +++
 
 <script>
-let bookNumber = 140;  // Initialize book number
+let bookNumber = 141;  // Initialize book number
 
 document.addEventListener("DOMContentLoaded", function() {
   // Auto-increment book numbers
@@ -35,6 +35,12 @@ function setHovering(isHovering, element) {
 
 ## [2024 | Age 21]
 ***
+{{< book
+    title="Killers of the Flower Moon"
+    author="David Grann"
+    special="false"
+    description="This was about the Osage Murders and the birth of the FBI. Interesting to read history books and to put it in perspective with everything else. It's always strange to be reminded of prohibition. Amazing that there was ever enough political will for it to be enacted at all ever." >}}
+
 {{< book
     title="Computer Architecture: A Quantitative Approach"
     author="John L. Hennessy & David A. Patterson"
