@@ -5,7 +5,7 @@ tags = ["Personal"]
 +++
 
 <script>
-let bookNumber = 141;  // Initialize book number
+let bookNumber = 142;  // Initialize book number
 
 document.addEventListener("DOMContentLoaded", function() {
   // Auto-increment book numbers
@@ -268,6 +268,12 @@ function setHovering(isHovering, element) {
     author="David Kushner"
     special="true"
     description="I've always been a massive fan of John Carmack. The paragon of the engineer, of competence itself. This story goes over the entire video game arc of him and John Romero. The ingenious of Carmack for every game engine he developed was otherworldly. Once in a generation mind.">}} 
+
+{{< book
+    title="Blitzed: Drugs in the Third Reich"
+    author="Norman Ohler"
+    special=""
+    description="Wild. Definitely changes the way I look at what I read in The Rise And Fall Of The Third Reich." >}}
 
 {{< book
     title="Flash Boys"
