@@ -38,7 +38,7 @@ function setHovering(isHovering, element) {
 {{< book
     title="Killers of the Flower Moon"
     author="David Grann"
-    special="false"
+    special=""
     description="This was about the Osage Murders and the birth of the FBI. Interesting to read history books and to put it in perspective with everything else. It's always strange to be reminded of prohibition. Amazing that there was ever enough political will for it to be enacted at all ever." >}}
 
 {{< book
