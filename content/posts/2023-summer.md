@@ -70,5 +70,5 @@ Great decision. I'm really happy with how the summer turned out. As always, much
 
 
 ### Reflection from 2024
-My original reflection was pretty spot on. Ended up actually doing research, double majoring in math, and doing the integrated CS masters program. Also initially met what would turn out to be my future girl friend as we were both councilors at the CS Summer Academy. It was a pretty great year following, and knocking out all of the classes that I did let me make room for the classes I actually wanted to take.
+My original reflection was pretty spot on. Ended up actually doing research, double majoring in math, and doing the integrated CS masters program. Also initially met what would turn out to be my future girl friend as we were both assistants at the CS Summer Academy. It was a pretty great year following, and knocking out all of the classes that I did let me make room for the classes I actually wanted to take.
 
