@@ -1,10 +1,10 @@
 +++
 title = "2023 Summer Plan"
-description = "Below are some (if not most) of the things I plan on doing this summer, updated along the way."
-date = 2023-06-01
+description = "What I plan on doing the summer of 2023."
 tags = ["Personal"]
-draft = true
 +++
+
+
 
 ### Books Read
 {{% checked %}} The Everything Store: Jeff Bezos and the Age of Amazon {{% /checked %}}
@@ -28,7 +28,6 @@ draft = true
 {{% unchecked %}} Physics for Engineers and Scientists, Vol. 2 {{% /unchecked %}}
 {{% checked %}} The House of Morgan {{% /checked %}}
 {{% checked %}} The Rust Book {{% /checked %}}
-{{% checked %}}  {{% /checked %}}
 
 
 
