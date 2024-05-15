@@ -15,7 +15,7 @@ tags = ["Personal"]
 
 
 
-### Books Listened To
+### Books Listened
 {{% unchecked %}} An Empire Of Wealth {{% /unchecked %}}
 {{% unchecked %}} The Founders {{% /unchecked %}}
 {{% unchecked %}} The Innovators {{% /unchecked %}}
@@ -25,7 +25,7 @@ tags = ["Personal"]
 
 
 
-### Personal Project
+### Personal Projects
 {{% unchecked %}} Go CHIP-8 Emulator {{% /unchecked %}}
 {{% unchecked %}} Investigate C and Assembly Interoperability with Go {{% /unchecked %}}
 {{% unchecked %}} Become an active contributor to an open source Go ML project {{% /unchecked %}}
