@@ -19,7 +19,7 @@ tags = ["Personal"]
 {{% unchecked %}} An Empire Of Wealth {{% /unchecked %}}
 {{% unchecked %}} The Founders {{% /unchecked %}}
 {{% unchecked %}} The Innovators {{% /unchecked %}}
-{{% unchecked %}} The Man  {{% /unchecked %}}
+{{% unchecked %}} The Man Who Solved The Market {{% /unchecked %}}
 {{% unchecked %}} Democracy: The God That Failed  {{% /unchecked %}}
 {{% unchecked %}} America's Great Depression {{% /unchecked %}}
 
