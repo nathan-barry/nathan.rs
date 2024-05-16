@@ -28,6 +28,7 @@ tags = ["Personal"]
 
 ### Personal Projects
 {{% unchecked %}} Go CHIP-8 Emulator {{% /unchecked %}}
+{{% unchecked %}} Brainfuck interpreter and/or compiler in Go{{% /unchecked %}}
 {{% unchecked %}} Investigate C and Assembly Interoperability with Go {{% /unchecked %}}
 {{% unchecked %}} Become an active contributor to an open source Go ML project {{% /unchecked %}}
 {{% unchecked %}} Efficient arbitrarily sized exact string match lookup for internet sized database {{% /unchecked %}}
