@@ -28,6 +28,7 @@ tags = ["Personal"]
 
 ### Personal Projects
 {{% unchecked %}} Go CHIP-8 Emulator {{% /unchecked %}}
+{{% unchecked %}} Go CHIP-8 Emulator in browser via wasm {{% /unchecked %}}
 {{% unchecked %}} Brainfuck interpreter and/or compiler in Go{{% /unchecked %}}
 {{% unchecked %}} Investigate C and Assembly Interoperability with Go {{% /unchecked %}}
 {{% unchecked %}} Become an active contributor to an open source Go ML project {{% /unchecked %}}
