@@ -7,12 +7,12 @@ tags = ["Personal"]
 
 
 ### Books Read
-{{% checked %}} The Go Programming Language {{% /checked %}}
-{{% unchecked %}} The Feynman Lectures On Computation {{% /unchecked %}}
+{{% checked %}} Writing A Compiler In Go {{% /checked %}}
+{{% unchecked %}} The Go Programming Language {{% /unchecked %}}
 {{% unchecked %}} Operating Systems: Three Easy Pieces {{% /unchecked %}}
-{{% unchecked %}} Writing A Compiler In Go {{% /unchecked %}}
 {{% unchecked %}} The Cathedral & The Bazaar {{% /unchecked %}}
 {{% unchecked %}} Quantum Computing Since Democritus {{% /unchecked %}}
+{{% unchecked %}} The Feynman Lectures On Computation {{% /unchecked %}}
 
 
 
