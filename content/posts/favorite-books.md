@@ -5,7 +5,7 @@ tags = ["Personal"]
 +++
 
 <script>
-let bookNumber = 142;  // Initialize book number
+let bookNumber = 143;  // Initialize book number
 
 document.addEventListener("DOMContentLoaded", function() {
   // Auto-increment book numbers
@@ -35,6 +35,12 @@ function setHovering(isHovering, element) {
 
 ## [2024 | Age 21]
 ***
+{{< book
+    title="Writing a Compiler In Go"
+    author="Thorsten Ball"
+    special=""
+    description="I skimmed through this book while at my sister's med school graduation. It was interesting to see how a virtual machine compiler worked. I want to make a simple compiler and interpreter over the summer, and this book will be my reference.">}}
+
 {{< book
     title="Killers of the Flower Moon"
     author="David Grann"

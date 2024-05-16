@@ -7,7 +7,7 @@ tags = ["Personal"]
 
 
 ### Books Read
-{{% unchecked %}} The Go Programming Language {{% /unchecked %}}
+{{% checked %}} The Go Programming Language {{% /checked %}}
 {{% unchecked %}} The Feynman Lectures On Computation {{% /unchecked %}}
 {{% unchecked %}} Operating Systems: Three Easy Pieces {{% /unchecked %}}
 {{% unchecked %}} Writing A Compiler In Go {{% /unchecked %}}
