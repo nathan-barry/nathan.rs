@@ -5,7 +5,7 @@ tags = ["Personal"]
 +++
 
 <script>
-let bookNumber = 143;  // Initialize book number
+let bookNumber = 144;  // Initialize book number
 
 document.addEventListener("DOMContentLoaded", function() {
   // Auto-increment book numbers
@@ -35,6 +35,12 @@ function setHovering(isHovering, element) {
 
 ## [2024 | Age 21]
 ***
+{{< book
+    title="An Empire of Wealth"
+    author="John Steele Gordon"
+    special=""
+    description="This was a good book over the entire history of the United States, from a Marxist perspective of history (through the lens that economic structures fundamentally drives history).">}}
+
 {{< book
     title="Writing a Compiler In Go"
     author="Thorsten Ball"
