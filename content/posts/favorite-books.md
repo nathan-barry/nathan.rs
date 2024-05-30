@@ -5,7 +5,7 @@ tags = ["Personal"]
 +++
 
 <script>
-let bookNumber = 144;  // Initialize book number
+let bookNumber = 145;  // Initialize book number
 
 document.addEventListener("DOMContentLoaded", function() {
   // Auto-increment book numbers
@@ -35,6 +35,12 @@ function setHovering(isHovering, element) {
 
 ## [2024 | Age 21]
 ***
+{{< book
+    title="The Man Who Solved The Market"
+    author="John Steele Gordon"
+    special=""
+    description="This was about Jim Simons and Renaissance Technology. Jim recently passed away a few weeks before me reading the book. Very interesting read. I'm surprised to have heard names like John Nash and Claude Shannon appear throughout the book.">}}
+
 {{< book
     title="An Empire of Wealth"
     author="John Steele Gordon"

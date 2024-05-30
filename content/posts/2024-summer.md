@@ -8,29 +8,23 @@ tags = ["Personal"]
 
 ### Books Read
 {{% checked %}} Writing A Compiler In Go {{% /checked %}}
+{{% unchecked %}} The Cathedral & The Bazaar {{% /unchecked %}}
 {{% unchecked %}} The Go Programming Language {{% /unchecked %}}
 {{% unchecked %}} Operating Systems: Three Easy Pieces {{% /unchecked %}}
-{{% unchecked %}} The Cathedral & The Bazaar {{% /unchecked %}}
 {{% unchecked %}} Quantum Computing Since Democritus {{% /unchecked %}}
-{{% unchecked %}} The Feynman Lectures On Computation {{% /unchecked %}}
 
 
 
 ### Books Listened
-{{% unchecked %}} An Empire Of Wealth {{% /unchecked %}}
-{{% unchecked %}} The Founders {{% /unchecked %}}
-{{% unchecked %}} The Innovators {{% /unchecked %}}
-{{% unchecked %}} The Man Who Solved The Market {{% /unchecked %}}
+{{% checked %}} An Empire Of Wealth {{% /checked %}}
+{{% checked %}} The Man Who Solved The Market {{% /checked %}}
+{{% unchecked %}} The Founders: The Story of PayPal {{% /unchecked %}}
 {{% unchecked %}} Democracy: The God That Failed  {{% /unchecked %}}
-{{% unchecked %}} America's Great Depression {{% /unchecked %}}
+{{% unchecked %}} The Innovators {{% /unchecked %}}
 
 
 
-### Personal Projects
-{{% unchecked %}} Go CHIP-8 Emulator {{% /unchecked %}}
-{{% unchecked %}} Go CHIP-8 Emulator in browser via wasm {{% /unchecked %}}
-{{% unchecked %}} Brainfuck interpreter and/or compiler in Go{{% /unchecked %}}
-{{% unchecked %}} Investigate C and Assembly Interoperability with Go {{% /unchecked %}}
-{{% unchecked %}} Become an active contributor to an open source Go ML project {{% /unchecked %}}
-{{% unchecked %}} Efficient arbitrarily sized exact string match lookup for internet sized database {{% /unchecked %}}
+### Projects
+{{% unchecked %}} Actually contribute to an open source project (Ollama?) {{% /unchecked %}}
+{{% unchecked %}} NLP Research {{% /unchecked %}}
 
