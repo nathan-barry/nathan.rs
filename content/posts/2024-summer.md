@@ -25,6 +25,7 @@ tags = ["Personal"]
 
 
 ### Projects
+{{% unchecked %}} NLP Research at ARL {{% /unchecked %}}
+{{% unchecked %}} Advanced Computer Architecture final project with Nate Williams {{% /unchecked %}}
 {{% unchecked %}} Actually contribute to an open source project (Ollama?) {{% /unchecked %}}
-{{% unchecked %}} NLP Research {{% /unchecked %}}
 
