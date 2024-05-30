@@ -5,29 +5,32 @@ tags = ["Personal"]
 +++
 
 
-
 ### Books Read
+{{% checked %}} The Poincaré Conjecture: In Search of the Shape of the Universe {{% /checked %}}
+{{% checked %}} Gödel's Proof: Revised Edition {{% /checked %}}
+{{% checked %}} Cracking the Coding Interview {{% /checked %}}
+{{% checked %}} All The Math You Missed, But Need to Know for Graduate School {{% /checked %}}
+{{% unchecked %}} Gödel, Escher, Bach: an Eternal Golden Braid {{% /unchecked %}}
+{{% checked %}} Physics for Engineers and Scientists, Vol. 1 {{% /checked %}}
+{{% unchecked %}} Physics for Engineers and Scientists, Vol. 2 {{% /unchecked %}}
+{{% checked %}} The Rust Book {{% /checked %}}
+
+
+
+### Books Listen
 {{% checked %}} The Everything Store: Jeff Bezos and the Age of Amazon {{% /checked %}}
 {{% checked %}} A Mind at Play: How Claude Shannon Invented the Information Age {{% /checked %}}
 {{% checked %}} How Google Works {{% /checked %}}
 {{% checked %}} The Creature from Jekyll Island: A Second Look at the Federal Reserve {{% /checked %}}
 {{% checked %}} The Joy of x: A guided Tour of Math, from One to Infinity {{% /checked %}}
 {{% checked %}} Algorithms to Live By: The Computer Science of Human Decisions {{% /checked %}}
-{{% checked %}} The Poincaré Conjecture: In Search of the Shape of the Universe {{% /checked %}}
-{{% checked %}} Gödel's Proof: Revised Edition {{% /checked %}}
-{{% checked %}} Cracking the Coding Interview {{% /checked %}}
-{{% checked %}} All The Math You Missed, But Need to Know for Graduate School {{% /checked %}}
 {{% checked %}} Einstein: His Life and Universe {{% /checked %}}
 {{% checked %}} American Prometheus: The Triumph and Tragedy of J. Robert Oppenheimer {{% /checked %}}
 {{% checked %}} The Man from the Future: The Visionary Life of John von Neumann {{% /checked %}}
 {{% checked %}} Rome: An Empire's Story {{% /checked %}}
-{{% checked %}} Gödel, Escher, Bach: an Eternal Golden Braid {{% /checked %}}
 {{% checked %}} Six Easy Pieces: Physics Taught By Richard Feynman {{% /checked %}}
 {{% checked %}} The Odyssey {{% /checked %}}
-{{% checked %}} Physics for Engineers and Scientists, Vol. 1 {{% /checked %}}
-{{% unchecked %}} Physics for Engineers and Scientists, Vol. 2 {{% /unchecked %}}
 {{% checked %}} The House of Morgan {{% /checked %}}
-{{% checked %}} The Rust Book {{% /checked %}}
 
 
 
