@@ -5,7 +5,7 @@ tags = ["Personal"]
 +++
 
 <script>
-let bookNumber = 145;  // Initialize book number
+let bookNumber = 146;  // Initialize book number
 
 document.addEventListener("DOMContentLoaded", function() {
   // Auto-increment book numbers
@@ -35,6 +35,12 @@ function setHovering(isHovering, element) {
 
 ## [2024 | Age 21]
 ***
+{{< book
+    title="The Cathedral & The Bazaar"
+    author="Eric S. Raymond"
+    special=""
+    description="One thing that I thought was interesting in this book was it's discussion on the origin of traditions and customs for conflict resolution management in a decentralized system where there is no central authority. I've recently been thinking about that topic as a whole when applied to the history of the United States (and societies in general), and how such tradition and customs (deemed legitimate by the host population) were the foundations of order, and how when central authority monopolized dispensing of justice, such traditions and customs completely faded. Such things tend to completely die, with people domesticated, and left completely reliant on the central authority to properly uphold law and order, which for a variety of states across time, tends to be improperly implemented. Overall, I think that the book was very interesting and covered insightful history on the birth of the open source movement.">}}
+
 {{< book
     title="The Man Who Solved The Market"
     author="John Steele Gordon"
