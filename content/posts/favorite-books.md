@@ -5,7 +5,7 @@ tags = ["Personal"]
 +++
 
 <script>
-let bookNumber = 146;  // Initialize book number
+let bookNumber = 147;  // Initialize book number
 
 document.addEventListener("DOMContentLoaded", function() {
   // Auto-increment book numbers
@@ -35,6 +35,12 @@ function setHovering(isHovering, element) {
 
 ## [2024 | Age 21]
 ***
+{{< book
+    title="The Founders"
+    author="Jimmy Soni"
+    special="true"
+    description="This was a good book that covered the history of PayPal and all the members that eventually became known as the PayPal Mafia, but this got the special orange tag because of the last chapter. That was completely out of left field and pushed this book over the edge. This guy also wrote the Claude Shannon book below, great author in general.">}}
+
 {{< book
     title="The Cathedral & The Bazaar"
     author="Eric S. Raymond"
