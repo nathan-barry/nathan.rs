@@ -9,17 +9,12 @@ tags = ["Personal"]
 ### Books Read
 {{% checked %}} Writing A Compiler In Go {{% /checked %}}
 {{% checked %}} The Cathedral & The Bazaar {{% /checked %}}
-{{% unchecked %}} The Go Programming Language {{% /unchecked %}}
-{{% unchecked %}} Operating Systems: Three Easy Pieces {{% /unchecked %}}
-{{% unchecked %}} Quantum Computing Since Democritus {{% /unchecked %}}
-
-
-
-### Books Listened
 {{% checked %}} An Empire Of Wealth {{% /checked %}}
 {{% checked %}} The Man Who Solved The Market {{% /checked %}}
 {{% checked %}} The Founders: The Story of PayPal {{% /checked %}}
+{{% checked %}} Industrial Society And Its Future {{% /checked %}}
 {{% unchecked %}} Democracy: The God That Failed  {{% /unchecked %}}
+{{% unchecked %}} Seeing Like A State  {{% /unchecked %}}
 {{% unchecked %}} The Innovators {{% /unchecked %}}
 
 

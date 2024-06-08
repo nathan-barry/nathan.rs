@@ -5,7 +5,7 @@ tags = ["Personal"]
 +++
 
 <script>
-let bookNumber = 147;  // Initialize book number
+let bookNumber = 148;  // Initialize book number
 
 document.addEventListener("DOMContentLoaded", function() {
   // Auto-increment book numbers
@@ -35,6 +35,12 @@ function setHovering(isHovering, element) {
 
 ## [2024 | Age 21]
 ***
+{{< book
+    title="Industrial Society And Its Future"
+    author="Ted Kaczynski"
+    special="true"
+    description="This bizarre book is a combination of Seeing Like A State, Huxley's Brave New World, Nietzsche's Thus Spoke Zarathustra, and Bostrom's Superintelligence. Absolutely blew me away, I had no expectations on what to expect going into this. I disagree with his conclusions and takeaways, but almost everything he says in the book is just spitting facts. Also I just noticed, Ted Kaczynski literally has 'zyn' in his name. Coincidence?">}}
+
 {{< book
     title="The Founders"
     author="Jimmy Soni"

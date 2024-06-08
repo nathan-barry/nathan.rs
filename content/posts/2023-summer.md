@@ -14,10 +14,6 @@ tags = ["Personal"]
 {{% checked %}} Physics for Engineers and Scientists, Vol. 1 {{% /checked %}}
 {{% unchecked %}} Physics for Engineers and Scientists, Vol. 2 {{% /unchecked %}}
 {{% checked %}} The Rust Book {{% /checked %}}
-
-
-
-### Books Listen
 {{% checked %}} The Everything Store: Jeff Bezos and the Age of Amazon {{% /checked %}}
 {{% checked %}} A Mind at Play: How Claude Shannon Invented the Information Age {{% /checked %}}
 {{% checked %}} How Google Works {{% /checked %}}
@@ -36,16 +32,13 @@ tags = ["Personal"]
 
 ### Miscellaneous
 {{% checked %}} Councilor at CS Summer Academy {{% /checked %}}
-{{% checked %}} Climb pink at ABP {{% /checked %}}
 {{% checked %}} Climb white at ABP {{% /checked %}}
-{{% checked %}} Juggle 3 balls (and tricks) {{% /checked %}}
-{{% checked %}} Juggle 4 balls (no tricks) {{% /checked %}}
+{{% checked %}} Juggle 4 balls {{% /checked %}}
 {{% checked %}} Set up Lua Neovim config {{% /checked %}}
 {{% checked %}} Set up Local LaTeX setup {{% /checked %}}
 {{% checked %}} Grow peppers (Ghost and Habanero) {{% /checked %}}
 {{% checked %}} Symbolic_math rust crate {{% /checked %}}
 {{% checked %}} Make personal website in rust {{% /checked %}}
-{{% checked %}} Go through ThePrimeagen's algorithm course {{% /checked %}}
 {{% unchecked %}} Do a kickflip {{% /unchecked %}}
 
 
