@@ -31,7 +31,7 @@ function setHovering(isHovering, element) {
 }
 </script>
 
-
+I disagree with his conclusions and takeaways, but almost everything he says in the book is just spitting facts. Also I just noticed, Ted Kaczynski literally has 'zyn' in his name. Coincidence?
 
 ## [2024 | Age 21]
 ***
@@ -39,7 +39,7 @@ function setHovering(isHovering, element) {
     title="Industrial Society And Its Future"
     author="Ted Kaczynski"
     special="true"
-    description="This bizarre book is a combination of Seeing Like A State, Huxley's Brave New World, Nietzsche's Thus Spoke Zarathustra, and Bostrom's Superintelligence. Absolutely blew me away, I had no expectations on what to expect going into this. I disagree with his conclusions and takeaways, but almost everything he says in the book is just spitting facts. Also I just noticed, Ted Kaczynski literally has 'zyn' in his name. Coincidence?">}}
+    description="This bizarre book is a combination of Seeing Like A State, Huxley's Brave New World, Nietzsche's Thus Spoke Zarathustra, and Bostrom's Superintelligence. Absolutely blew me away, I had no expectations of what to expect going into this. Most of his commentary on contemporary society is completely true, but what is bizarre is the conclusion he draws. Yes, technology is great, it has reduced the burden of man and has drastically increased the quality of life for billions of people. It has also alienated man from their natural state, caused mass societal and environmental problems, and has reduced humans to gears in a system, with that system restricting our freedom and causing us all in some ways to live Kafkaesque existences with rules imposed on us and our individuality consistently stripped away. However, the solution is to not eradicate 95% of the human race and nuke us back to the Stone Age, as his solution must inevitably cause. Technology is what got us into this hole and technology will be what will get us out. If mankind has shown one specialty, it is out-innovating and having the capabilities to dig itself out of its own holes! What is also bizarre is how the anti-human Unabomber worldview has become fashionable amongst those exact same over-socialized elites Kaczynski laments about in his work. Hopefully though, the future will shine fortune on those who want to take humanity to the stars than those who desire to revert it to the yesteryears wherein for most of man, life is nasty, brutish, and short.">}}
 
 {{< book
     title="The Founders"
