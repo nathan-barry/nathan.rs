@@ -31,7 +31,6 @@ function setHovering(isHovering, element) {
 }
 </script>
 
-I disagree with his conclusions and takeaways, but almost everything he says in the book is just spitting facts. Also I just noticed, Ted Kaczynski literally has 'zyn' in his name. Coincidence?
 
 ## [2024 | Age 21]
 ***
