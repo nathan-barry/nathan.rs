@@ -19,8 +19,16 @@ tags = ["Personal"]
 
 
 
+### Notes 
+{{% unchecked %}} Read through all of Go's Standard Library {{% /unchecked %}}
+{{% unchecked %}} Write doc comments for entire Ollama repository {{% /unchecked %}}
+
+
+
 ### Projects
 {{% unchecked %}} NLP Research at ARL {{% /unchecked %}}
-{{% unchecked %}} Advanced Computer Architecture final project with Nate Williams {{% /unchecked %}}
-{{% unchecked %}} Actually contribute to an open source project (Ollama?) {{% /unchecked %}}
+{{% unchecked %}} Advanced Computer Architecture Final Project {{% /unchecked %}}
+{{% unchecked %}} Open Source Contribution (Ollama) {{% /unchecked %}}
+
+
 
