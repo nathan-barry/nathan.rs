@@ -1,9 +1,9 @@
 +++
 title = "Roma History"
 description = "How Roma and I started dating, events in chronological order."
-date = 2024-06-17T20:48:58-05:00
 tags = ["Personal"]
 +++
+<!-- date = 2024-06-17T20:48:58-05:00 -->
 
 ## Events in Chronological Order
 ---
