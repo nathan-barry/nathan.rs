@@ -1,6 +1,6 @@
 +++
-title = "Roma History"
-description = "How Roma and I started dating, events in chronological order."
+title = "Roma Lore"
+description = "How Roma and I started dating. Information gathered from our earliest messages, saved for posterity."
 tags = ["Personal"]
 +++
 <!-- date = 2024-06-17T20:48:58-05:00 -->
