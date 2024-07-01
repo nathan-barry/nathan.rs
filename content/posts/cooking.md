@@ -29,9 +29,9 @@ Cook for 4 hours on low.
 
 
 
-## Meal Recipes
+## Bulk Meal Recipes
 --- 
-Each meal here should be around 3000 calories. I make one meal a day and eat it throughout the day.
+Each meal here should be around 3000 calories, which I split into three containers
 
 ### Creamy Chicken Rice Goop
 - 2 cups of rice in the rice cooker
@@ -58,3 +58,16 @@ Should only take 20-30 minutes to cook.
 Should only take 20-30 minutes to cook.
 
 
+
+## Misc.
+--- 
+
+### Classic Panini
+- Two slices of rye bread
+- Jarred pesto
+- Mayo
+- Two slices of provolone cheese
+- Sliced turkey and Ham
+- Spinach
+- Spicy Banana peppers
+- Salt, pepper

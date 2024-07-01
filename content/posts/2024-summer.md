@@ -13,22 +13,24 @@ tags = ["Personal"]
 {{% checked %}} The Man Who Solved The Market {{% /checked %}}
 {{% checked %}} The Founders: The Story of PayPal {{% /checked %}}
 {{% checked %}} Industrial Society And Its Future {{% /checked %}}
-{{% unchecked %}} Democracy: The God That Failed  {{% /unchecked %}}
 {{% unchecked %}} Seeing Like A State  {{% /unchecked %}}
 {{% unchecked %}} The Innovators {{% /unchecked %}}
 
 
 
-### Notes 
-{{% unchecked %}} Read through all of Go's Standard Library {{% /unchecked %}}
-{{% unchecked %}} Write doc comments for entire Ollama repository {{% /unchecked %}}
-
-
-
-### Projects
-{{% unchecked %}} NLP Research at ARL {{% /unchecked %}}
+### Miscellaneous
+{{% checked %}} Read through all of Go's Standard Library {{% /checked %}}
+{{% checked %}} Learn how to cook {{% /checked %}}
+{{% unchecked %}} Hang out with my girlfriend (and other friends, and sister's boyfriend) in the Bay Area {{% /unchecked %}}
 {{% unchecked %}} Advanced Computer Architecture Final Project {{% /unchecked %}}
-{{% unchecked %}} Open Source Contribution (Ollama) {{% /unchecked %}}
+
+
+
+### Applied Research Laboratories
+{{% checked %}} Build efficient query engine for internet-sized data {{% /checked %}}
+{{% unchecked %}} Host it on UT infrastructure, construct suffix arrays {{% /unchecked %}}
+{{% unchecked %}} Data Contamination research {{% /unchecked %}}
+
 
 
 

@@ -5,14 +5,14 @@ tags = ["Personal"]
 +++
 
 
-<img alt="Me in high school. Fellow Raccoon lover." src="/images/raccoon2.webp">
-<p class="text-center">Me in high school (Yes I used Arch Linux, how could you tell?)</p>
-<br>
+<!-- <img alt="Me in high school. Fellow Raccoon lover." src="/images/raccoon2.webp"> -->
+<!-- <p class="text-center">Me in high school (Yes I used Arch Linux, how could you tell?)</p> -->
+<!-- <br> -->
 
 
 ## Nathan Barry
 ***
-<span class="sidenote"><b>Image Backstory:</b> There were once raccoons living in my attic. I caught them and released them away from my house. I took a photo with each one caught (this is raccoon #3 in the sacrificial demon cave).</span>
+<!-- <span class="sidenote"><b>Image Backstory:</b> There were once raccoons living in my attic. I caught them and released them away from my house. I took a photo with each one caught (this is raccoon #3 in the sacrificial demon cave).</span> -->
 
 I am a Computer Science and Mathematics major at UT Austin. I was born in Saint Joseph, Missouri. I started programming in 2017 my freshman year of high school, with Python and JavaScript, serving PyTorch models with Flask and React. Currently, I spend most of my time on schoolwork, side projects, and (hopefully) writing.
 
