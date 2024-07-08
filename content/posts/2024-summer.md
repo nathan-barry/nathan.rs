@@ -13,24 +13,18 @@ tags = ["Personal"]
 {{% checked %}} The Man Who Solved The Market {{% /checked %}}
 {{% checked %}} The Founders: The Story of PayPal {{% /checked %}}
 {{% checked %}} Industrial Society And Its Future {{% /checked %}}
+{{% checked %}} The Innovators {{% /checked %}}
 {{% unchecked %}} Seeing Like A State  {{% /unchecked %}}
-{{% unchecked %}} The Innovators {{% /unchecked %}}
 
 
 
 ### Miscellaneous
-{{% checked %}} Read through all of Go's Standard Library {{% /checked %}}
 {{% checked %}} Learn how to cook {{% /checked %}}
-{{% unchecked %}} Hang out with my girlfriend (and other friends, and sister's boyfriend) in the Bay Area {{% /unchecked %}}
 {{% unchecked %}} Advanced Computer Architecture Final Project {{% /unchecked %}}
+{{% unchecked %}} Obtain 1800+ rating for LeetCode Contests {{% /unchecked %}}
 
 
 
-### Applied Research Laboratories
-{{% checked %}} Build efficient query engine for internet-sized data {{% /checked %}}
-{{% unchecked %}} Host it on UT infrastructure, construct suffix arrays {{% /unchecked %}}
-{{% unchecked %}} Data Contamination research {{% /unchecked %}}
-
-
-
-
+### Work
+{{% checked %}} Work at Applied Research Laboratories: build open-source ML infrastructure {{% /checked %}}
+{{% checked %}} Read through all of Go's Standard Library {{% /checked %}}
