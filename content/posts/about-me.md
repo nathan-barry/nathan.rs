@@ -14,7 +14,7 @@ tags = ["Personal"]
 ***
 <!-- <span class="sidenote"><b>Image Backstory:</b> There were once raccoons living in my attic. I caught them and released them away from my house. I took a photo with each one caught (this is raccoon #3 in the sacrificial demon cave).</span> -->
 
-I am a Computer Science and Mathematics major at UT Austin. I was born in Saint Joseph, Missouri. I started programming in 2017 my freshman year of high school, with Python and JavaScript, serving PyTorch models with Flask and React. Currently, I spend most of my time on schoolwork, side projects, and (hopefully) writing.
+I am a Computer Science and Mathematics major at UT Austin. I was raised in a small town in Missouri. I started programming in 2017 my freshman year of high school, with Python and JavaScript, serving PyTorch models with Flask and React. Currently, I spend most of my time on schoolwork, side projects, and (hopefully) writing.
 
 In my free time, I enjoy climbing, biking, and playing ultimate frisbee with the CS Ultimate team (now bowling with the CS squad). I also enjoy [reading books a lot](/posts/favorite-books/). Currently, I am growing 12 pepper plants. I'm growing 4 different strains of Habanero Pepper and one variant of Ghost Pepper.
 

@@ -5,7 +5,7 @@ tags = ["Personal"]
 +++
 
 <script>
-let bookNumber = 148;  // Initialize book number
+let bookNumber = 149;  // Initialize book number
 
 document.addEventListener("DOMContentLoaded", function() {
   // Auto-increment book numbers
@@ -34,6 +34,12 @@ function setHovering(isHovering, element) {
 
 ## [2024 | Age 21]
 ***
+{{< book
+    title="The Innovators"
+    author="Walter Isaacson"
+    special=""
+    description="I've read plenty of books about the history of technology and silicon valley, but this one has been by far the most extensive and complete. One beauty of learning things is that you see how many things are connected. This book added on to that. For instance, I already knew about the history of Fairchild Semiconductor, but I somehow missed the huge connection that Noyce also founded Intel as well. What a glaring gap in my knowledge now resolved. I liked the chronological order of this book, from Babbage to modern day, as a lot of these stories that I've heard were individual instances and this book showed the connections from the flow of time.">}}
+
 {{< book
     title="Industrial Society And Its Future"
     author="Ted Kaczynski"
