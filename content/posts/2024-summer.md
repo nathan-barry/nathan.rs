@@ -14,7 +14,8 @@ tags = ["Personal"]
 {{% checked %}} The Founders: The Story of PayPal {{% /checked %}}
 {{% checked %}} Industrial Society And Its Future {{% /checked %}}
 {{% checked %}} The Innovators {{% /checked %}}
-{{% unchecked %}} Seeing Like A State  {{% /unchecked %}}
+{{% unchecked %}} Seeing Like A State {{% /unchecked %}}
+{{% unchecked %}} Code: The Hidden Language of Computer Hardware and Software {{% /unchecked %}}
 
 
 
