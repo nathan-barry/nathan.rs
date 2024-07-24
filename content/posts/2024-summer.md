@@ -20,8 +20,8 @@ tags = ["Personal"]
 
 
 ### Learn
-{{% unchecked %}} Finish Cherno's C++ series {{% /unchecked %}}
 {{% checked %}} Read all of Go's Standard Library documentation {{% /checked %}}
+{{% checked %}} Finish Cherno's C++ series {{% /checked %}}
 {{% unchecked %}} Read C++'s STL documentation {{% /unchecked %}}
 {{% unchecked %}} Read all of C++'s Standard Library documentation {{% /unchecked %}}
 
