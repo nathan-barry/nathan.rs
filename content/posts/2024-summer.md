@@ -19,20 +19,14 @@ tags = ["Personal"]
 
 
 
-### Learn
+### Miscellaneous
 {{% checked %}} Read all of Go's Standard Library documentation {{% /checked %}}
 {{% checked %}} Finish Cherno's C++ series {{% /checked %}}
-{{% unchecked %}} Read C++'s STL documentation {{% /unchecked %}}
-{{% unchecked %}} Read all of C++'s Standard Library documentation {{% /unchecked %}}
-
-
-
-### Miscellaneous
-{{% unchecked %}} Advanced Computer Architecture Final Project {{% /unchecked %}}
-{{% unchecked %}} Obtain 1800+ rating for LeetCode Contests in C++{{% /unchecked %}}
+{{% unchecked %}} Obtain 1800+ rating for LeetCode Contests{{% /unchecked %}}
 
 
 
 ### Projects
 {{% checked %}} Work at Applied Research Laboratories: build open-source ML infrastructure {{% /checked %}}
-{{% unchecked %}} SDL2 C++ graphics project {{% /unchecked %}}
+{{% checked %}} SDL2 C++ graphics project {{% /checked %}}
+{{% unchecked %}} Advanced Computer Architecture Final Project {{% /unchecked %}}
