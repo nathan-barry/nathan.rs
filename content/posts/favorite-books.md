@@ -5,7 +5,7 @@ tags = ["Personal"]
 +++
 
 <script>
-let bookNumber = 149;  // Initialize book number
+let bookNumber = 150;  // Initialize book number
 
 document.addEventListener("DOMContentLoaded", function() {
   // Auto-increment book numbers
@@ -35,6 +35,12 @@ function setHovering(isHovering, element) {
 ## [2024 | Age 21]
 ***
 {{< book
+    title="Seeing Like A State"
+    author="James C. Scott"
+    special=""
+    description="This book talks about how authoritarianism and high modernist movements have always failed because of the human tendency to abstract away concrete minute details for uniformity and simplicity. For any system that we desire to have more control over, we force it to adhere to our abstractions and shape systems to be more legible, which has had extreme successes and failures throughout the industrial world. One thing that I have pondered about in the past is whether authoritarianism ever could work. In theory, if we had a perfect omnipotent being that knew all, it should be able to devise a more perfect and efficient system than what free market forces could devise, since there is no information delay or imperfections. Perhaps in a world with the extensive data mining and tracking we have today, the Soviets would have fared much better. To the hypothetical idea of creating an AI that can plan and direct economies, I wonder if it is feasible or whether there will always be detrimental edge cases that the model doesn't generalize well on. Regardless, it'll be as heartless as any state has been when it comes to realities that it does not considers.">}}
+
+{{< book
     title="The Innovators"
     author="Walter Isaacson"
     special=""
@@ -44,7 +50,7 @@ function setHovering(isHovering, element) {
     title="Industrial Society And Its Future"
     author="Ted Kaczynski"
     special="true"
-    description="This is a very interesting book which reads like a combination of Seeing Like A State, Huxley's Brave New World, Nietzsche's Thus Spoke Zarathustra, and Bostrom's Superintelligence. Most of his commentary on contemporary society is completely true (especially interesting is his commentary on the insatiable character of left-wing movements), but what is bizarre is the conclusion he draws. Yes, technology is great, it has reduced the burden of man and has drastically increased the quality of life for billions of people. It has also alienated man from their natural state, caused mass societal and environmental problems, and has arguably reduced humans to gears in a system, with that system restricting freedom and turning out lives Kafkaesque with rules imposed on us and our individuality consistently stripped away. However, the solution is to not eradicate 95% of the human race and nuke us back to the Stone Age, as his solution must inevitably cause. Technology is what got us into this hole and technology will be what will get us out. If mankind has shown one specialty, it is out-innovating and having the capabilities to dig itself out of its own holes! Another striking curiosity is how the anti-human Unabomber worldview has become fashionable amongst those exact same over-socialized elites Kaczynski laments about in his work. Hopefully, the future will shine fortune on those who want to take humanity to the stars than those who desire to revert it to the yesteryears wherein for most of man, life is nasty, brutish, and short.">}}
+    description="This is a very interesting book which covers a broad set of ideas similar to Seeing Like A State, Huxley's Brave New World, Nietzsche's Thus Spoke Zarathustra, and Bostrom's Superintelligence. Most of his commentary on contemporary society is true (especially interesting is his commentary on the insatiable character of left-wing movements) but the conclusion he draws is bizarre. Yes, technology is great, it has reduced the burden of man and has drastically increased the quality of life for billions of people. It has also alienated man from their natural state, caused mass societal and environmental problems, and has arguably reduced humans to gears in a system, with that system restricting freedom and turning out lives Kafkaesque with rules imposed on us and our individuality consistently stripped away. However, the solution is to not eradicate 95% of the human race and nuke us back to the Stone Age, as his solution must inevitably cause. If mankind has shown one specialty, it is innovating and having the capabilities to dig itself out of its own holes it inevitably creates by the unintended side effects of progress. Progress is just the motif of humanity and trying to create a world where it is limited is a fools errand, even if it wasn't a terrible idea from the offset. One striking curiosity is how the anti-human Unabomber worldview has become fashionable amongst those exact same over-socialized elites Kaczynski laments about in his work. Hopefully, the future will shine fortune on those who want to take humanity to the stars than those who desire to revert it to the yesteryears wherein for most of man, life is nasty, brutish, and short.">}}
 
 {{< book
     title="The Founders"
