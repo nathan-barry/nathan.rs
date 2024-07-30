@@ -5,7 +5,7 @@ tags = ["Personal"]
 +++
 
 <script>
-let bookNumber = 150;  // Initialize book number
+let bookNumber = 151;  // Initialize book number
 
 document.addEventListener("DOMContentLoaded", function() {
   // Auto-increment book numbers
@@ -34,6 +34,12 @@ function setHovering(isHovering, element) {
 
 ## [2024 | Age 21]
 ***
+{{< book
+    title="Going Infinite"
+    author="Michael Lewis"
+    special="true"
+    description="This book is about the FTX collapse and is a short and enjoyable read. It was a very interesting book to listen to, especially as someone who was interested and working at DeFi startups at the time. That year itself was just absolutely wild. Beanstalk, Terra, FTX, and all the hacks that happened, things blowing up left and right. Seeing the outcome of an overleveraged market imploding on itself, combined with the outcome of dozens of bad (irrational) decisions. What is most wild about this story is just how fine FTX was. They were making half a billion a year in profits. The only reason why FTX went insolvent was because they illegally backdoored their own customer funds to Alameda Research. Most people working there when things started to collapse were in absolute disbelief that they were insolvent, since they were literally operating a money printer.">}}
+
 {{< book
     title="Seeing Like A State"
     author="James C. Scott"
