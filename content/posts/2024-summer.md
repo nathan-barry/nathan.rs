@@ -17,6 +17,7 @@ tags = ["Personal"]
 {{% checked %}} Seeing Like A State {{% /checked %}}
 {{% checked %}} Going Infinite {{% /checked %}}
 {{% unchecked %}} Code: The Hidden Language of Computer Hardware and Software {{% /unchecked %}}
+{{% unchecked %}} Competitive Programmer's Handbook {{% /unchecked %}}
 
 
 
