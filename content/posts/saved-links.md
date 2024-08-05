@@ -8,6 +8,7 @@ tags = ["Personal"]
 
 ## Productivity
 - [How To Build Extremely Quickly](https://learnhowtolearn.org/how-to-build-extremely-quickly/)
+- [Paul Gram Writing Time-lapse](https://byronm.com/13sentences.html)
 
 
 
