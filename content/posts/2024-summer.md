@@ -16,20 +16,18 @@ tags = ["Personal"]
 {{% checked %}} The Innovators {{% /checked %}}
 {{% checked %}} Seeing Like A State {{% /checked %}}
 {{% checked %}} Going Infinite {{% /checked %}}
-{{% unchecked %}} Competitive Programmer's Handbook {{% /unchecked %}}
-
-### Learn
-{{% checked %}} Read all of Go's Standard Library documentation {{% /checked %}}
-{{% checked %}} Finish Cherno's C++ series {{% /checked %}}
-{{% checked %}} Finish LeetCode Blind 75{{% /checked %}}
-{{% unchecked %}} Obtain 1800+ rating for LeetCode Contests{{% /unchecked %}}
-
-### Projects
-{{% checked %}} Work at Applied Research Laboratories: build open-source ML infrastructure {{% /checked %}}
-{{% checked %}} SDL2 C++ graphics project {{% /checked %}}
-{{% unchecked %}} Advanced Computer Architecture Final Project {{% /unchecked %}}
+{{% checked %}} Competitive Programmer's Handbook {{% /checked %}}
 
 ### Miscellaneous
-{{% checked %}} Visit Roma in the Bay area, see Arpan and other friends (9 days) {{% /checked %}}
-{{% checked %}} Fix metadata of all my photos (out of chronological order, duplicates, annoying me for years) {{% /checked %}}
-{{% checked %}} Recreate an Instagram account (deleted mine years ago) {{% /checked %}}
+{{% checked %}} Visit Roma in the Bay area, see Arpan and other friends (9 day trip) {{% /checked %}}
+{{% checked %}} Fix metadata of my photos (out of chronological order, duplicates, annoying me for years) {{% /checked %}}
+{{% checked %}} Recreate an Instagram account finally (deleted my old one years ago) {{% /checked %}}
+
+### Programming
+{{% checked %}} Read all of Go's Standard Library documentation {{% /checked %}}
+{{% checked %}} Finish Cherno's C++ series and do a SDL2 graphics project{{% /checked %}}
+{{% checked %}} Finish LeetCode Blind 75{{% /checked %}}
+{{% checked %}} Work at Applied Research Laboratories: build open-source ML infrastructure {{% /checked %}}
+{{% unchecked %}} Advanced Computer Architecture Final Project {{% /unchecked %}}
+{{% unchecked %}} Obtain 1800+ rating for LeetCode Contests{{% /unchecked %}}
+

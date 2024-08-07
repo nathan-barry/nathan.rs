@@ -5,7 +5,7 @@ tags = ["Personal"]
 +++
 
 <script>
-let bookNumber = 151;  // Initialize book number
+let bookNumber = 152;  // Initialize book number
 
 document.addEventListener("DOMContentLoaded", function() {
   // Auto-increment book numbers
@@ -34,6 +34,12 @@ function setHovering(isHovering, element) {
 
 ## [2024 | Age 21]
 ***
+{{< book
+    title="Competitive Programmer's Handbook"
+    author="Antti Laaksonen"
+    special=""
+    description="Read the first two thirds and skimmed the last third (about misc. topics). It was a good review of my Algorithms & Complexity class, as it covers many of the same algorithms.">}}
+
 {{< book
     title="Going Infinite"
     author="Michael Lewis"
