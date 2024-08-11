@@ -21,3 +21,17 @@ tags = ["Personal"]
 
 "We live together, we act on, and react to, one another; but always and in all circumstances we are by ourselves. The martyrs go hand in hand into the arena; they are crucified alone. Embraced, the lovers desperately try to fuse their insulated ecstasies into a single self-transcendence; in vain. By its very nature every embodied spirit is doomed to suffer and enjoy in solitude. Sensations, feelings, insights, fancies—all these are private and, except through symbols and at second hand, incommunicable. We can pool information about experiences, but never the experiences themselves. From family to nation, every human group is a society of island universes.”
 <br>― Aldous Huxley, The Doors of Perception
+
+"I have often felt that programming is an art form,
+whose real value can only be appreciated
+by another versed in the same arcane art;
+there are lovely gems and brilliant coups
+hidden from human view and admiration, sometimes forever,
+by the very nature of the process.
+You can learn a lot about an individual
+just by reading through his code,
+even in hexadecimal.
+Mel was, I think, an unsung genius."
+<br>― Ed Nather, The Story of Mel, Appendix A. Hacker Folklore
+
+
