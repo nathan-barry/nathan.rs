@@ -4,6 +4,9 @@ description = "Here are a few of my favorite quotes I've found over the years."
 tags = ["Personal"]
 +++
 
+"C++ is a hammer, but then everything starts to look like your finger"
+<br>— textlapse, hackernews user
+
 "I believe that a man should strive for only one thing in life, and that is to have a touch of greatness"
 <br>— Félix Martí-Ibáñez
 
