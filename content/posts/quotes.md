@@ -4,11 +4,11 @@ description = "Here are a few of my favorite quotes I've found over the years."
 tags = ["Personal"]
 +++
 
-"C++ is a hammer, but then everything starts to look like your finger"
-<br>— textlapse, hackernews user
-
 "I believe that a man should strive for only one thing in life, and that is to have a touch of greatness"
 <br>— Félix Martí-Ibáñez
+
+"A happy programmer is one who is neither underutilized nor weight down with ill-formulated goals and stressful process friction."
+<br>— Eric Raymond, The Cathedral and the Bazaar
 
 “The march of Providence is so slow and our desires so impatient; the work of progress so immense and our means of aiding it so feeble; the life of humanity is so long, that of the individual so brief, that we often see only the ebb of the advancing wave and are thus discouraged. It is history that teaches us to hope.”
 <br>― Robert E. Lee
@@ -37,4 +37,6 @@ even in hexadecimal.
 Mel was, I think, an unsung genius."
 <br>― Ed Nather, The Story of Mel, Appendix A. Hacker Folklore
 
+"C++ is a hammer, but then everything starts to look like your finger"
+<br>— textlapse, hackernews user
 
