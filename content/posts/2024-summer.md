@@ -17,6 +17,9 @@ tags = ["Personal"]
 {{% checked %}} Seeing Like A State {{% /checked %}}
 {{% checked %}} Going Infinite {{% /checked %}}
 {{% checked %}} Competitive Programmer's Handbook {{% /checked %}}
+{{% checked %}} The C Programming Language {{% /checked %}}
+{{% unchecked %}} Code: The Hidden Language of Computer Hardware and Software {{% /unchecked %}}
+
 
 ### Miscellaneous
 {{% checked %}} Visit Roma in the Bay area, see Arpan and other friends (9 day trip) {{% /checked %}}
@@ -25,7 +28,8 @@ tags = ["Personal"]
 
 ### Programming
 {{% checked %}} Read all of Go's Standard Library documentation {{% /checked %}}
-{{% checked %}} Finish Cherno's C++ series and do a SDL2 graphics project{{% /checked %}}
+{{% checked %}} Finish Cherno's C++ series and do a SDL2 graphics project {{% /checked %}}
+{{% unchecked %}} Finish Charles Caberg's Advanced C series {{% /unchecked %}}
 {{% checked %}} Finish LeetCode Blind 75{{% /checked %}}
 {{% checked %}} Work at Applied Research Laboratories: build open-source ML infrastructure {{% /checked %}}
 {{% unchecked %}} Advanced Computer Architecture Final Project {{% /unchecked %}}

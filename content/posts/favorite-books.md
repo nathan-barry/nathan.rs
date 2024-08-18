@@ -5,7 +5,7 @@ tags = ["Personal"]
 +++
 
 <script>
-let bookNumber = 152;  // Initialize book number
+let bookNumber = 153;  // Initialize book number
 
 document.addEventListener("DOMContentLoaded", function() {
   // Auto-increment book numbers
@@ -35,6 +35,12 @@ function setHovering(isHovering, element) {
 ## [2024 | Age 21]
 ***
 {{< book
+    title="The C Programming Language"
+    author="Brian W. Kernighan & Dennis M. Ritchie"
+    special=""
+    description="This is the third time I've picked up this book. The first time was when I first entered Computer Architecture and read about the first 50 pages. I'm thinking that I might do a lot of C development, and I always prefer to read everything about a language if I'm going to use it a lot. Always things you pick up here and there.">}}
+
+{{< book
     title="Competitive Programmer's Handbook"
     author="Antti Laaksonen"
     special=""
@@ -61,7 +67,7 @@ function setHovering(isHovering, element) {
 {{< book
     title="Industrial Society And Its Future"
     author="Ted Kaczynski"
-    special="true"
+    special=""
     description="This is a very interesting book which covers a broad set of ideas similar to Seeing Like A State, Huxley's Brave New World, Nietzsche's Thus Spoke Zarathustra, and Bostrom's Superintelligence. Most of his commentary on contemporary society is true (especially interesting is his commentary on the insatiable character of left-wing movements) but the conclusion he draws is bizarre. Yes, technology is great, it has reduced the burden of man and has drastically increased the quality of life for billions of people. It has also alienated man from their natural state, caused mass societal and environmental problems, and has arguably reduced humans to gears in a system, with that system restricting freedom and turning out lives Kafkaesque with rules imposed on us and our individuality consistently stripped away. However, the solution is to not eradicate 95% of the human race and nuke us back to the Stone Age, as his solution must inevitably cause. If mankind has shown one specialty, it is innovating and having the capabilities to dig itself out of its own holes it inevitably creates by the unintended side effects of progress. Progress is just the motif of humanity and trying to create a world where it is limited is a fools errand, even if it wasn't a terrible idea from the offset. One striking curiosity is how the anti-human Unabomber worldview has become fashionable amongst those exact same over-socialized elites Kaczynski laments about in his work. Hopefully, the future will shine fortune on those who want to take humanity to the stars than those who desire to revert it to the yesteryears wherein for most of man, life is nasty, brutish, and short.">}}
 
 {{< book
