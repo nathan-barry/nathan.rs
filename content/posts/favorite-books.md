@@ -411,7 +411,7 @@ function setHovering(isHovering, element) {
 {{< book
     title="The Rational Male"
     author="Rollo Tomassi"
-    description="The original redpill manifesto. I personally don't agree with this life philosophy, but I do think it has a lot of things any young male should be conscious of. One may disagree with the nihilistic hypergamous view of cross-gender relations or disagree with the opinion that men's lives are harder, but at the base of the book is just vouching for good habits and looking inwards for validation instead of from the people around us.">}} 
+    description="I've seen this book here and there for years but didn't have any idea of what it was until I finally checked it out. This is apparently the original redpill manifesto. I don't agree with this life philosophy, but I do think it does has a lot of things any young guy should be conscious of. I certainly disagree with the nihilistic hypergamous view of cross-gender relations. Underneath the 'toxic masculinity' dressing, the book just vouches for good habits and that one should look inwards for validation instead of from the people around us.">}} 
 
 {{< book
     title="The Infinite Machine"
