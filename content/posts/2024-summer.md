@@ -18,7 +18,7 @@ tags = ["Personal"]
 {{% checked %}} Going Infinite {{% /checked %}}
 {{% checked %}} Competitive Programmer's Handbook {{% /checked %}}
 {{% checked %}} The C Programming Language {{% /checked %}}
-{{% unchecked %}} When Einstein Walked with Gödel {{% /unchecked %}}
+{{% checked %}} When Einstein Walked with Gödel {{% /checked %}}
 {{% unchecked %}} Code: The Hidden Language of Computer Hardware and Software {{% /unchecked %}}
 
 

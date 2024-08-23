@@ -5,7 +5,7 @@ tags = ["Personal"]
 +++
 
 <script>
-let bookNumber = 153;  // Initialize book number
+let bookNumber = 154;  // Initialize book number
 
 document.addEventListener("DOMContentLoaded", function() {
   // Auto-increment book numbers
@@ -34,6 +34,12 @@ function setHovering(isHovering, element) {
 
 ## [2024 | Age 21]
 ***
+{{< book
+    title="When Einstein Walked with Gödel"
+    author="Jim Holt"
+    special=""
+    description="This was an interesting book covering wide ranging topics over mathematics and philosophy: graph theory, quantum physics, string theory, history, etc. It reminds me of the two books Quantum Magazine has published in the sense where it's made up of a series of disjoint topics over a variety of topics.">}}
+
 {{< book
     title="The C Programming Language"
     author="Brian W. Kernighan & Dennis M. Ritchie"
