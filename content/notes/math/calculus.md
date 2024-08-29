@@ -251,11 +251,11 @@ To determine whether or not a general series has a sum, we consider the *Partial
 
 $$s_n = a_1+a_2+a_3+\dots+a_n = \sum_{i=1}^n a_i$$
 
-If the sequence $\\{s_n\\}$ is convergent and $\lim_{n\rightarrow\infty} s_n = s$ exists (as a finite number), then the series $\sum a_n$ is called convergent and we write:
+If the sequence $a_n$ is convergent and $\lim_{n\rightarrow\infty} s_n = s$ exists (as a finite number), then the series $\sum a_n$ is called convergent and we write:
 
 $$\sum_{n=1}^\infty a_n = s$$
 
-The number $s$ is called the sum of the series. If the sequence $\{s_n\}$ is divergent, then the series is called divergent.
+The number $s$ is called the sum of the series. If the sequence $a_n$ is divergent, then the series is called divergent.
 
 Thus the sum of a series is the limit of the sequence of partial sums as $n$ goes to infinity. Notice that
 
@@ -569,9 +569,9 @@ We can perform *term-by-term differentiation and integration* of a power series 
 
 - If the power series $\sum c_n(x-a)^n$ has a *Radius of Convergence* $R > 0$, then the function $f$ defined by
 
-$$f(x)=c_0+c_1(x-a)+c_2(x-a)^2+\dots=\sum_{n=0}^\infty c_n(x-a)^n$$
+  $$f(x)=c_0+c_1(x-a)+c_2(x-a)^2+\dots=\sum_{n=0}^\infty c_n(x-a)^n$$
 
-- is differentiable (and therefore continuous) and has an *Interval of Convergence* of $(a-R,  a+R)$.  
+  is differentiable (and therefore continuous) and has an *Interval of Convergence* of $(a-R,  a+R)$.  
 
 - The integral or derivative of the function can be represented by a sum of the *term-by-term integration or differentiation* of a series:
 
@@ -580,7 +580,6 @@ $$=\sum_{n=0}^\infty \frac{d}{dx}\Big[c_n(x-a)^n\Big]=\sum_{n=1}^\infty n c_n(x-
 
 $$(ii)\quad \int f(x) dx=C+c_0(x-a)+\frac12 c_1(x-a)^2+\frac13 c_3(x-a)^3+\cdots$$
 $$=\sum_{n=0}^\infty \int c_n(x-a)^{n} dx=C+\sum_{n=0}^\infty \frac1{n+1} c_n(x-a)^{n+1}$$
-
 
 
 
@@ -603,13 +602,15 @@ $$f(x)=\sum_{n=0}^\infty \frac{f^{(n)}(a)}{n!}(x-a)^n$$
 
 $$=f(a)+\frac{f^\prime(a)}{1!}(x-a)+\frac{f^{\prime\prime}(a)}{2!}(x-a)^2+\frac{f^{(3)}(a)}{3!}(x-a)^3+\dots$$
 
+It must be that $|x-a|<R$. If this is the case, then the series will converge to the actual function. If not, then it diverges from it, making it useless.
+
 ### Maclaurin Series
 
 A Maclaurin Series is a Taylor Series that is centered at 0 (aka $a = 0$).
 
 $$f(x)=\sum_{n=0}^\infty \frac{f^{(n)}(0)}{n!}x^n$$
 
-$$=f(a)+\frac{f^\prime(0)}{1!}x+\frac{f^{\prime\prime}(0)}{2!}x^2+\frac{f^{(3)}(0)}{3!}x^3+\dots$$
+$$=f(0)+\frac{f^\prime(0)}{1!}x+\frac{f^{\prime\prime}(0)}{2!}x^2+\frac{f^{(3)}(0)}{3!}x^3+\dots$$
 
 **Example**
 
@@ -776,19 +777,7 @@ $$f^\prime(x)=xf(x)$$
 
 for all values of x in some interval.
 
-When we are asked to *solve* a differential equation, we are expected to find all possible solutions of the equation. We have already solved simple differential equations of the form
-
-$$y^\prime=f(x)$$
-
-For instance, we know that the general solution of the differential equation
-
-$$y^\prime=x^3$$
-
-is given by
-
-$$y=\frac{x^4}4+C$$
-
-where C is an arbitrary constant. This is also known as the *general solution.*
+When we are asked to *solve* a differential equation, we are expected to find all possible solutions of the equation. For instance, let us look at the new differential equation $y^\prime=x^3$. We know that the solution the differential equation is given by $y=\frac{x^4}4+C$ where C is an arbitrary constant. This is known as the *general solution.*
 
 In general, solving a differential equation is not an easy matter as there is no systematic technique that allows us to solve all differential equations.
 
@@ -799,7 +788,7 @@ In general, solving a differential equation is not an easy matter as there is no
 
 **Example**
 
-Show that every member of the family of functions below is a solution of the differential equation $y^\prime=\frac12(y^2-1)$.
+Show that every member of the family of functions below is a solution of the differential equation $y^\prime=\frac12(y^2-1)$:
 
 $$y=\frac{1+ce^t}{1-ce^t}$$
 
@@ -916,15 +905,15 @@ $$\frac13y^3=\frac13x^3+C$$
 If we solve for y, we get
 
 $$y=\sqrt[3]{x^3+3C}$$
-$$y=\sqrt[3]{x^3+K}\qquad K=3C$$
 
 By plugging in $y(0)=2$, we get
 
 $$y(0)=\sqrt[3]{0^3+3C}=2$$
 
-$$y(0)=\sqrt[3]{3C}=2$$
+$$\sqrt[3]{3C}=2$$
 
-$$y(0)=3C=K=8$$
+$$3C=8$$
+$$C=\frac83$$
 
 Thus the solution to the initial value problem is
 

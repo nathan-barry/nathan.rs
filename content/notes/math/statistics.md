@@ -1,6 +1,6 @@
 +++
 title = "Mathematical Statistics"
-description = "WORK IN PROGRESS. My notes over Mark Maxwell's course, Introduction to Mathematical Statistics, and textbook, Probability & Statistics with Applications, Second Edition."
+description = "My notes over Mark Maxwell's course, Introduction to Mathematical Statistics, and textbook, Probability & Statistics with Applications, Second Edition."
 date = 2024-02-21T14:07:21-06:00
 tags = ["Math Notes"]
 +++
