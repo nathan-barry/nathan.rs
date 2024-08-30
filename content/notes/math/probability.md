@@ -89,7 +89,7 @@ A combination is denoted with $_nC_r$ and is read as "$n$ choose $r$".
 
 The number of combinations of $r$ objects chosen from a collection of $n$ distinguishable objects is given by:
 
-$$_nC_r=\frac{_nP_r}{r!}=\frac{n!}{r!(n-r!)}$$
+$$_nC_r=\frac{_nP_r}{r!}=\frac{n!}{r!(n-r)!}$$
 
 You'll notice that this is just the permutation formula $_nP_r$ multiplied by $\frac{1}{r!}$. 
 
@@ -375,7 +375,7 @@ $$E[X]:=\sum_{x\in X} x\cdot Pr(X=x)$$
 
 For the continuous case, we have:
 
-$$E[X]:=\int_{-\infty}^{-\infty} x\cdot f_X(x) dx$$
+$$E[X]:=\int_{-\infty}^{\infty} x\cdot f_X(x) dx$$
 
 <p>
 <b>Example:</b> For a 6-sided die, the probability of each side is \(\frac16\). Let the random varaible \(X\) be the number of dots we roll. Thus:
@@ -461,7 +461,7 @@ In other words, the set of real numbers \(X\) maps to is \(\{0, 1, 2\}\). Thus, 
 
 ### Expected Value
 
-If $X$ is a discrete random variable with probability function $Pr(X=x_i)==p(x_i),$ then the expected value of $X$ is given by:
+If $X$ is a discrete random variable with probability function $p(x_i):=Pr(X=x_i)$, then the expected value of $X$ is given by:
 
 $$\mu_X=E[X]=\sum_i x_i\cdot p(x_i)$$
 
@@ -498,7 +498,7 @@ The function $F(x)$ is called the cumulative distribution function (CDF) for $X$
 
 It must satisfy the following:
 1. $0\le F(x) == Pr(X\le x)$ for all $X$
-2. If $x_{i-1}<x_i$ are consecutive values in the probability distribution table of $X,$ then $Pr(X=x_i) = F(x_i)-F(x_{i-1}) = Pr(X\le x_i)-Pr(X\le x_{i-1}=p(x_i)$
+2. If $x_{i-1}<x_i$ are consecutive values in the probability distribution table of $X,$ then: $$Pr(X=x_i) = F(x_i)-F(x_{i-1}) = Pr(X\le x_i)-Pr(X\le x_{i-1})=p(x_i)$$
 3. We define $F(\infty)=Pr(X<\infty)=1$
 
 The graph of the CDF for a discrete random variable will be a step function
@@ -576,7 +576,7 @@ $$M_Y(t)=e^{bt}M_X(at).$$
 3. **Sums of Independent Random Variables:** If $X,\dots X_n$ are independent random variables and $S=X_1+\cdots+X_n$, then
 $$M_S(t)=M_{X_1}(t)\cdot M_{X_2}(t)\cdots M_{X_n}(t)$$
 
-4. **Corollary to (3):** If $X,\dots X_n$ are independent random variables, all with common distribution $X$, then
+4. **Corollary to (3):** If $X,\dots X_n$ are independent random variables, all with common distribution $X,$ then
 $$M_S(t)=[M_X(t)]^n$$
 
 
@@ -717,7 +717,7 @@ The resulting random variable X is called a *two-point mixture* of $Y$ and $Z$ w
 
 #### Calculating Moments of Two-Point Mixture Distributions
 
-Let X be a two-point mixture of $Y$ and $Z$ with mixing weights $p$ and $1-p$. Then the [[Expected Value]] is
+Let X be a two-point mixture of $Y$ and $Z$ with mixing weights $p$ and $1-p$. Then the expected value is
 
 $$E[X^n]=p E[Y^n]+(1-p) E[Z^n]$$
 
@@ -732,7 +732,7 @@ $$E[X^n]=p E[Y^n]+(1-p) E[Z^n]$$
 
 ### Deductible Insurance
 
-Consider a given loss amount [[Random Variable]] $X$ living on the interval $(A, B)$ where $0\le A<B<\infty$. We denote the deductible amount by $d$, where $A\le d<B$.
+Consider a given loss amount random variable $X$ living on the interval $(A, B)$ where $0\le A<B<\infty$. We denote the deductible amount by $d$, where $A\le d<B$.
 Let $Y$ be the payment random variable resulting from the deductible $d$. Then the relationships between $X$ and $Y$ is given by
 $$
 Y=\begin{cases}
@@ -740,7 +740,7 @@ Y=\begin{cases}
 X-d & d\le X<B
 \end{cases}
 $$
-Often a problem will ask for $E [Y]$, the [[Expected Value]] of $Y$ (how much the insurance company pays out). $$E[Y]=\int_A^d0\cdot f_X(x) dx +\int_d^B(x-d)\cdot f_X(x) dx$$ $$=\int_d^B(x-d)\cdot f_X(x) dx$$
+Often a problem will ask for $E [Y]$, the expected value of $Y$ (how much the insurance company pays out). $$E[Y]=\int_A^d0\cdot f_X(x) dx +\int_d^B(x-d)\cdot f_X(x) dx$$ $$=\int_d^B(x-d)\cdot f_X(x) dx$$
 
 ### Capped Insurance
 
@@ -911,7 +911,7 @@ There are three common methods to define a particular set.
 
 #### Set Operations
 
-Suppose that $A$ and $B$ represent two [[Sets]]. Suppose that $U$ represents the universal set.
+Suppose that $A$ and $B$ represent two sets. Suppose that $U$ represents the universal set.
 
 1. **Union**: (read as "A union B" or as "A or B")
 
