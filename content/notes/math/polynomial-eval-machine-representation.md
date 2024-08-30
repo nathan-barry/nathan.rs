@@ -3,6 +3,7 @@ title = "Polynomial Evaluation & Machine Representation"
 description = "Here are a few of my notes over Timothy Sauer's Numerical Analysis textbook for my numerical analysis class."
 date = 2023-08-26
 tags = ["Math Notes"]
+draft = true
 +++
 
 {{< toc >}}

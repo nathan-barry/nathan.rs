@@ -3,6 +3,7 @@ title = "Solving Equations: Bisection, Fixed-Iteration, and Newton's Method"
 description = "Here are a few of my notes over Timothy Sauer's Numerical Analysis textbook for my numerical analysis class."
 date = 2023-09-06T12:19:28-05:00
 tags = ["Math Notes"]
+draft = true
 +++
 
 {{< toc >}}
