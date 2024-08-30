@@ -11,7 +11,7 @@ draft = true
 
 
 ## Evaluating a Polynomial
-***
+---
 The most fundamental operations of arithmetic are addition and multiplication. These operations are also what are needed to evaluate a polynomial `P(x)` at a particular value `x`. Polynomials are the basic building blocks for many computational techniques.
 
 <p>
@@ -102,7 +102,7 @@ print("nested_polynomial", time.time() - start_2, "seconds")
 
 
 ## Binary Number Representation
-***
+---
 
 You might ask, why binary numbers? One of the reasons is for error correction and robustness. 
 If the radiation from sunlight happen to change a digit the computer is storing, it is much easier to detect when we are dealing with 1s and 0s since there are only two options.
@@ -173,7 +173,7 @@ Suppose \(x=(.\overline{1011})_2\). We can bit shift it to the left to get \(2^4
 
 
 ## Floating Point Representation
-***
+---
 Floating point numbers are based on the IEEE 754 floating point standard. This standard uses scientific notation to represent real numbers. It consists of three parts: the sign (+ or -), the mantissa (significant bits), and the exponent.
 
 $$\pm1.bbb...\times2^p$$

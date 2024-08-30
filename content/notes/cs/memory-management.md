@@ -9,7 +9,7 @@ tags = ["Computer Science Notes"]
 
 
 ## Memory Management Basics
-***
+---
 
 Memory management is a cornerstone of operating systems. The primary objective is to maximize the utilization of the system's main memory.
 
@@ -60,7 +60,7 @@ Another technique introduced is **swapping**. Swapping permits more processes to
 
 
 ## Relocation
-***
+---
 The Operating System, when loading a process, designates a contiguous segment of memory for that process. If the process doesn't fit, the Operating System waits for an existing process to terminate.
 
 The initial (smallest) physical address allocated to the process is known as the `base address`. The largest address the process can access is termed the `limit address`. The `base address` can also be referred to as the `relocation address`.
@@ -106,7 +106,7 @@ The Operating System typically tracks this using a linked list structure called 
 
 
 ## Memory Allocation and Placement Policies
-***
+---
 
 When a process requests memory, the Operating System must determine where to place that process in memory. The goal of memory allocation policies is to minimize wasted space. There are two primary sources of wasted memory:
 
@@ -153,7 +153,7 @@ Each of the above policies has its own set of advantages and disadvantages. For 
 
 
 ## Strategies to Eliminate Fragmentation
-***
+---
 
 ### Compaction
 
@@ -198,7 +198,7 @@ The steps involved in swapping are:
 
 
 ## Paging and Virtual Memory
-***
+---
 
 **Virtual Memory** is a mechanism that allows processes to use a virtual address space, which can be substantially larger than the available physical memory. The significant advantage of this approach is that only specific portions of the virtual address space need to be in the physical memory at any given time. This allocation is facilitated by the process of **paging**.
 
@@ -240,7 +240,7 @@ Paging facilitates a flexible system where pages from a virtual address space (V
 
 
 ## Address Translation
-***
+---
 
 One of the many tasks of an operating system is the translation of virtual addresses to physical ones, ensuring that processes can efficiently and securely access their data.
 
@@ -290,7 +290,7 @@ Paging addresses several challenges and goals in memory management:
 
 
 ## Improving Performance in Time
-***
+---
 
 The translation from virtual to physical memory involves a series of steps:
 
@@ -338,7 +338,7 @@ The TLB serves as an intermediary in translating a page number to a frame number
 
 
 ## Multi-Level Paging
-***
+---
 
 Multi-level paging offers an efficient approach to handle massive page tables. By introducing levels of indirection, it optimizes space and aids in efficiently locating the required frame information.
 
@@ -357,7 +357,7 @@ One of the major benefits of this structure is space efficiency. Only the necess
 
 
 ## Inverted Page Tables
-***
+---
 
 Traditional multi-level page tables, while effective for 32-bit address spaces, can become burdensome for 64-bit systems, potentially requiring up to five levels.
 
@@ -389,7 +389,7 @@ To address these challenges, we can utilize a Hash Table mechanism:
 
 
 ## Page Replacement Algorithms
-***
+---
 
 When there's a page fault and the physical memory is full, the operating system needs to decide which page to remove (or "replace") to make space for the new page. The goal of page replacement algorithms is to make this decision in a manner that maximizes performance. Typically, good performance means minimizing the frequency of page faults.
 
@@ -498,7 +498,7 @@ Page replacement algorithms aim to decide which memory pages to swap out, write 
 
 
 ## The Working Set Model
-***
+---
 
 The **working set** of a process refers to the set of pages that the process is actively using. Informally, it’s the pages the process needs right now. More formally, it encompasses all pages that a process has referenced in the past $T$ seconds. The concept is based on the assumption that if a page was referenced recently, it's likely to be accessed again soon.
 
@@ -534,7 +534,7 @@ As a guideline, consider the cost of a page fault. If a page fault takes 10ms, e
 
 
 ## Load Control
-***
+---
 
 **Load Control** pertains to the management of the number of processes that can concurrently reside in memory.
 
@@ -559,7 +559,7 @@ As a guideline, consider the cost of a page fault. If a page fault takes 10ms, e
 
 
 ## Choosing Page Sizes
-***
+---
 
 The decision regarding the size of a page is pivotal and influences system performance. Over time, page sizes have been seeing a gradual increase.
 

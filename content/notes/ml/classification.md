@@ -8,10 +8,16 @@ tags = ["Machine Learning Notes"]
 {{< toc >}}
 
 
+
+<br>
+
 ## Generative Models vs. Discriminative Models
-***
+---
 
 When it comes to classification, models are broadly categorized into Generative Models and Discriminative Models.
+
+
+<br>
 
 ### Generative Models
 
@@ -23,6 +29,9 @@ $$
 
 Prominent examples of generative models include Naive Bayes and Bayesian Networks.
 
+
+<br>
+
 ### Discriminative Models
 
 Discriminative models, on the other hand, focus on modeling the conditional probability $ p(y|x) $. They directly compute:
@@ -33,8 +42,12 @@ $$
 
 These models excel at prediction but do not model the distribution of $ x $ explicitly. Logistic Regression, Perceptrons, and most neural networks fall under this category.
 
+
+
+<br>
+
 ## Models
-***
+---
 Classification is one of the most fundamental problems in machine learning. It's all about assigning a predefined label to a new, unseen data point based on the learning from the training data. In this section, we'll explore four prominent types of classifiers:
 
 
@@ -47,6 +60,8 @@ Classification is one of the most fundamental problems in machine learning. It's
 
 In the following sections contain more in depth details on each model.
 
+
+<br>
 
 ### Naive Bayes Classifier
 
@@ -63,6 +78,7 @@ argmax_{y \in C} \left[ q(y) \prod_{i=1}^{|x|} q(w_i|y) \right]
 $$
 
 
+<br>
 
 ### Log-Linear Classifier (Maximum Entropy Models)
 
@@ -92,6 +108,9 @@ $$
 y^* = \text{argmax}_{y \in C} \left[ w \cdot \phi(x) \right]
 $$
 
+
+<br>
+
 ### Perceptron Algorithm
 
 The Perceptron algorithm is one of the simplest types of artificial neural networks and a form of binary classifier. The algorithm starts with a weight vector initialized to zero and iteratively updates it using individual training examples.
@@ -113,6 +132,9 @@ The Perceptron can be seen as a simplified version of logistic regression with u
 - $ w \leftarrow w + x(1 - P(y=1|x)) $
 - $ w \leftarrow w - xP(y=1|x) $
 
+
+<br>
+
 ### Neural Networks
 
 A neural network is a collection of interconnected neurons. A single neuron is essentially a computational unit that performs the following operations:
@@ -129,8 +151,12 @@ Backpropagation is used for efficient computation of gradients in neural network
 
 *Note: For further details on partial derivatives and their application in backpropagation, a separate section will be created.*
 
+
+
+<br>
+
 ## Objective / Loss Functions
-***
+---
 
 Regardless of the type of classifier, one common goal is to minimize the discrepancy between the predicted and true distributions. This is often done through minimizing the Cross-Entropy Loss:
 
@@ -148,6 +174,9 @@ The objective is to find parameters that minimize this loss function over the en
 
 This concludes our exploration of classification models. Understanding the differences between generative and discriminative models, as well as the specifics of popular classifiers, provides a strong foundation for tackling a wide array of machine learning problems.
 
+
+<br>
+
 ### Learning via Gradient Descent
 
 Gradient descent is an optimization algorithm commonly used in machine learning to minimize the loss function. In the context of classification, the objective function $ L(w) $ can be formulated as:
@@ -161,6 +190,9 @@ The optimal weight $ w^* $ that maximizes this function is:
 $$
 w^* = \text{argmax}_w L(w)
 $$
+
+
+<br>
 
 ### Learning Rate ($ \eta $)
 

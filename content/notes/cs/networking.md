@@ -10,7 +10,7 @@ tags = ["Computer Science Notes"]
 
 
 ## Networks
-*** 
+--- 
 At its core, a network is a system of interconnected lines or channels.
 
 From an OS perspective, it perceives the network just like any other device. When we attach a Network Interface Controller (NIC) to the computer's bus, the OS facilitates data transfer between memory and the NIC, using DMA (Direct Memory Access) or memory-mapped I/O. However, ensuring the efficient functioning of this device requires intricate software and metadata management.
@@ -54,7 +54,7 @@ The most renowned example of an internet is the Global IP Internet. Most modern 
 
 
 ## Ethernet and Network Classifications
-***
+---
 
 ### Ethernet: The Backbone of Local Area Networks
 
@@ -79,7 +79,7 @@ The most renowned example of an internet is the Global IP Internet. Most modern 
 
 
 ## Network Processes and Reliability
-***
+---
 
 ### The OSI Model
 
@@ -149,7 +149,7 @@ Some TCP features are:
 
 
 ## TCP/IP: Flow and Congestion Control
-***
+---
 
 ### TCP Flow Control
 
@@ -239,7 +239,7 @@ Data transfer over the internet, whether it's a simple web page request or strea
 
 
 ## Ports and Sockets
-***
+---
 
 Clients and servers exchange data by transmitting streams of bytes over connections.
 
@@ -292,7 +292,7 @@ One key distinction that sets apart regular file I/O from socket I/O is the meth
 
 
 ## Client-Server Interaction
-***
+---
 
 **Server Side**:
 1. `getaddrinfo`: Resolve server's own hostname.

@@ -10,7 +10,7 @@ tags = ["Computer Science Notes"]
 
 
 ## Processes
-***
+---
 
 A process is essentially a program in its execution phase. While a program is a static entity (akin to a blueprint), a process is dynamic and consists of the program combined with its current execution state.
 
@@ -49,7 +49,7 @@ To keep track of processes, the OS employs a **Process Control Block (PCB)**. He
 
 
 ## Dual Mode Execution
-***
+---
 
 A vital question arises: how does the OS maintain the boundaries for processes?
 
@@ -111,7 +111,7 @@ Dual Mode Execution is a core concept in OS protection. It allows the OS to main
 
 
 ## Handling Processes
-***
+---
 
 ### Accessing System Resources: System Calls
 
@@ -252,7 +252,7 @@ The `wait()` system call allows a parent process to pause until one of its child
 
 
 ## CPU Scheduling
-***
+---
 
 A process serves as a foundational unit of execution within an operating system. Every process has several defining features:
 
@@ -309,7 +309,7 @@ Scheduling strategies can be broadly classified based on their interaction with 
 
 
 ## Scheduling Policies
-***
+---
 
 We have some foundational assumptions below. They aren't necessarily true, but are assumptions that computer scientists have used since the origin of scheduling theory and are generally a good enough heuristic.
 - Each user has a single process.
@@ -380,7 +380,7 @@ Improving fairness might inadvertently increase average waiting time but the tra
 
 
 ## Boot Sequences
-***
+---
 
 When we turn on our computers, a series of steps take place to load the operating system. This process is known as the boot sequence.
 
@@ -419,7 +419,7 @@ With the OS kernel loaded, the system initializes:
 
 
 ## Threads
-***
+---
 
 In computer science, a thread represents an entity that executes a series of instructions. Threads play an important role in enhancing the efficiency of an operating system.
 

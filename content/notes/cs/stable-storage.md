@@ -10,7 +10,7 @@ tags = ["Computer Science Notes"]
 
 
 ## External Device Communication
-***
+---
 
 While CPU and main memory are pivotal, they alone can't make a computer functional. A computer's real power lies in its ability to communicate with the external world.
 
@@ -52,7 +52,7 @@ Communication with external devices isn't always instantaneous. For instance, wh
 
 
 ## Handling Prolonged Waits
-***
+---
 
 ### Polling
 
@@ -141,7 +141,7 @@ Despite the abstraction, this process transfers much of the complexity to the ha
 
 
 ## Disk Drives
-***
+---
 
 ### Anatomy of a Hard Disk Drive (HDD)
 
@@ -236,7 +236,7 @@ We have the following scheduling algorithms:
 
 
 ## Solid State Drives (SSD)
-***
+---
 
 Unlike HDDs, SSDs have no moving parts. This grants them:
 - Superior random-access performance.

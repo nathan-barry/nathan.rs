@@ -11,7 +11,7 @@ draft = true
 
 
 ## Solving Equations
-***
+---
 
 Solving equations is one of the most basic problems in scientific computing. First and foremost, we will talk about the differences between a function and an equation.
 
@@ -38,7 +38,7 @@ Any $x$ where the equation $f(x)=0$ holds is called a **root** or a **zero**.
 Thus solving equations consists of finding the roots or zeros of a function. We will cover multiple iterative methods for locating solutions $x$ of the equation $f(x)=0$. 
 
 ## The Bisection Method
-***
+---
 In general, the first step to solving an equation is to verify that a root exists. One way to do this is to bracket the root: find an interval $[a,b]$ for which the pair $f(a), f(b)$ consists of a positive and negative number. This can be expressed as $f(a)f(b) < 0$. If $f$ is a continuous function, then there will be a root $r$ between $a$ and $b$ for which $f(r)=0$.
 
 ### Method Implementation 
@@ -125,7 +125,7 @@ $$\frac{1}{2^{n+1}} < 0.5\times 10^{-3}\implies n > 9.966 $$
 
 
 ## Fixed-Point Iteration
-***
+---
 
 Some functions, if recursively nested, converge to a number no matter what the original input. Lets look at `sqrt()`. For any number $x$, the nested function `sqrt(sqrt(sqrt(...sqrt(x)...)))` will converge to $1$ as the number of nested layers goes to infinity.
 
@@ -299,7 +299,7 @@ The Bisection Method is guaranteed to converge linearly. FPI is only locally con
 
 
 ## Limits of Accuracy
-***
+---
 
 <h6>Definition</h6>
 
@@ -375,7 +375,7 @@ The preceeding error magnification example shows the sensitivity of root finding
 
 
 ## Newton's Method
-***
+---
 
 Newton's Method usually converges much faster than the linearly convergent methods we previously saw. 
 
@@ -494,7 +494,7 @@ An important thing to note is that Newton's method, just like FPI, is not guaran
 
 
 ## Root-Finding Without Derivatives
-***
+---
 
 In some circumstances, we might not be able to calculate the derivative. There are a few methods that converge faster than linear convergence. The secant method is very similar to Newton's Method, but we are using a secant line approximation of the tangent line. There are also variants that we'll discuss below.
 

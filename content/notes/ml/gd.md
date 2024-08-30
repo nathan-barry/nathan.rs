@@ -9,8 +9,10 @@ tags = ["Machine Learning Notes"]
 
 
 
+<br>
+
 ## Gradient Descent
-***
+---
 
 Gradient Descent is a fundamental, first-order iterative optimization algorithm designed for minimizing a function. The primary objective of Gradient Descent is to find the minimum value of a function by iteratively moving towards the minimum of the gradient.
 
@@ -26,8 +28,10 @@ where:
 
 
 
+<br>
+
 ## Adagrad (Adaptive Gradient)
-***
+---
 
 Adagrad is an optimization algorithm that adaptively adjusts the learning rates during the training process, which can be especially helpful when dealing with sparse data. The algorithm modifies the general learning rate at each time step $ t $ for every parameter based on the historical gradients that have been computed for that parameter.
 
@@ -46,8 +50,10 @@ where:
 
 
 
+<br>
+
 ## RMSProp
-***
+---
 
 RMSprop adjusts the learning rate during training, allowing for the individual adaptation of each parameter’s learning rate during the optimization process. The algorithm works as follows:
 
@@ -63,6 +69,9 @@ where:
 - $ v_{t} $: exponentially decaying average of squared gradients.
 - $ \beta $: decay factor (commonly set to $0.9$).
 - $ \epsilon $: smoothing term to avoid division by zero.
+
+
+<br>
 
 ### Comparison with Adagrad
 RMSprop can be seen as a modification of Adagrad. Below is a quick comparison between the two algorithms:
@@ -86,8 +95,10 @@ RMSprop can be seen as a modification of Adagrad. Below is a quick comparison be
 
 
 
+<br>
+
 ## Momentum
-***
+---
 
 Momentum is inspired by physical momentum: it helps the optimizer to navigate along the relevant directions and dampens oscillations in the learning process. Momentum works by accumulating an exponential decay of past gradients and continues to move in that direction.
 
@@ -113,8 +124,10 @@ where:
 
 
 
+<br>
+
 ## Adam (Adaptive Moment Estimation)
-***
+---
 
 Adam is known for combining the best properties of the algorithms Momentum and RMSprop. It uses both moving averages of the parameters (momentum) and the squared gradients (RMSprop) to adaptively adjust learning rates for each parameter, making it well-suited for problems with noisy or sparse gradients.
 
@@ -140,8 +153,10 @@ where:
 
 
 
+<br>
+
 ## Stochastic Gradient Descent (SGD)
-***
+---
 
 Unlike GD that computes the gradient using the entire dataset, SGD approximates the gradient using a single or a few randomly selected samples, hence the name 'stochastic'. This approach makes SGD faster and able to handle large-scale datasets efficiently.
 
@@ -161,11 +176,15 @@ where:
 
 
 
+<br>
 
 ## Bias-Variance Decomposition of Stochastic Gradient Descent
-***
+---
 
 Understanding the bias-variance trade-off is critical for comprehending the behavior of SGD. The error of a machine learning model can be decomposed into bias, variance, and irreducible error.
+
+
+<br>
 
 ### Bias-Variance Decomposition
 The expected mean squared error of a model can be expressed as the sum of the bias squared, variance, and irreducible error:
@@ -179,9 +198,15 @@ where:
 - Variance quantifies the model's sensitivity to specific sets of sampled training data.
 - $\epsilon$ is the irreducible error due to noise in the data.
 
+
+<br>
+
 ### SGD Bias-Variance
 - **Bias:** SGD introduces bias in parameter updates by approximating gradients with subsets of data. While individual updates may be biased, SGD is unbiased in expectation as the expected value of updates equals the true gradient over different samples.
 - **Variance:** SGD exhibits high variance due to using different data subsets for updates. This variance can aid in escaping local minima but may also impede convergence.
+
+
+<br>
 
 ### Decaying Learning Rate
 Utilizing a decaying learning rate (decreasing it over time) is a common practice to mitigate the variance in SGD while ensuring convergence. As the learning rate decays:
@@ -195,8 +220,10 @@ Decaying the learning rate is one of several techniques used to balance bias and
 
 
 
+<br>
+
 ## Polyak-Lojasiewicz (PL) Inequality
-***
+---
 
 The Polyak-Lojasiewicz (PL) inequality is a crucial concept in the analysis of optimization algorithms, providing valuable insights into their convergence properties. This inequality characterizes the geometry of the objective functions and establishes conditions under which optimization algorithms converge to the unique solution at a linear rate.
 
@@ -217,10 +244,15 @@ Where:
 
 
 
+<br>
+
 ## Taylor Approximations in Optimization
-***
+---
 
 Taylor approximations provide a powerful tool for understanding and approximating the behavior of functions in the vicinity of specific points. In the context of optimization, they offer valuable insights into the landscape of the loss function, facilitating the design and analysis of optimization algorithms.
+
+
+<br>
 
 ### Second-Order Taylor Approximation
 For a twice-differentiable loss function $ L: \mathbb{R}^d \rightarrow \mathbb{R} $, the second-order Taylor approximation around a point $ \theta_t $ is given by:

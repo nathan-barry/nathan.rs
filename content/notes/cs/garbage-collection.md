@@ -10,7 +10,7 @@ tags = ["Computer Science Notes"]
 
 
 ## Garbage Identification
-***
+---
 
 In theory, garbage refers to any object that the program will never reference in the future. These are termed as "dead objects." The catch here is that neither the compiler nor the runtime system can identify these dead objects conclusively.
 
@@ -38,7 +38,7 @@ By periodically tracing through program roots and marking accessible objects, we
 
 
 ## Garbage Collection Fundamentals
-***
+---
 
 When assessing the efficiency and effectiveness of a garbage collection algorithm, the following factors come into play:
 
@@ -78,7 +78,7 @@ Below are some core algorithmic components of garbage collection:
 
 
 ## Different Garbage Collectors
-***
+---
 
 There have been numerous garbage collectors proposed over the years, each with its unique methodology. Here are some notable ones:
 

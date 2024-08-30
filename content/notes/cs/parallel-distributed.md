@@ -10,7 +10,7 @@ tags = ["Computer Science Notes"]
 
 
 ## Parallel Computing
-***
+---
 
 In the realm of parallel computing, we deal with **tightly-coupled systems**. These systems exhibit characteristics like:
 
@@ -67,7 +67,7 @@ Message Passing:
 
 
 ## Distributed Computing
-***
+---
 
 Distributed systems are best described as **loosely-coupled systems**. They consist of:
 
@@ -97,7 +97,7 @@ Beyond traditional distributed systems, we have **Grid computing** and **Cloud c
 
 
 ## Challenges in Distributed Systems
-***
+---
 
 Distributed systems, though robust and scalable, present unique challenges. Two big issues involve the ordering of events and maintaining atomicity across servers. 
 
@@ -158,7 +158,7 @@ In situations where communication links might fail, achieving consensus is impos
 
 
 ## Two-Phase Commit
-***
+---
 
 In the realm of distributed computing, achieving atomicity across multiple machines is no simple feat. The Two-Phase Commit (2PC) protocol offers a structured way to coordinate such transactions under favorable conditions. Here's an overview of how this protocol works and its implications.
 
@@ -231,7 +231,7 @@ The Two-Phase Commit protocol, despite its challenges, serves as a foundational 
 
 
 ## Leader Election
-***
+---
 
 In distributed systems, where multiple machines or processes collaborate to achieve a goal, deciding which machine leads the charge can be crucial. This is especially true when a previously appointed leader fails or when the system starts up without an initial leader. One common solution to this problem is the use of leader election algorithms.
 
@@ -273,7 +273,7 @@ One popular election algorithm for leader election is the **Bully Algorithm**. L
 
 
 ## Remote Procedure Calls (RPC)
-***
+---
 
 Remote Procedure Calls, or RPCs, are an essential mechanism for executing services across different systems in a distributed environment. 
 
@@ -304,7 +304,7 @@ As with any technology, RPCs come with their own set of challenges:
 
 
 ## Consistency Models
-***
+---
 Consistency models govern how data, kept in data stores such as registers, file systems, or databases, behaves when accessed concurrently by multiple entities. The models act as contracts between the data store and its clients, defining the results a client can expect when they access the data.
 
 ### Differentiating Coherence, Staleness, and Consistency
@@ -331,7 +331,7 @@ Consistency models govern how data, kept in data stores such as registers, file 
 
 
 ## Network File System (NFS)
-***
+---
 The Network File System is a distributed file system developed by Sun Microsystems in 1984. It stands as one of the most extensively used distributed file systems and is even utilized by UTCS.
 
 Files are stored on remote file servers, and clients can access these files transparently, sometimes without even realizing they are not stored locally.
@@ -375,7 +375,7 @@ Files are stored on remote file servers, and clients can access these files tran
 
 
 ## Google File System (GFS)
-***
+---
 **Design Considerations for GFS**
 
 - **File Size**: Unlike traditional file systems, GFS handles massive files. Multi-gigabyte files are ordinary and the system can manage billions of objects.

@@ -8,7 +8,7 @@ tags = ["Computer Science Notes"]
 
 
 ## Filesystems Basics
-***
+---
 
 ### Bits, Bytes, Sectors, and Blocks
 
@@ -72,7 +72,7 @@ Uses of partitions encompass:
 
 
 ## Data Block Allocation
-***
+---
 
 An important decision in file management is how to allocate data blocks to hold a file. 
 
@@ -184,7 +184,7 @@ The File Allocation Table (FAT) system originated with MS-DOS in the late 1970s.
 
 
 ## Directories
-***
+---
 
 A directory is essentially a file that holds a mapping from file names to their corresponding inode numbers. Think of this as an address book where you can look up the address (inode number or `inumber`) for any person (file name).
 
@@ -242,7 +242,7 @@ Users shouldn't need to know or perform any of these steps. The OS masks this co
 
 
 ## Caching
-***
+---
 
 Disk caching drastically improves our interaction speed with the filesystem. Modern operating systems utilize caching extensively.
 
@@ -267,7 +267,7 @@ Disk caching drastically improves our interaction speed with the filesystem. Mod
 
 
 ## Transactions & Journaling
-***
+---
 
 Transactions are a way to group actions, ensuring that:
 
