@@ -8,6 +8,7 @@ tags = ["Math Notes"]
 {{< toc >}}
 
 
+
 ## Differentiation Rules
 ---
 
@@ -26,7 +27,7 @@ $$\frac{d}{dx}\bigg[\frac{f(x)}{g(x)}\bigg]=\frac{g(x)f^\prime(x)-f(x)g^\prime(x
 
 
 
-
+<br>
 
 ## Integration
 --- 
@@ -46,6 +47,9 @@ $$\int x^3 \cos(x^4 + 2) dx \qquad u=x^4+2 \qquad du=3x^3 dx \Rightarrow \frac{1
 $$=\frac{1}{3}\sin(u)+C$$
 $$=\frac{1}{3}\sin(x^4 + 2)+C$$
 
+
+<br>
+
 ### Definite Integrals
 
 If $g^\prime$ is continuous on $[ a, b ]$ and $f$ is continuous on the range of $u = g(x)$, then
@@ -62,6 +66,9 @@ $$=\frac{1}{2}\cdot \frac{2}{3}u^{\frac{3}{2}} \Big|_1^9$$
 $$=\frac{1}{3}\cdot (9^{\frac{3}{2}}-1^{\frac{3}{2}})$$
 $$=\frac{26}{3}$$
 
+
+<br>
+
 ### Integration by Parts
 
 If you see an integral where you can derive one part and integrate another, then
@@ -77,6 +84,9 @@ $$\int x \sin(x) dx$$
 $$u=x \qquad dv=\sin(x) dx \qquad du=dx \qquad v=-\cos(x)$$
 $$=-x \cos(x)+\int \cos(x) dx$$
 $$=-x \cos(x)+\sin(x)+C$$
+
+
+<br>
 
 ### Improper Integrals
 
@@ -114,7 +124,7 @@ $$\int_a^b f(x) dx = \int_a^c f(x)dx + \int_c^b f(x)dx$$
 
 
 
-
+<br>
 
 ## Trigonometric Integrals
 ---
@@ -146,6 +156,9 @@ $$\sin^2x = \frac12(1 - \cos 2x) \qquad \cos^2x = \frac12(1 + \cos 2x)$$
 
 $$\sin x \cos x = \frac12 \sin2x$$
 
+
+<br>
+
 ### Strategy for Evaluating $\int \tan^mx \sec^nx dx$
 
 1. If the power of secant is even, save a factor of $\sec^2x$ and use $\sec^2x=1+\tan^2x$ to express the remaining factors in terms of $\tan x$:
@@ -164,6 +177,9 @@ $$\int (\sec^2x - 1)^k \sec^{n-1} x \sec x \tan x dx$$
 
 - Then substitute $u=\sec x$
 
+
+<br>
+
 ### Additional Identities
 
 To evaluate the integrals $\int \sin mx \cos nx dx$, $\int \sin mx \sin nx dx$, or $\int \cos mx \cos nx dx$, use the identities below:
@@ -171,6 +187,9 @@ To evaluate the integrals $\int \sin mx \cos nx dx$, $\int \sin mx \sin nx dx$, 
 $$\sin A \cos B =  \frac12[\sin(A-B) + \sin(A+B)]$$
 $$\sin A \sin B =  \frac12[\cos(A-B) - \cos(A+B)]$$
 $$\cos A \cos B =  \frac12[\cos(A-B) + \cos(A+B)]$$
+
+
+<br>
 
 ### Trigonometric Substitution
 
@@ -210,7 +229,7 @@ $$=\quad\frac{\sqrt{9-x^2}}{x}-\\sin^{-1}\Big(\frac{x}{3}\Big)+C$$
 
 
 
-
+<br>
 
 ## Infinite Sequences and Series
 ---
@@ -237,6 +256,9 @@ $$\lim_{n\rightarrow\infty}(a_n + b_n) = \lim_{n\rightarrow\infty}a_n + \lim_{n\
 
 If a sequence either only increases or decreases, we call it *monotonic*.
 
+
+<br>
+
 ### Series
 
 An *infinite series* (or just a *series*) is the sum of the terms in an infinite sequence ${\\{a_n\\}}_{n=1}^\infty$ which is an expression of the form:
@@ -261,6 +283,9 @@ Thus the sum of a series is the limit of the sequence of partial sums as $n$ goe
 
 $$\sum_{n=1}^\infty a_n = \lim_{n\rightarrow\infty}\sum_{i=1}^{n} a_i$$
 
+
+<br>
+
 ### Test for Divergence
 
 If the limit $L$ of a series does not exist and $L \neq 0$, aka:
@@ -275,6 +300,9 @@ It makes sense since if the limit of $a_n$ doesn't converge to 0, then you will 
 Show that the series $\sum_{n=1}^\infty\frac{n^2}{5n^2+4}$ diverges.
 
 $$\lim_{n\rightarrow\infty}a_n=\lim_{n\rightarrow\infty}\frac{n^2}{5n^2+4}=\lim_{n\rightarrow\infty}\frac{1}{5+\frac{4}{n^2}}=\frac15\neq0$$
+
+
+<br>
 
 ### The Integral Test
 
@@ -299,6 +327,9 @@ For the integral test to apply to a series, it must satisfy four special conditi
 - Treat the series like a continuous function
 - Find the improper definite integral $\int_1^\infty f(x) dx$ (where $f(x)$ is just $a_n$)
 - Conclude whether the series converges or diverges based on whether the function converges or diverges
+
+
+<br>
 
 ### Sum of a Series Approximation
 
@@ -351,6 +382,9 @@ $$n>\sqrt{1000}\approx31.6$$
 
 Thus we need 32 terms to ensure accuracy to within 0.0005.
 
+
+<br>
+
 ### The Direct Comparison Test
 
 With the comparison tests, we compare a given series with a series that is known to be convergent or divergent to determine whether the given series is or not.
@@ -370,6 +404,8 @@ Here we have the given series $\sum_{n=1}^\infty \frac1{2^n+1}$. This series is 
 
 $$\sum_{n=1}^\infty \frac1{2^n+1} \le \sum_{n=1}^\infty \frac1{2^n}$$
 
+
+<br>
 
 ### The Limit Comparison Test
 
@@ -391,6 +427,9 @@ $$\lim_{n\rightarrow\infty} \frac{a_n}{b_n}=\lim_{n\rightarrow\infty} \frac{\fra
 
 Since this limit exists (and $\neq 0$) and $\sum \frac1{2^n}$ is a convergent geometric series, the series $\sum_{n=1}^\infty \frac1{2^n+1}$ converges by the Limit Comparison Test.
 
+
+<br>
+
 ### Alternating Series
 
 An *alternating series* is a series whose terms flip from positive to negative each term.
@@ -398,6 +437,9 @@ An *alternating series* is a series whose terms flip from positive to negative e
 $$a_1-a_2+a_3-a_4+a_5-a_6+\dots$$
 
 $$1-\frac12+\frac13-\frac14+\frac15-\frac16+\dots=\sum_{n=1}^\infty (-1)^{n-1}\frac1n$$
+
+
+<br>
 
 ### The Alternating Series Test
 
@@ -419,6 +461,9 @@ $$\lim_{n\rightarrow\infty}b_n=0\qquad \Rightarrow\qquad \lim_{n\rightarrow\inft
 
 Therefore, the series is convergent by the Alternating Series Test.
 
+
+<br>
+
 ### Level of Error for Alternating Series
 
 If $s=\sum (-1)^{n-1}b_n$ where $b_n > 0$ is the sum of an alternating series that is convergent by the alternating series test, then the level of error for the alternating series is:
@@ -431,6 +476,9 @@ In a normal series, the partial sums will always increase as $n$ goes to infinit
 
 $|s-s_n|$ will decrease as $n\rightarrow\infty$ since you are adding and *subtracting* smaller and smaller numbers. The *subtraction* is why $|s-s_n|$ will always be less than or equal to  $b_{n+1}$.
 
+
+<br>
+
 ### Absolute Convergence
 
 - A series $\sum a_n$ is called *absolutely convergent* if the series of absolute values $\sum |a_n|$ is convergent.
@@ -438,6 +486,9 @@ $|s-s_n|$ will decrease as $n\rightarrow\infty$ since you are adding and *subtra
 - A series $\sum a_n$ is called *conditionally convergent* if it is convergent but not absolutely convergent.
 
 - If a series $\sum a_n$ is absolutely convergent, then it is convergent.
+
+
+<br>
 
 ### The Ratio Test
 
@@ -464,6 +515,9 @@ $$|a_n|=\frac{n^3}{3^n} \qquad |a_{n+1}|=\frac{(n+1)^3}{3^{n+1}}$$
 $$\lim_{n\rightarrow\infty}\Bigg|\frac{a_{n+1}}{a_n}\Bigg|=\lim_{n\rightarrow\infty}\frac{(n+1)^3}{3^{n+1}}\cdot\frac{3^n}{n^3}=\lim_{n\rightarrow\infty}\frac13\frac{(n+1)^3}{n^3}=\lim_{n\rightarrow\infty}\frac13\Bigg(\frac{n+1}{n}\Bigg)^2=\frac13(1)^2=\frac13$$
 
 Justification: Since $\lim_{n\rightarrow\infty}|\frac{a_{n+1}}{a_n}|=\frac13$ and $\frac13<1$, the series $\sum_{n=1}^\infty(-1)^n\frac{n^3}{3^n}$ is absolutely convergent by the Ratio Test.
+
+
+<br>
 
 ### The Root Test
 
@@ -493,6 +547,8 @@ Justification: Since $\lim_{n\rightarrow\infty}\frac{\sqrt[n]{3}}{ln(n)}=0$ and 
 
 
 
+<br>
+
 ## Common Series
 ---
 
@@ -507,6 +563,8 @@ $$\sum_{n=1}^\infty\frac1n$$
 and is always *divergent.*
 
 
+<br>
+
 ### Geometric Series
 
 A Geometric Series takes the form of:
@@ -519,6 +577,9 @@ When $|r|<1$:
 
 $$s=\sum_{n=1}^{\infty}a\cdot r^{n-1}=\frac{a}{1-r}$$
 
+
+<br>
+
 ### P-Series
 
 The P-Series is any series of the form:
@@ -529,7 +590,7 @@ and is *convergent* when $p>1$ and *divergent* when $p\le1$.
 
 
 
-
+<br>
 
 ## Power Series
 ---
@@ -559,6 +620,9 @@ $$|x-3|<1 \quad \Rightarrow \quad -1<x-3<1 \quad \Rightarrow \quad 2<x<4$$
 
 In this case, the *Radius of Convergence* is $1$ and the *Interval of Convergence* is $(2, 4)$.
 
+
+<br>
+
 ### Power Series Representations
 
 We can represent certain types of functions as Power Series. This is sometimes useful for functions that are normally hard to integrate, but which can be represented as a series with terms that are easy to integrate.
@@ -583,6 +647,7 @@ $$=\sum_{n=0}^\infty \int c_n(x-a)^{n} dx=C+\sum_{n=0}^\infty \frac1{n+1} c_n(x-
 
 
 
+<br>
 
 ## Taylor Series
 ---
@@ -604,6 +669,9 @@ $$=f(a)+\frac{f^\prime(a)}{1!}(x-a)+\frac{f^{\prime\prime}(a)}{2!}(x-a)^2+\frac{
 
 It must be that $|x-a|<R$. If this is the case, then the series will converge to the actual function. If not, then it diverges from it, making it useless.
 
+
+<br>
+
 ### Maclaurin Series
 
 A Maclaurin Series is a Taylor Series that is centered at 0 (aka $a = 0$).
@@ -619,6 +687,9 @@ Find the Maclaurin series of the function $f(x) = e^x$.
 If $f(x) = e^x$, then $f^{(n)}(x) = e^x$, so $f^{(n)}(0)=e^0=1$ for all $n$. Therefore, the Taylor series for $f$ at 0 is
 
 $$\sum_{n=0}^\infty \frac{f^{(n)}(0)}{n!}x^n=\sum_{n=0}^\infty \frac{x^n}{n!} = 1+\frac{x}{1!}+\frac{x^2}{2!}+\frac{x^3}{3!}+...$$
+
+
+<br>
 
 ### Taylor Polynomials
 
@@ -638,6 +709,9 @@ $$\lim_{n\rightarrow\infty}R_n(x) = 0$$
 
 for $|x-a|<R$ ($R$ is the Radius of Convergence, also sometimes denoted as $d$), then $f$ is equal to the sum of its Taylor Series on the interval $|x-a|<R$.
 
+
+<br>
+
 ### Taylor's Inequality
 
 If $|f^{(n+1)}(x)| \le M$ for $|x-a| \le d$, then the remainder $R_n(x)$ of a Taylor Polynomial satisfies the inequality:
@@ -646,7 +720,7 @@ $$|R_n(x)| \le \frac{M}{(n+1)!}|x-a|^{n+1} \qquad for\quad |x-a|\le d$$
 
 
 
-
+<br>
 
 ## Parametric Equations
 ---
@@ -667,6 +741,9 @@ $$x=f(t)\qquad y=g(t)\qquad a\le t\le b$$
 
 which means it has an *initial point* $(f(a), g(a))$ and *terminal point* $(f(b), g(b))$.
 
+
+<br>
+
 ### Eliminating the Parameter
 
 There are two methods for eliminating the parameter $t$. The most obvious method is solve for $t$ in one parametric equation and then plug it in to the other.
@@ -678,6 +755,9 @@ The other method requires finding a special relation between the two equations l
 
 $$x=\cos(t)\qquad y=\sin(t)$$ 
 $$\cos^2(t) + \sin^2(t) = 1\quad\implies\quad x^2 +y^2=1$$
+
+
+<br>
 
 ### Tangents and Arc Lengths of Parametric Curves
 
@@ -691,7 +771,7 @@ $$L=\int_\alpha^\beta\sqrt{\Big(\frac{dx}{dt}\Big)^2+\Big(\frac{dy}{dt}\Big)^2}d
 
 
 
-
+<br>
 
 ## Polar Coordinates
 ---
@@ -706,6 +786,9 @@ $$P(1, 0) = P(-1, \pi) = P(1, 2\pi) = P(-1, 3\pi),\quad etc$$
 
 All that changes is how many times you circle around the origin.
 
+
+<br>
+
 ### Polar to Cartesian 
 
 To find the Cartesian coordinates of a point when the polar coordinates are known:
@@ -714,6 +797,9 @@ $$x=r \cos \theta\qquad y=r \sin \theta$$
 
 To find the polar coordinates of a point when the Cartesian coordinates are known:
 $$r^2=x^2+y^2\qquad \tan \theta=\frac{y}x$$
+
+
+<br>
 
 ### Tangents of Polar Curves
 
@@ -726,6 +812,9 @@ The slope of the tangent line is:
 $$\frac{dy}{dx}=\frac{\frac{dy}{d\theta}}{\frac{dx}{d\theta}}=\frac{\frac{dr}{d\theta} \sin \theta+r \cos \theta}{\frac{dr}{d\theta} \cos \theta-r \sin \theta}$$
 
 We locate *horizontal tangents* by finding where $\frac{dy}{d\theta}=0$ and find *vertical tangents* at points where $\frac{dx}{d\theta}=0$. If they're both 0, undefined behavior happens.
+
+
+<br>
 
 ### Area under Polar Curves
 
@@ -752,6 +841,9 @@ $$A=\int_a^b\frac12 r^2 d\theta$$
 
 $$A=\int_\alpha^\beta \frac12(r_1^2-r_2^2) d\theta$$
 
+
+<br>
+
 ### Arc Length of Polar Curves
 
 The length of a polar curve $r=f(\theta)$ where $\alpha \le \theta\le \beta$ is:
@@ -760,7 +852,7 @@ $$L = \int_\alpha^\beta\sqrt{r^2+\Big(\frac{dr}{d\theta}\Big)^2}d\theta$$
 
 
 
-
+<br>
 
 ## Differential Equations
 ---
@@ -780,6 +872,9 @@ for all values of x in some interval.
 When we are asked to *solve* a differential equation, we are expected to find all possible solutions of the equation. For instance, let us look at the new differential equation $y^\prime=x^3$. We know that the solution the differential equation is given by $y=\frac{x^4}4+C$ where C is an arbitrary constant. This is known as the *general solution.*
 
 In general, solving a differential equation is not an easy matter as there is no systematic technique that allows us to solve all differential equations.
+
+
+<br>
 
 ### Steps for solving
 
@@ -809,6 +904,8 @@ $$=\frac{2ce^2}{(1-ce^t)^2}$$
 Therefore, for every value of c, the given function is a solution of the differential equation
 
 
+<br>
+
 ### Initial Value Problem
 
 When applying differential equations, we are usually not interested in finding the general solution as we are in finding a solution that satisfies some additional requirement, also known as a *Particular Solution.* 
@@ -829,6 +926,9 @@ If we solve for c, we get $2-2c=1+c$, which gives us $c=\frac13$. So the solutio
 
 $$2=\frac{1+\frac{1}{3}e^t}{1-\frac{1}{3}e^t}=\frac{3+e^t}{3-e^t}$$
 
+
+<br>
+
 ### Direction Fields
 
 Suppose we are asked to sketch the graph of the solution of the Initial Value Problem:
@@ -841,6 +941,9 @@ We can draw the slope of each point to get a *direction field* (also known as a 
 
 You can figure out the slope field of an equation by plugging numbers into the derivative and then plotting the slope on a graph.
 
+
+<br>
+
 ### Euler's Method
 
 The basic idea behind a direction field can be used to find numerical approximations to solutions of a differential equation.
@@ -851,7 +954,6 @@ The differential equation tells us that $y^\prime(0)=0+1=1$, so the solution cur
 As a first approximation to the solution, we could use the linear approximation $f(x)=x+1$. In other words, we could use the tangent line at $(0, 1)$ as a rough approximation to the solution curve.
 
 Euler's idea was to update the curve each step (some amount on the x-axis) to approximate the solution curve.
-
 
 #### Formula
 
@@ -874,6 +976,9 @@ $$y_2=y_1+h F(x_1, y_1)=1.1+(0.1)(0.1+1.1)=1.22$$
 $$y_3=y_2+h F(x_2, y_2)=1.22+(0.1)(0.2+1.22)=1.362$$
 
 You can get more accurate values by decreasing the step size.
+
+
+<br>
 
 ### Separable Equations
 
@@ -919,6 +1024,9 @@ Thus the solution to the initial value problem is
 
 $$y=\sqrt[3]{x^3+8}$$
 
+
+<br>
+
 ### Logistic Model
 
 The logistic model is usually used for population growth:
@@ -934,6 +1042,9 @@ Where:
 The Initial Value Problem solution of the logistic model is:
 
 $$P=\frac{m}{1+Ae^{-kt}}\qquad A=\frac{m-P_0}{P_0}$$
+
+
+<br>
 
 ### Linear Equations
 
@@ -980,7 +1091,7 @@ $$y=2+Ce^{-x^3}$$
 
 
 
-
+<br>
 
 ## Partial Derivatives
 ---
@@ -997,6 +1108,9 @@ $$f_y(x,y)=f_y=\frac{\partial f}{\partial y}=\frac{\partial}{\partial y}f(x,y)=\
 
 To compute a partial derivative with respect to x, treat all other variables as constants and differentiate as usual.
 
+
+<br>
+
 ### Higher Derivatives
 
 If $f$ is a function of two variables, the its partial derivatives $f_x$ and $f_y$ are also functions of two variables, so we can differentiate them again to get second order partial derivatives. Below is the notation where the first partial was with respect to x:
@@ -1006,7 +1120,7 @@ $$f_{xy}=f_{12}=\frac{\partial }{\partial y} \frac{\partial f}{\partial x}=\frac
 
 
 
-
+<br>
 
 ## Appendix
 ---
@@ -1017,6 +1131,9 @@ $$\int x^n dx = \frac{x^{n+1}}{n+1} \quad (n \neq -1)$$
 $$\int \frac1x dx = \ln|x|$$
 $$\int e^x dx = e^x$$
 $$\int b^x dx = \frac{b^x}{\ln b}$$
+
+
+<br>
 
 ### Trigonometric Integrations
 $$\int \sin x dx = -\cos x$$
@@ -1032,6 +1149,9 @@ $$\int \cot x dx = \ln |\sin x|$$
 $$\int \sinh x dx = \cosh x$$
 $$\int \cosh x dx = \sinh x$$
 
+
+<br>
+
 ### Important Limits
 These are important limits to know and are good for the Ratio Test and the Root Test.
 
@@ -1045,6 +1165,9 @@ $$\lim_{n\rightarrow\infty}\sqrt[n]k=1$$
 $$\lim_{n\rightarrow\infty}\sqrt[n]n=1$$
 $$\lim_{n\rightarrow\infty}\sqrt[n]{n^k}=1$$
 
+
+<br>
+
 ### Important Maclaurin Series and their Radii of Convergence
 $$\frac1{1-x}=\sum_{n=0}^\infty x^n=1+x+x^2+x^3+... \qquad R=1$$
 $$e^x=\sum_{n=0}^\infty \frac{x^n}{n!}=1+\frac{x}{1!}+\frac{x^2}{2!}+\frac{x^3}{3!}+... \qquad R=\infty$$
@@ -1052,7 +1175,3 @@ $$\sin x=\sum_{n=0}^\infty (-1)^n\frac{x^{2n+1}}{(2n+1)!}=x-\frac{x^3}{3!}+\frac
 $$\cos x=\sum_{n=0}^\infty (-1)^n\frac{x^{2n}}{(2n)!}=1-\frac{x^2}{2!}+\frac{x^4}{4!}-\frac{x^6}{6!}+... \qquad R=\infty$$
 $$\tan^{-1} x=\sum_{n=0}^\infty (-1)^n\frac{x^{2n}}{(2n)}=x-\frac{x^3}{3}+\frac{x^5}{5}-\frac{x^7}{7}+... \qquad R=\infty$$
 $$ln(1+x)=\sum_{n=1}^\infty (-1)^{n-1}\frac{x^{n}}n=x-\frac{x^2}{2}+\frac{x^3}{3}-\frac{x^4}{4}+... \qquad R=\infty$$
-
-
-
-

@@ -8,6 +8,7 @@ tags = ["Math Notes"]
 {{< toc >}}
 
 
+
 ## Introduction to Vectors
 ---
 
@@ -31,6 +32,7 @@ $$
 
 The vector $c\mathbf{v}$ lie along a line. If vector $\mathbf{w}$ is not on that line, the set of linear combinations $c\mathbf{v} + d\mathbf{w}$ fill the entire two-dimensional plane, because there is a linear combination that reaches every point.
 
+
 <br>
 
 ### Vectors and Linear Combinations
@@ -50,6 +52,7 @@ $$
 5. The set of linear combinations $c \begin{bmatrix} 1 \\\ 1 \\\ 1 \end{bmatrix} + d \begin{bmatrix} 2 \\\ 3 \\\ 4 \end{bmatrix}$ fill a plane in $xyz$ space.
 
 6. The set of equations, $c + 2d = 1$, $c + 3d = 0$, and $c + 4d = 0$, has no solution because its right side, $\begin{bmatrix} 1 \\\ 0 \\\ 0 \end{bmatrix}$, is not on that plane.
+
 
 <br>
 
@@ -75,6 +78,7 @@ $$
 $$
 \|\mathbf{v} \cdot \mathbf{w}\| \leq \||\mathbf{v}\|| \cdot \||\mathbf{w}\||.
 $$
+
 
 <br>
 
@@ -150,6 +154,7 @@ For the row picture, we want to find the point where each equation from each row
 
 For the column picture, we want to figure out the coefficients of the column vectors which equals $\mathbf{b}$. These coefficients are the solution $\mathbf{x}$.
 
+
 <br>
 
 ### The Idea of Elimination
@@ -175,6 +180,7 @@ $$
 A linear system $A\mathbf{x} = \mathbf{b}$ becomes upper triangular $U\mathbf{x} = \mathbf{c}$ after elimination.
 The upper triangular system $U\mathbf{x} = \mathbf{c}$ is solved by back substitution (starting at the bottom).
 
+
 <br>
 
 ### Elimination Using Matrices
@@ -195,6 +201,7 @@ The upper triangular system $U\mathbf{x} = \mathbf{c}$ is solved by back substit
 
 The matrices $E_{ij}$ are "elimination matrices". They execute the elimination steps. They can combine into one matrix $E$ that takes all the steps at once.
 
+
 <br>
 
 ### Rules for Matrix Operations
@@ -213,6 +220,7 @@ $$A(B + C) = AB + AC  \quad \text{and} \quad   (A + B)C = AC + BC$$
 
 6. Matrices can be multiplied by blocks: $A = [A_1 \; A_2]$ times $B = \begin{bmatrix} B_1 \\\ B_2 \end{bmatrix}$ is $A_1B_1 + A_2B_2$.
 
+
 <br>
 
 ### Inverse Matrices
@@ -228,6 +236,7 @@ $$A(B + C) = AB + AC  \quad \text{and} \quad   (A + B)C = AC + BC$$
 5. If $A$ and $B$ (of the same size) are invertible, then so is $AB$: $(AB)^{-1} = B^{-1}A^{-1}$.
 
 6. $AA^{-1} = I$ represents $n$ equations for $n$ columns of $A^{-1}$. Gauss-Jordan elimination reduces $[A \; I]$ to $[I \; A^{-1}]$.
+
 
 <br>
 
@@ -259,6 +268,7 @@ Thus, for future inputs of $A\mathbf{x} = \mathbf{b}$, since we know $L$, we can
 
 Note: We also have $A=LDU$ where the diagonal of $U$ has been set to 1 and factored out into it's own diagonal matrix $D$.
 
+
 <br>
 
 ### Transposes and Permutations
@@ -281,6 +291,8 @@ Note: We also have $A=LDU$ where the diagonal of $U$ has been set to 1 and facto
 The inverse of a symmetric matrix is also symmetric. A symmetric matrix's $LDU$ factorization is also symmetric: $S=LDL^T$.
 
 If $A$ is invertible then a permutation $P$ will reorder its rows for $PA=LU$.
+
+
 
 <br>
 

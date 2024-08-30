@@ -30,6 +30,9 @@ A social security number had 9 digits, each digit ranges from 0 to 9 (10 differe
 
 $$10\cdot10\cdot10\cdot10\cdot10\cdot10\cdot10\cdot10\cdot10=10^9$$
 
+
+<br>
+
 ### Factorials
 
 Let $n$ be a whole number. Then $n!$ (read as "n factorial") is defined by
@@ -44,6 +47,9 @@ By convention, we define $0!=1$.
 
 $$5!=5\cdot4\cdot3\cdot2\cdot1=120$$
 
+
+<br>
+
 ### Permutations
 
 Given a set of $n$ *distinguishable* objects, an *ordered selection* (order matters) of $r$ different elements is called a permutation.
@@ -57,6 +63,8 @@ Lets say we are betting on a horse race. There are 14 horses. A trifecta bet con
 $$14\cdot13\cdot12=2184$$
 
 There are 2184 different possible trifecta wagers.
+
+<br>
 
 #### The Permutation Formula
 
@@ -78,12 +86,16 @@ To express it in the usual permutation formula:
 
 $$P_{3}^{14}=\frac{14!}{(14-3)!}=\frac{14!}{11!}=14\cdot13\cdot12$$
 
+
+<br>
+
 ### Combinations
 
 A combination is similar to permutations but the *order doesn't matter.* It only matters if an object is selected or not.
 Think of a poker hand. It doesn't matter what order you were dealt two aces, all that matters is that they were dealt at all.
 
 A combination is denoted with $_nC_r$ and is read as "$n$ choose $r$".
+
 
 #### Combination Formula
 
@@ -108,6 +120,9 @@ $$\Big({n \atop r}\Big)=\Big({n \atop n-r}\Big)$$
 This is because choosing $r$ is the same as *not* choosing $n-r$. Let's say we have 5 cookies. Choosing 2 cookies to eat is the exact same as choosing 3 to *not* eat.
 
 You can look at Pascal's Triangle and see how the last term is the same as the first term in any of the given sequence. Pascal's Triangle is just a visual version of listed combinations.
+
+
+<br>
 
 ### Partitions
 
@@ -141,8 +156,7 @@ $$\frac{14!}{3!\cdot2!\cdot2!\cdot7!}=720720$$
 
 
 
-
-
+<br>
 
 ## Sampling and Distribution
 ---
@@ -161,6 +175,9 @@ There's 4 types of sampling:
     - Example: Calculate the number of 4 letter words, duplicate letters allowed, and the letters are arranged in alphabetical order.
     - Here, use Partitions.
 
+
+<br>
+
 ### Sampling With Replacement When Order Doesn't Matter
 
 The number of unordered samples of $r$ objects, with replacement, from $n$ distinguishable objects is:
@@ -177,6 +194,9 @@ $$_{n-1+r}C_r = _{14}C _{12} = 91$$
 
 How this compares with what it says for number 3 above, I have no idea, my notes says nothing about it. Eventually I'll get around to asking ChatGPT.
 
+
+<br>
+
 ### Distribution
 
 Distribution is very similar to sampling, but instead of "pulling" an object out of the sample space, we are distributing an object to it.
@@ -185,8 +205,7 @@ An example is that, with sampling, you are taking a ball out of an urn. With dis
 
 
 
-
-
+<br>
 
 ## Probability Basics 
 ---
@@ -200,17 +219,18 @@ To define probability on a set, we have:
 
 Outcomes are called events, so the sample space is a set of all events with each event assigned a probability.
 
+
+<br>
+
 ### Axioms Of Probability Theory
 
-1. <p>\(0 \le Pr(E) \le 1\) for any event \(E\)</p>
-2. <p>\(Pr(U)=1\), where \(U\) denotes the entire sample space.</p>
+1. $0 \le Pr(E) \le 1$ for any event $E$
+2. $Pr(U)=1$, where $U$ denotes the entire sample space.
 3. The probability of the union of mutually exclusive events is the sum of the individual probabilities of those disjoint sets.
 
 In other words, the probability for each event must be between 0 and 1, where 0 is impossible and 1 is guaranteed to happen. The probability of the sample space must be equivalent to 1 because it contains every possible outcome.
 
-<p>
- With a fair coin, the sample space is \(U = \{H, T\}\), with heads and tails both having a probability of 0.5. The probability of \(U\) is of course the combined probability of outcomes heads and tails, which sum to 1.
-</p>
+With a fair coin, the sample space is $U = \{H, T\}$, with heads and tails both having a probability of 0.5. The probability of $U$ is of course the combined probability of outcomes heads and tails, which sum to 1.
 
 #### Properties
 
@@ -231,25 +251,32 @@ $$Pr(A\cup B)=Pr(A)+Pr(B)-Pr(A\cap B)$$
 6. *Law of Total Probability:* If the set of disjoint events equal the sample space, then the probability of that set is 1.
 $$\cup_{i=1}^k A_i = U \implies \sum_{i=1}^{k}Pr(A_i)=1$$
 
+
+<br>
+
 ### Conditional Probability
 
 The conditional probability that any event A occurs given that event B occurs is:
 
 $$Pr(A|B)=\frac{Pr(A\cap B)}{Pr(B)}$$
 
-<p>
-From this, we have that \(Pr(A\cap B)\) is:
-</p>
+From this, we have that $Pr(A\cap B)$ is:
 
 $$Pr(A\cap B) = Pr(B)\cdot Pr(A|B) = Pr(A)\cdot Pr(B|A)$$
 
 Notice that this is just Bayes' Theorem (further explained below).
+
+
+<br>
 
 ### Bayes' Theorem
 
 Suppose that the sample space $S$ is partitioned into disjoint subsets $B_1, B_2,\dots,B_n$. That is, $S=B_1\cup B_2\cup\cdots\cup B_n$ and $Pr(B_i)>0$ for all $i=1,2,\dots,n$. Then for event $A$
 
 $$Pr(B_j |A)=\frac{Pr(B_j\cap A)}{Pr(A)}=\frac{Pr(B_j)\cdot Pr(A |B_j)}{\sum_{i=1}^{n}Pr(B_i)\cdot Pr(A |B_i)}$$
+
+
+<br>
 
 ### Bayesian Inference
 
@@ -281,22 +308,26 @@ $$Pr(rootbeer)=\frac1{30}+\frac2{30}+\frac8{30}=\frac{11}{30}$$
 
 It's called Bayes' Inference since it uses conditional probability which is just Bayes' Theorem.
 
+
+<br>
+
 ### Independence
 
 Let A and B be events with non-zero probabilities. We say A and B are *independent* if any (and hence all) of the following hold:
-1. <p>\(Pr(A|B)=Pr(A)\)</p>
-2. <p>\(Pr(B|A)=Pr(B)\)</p>
-3. <p>\(Pr(A\cap B)=Pr(A)\cdot Pr(B)\)</p>
+1. $Pr(A|B)=Pr(A)$
+2. $Pr(B|A)=Pr(B)$
+3. $Pr(A\cap B)=Pr(A)\cdot Pr(B)$
 
 The last one is called the *multiplicative rule.*
 The events are said to be *dependent* if any don't hold.
 
-<p>
 Independence can be thought as knowing information about one event happening does not give us any information about the other. Hence, A and B are independent if the probability of A given B is the exact same as if B never happened.
-</p>
 
 The independence for collections of events is the same as case 3, but for more than 2 events.
 $$Pr(A\cap B\cap\dots\cap N)=Pr(A)\cdot Pr(B)\cdot\dots\cdot Pr(N)$$
+
+
+<br>
 
 ### Credibility
 
@@ -327,6 +358,9 @@ If you get into an accident two years straight, the chances of you being a good 
 $$Pr(G|A)=\frac{(4/90)}{(4/90)+(25/90)}=\frac{4}{29}$$
 $$Pr(B|A)=1-\frac{4}{29}=\frac{25}{29}$$
 
+
+<br>
+
 ### Random Variables
 
 A random variable is a function that maps a sample space to a set of real numbers which represent outcomes.
@@ -339,8 +373,7 @@ Each random variable has a probability distribution associated with it. The prob
 
 
 
-
-
+<br>
 
 ## Measures Of Central Tendency and Dispersion
 ---
@@ -363,11 +396,11 @@ Likewise, measures of dispersion is used to measure how spread out the values of
 We'll cover the most important and commonly used: expected value, variance, and standard deviation.{{%sidenote%}}The rest can be found in the Appendix{{%/sidenote%}}
 
 
+<br>
+
 ### Expected Value
 
-<p>
-The expected value can be thought of the weighted average of a random variable. It is usually represented as either \(E[X]\) or as \(\mu_X\) where \(X\) is a random variable.
-</p>
+The expected value can be thought of the weighted average of a random variable. It is usually represented as either $E[X]$ or as $\mu_X$ where $X$ is a random variable.
 
 For the discrete case, we have:
 
@@ -377,16 +410,12 @@ For the continuous case, we have:
 
 $$E[X]:=\int_{-\infty}^{\infty} x\cdot f_X(x) dx$$
 
-<p>
-<b>Example:</b> For a 6-sided die, the probability of each side is \(\frac16\). Let the random varaible \(X\) be the number of dots we roll. Thus:
-</p>
+**Example:** For a 6-sided die, the probability of each side is $\frac16$. Let the random varaible $X$ be the number of dots we roll. Thus:
 
 $$E[X] = \bigg(\frac16\cdot 1\bigg)+\bigg(\frac16\cdot 2\bigg)+\bigg(\frac16\cdot 3\bigg)+\bigg(\frac16\cdot 4\bigg)+\bigg(\frac16\cdot 5\bigg)+\bigg(\frac16\cdot 6\bigg) = 3.5$$
 
-<p>
 An important property is that it can be transformed under a linear transformation.
-For a random variable \(X\) and real numbers \(a\) and \(b\), we have:
-</p>
+For a random variable $X$ and real numbers $a$ and $b$, we have:
 
 $$E[a\cdot X+b] = a\cdot E[X] + b$$
 
@@ -395,29 +424,29 @@ Another property is *linearity of expectation.* For two different random variabl
 $$E[X + Y] = E[X] + E[Y]$$
 
 
+<br>
+
 ### Variance
 
-<p>
 The variance of a random variable represents the spread of its distribution around around its mean.
-It is often donated as \(Var[X]\) or \(\sigma_X^2\). It is formally defined as:
-</p>
+It is often donated as $Var[X]$ or $\sigma_X^2$. It is formally defined as:
+
 $$Var[X] = E[(X - E[X])^2]$$
 
 From this expression we can derive:
 $$Var[X] = E[X^2] - E[X]^2$$
 
-<p>
-The <b>standard deviation</b> is just the square root of the variance, denoted as \(\sigma_X\).
-</p>
+The **standard deviation** is just the square root of the variance, denoted as $\sigma_X$.
 
 Many distributions (i.e. uniform, Poisson, etc.) have a quick way of finding the expected value, variance, and other measures of central tendency and dispersion.
 
-<p>
 An important property is that it can be transformed under a linear transformation.
-For a random variable \(X\) and real numbers \(a\) and \(b\), we have:
-</p>
+For a random variable $X$ and real numbers $a$ and $b$, we have:
 
 $$Var[a\cdot X+b] = a^2\cdot Var[X]$$
+
+
+<br>
 
 ### Chebychev's Theorem
 
@@ -429,6 +458,9 @@ Let $X$ be a discrete random variable with finite mean $\mu_X$ and standard devi
 
 $$Pr(X<\mu_X-k\cdot\sigma_X\quad or\quad X>\mu_X+k\cdot\sigma_X) = Pr(|X-\mu|>k\cdot\sigma_X)\le\frac{1}{k^2}$$
 
+
+<br>
+
 ### Markov's Inequality
 
 Markov's inequality relates probabilities to expectation and provides loose bounds for the cumulative probability distribution of a random variable.
@@ -439,25 +471,24 @@ $$Pr[Y>a]\le\frac{\mu_Y}{a}$$
 
 
 
-
+<br>
 
 ## Discrete Random Variables
 ---
 
 Random variables that map to a finite number of possible values are called discrete. An example is flipping a coin. There are two possible outcomes: the coin landing on heads or tails.
 
-<p>
-The probability of a discrete random variable \(X\) taking on some value \(x\) is denoted as \(Pr(X=x)\). \(Pr(X=x_i)\) is called the probability mass function of \(X\), also denoted as \(p_X(x)\).
-</p>
+The probability of a discrete random variable $X$ taking on some value $x$ is denoted as $Pr(X=x)$. $Pr(X=x_i)$ is called the probability mass function of $X$, also denoted as $p_X(x)$.
 
 **Example:** Let X be a random variable that represents how many times we flip a coin that lands on heads. If we flip the coin twice, there are 4 possible outcomes. The sample space is:
 
 <p>$$U=\{\{H, H\}, \{H, T\}, \{T, H\},\{T, T\}\}$$</p>
 
-<p>
-Our random variable \(X\) can take the form of 0, 1, or 2 since the sample space only contains events with 0, 1 or 2 heads.
-In other words, the set of real numbers \(X\) maps to is \(\{0, 1, 2\}\). Thus, any outcome \(X\) can take on is represented by \(x\in\{0, 1, 2\}\). We can see that the probability that the outcome is 2 is \(Pr(X=2)=.25\) because there is only one event with 2 heads.
-</p>
+Our random variable $X$ can take the form of 0, 1, or 2 since the sample space only contains events with 0, 1 or 2 heads.
+In other words, the set of real numbers $X$ maps to is $\{0, 1, 2\}$. Thus, any outcome $X$ can take on is represented by $x\in\{0, 1, 2\}$. We can see that the probability that the outcome is 2 is $Pr(X=2)=.25$ because there is only one event with 2 heads.
+
+
+<br>
 
 ### Expected Value
 
@@ -476,6 +507,9 @@ $$\mu_Y=E[Y]=E[ g(X) ]=\sum_i g(x_i)\cdot p(x_i)$$
 Let $X$ be a discrete random variable and let $Y=a\cdot X+b$, where $a$ and $b$ are real numbers. Then:
 $$E[Y] = E[a\cdot X+b] = a\cdot E[X]+b$$
 
+
+<br>
+
 ### Variance
 
 If $X$ if a discrete random variable with mean $\mu_X$ and probability function $Pr(X=x_i)=p(x_i)$, then the variance of $X$ is:
@@ -491,6 +525,9 @@ $$Var[X] = E[X^2] - E[X]^2$$
 Let $X$ be a discrete random variable and let $Y=a\cdot X+b$, where $a$ and $b$ are real numbers. Then:
 $$Var[Y] = Var[a\cdot X+b] = a^2\cdot Var[X]$$
 
+
+<br>
+
 ### Cumulative Probability Distribution
 
 Let X be a discrete random variable. For each real number $x$, let $F(x) = Pr(X\le x)$
@@ -502,6 +539,9 @@ It must satisfy the following:
 3. We define $F(\infty)=Pr(X<\infty)=1$
 
 The graph of the CDF for a discrete random variable will be a step function
+
+
+<br>
 
 ### Jointly Distributed Discrete Random Variables
 
@@ -524,6 +564,9 @@ Further, if $X$ and $Y$ are independent, then:
 2. $E[X\cdot Y] = E[ X]\cdot E[Y]$ 
 3. $Var[X+Y]=Var[ X]+Var[Y]$
 
+
+<br>
+
 ### Probability Generating Functions
 
 Allows you to compute the expected value and variance of random variables
@@ -536,9 +579,7 @@ $$E[X]=h'(1)\qquad and\qquad Var[X]=h''_X(1)+h'_X(1)-(h'_X(1))^2$$
 
 
 
-
-
-
+<br>
 
 ## Moment Generating Functions
 ---
@@ -555,6 +596,9 @@ A related transformation, called the *moment generating function (MGF)*, serves 
 
 The idea is to transform the distribution into a calculus function, and use the derivatives to calculate the moments of the underlying random variable.
 
+
+<br>
+
 ### Definition
 
 Let $X$ be any random variable. The *moment generating function (MGF)* of $X$ is denoted by $M_X(t)$ and is defined by:
@@ -564,6 +608,9 @@ $$M_X(t)=E_X[e^{tX}]$$
 Observe that $Y=e^{tX}$ is a transformation of the random variable $X$ and we can calculate its expected value.
 
 $$M_X(t)=E_X[e^{tX}]=\sum_{k=0}^{\infty}e^{tk}p_k\qquad p_k=Pr[X=k]$$
+
+
+<br>
 
 ### Properties of the Moment Generating Function
 
@@ -580,6 +627,8 @@ $$M_S(t)=M_{X_1}(t)\cdot M_{X_2}(t)\cdots M_{X_n}(t)$$
 $$M_S(t)=[M_X(t)]^n$$
 
 
+<br>
+
 ### Shortcut Formulas
 
 Let $X$ be a random variable with MGF $M_X(t)$. Define $h(t)=\ln(M_X(t))$
@@ -589,32 +638,27 @@ Let $X$ be a random variable with MGF $M_X(t)$. Define $h(t)=\ln(M_X(t))$
 
 
 
-
+<br>
 
 ## Continuous Random Variables
 ---
 
 Random variables that map to an infinite possible values are called continuous. An example is how long it takes for the coin to hit the ground. The coin can be in the air for 1 second, or 1.1, or 1.111.... There is an infinite set of values that the outcome can take on.
 
-<p>
-The probability of the outcome being any exact value is precisely 0, so we work with ranges. The probability of a continuous random variable \(X\) taking on some value between \(a\) and \(b\) where \(a \lt b\) is denoted as \(Pr(a\leq X\leq b)\).
-</p>
+The probability of the outcome being any exact value is precisely 0, so we work with ranges. The probability of a continuous random variable $X$ taking on some value between $a$ and $b$ where $a \lt b$ is denoted as $Pr(a\leq X\leq b)$.
 
-<p>
-In this case, we might represent the probability that the coin is in the air between 1 and 2 seconds as \(Pr(1\leq X\leq 2)\).
-</p>
+In this case, we might represent the probability that the coin is in the air between 1 and 2 seconds as $Pr(1\leq X\leq 2)$.
+
+
+<br>
 
 ### Cumulative Distribution Functions (CDFs)
 
-<p>
-The Cumulative Distribution Function of a continuous random variable \(X\) is defined by:
-</p>
+The Cumulative Distribution Function of a continuous random variable $X$ is defined by:
 
 $$F_X(x) = Pr(-\infty < X \leq x)$$
 
-<p>
-That is, the value of the CDF of \(X\) at the point \(x\) is the probability of the event that \(X\) is less than or equal to \(x\).
-</p>
+That is, the value of the CDF of $X$ at the point $x$ is the probability of the event that $X$ is less than or equal to $x$.
 
 Note: all of the notation below all refer to the CDF:
 
@@ -622,19 +666,20 @@ $$P_Z(z)=\Phi(z)=F_Z(z)$$
 
 #### CDF Properties
 
-1. <p>\(F_X(x)\) is a non-decreasing function with range [0,1].</p>
-2. <p>\(\lim_{x\rightarrow-\infty} F_X(x)=0\)</p>
-3. <p>\(\lim_{x\rightarrow\infty} F_x(x)=1\)</p>
-4. <p>The probability of \(X\) taking values between \(a\) and \(b\) is the same as the CDF at point \(b\) minus the CDF at point \(a\). In other words:</p>
+1. $F_X(x)$ is a non-decreasing function with range [0,1].
+2. $\lim_{x\rightarrow-\infty} F_X(x)=0$
+3. $\lim_{x\rightarrow\infty} F_x(x)=1$
+4. The probability of $X$ taking values between $a$ and $b$ is the same as the CDF at point $b$ minus the CDF at point $a$. In other words:
  $$Pr(a\le X\le b) = F_X(b)-F_X(a)$$
+
+
+<br>
 
 ### Probability Density Functions (PDFs)
 
 The probability density function (PDF) of a continuous random variable is similar to the probability mass function of a discrete random variable. 
 
-<p>
-Let \(X\) be a continuous random variable with CDF \(F_X(x)\) that is differentiable everywhere. The derivative of \(F_X(x)\), denoted by \(f_X(x)\), is called the <i>density function</i> of the random variable \(X\).
-</p>
+Let $X$ be a continuous random variable with CDF $F_X(x)$ that is differentiable everywhere. The derivative of $F_X(x)$, denoted by $f_X(x)$, is called the <i>density function</i> of the random variable $X$.
 
 #### Relation between the CDF and the Density Function for X
 
@@ -644,13 +689,16 @@ Let \(X\) be a continuous random variable with CDF \(F_X(x)\) that is differenti
 
 #### PDF Properties
 
-1. <p>\(f_x(x) \ge 0\), that is, all density functions are non-negative.</p>
-2. <p>\(\int_{-\infty}^\infty f_X(x)dx = 1\)</p>
-3. <p>\(Pr(a\le X\le b)=\int_a^b f_X(x)dx\)</p>
+1. $f_x(x) \ge 0$, that is, all density functions are non-negative.
+2. $\int_{-\infty}^\infty f_X(x)dx = 1$
+3. $Pr(a\le X\le b)=\int_a^b f_X(x)dx$
 
 The mode is the global maximum of the density function.
 - Can solve by graphing and finding the highest point.
 - Can also set $f'(x)=0$ and find the critical points (check for maximum).
+
+
+<br>
 
 ### Expected Value (from the density function)
 
@@ -675,11 +723,17 @@ Calculate the expected value of $e^x$ from the density function $f(x)=2e^{-2x}, 
 
 $$E[e^x]=\int_0^\infty e^x(2e^{-2x}) dx=2\int_0^\infty e^{-x} dx=2\frac{e^{-x}}{-1}\Bigg|_0^{\infty}=2(1-0)=2$$
 
+
+<br>
+
 ### Expected Value (from the CDF)
 
 Let $X$ be a non-negative random variable living on the interval $(A, B)$, then:
 
 $$E[X]=A+\int_A^B[1-F(x)] dx$$
+
+
+<br>
 
 ### Variance
 
@@ -693,11 +747,17 @@ Can also be represented in the variance formula form:
 
 $$Var[X]=E[X^2]-E[X]^2=\int_{-\infty}^{\infty}x^2f_X(x) dx-\Bigg(\int_{-\infty}^{\infty}x f_X(x) dx\Bigg)^2$$
 
+
+<br>
+
 ### Mode
 
 The Mode of $X$ is defined as the value(s), $x_{mode}$ that maximizes $f(x)$. Can only have up to two modes.
 
 The mode can be found by finding the global maximum of $f(x)$, AKA by differentiating $f(x)$ and setting the derivative to zero to locate the critical points and checking them to see which one is the maximum.
+
+
+<br>
 
 ### Medians and Percentiles
 
@@ -706,6 +766,9 @@ Suppose $p$ is a number between 0 and 1. The $100p^{th}$ Percentile of $X$ is th
 The $50^{th}$ percentile is called the median, and is denoted by $x_{.5}$.
 
 $$p=Pr[X\le x_p]=F(x_p)$$
+
+
+<br>
 
 ### Two-Point Mixed Distributions
 
@@ -723,9 +786,7 @@ $$E[X^n]=p E[Y^n]+(1-p) E[Z^n]$$
 
 
 
-
-
-
+<br>
 
 ## Applications of Continuous Distributions
 ---
@@ -742,6 +803,9 @@ X-d & d\le X<B
 $$
 Often a problem will ask for $E [Y]$, the expected value of $Y$ (how much the insurance company pays out). $$E[Y]=\int_A^d0\cdot f_X(x) dx +\int_d^B(x-d)\cdot f_X(x) dx$$ $$=\int_d^B(x-d)\cdot f_X(x) dx$$
 
+
+<br>
+
 ### Capped Insurance
 
 Another common practice for reducing $Y$ is to cap the covered loss at a given constant, $C$, which is less than the maximum actual loss $B$. Then the relationship between $X$ and $Y$ is given by
@@ -757,6 +821,8 @@ The expected value:
 $$E[Y]=\int_A^Cx f_X(x) dx +\int_C^BC  f_X(x) dx=\int_A^Cx f_X(x) dx +C\int_C^Bf_X(x) dx$$
 $$=\int_A^Cx f_X(x) dx +C\cdot Pr[X>C]$$
 
+
+<br>
 
 ### The CDF Method for Deductible and Caps
 
@@ -802,7 +868,7 @@ $$(v)\quad E[Y_d^C]=\int_d^C[1-F_X(x)] dx$$
 
 
 
-
+<br>
 
 ## Appendix
 ---
@@ -842,6 +908,9 @@ If $x_1, x_2, \cdots, x_n$ are $n$ data points arranged in ascending order, then
 
 Note: sometimes the first quartile refers to the entire range from the lowest value up to $Q_1$, and similarly for other quartiles.
 
+
+<br>
+
 ### More Measures of Dispersion
 
 #### Range
@@ -869,6 +938,9 @@ The **coefficient of variation** is a statistic that measure the relative variab
 
 $$\frac{100\cdot\sigma}{\mu}\%$$
 
+
+<br>
+
 ### Odds
 
 In gambling, it is common to give the ratio of expected losses to expected wins in a fixed number of plays.
@@ -892,10 +964,10 @@ $$=Pr(1-p):Pr(p)$$
 
 With the race example above, if the chance of me winning, $Pr(W)$, was $\frac13$, then
 
-$$Pr(\bar{W}):Pr(W)$$
-$$=1-\frac13:\frac13$$
-$$=\frac23:\frac13$$
-$$=2:1$$
+$$Pr(\bar{W}):Pr(W) \quad=\quad 1-\frac13:\frac13 \quad=\quad \frac23:\frac13 \quad=\quad 2:1$$
+
+
+<br>
 
 ### Set Theory
 
