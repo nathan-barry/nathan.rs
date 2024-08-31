@@ -10,8 +10,9 @@ tags = ["Personal"]
 <!-- <br> -->
 
 
+
 ## Nathan Barry
-***
+---
 <!-- <span class="sidenote"><b>Image Backstory:</b> There were once raccoons living in my attic. I caught them and released them away from my house. I took a photo with each one caught (this is raccoon #3 in the sacrificial demon cave).</span> -->
 
 I am a Computer Science and Mathematics major at UT Austin. I was born in Saint Joseph, Missouri. I started programming in 2017 my freshman year of high school, with Python and JavaScript, serving PyTorch models with Flask and React. Currently, I spend most of my time on schoolwork, side projects, and (hopefully) writing.
@@ -40,7 +41,6 @@ Bowling Score | 203 (my proudest one!)
 
 
 <!-- ## Life Philosophy -->
-<!-- *** -->
 <!-- My life philosophy started crystalizing when I was 15 and has remained more or less constant ever since. It was heavily inspired by Aldous Huxley, Nietzsche, Robert Greene, Carl Jung, William Rees-Mogg and James Dale Davidson, Ayn Rand, Dostoevsky, and a few other names. -->
 
 <!-- One of the main things that makes humans special is that we are cognisant that time passes and the concept of a future. We acknowledge that we can sacrifice today to make a better tomorrow, not just for you but for all those after. -->

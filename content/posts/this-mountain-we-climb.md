@@ -5,7 +5,9 @@ date = 2021-03-03
 tags = ["Misc"]
 +++
 
-***
+
+
+---
 <p style="white-space: pre-line">
 Here we all are, this mountain we climb,
 the sure ascent, that lasts a lifetime,
@@ -16,13 +18,13 @@ the meaning of life, at its Godly peak.
 <p style="white-space: pre-line">
 Up we should go, a noble direction.
 Yet why do so many, rebel in rejection
-Up is worthwhile on this mountain we climb,
-at the apex, you’ll find all that’s sublime.
+Up is worthwhile, this mountain we climb,
+at the apex is all that’s sublime.
 </p>
 
 <p style="white-space: pre-line">
 Choose anything else and you will regret
-not putting in the work and how upset
+not doing the work and how upset
 you’ll find yourself years down the line
 when fate and destiny don’t align.
 </p>
@@ -42,24 +44,10 @@ before one can begin our mortal march.
 </p>
 
 <p style="white-space: pre-line">
-Don't go through life with no direction,
-living through years with no reflection.
-Stray off the path and you’ll be lost,
-wandering forever and eventually quashed.
-</p>
-
-<p style="white-space: pre-line">
-Ye have been told to be prepared
-And those who aren’t, I say beware
-You have one life, treat it with care.
-Don’t die alone with a forty-yard stare.
-</p>
-
-<p style="white-space: pre-line">
-We each have God’s purpose that we’ll see unspun,
-if you don’t climb, you’ll life be undone.
+We each have God’s purpose we must see unspun,
+and if you don’t climb, your life will be done.
 You'll find yourself old before you’ve begun
-A sad song you’ll life be, never to be sung.
+with the great song of life, never to be sung.
 </p>
 
 <p style="white-space: pre-line">

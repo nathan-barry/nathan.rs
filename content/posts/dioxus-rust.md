@@ -10,7 +10,7 @@ tags = ["Rust"]
 
 
 ## Why Rust for Front-End Development
-***
+---
 I’ve been using React and Next.js for front-end development ever since high school, it was one of the first few things I learned when it came to programming. Recently, I’ve had the itch to learn something new, specifically Rust front-end. As someone with a ".rs" domain, it felt like an inevitable fate. Finally, I can say I put the ".rs" in the "nathan.rs".
 
 The front-end Rust ecosystem has come a long way in the last few years. We are at a point where we now have Rust frameworks that are actually somewhat usable{{%sidenote%}}Huge asterisk{{%/sidenote%}}.While frameworks like Svelte, Astro, and Solid are making people rethink their approach to front-end development, Rust frameworks like Leptos and Dioxus are also maturing.
@@ -20,7 +20,7 @@ I've never been a fan of TypeScript or JS but have always loved Rust. I decided 
 
 
 ## Dioxus Overview
-***
+---
 For me, it was between this and Leptos. I chose Dioxus because of its versatility. It has support for desktop and mobile and has multiple options for serving a website.
 
 The first option is `dioxus_web` which is Single Page Application (SPA) similar to React. SPAs work by sending over a large bundle of JavaScript which renders the website client side. This gives a very fluid experience but is bad for SEO and has relatively poor initial load times.
@@ -94,7 +94,6 @@ Below is an explanation of each of the 4 snippets above:
 Dioxus also has its own CLI tool that makes serving easy. You just run `dx serve` to host it locally. It should say to open `https://localhost:8080/` to view the site. You can read more about how to get started with Dioxus [here](https://dioxuslabs.com/learn/0.4/getting_started).
 
 
-
 ### Fixing Routing with Tailwind
 To let the CLI know that you are using Tailwind, you must explicitly define it in a Dioxus config via a `Dioxus.toml` file. Here is what is provided in the [docs](https://dioxuslabs.com/learn/0.4/cookbook/tailwind).
 
@@ -117,7 +116,7 @@ That's better. We'll also talk about hosting on Github pages here because it sim
 
 
 ## Hosting on Github Pages
-***
+---
 The easiest way to host this was to move the build output directory to `/docs` and then, in the Pages settings page in the github repository, select it to build from `/docs`. Below is a screenshot of what it should look like.
 
 <!-- <img src="/images/gh-pages.webp"> -->
@@ -170,7 +169,7 @@ As you can see, `dx serve` and `dx build --release` now builds everything in `/d
 
 
 ## Interacting with JS Libraries from Rust
-***
+---
 The wasm-bindgen project provides developers with a few tools for interacting with JS and browser APIs.
 
 The web-sys crate contains bindings to browser web APIs. This includes things like the Document Object Model (DOM), HTML elements, browser-specific functions like window.fetch, and more. I use this extensively for my Conway's Game of Life implementation, which you can find the source code [here](https://github.com/nathan-barry/nathan-barry.github.io/blob/3af983098dddfc21a81a3e1d66512b0babcfe031/src/projects/game_of_life.rs). js-sys is what we're looking for, which is quite easy to use. It allows us to interact with JavaScript code directly from a rust file.
@@ -235,7 +234,7 @@ In another post, I'll talk about I discovered a memory leak when testing my Conw
 
 
 ## Conclusion
-***
+---
 I had a very enjoyable time reimplementing my website in Rust using this framework.
 
 All of these Rust front-end libraries are very new and share the same characteristics as any frontier. There is usually poor documentation. Sometimes things just don't work. At times you'll have to dive deep into the source code to find answers. On the other hand, the codebase is 'small' enough to where one person can comprehend it. Such a challenge is possible and rewarding.

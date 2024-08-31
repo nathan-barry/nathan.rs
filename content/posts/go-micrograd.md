@@ -10,7 +10,7 @@ tags = ["Go"]
 
 
 ## Neural Network Basics 
-***
+---
 
 For a while, I wanted to build a complete autograd engine. What is an autograd engine, you might ask? To find the answer, we first must know what a neural network is.
 
@@ -66,8 +66,10 @@ If we ran these phases above in a loop, we would find that our weight $w$ will s
 
 Now this is just a very basic example. You can see how things get more complex with additional neurons and layers and non-convex optimization problems, but the fundamental process is generally the same.
 
+
+
 ## What is an Autograd Engine?
-***
+---
 
 Finally, we can answer our original question. An autograd engine is a program that can automatically calculate the partial derivatives of each weight with respect to the loss. The example above was simple since we only had one weight, but we currently have models with *hundreds of billions* of weights, so having a way to automatically determine these partial derivatives is essential.
 
@@ -81,8 +83,10 @@ Not too long ago, I started to build an autograd engine in Rust, but that fell i
 
 I started implementing an engine that used matrices as its basic unit of operation and had hit a few bumps when it came to implementing the vector calc. That's when I decided that, before I implemented it with matrices, I should first implement a Scalar version based on micrograd.
 
+
+
 ## Go Micrograd Implementation
-***
+---
 
 The basic building block in go-micrograd is the Value struct. Let's look at the code below: 
 
@@ -148,6 +152,7 @@ Now what is this `d.DisplayGraph` method? In Andrej Karpathy's tutorial, he uses
 ```
 
 We see that `d` evaluated to 4 and was the result of `Add(-6, 10)`. We see that the -6 was the result of `Mul(2, -3)` which were `a` and `b` respectively.
+
 
 ### Adding Backpropagation functionality
 
@@ -223,6 +228,7 @@ func buildTopo(v *Value, topo []*Value, visited map[*Value]bool) []*Value {
 }
 ```
 
+
 ### Training the `double(x)` Model
 
 Let us train a network that mimics the `double(x)` function from earlier. This will consist of one weight as before. We use two new operations `Pow()` and `Sub()` which we haven't covered but they're very similar to the `Mul()` and `Add()` operations from before.
@@ -267,8 +273,6 @@ Iter:  5, Loss: 1.049e-06, w: 2
 We can see that after only 6 iterations, it already found the correct value of `w` to minimize the loss. 
 
 If you're curious, here is what the computation graph looks like after the first iteration and after the last. I changed the `.DisplayGraph()` to look a little nicer.
-
-
 
 After the first iteration:
 ```txt

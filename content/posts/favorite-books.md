@@ -32,8 +32,9 @@ function setHovering(isHovering, element) {
 </script>
 
 
+
 ## [2024 | Age 21]
-***
+---
 {{< book
     title="When Einstein Walked with Gödel"
     author="Jim Holt"
@@ -131,7 +132,7 @@ function setHovering(isHovering, element) {
     description="" >}}
 
 ## [2023 | Age 20]
-***
+---
 {{< book
     title="Napoleon"
     author="Andrew Roberts"
@@ -317,7 +318,7 @@ function setHovering(isHovering, element) {
 
 
 ## [2022 | Age 19]
-***
+---
 {{< book
     title="A Beautiful Mind"
     author="Sylvia Nasar"
@@ -402,7 +403,7 @@ function setHovering(isHovering, element) {
 
 
 ## [2021 | Age 18]
-***
+---
 {{< book
     title="The Sovereign Individual"
     author="James Dale Davidson & William Rees-Mogg"
@@ -579,7 +580,7 @@ function setHovering(isHovering, element) {
 
 
 ## [2020 | Age 17]
-***
+---
 {{< book
     title="Memories, Dreams, Reflections"
     author="Carl Jung"
@@ -684,7 +685,7 @@ function setHovering(isHovering, element) {
 
 
 ## [2019 | Age 16]
-***
+---
 {{< book
     title="The Tipping Point"
     author="Malcom Gladwell"
@@ -800,7 +801,7 @@ function setHovering(isHovering, element) {
 
 
 ## [2018 | Age 15]
-***
+---
 {{< book
     title="The Richest Man In Babylon"
     author="George S. Clason"
@@ -855,7 +856,7 @@ function setHovering(isHovering, element) {
 
 
 ## [2017 | Age 14]
-***
+---
 {{< book
     title="To Kill A Mockingbird"
     author="Harper Lee"
@@ -896,7 +897,7 @@ function setHovering(isHovering, element) {
 
 
 ## [2016 | Age 13]
-***
+---
 {{< book
     title="The 48 Laws Of Power"
     author="Robert Greene"

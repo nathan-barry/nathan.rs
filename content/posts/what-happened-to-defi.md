@@ -8,8 +8,10 @@ draft = true
 
 {{< toc >}}
 
+
+
 ## DRAFT OUTLINE
-***
+---
 ### Why did people believe in it?
 -  The narrative
 
@@ -58,7 +60,7 @@ Narratives and good times pushed smart people to ignore the obvious
     - Cap on complexity - anything more complex than an exchange gets exploited.
 
 ## Why did people first get into Defi?
-***
+---
 
 Defi exploded between 2021-2023 and had a spectacular collapse. After billions of dollars lost from hacks, scams, ponzi schemes, and market manipulation, all ranging between the discrete and the obvious, we are left wondering, "What happened to Defi?". To answer that, we must learn why people saw potential in it in the first place.
 
@@ -78,7 +80,7 @@ It was new and exciting. It doesn't hurt that billions of dollars of VC and reta
 
 
 ## All Double Edged Swords: Potentials and Flaws
-***
+---
 
 Innovations in blockchain technology and consensus algorithms created many new possibilities for what financial services could look like. Permissionless meant that everyone had equal access. It doesn't matter who you were or how much money you had, you had equal access to the same things as everyone else.
 
@@ -94,7 +96,7 @@ Composability between protocols meant that we can build new financial services b
 
 
 ## Too Much Kool-Aid and Bad UX 
-***
+---
 
 I remember having many conversations that went like this:
 

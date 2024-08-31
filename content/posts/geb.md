@@ -1,16 +1,14 @@
 +++
 title = "Gödel Escher Bach, Self-Reference, and Transformers"
-description = "A Brief Journey Through Gödel's Incompleteness Theorem, Strange Loops, the Nature of Intelligence, and Transformer Langauge Models."
+description = "Gödel's Incompleteness Theorem, Strange Loops, and Transformer Langauge Models."
 date = 2023-08-15
-tags = [""]
-draft = true
+tags = ["Misc"]
 +++
 
 
 
-
 ## Gödel Escher Bach and Strange Loops
-***
+---
 
 Not too long ago, I was recommended the book "Gödel, Escher, Bach" by Douglas Hofstadter. The book, at its core, is about how intelligent systems arise out of nothing, or in the words of the author,
 
@@ -35,7 +33,7 @@ As he said in 1979,
 
 
 ## LLM Agents: Hype and Limitations
-***
+---
 
 Large language model agents emerge from complex interactions between it and vector databases that act as a memory store for previous output. This database allows the LLM to incrementally build upon prior knowledge, creating an iterative learning process that aids in generating novel and relevant responses. This, in essence, enables LLMs to "learn" and respond to new information in a contextually appropriate manner. While an intriguing idea, these agents fundamentally lack an integral part of intelligence.
 
@@ -50,7 +48,7 @@ Possibly, in the future when the context width is large enough, making the syste
 
 
 ## Gödel’s Incompleteness Theorem and Self-Reference
-***
+---
 
 Gödel's theorem essentially states that within any consistent mathematical system, there will always be statements that cannot be proven true or false using the rules of that system.
 
@@ -67,14 +65,14 @@ At the base level, individual simple dumb processes interacting at a large scale
 
 
 ## Self-Improving Machines
-***
+---
 
 The concept of the technological singularity, as originally coined by John von Neumann and later popularized by Ray Kurzweil, is intrinsically tied to the idea of self-improving intelligent machines.
 
 In "The Singularity is Near", Kurzweil predicts that the singularity will occur around the year 2045, marking a point in time when technological growth becomes uncontrollable and irreversible, resulting in unforeseeable changes to human civilization. Kurzweil’s arguments are built on the basis of Moore's Law and the exponential growth of computing power and technology. He argues that the rate of technological progress is exponential, and as AI begins to surpass human intelligence, it will have the ability to recursively improve its own design, leading to an intelligence explosion.
 
-As remarkable as ChatGPT and similar AI models are, they currently remain tools and are far from true intelligent systems. While the development of AI technologies like ChatGPT represents significant progress in the field of artificial intelligence, the self-improving models remain unpredictable beyond the horizon. While the age of self-improving machines might not be immediately around the corner, the advances in transformer models have had a large impact on the societal perception of the distance we have to go.
+As remarkable as ChatGPT and similar AI models are, they currently remain tools and are far from true intelligent systems. While the age of self-improving machines might not be immediately around the corner, the advances in transformer models have had a large impact on the societal perception of the distance we have to go.
 
-What is certain though is that this technology will eventually completely change the fabric of society. Is that a controversial take? No. Phones, social media, computers, electricity, etc, all have changed society. Now to the extent of this coming revolution, only time can tell.
+What is certain though is that this technology will eventually completely change the fabric of society. Phones, social media, computers, electricity, etc, all have changed society, and this is just another technological wave to wash over humanity. Now to the extent of this coming revolution, only time can tell.
 
 > "Nothing is so painful to the human mind as a great and sudden change." - Mary Shelly, Frankenstein
