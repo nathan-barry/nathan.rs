@@ -240,7 +240,7 @@ $$A(B + C) = AB + AC  \quad \text{and} \quad   (A + B)C = AC + BC$$
 
 <br>
 
-### Elimination = Factorization: $\mathbf{A = LU}$
+### Elimination = Factorization: A = LU
 
 1. Each elimination step $E_{ij}$ is inverted by $L_{ij}$. Off the main diagonal, change $-e_{ij}$ to $+e_{ij}$.
 
@@ -299,6 +299,227 @@ If $A$ is invertible then a permutation $P$ will reorder its rows for $PA=LU$.
 ## Vector Spaces
 ---
 
+Vector spaces and their subspaces is the next level of understanding.
+
+1. The standard $n$-dimensional space $\mathbb{R}^n$ contains all real column vectors with $n$ elements.
+
+2. If $\mathbf{v}$ and $\mathbf{w}$ are in a vector space $S$, every combination $c\mathbf{v} + d\mathbf{w}$ must also be in $S$.
+
+3. The "vectors" in $S$ can be matrices or functions of $x$. The 1-point space $Z$ consists of $\{x = 0\}$.
+
+4. A subspace of $\mathbb{R}^n$ is a vector space inside $\mathbb{R}^n$. Example: The line $y = 3x$ inside $\mathbb{R}^2$.
+
+5. The column space of $A$ contains all combinations of the columns of $A$: a subspace of $\mathbb{R}^m$.
+
+6. The column space contains all the vectors $A\mathbf{x}$. So $A\mathbf{x} = \mathbf{b}$ is solvable when $\mathbf{b}$ is in $C(A)$.
+
+A real vector space is a set of vectors together with rules for vector addition and for scalar multiplication. Those operations must also produce vectors that are in the space. Some vector spaces other than $\mathbb{R}^n$ are the vector space fo all real 2x2 matrices, the vector space of all real functions $f(x)$, and the vector space $\mathbb{Z}$ that contains only a zero vector.
+
+We can add any vectors in $\mathbb{R}^n$, and we can multiply any vector $\mathbf{v}$ by scalar $c$. These operations are closed under $\mathbb{R}^n$. A subspace containing $\mathbf{v}$ and $\mathbf{w}$ must contain all linear combinations $c\mathbf{v} + d\mathbf{w}$ (and thus must contain the zero vector for $c, d = 0$).
+
+**Definition:** The **column space** consists of **all linear combinations of the columns**. The set of linear combinations are all possible bectors $A\mathbf{x}$. They fill the column space $C(A)$.
+
+To solve $A\mathbf{x}=\mathbf{b}$ is to express $\mathbf{b}$ as a linear combination of the columns. The system $A\mathbf{x}=\mathbf{b}$ is solvable if and only if $\mathbf{b}$ is in the column space of $A$.
+
+
+<br>
+
+### The Nullspace of A: Solving Ax = 0 and Rx = 0
+
+For an $m\times n$ matrix (as in $m$ rows and $n$ columns):
+
+1. The nullspace $N(A)$ in $\mathbb{R}^n$ contains all solutions $\mathbf{x}$ to $A\mathbf{x} = 0$. This includes $\mathbf{x} = \mathbf{0}$.
+
+2. Elimination (from $A$ to $U$ to $R$) does not change the nullspace: $N(A) = N(U) = N(R)$.
+
+3. The reduced row echelon form $R = \text{rref}(A)$ has all pivots = 1, with zeros above and below each pivot.
+
+4. If column $j$ of $R$ is free (no pivot), there is a "special solution" to $A\mathbf{x} = 0$ with $x_j = 1$ and other free variables adjusted accordingly.
+
+5. Number of pivots = number of nonzero rows in $\text{rref}(A) = \text{rank}(A) = r$. There are $n - r$ free columns.
+ 
+6. The true size of a matrix $A$ is given by its **rank**. The rank is the *dimension* of the *column space* and of the *row space*. $n-r$ is the dimension of the *nullspace*.
+
+7. Every matrix with $m < n$ (more column than rows) has nonzero solutions to $A\mathbf{x} = 0$ in its nullspace.
+
+The solution vectors $\mathbf{x}$ have $n$ elements and are vectors in $\mathbb{R}^n$, thus the nullspace is a subspace of $\mathbb{R}^n$. The column space $C(A)$ is a subspace of $\mathbb{R}^m$ since it is the span of all of the columns in $A$, each with $m$ elements.
+
+
+
+All vectors $\mathbf{x}$ in the nullspace must be orthogonal to all row vectors $\mathbf{v}$ in the row space. This is vacuously because the dot product $\mathbf{x}_i \cdot \mathbf{v}_j$ must equal zero for $A\mathbf{x} = 0$. Every free column is a linear combination of earlier pivot columns. The special solutions in the nullspace tells use those combinations. 
+
+
+If the nullspace $N(A) = \mathbb{Z}$ (and thus $\text{rank}(A) = m$), it means that the columns of $A$ are independent. No linear combination of the columns gives the zero vector (except for the zero combination). All columns have pivots and no columns are free.
+
+
+<br>
+
+### The Complete Solution to Ax = b
+
+For an $m\times n$ matrix (as in $m$ rows and $n$ columns):
+
+1. Complete solution to $A\mathbf{x} = \mathbf{b}$: $\mathbf{x}$ = (one particular solution $\mathbf{x}_p$) + (any $\mathbf{x}_n$  in the nullspace).
+
+2. Elimination on $[A \; \mathbf{b}]$ leads to $[R \; \mathbf{d}]$. Then $A\mathbf{x} = \mathbf{b}$ is equivalent to $R\mathbf{x} = \mathbf{d}$.
+
+3. $A\mathbf{x} = \mathbf{b}$ and $R\mathbf{x} = \mathbf{d}$ are solvable only when all zero rows of $R$ have zeros in $\mathbf{d}$.
+
+4. When $R\mathbf{x} = \mathbf{d}$ is solvable, one very particular solution $\mathbf{x}_p$ has all free variables equal to zero.
+
+
+Every matrix $A$ with **full column rank** $(r=n)$ has all these properties:
+
+1. All columns of $A$ are pivot columns.
+
+2. There are no free variables or special solutions
+
+3. The nullspace $N(A)$ contains only the zero vector $\mathbf{x}=0$.
+
+4. If $A\mathbf{x}=\mathbf{b}$ has a solution (it might not), then it has only *one solution*.
+
+
+Every matrix $A$ with **full row rank** $(r=m)$ has all these properties:
+
+1. All rows have pivots, and $R$ has no zero rows.
+
+2. $A\mathbf{x}=\mathbf{b}$ has a solution for every right side $\mathbf{b}$ 
+
+3. The column space is the whole space $\mathbb{R}^m$.
+
+4. There are $n-r$ special solutions in the nullspace of $A$.
+
+
+The four cases are:
+- $r = m = n$: (A is square and invertible, $A\mathbf{x} = \mathbf{b}$ has 1 solution)
+- $r = m < n$: (A is short and wide, $A\mathbf{x} = \mathbf{b}$ has $\infty$ solutions)
+- $r = n < m$: (A is tall and thin, $A\mathbf{x} = \mathbf{b}$ has 1 or 0 solutions)
+- $r < m, r < n$: (not full rank, $A\mathbf{x} = \mathbf{b}$ 0 or $\infty$ solutions)
+
+
+<br>
+
+### Independence, Basis and Dimension
+
+A **basis** is a set of independent vectors that span the space. Four essential ideas are:
+
+1. Independent vectors (no extra vectors)
+2. Spanning a space (enough vectors to produce the rest)
+3. Basis for a space (not to many or too few)
+4. Dimension of a space (the number of vectors in every basis)
+
+For an $m\times n$ matrix (as in $m$ rows and $n$ columns):
+
+1. Columns of $A$ are independent if the only solution to $A\mathbf{x} = 0$ is $\mathbf{x} = 0$, aka $N(A)=\mathbb{Z}$.
+
+2. Independent vectors: The only zero combination $c_1 \mathbf{v}_1 + \cdots + c_k \mathbf{v}_k = 0$ has all $c_i = 0$.
+
+3. A matrix with $m < n$ has dependent columns: At least $n - m$ free variables / special solutions in the nullspace.
+
+4. The vectors $\mathbf{v}_1, \ldots, \mathbf{v}_k$ **span** the space $S$ if $S =$ all linear combinations of the $\mathbf{v}$'s.
+
+5. The vectors $\mathbf{v}_1, \ldots, \mathbf{v}_k$ are a **basis** for $S$ if they are independent and they span $S$.
+
+6. The **dimension** of a space $S$ is the number of vectors in every basis for $S$.
+
+7. If $A$ is $4 \times 4$ and invertible, its columns are a **basis** for $\mathbb{R}^4$. The **dimension** of $\mathbb{R}^4$ is 4.
+
+$R$ reveals a **basis** for the three fundamental subspaces:
+1. The **column space** of A: choose the pivot columns of A as a basis.
+2. The **row space** of A: choose the nonzero rows of R as a basis.
+3. The **nullspace** of A: choose the special solutions to Rx = 0 (and Ax = 0).
+
+**Definition**: The **row space** of a matrix is the subspace of $\mathbb{R}^n$ spanned by the rows.
+
+***The row space of $A$ is $C(A^T)$. It is the column space of $A^T$.***
+
+
+<br>
+
+### The Fundamental Theorem of Linear Algebra 
+
+The rank of a matrix is the number of pivots. The dimension of a subspace is the number of vectors in a basis. The rank of $A$ reveals the dimensions of all four fundamental subspaces.
+
+1. The **row space** is $C(A^T)$, a subspace of $\mathbb{R}^n$.
+2. The **column space** is $C(A)$, a subspace of $\mathbb{R}^m$.
+3. The **nullspace** is $N(A)$, a subspace of $\mathbb{R}^n$.
+4. The **left nullspace** is $N(A^T)$, a subspace of $\mathbb{R}^m$.
+
+The **Fundamental Theorem of Linear Algebra** states:
+
+1. The column space $C(A)$ and the row space $C(A^T)$ both have dimension $r$ (the rank of $A$).
+
+2. The nullspace $N(A)$ has dimension $n - r$. The left nullspace $N(A^T)$ has dimension $m - r$.
+
+3. The column space $C(A)$ and left nullspace $N(A^T)$ are orthogonal compliments in $\mathbb{R}^m$. The row space $C(A^T)$ and nullspace $N(A)$ are orthogonal compliments in $\mathbb{R}^n$.
+
+
+***$A$ has the same row space and nullspace as $R$.*** Elimination changes rows but doesn't affect the row space or special solutions. 
+
+***$A$ does NOT have the same column space and left nullspace as $R$.*** If the last row in $R$ are all 0s but not the case in $A$, the space has fundamentally changed.
+
+
+#### Why are the dimension of the row space and column space the same?
+
+I thought about this for a long time. Take the matrix $A$ and its reduced form below:
+
+$$
+A =
+\begin{bmatrix}
+1 & 3 & 4 & 5 \\\
+2 & 6 & 5 & 7 \\\
+3 & 9 & 6 & 9 \\\
+4 & 12 & 7 & 11
+\end{bmatrix}
+\qquad\text{rref}(A) = 
+\begin{bmatrix}
+1 & 3 & 0 & 1 \\\
+0 & 0 & 1 & 1 \\\
+0 & 0 & 0 & 0 \\\
+0 & 0 & 0 & 0
+\end{bmatrix}
+$$
+
+This matrix has a rank of 2 because it only has 2 pivots. The bottom two rows are zeroed out (which means they are a linear combination of above rows) and we have 2 free variables (and thus two linearly dependent columns).
+
+Looking at this picture, it is still not obviously evident why there must be a match between zeroed out rows and the number of columns that are linearly dependent. One can see that, by the nature of the algorithm, for there to be an empty row, there must be a free variable, but just seeing that wasn't satisfactory.
+
+We can see that columns 2 and 4 are free variables. This means that those variables essentially don't matter, because we can always find a solution where they are zeroed out. Imagine we discard them and create a new matrix $A^\prime$ without those columns:
+
+$$
+A^\prime =
+\begin{bmatrix}
+1 & 4 \\\
+2 & 5 \\\
+3 & 6 \\\
+4 & 7 
+\end{bmatrix}
+\qquad\text{rref}(A^\prime) = 
+\begin{bmatrix}
+1 & 0 \\\
+0 & 1 \\\
+0 & 0 \\\
+0 & 0
+\end{bmatrix}
+$$
+
+If we transpose it, it becomes obvious that the bottom rows (the rightmost columns in the transposed version) must be linearly dependent:
+
+$$
+(A')^T =
+\begin{bmatrix}
+1 & 2 & 3 & 4 \\\
+4 & 5 & 6 & 7
+\end{bmatrix}
+\qquad(\text{rref}(A'))^T = 
+\begin{bmatrix}
+1 & 0 & 0 & 0 \\\
+0 & 1 & 0 & 0
+\end{bmatrix}
+$$
+
+Each transposed row lives in $\mathbb{R}^2$. The first two transposed rows make up the standard basis of $\mathbb{R}^2$, thus they span the entire space. Any transposed row that comes after must be linearly dependent, thus the bottom two rows in the original $A$ must be linearly dependent if there are two columns that are linearly dependent.
+
+Any time there is a linearly dependent column, we can remove it and find that a row must be linearly dependent this way. This thought is how I first felt I intuitively understood the Fundamental Theorem of Linear Algebra.
 
 
 
@@ -307,6 +528,108 @@ If $A$ is invertible then a permutation $P$ will reorder its rows for $PA=LU$.
 ## Orthogonality
 ---
 
+Two vectors are orthogonal when their dot product is zero: $\mathbf{v} \cdot \mathbf{w} = \mathbf{v}^T \mathbf{w} = 0$.
+
+1. If two vectors $\mathbf{v}$ and $\mathbf{w}$ are orthogonal, then $\||\mathbf{v}\||^2 + \||\mathbf{w}\||^2 = \||\mathbf{v} + \mathbf{w}\||^2 = \||\mathbf{v} - \mathbf{w}\||^2$.
+
+2. Subspaces $V$ and $W$ are orthogonal when $\mathbf{v}^T \mathbf{w} = 0$ for every $\mathbf{v} \in V$ and every $\mathbf{w} \in W$.
+
+3. The row space of $A$ is orthogonal to the nullspace $N(A)$. The column space is orthogonal to $N(A^T)$.
+
+4. One pair of dimensions adds to $r + (n - r) = n$. The other pair has $r + (m - r) = m$.
+
+5. Row space and nullspace are orthogonal complements: Every $\mathbf{x}$ in $\mathbb{R}^n$ splits into $\mathbf{x} _{\text{row}} + \mathbf{x} _{\text{null}}$.
+
+6. Suppose a space $S$ has dimension $d$. Then every basis for $S$ consists of $d$ vectors.
+
+7. If $d$ vectors in $S$ are independent, they span $S$. If $d$ vectors span $S$, they are independent.
+
+**Definition:** The orthogonal complement of a subspace $V$ contains **every** vector that is perpendicular to $V$. This orthogonal subspace is denoted by $V^\perp$.
+
+
+<br>
+
+### Projections
+
+Projections is projecting one vector $\mathbf{b}$ onto another line $\mathbf{a}$ or subspace $S$ to get vector $\mathbf{p}$.
+
+1. The projection of a vector $\mathbf{b}$ onto the line through $\mathbf{a}$ is the closest point $\mathbf{p} = \mathbf{a} \left(\frac{\mathbf{a}^T \mathbf{b}}{\mathbf{a}^T \mathbf{a}}\right)$.
+
+2. The error $\mathbf{e} = \mathbf{b} - \mathbf{p}$ is perpendicular to $\mathbf{a}$: Right triangle $\mathbf{b}\mathbf{p}\mathbf{e}$ has $\||\mathbf{p}\||^2 + \||\mathbf{e}\||^2 = \||\mathbf{b}\||^2$.
+
+3. The projection of $\mathbf{b}$ onto a subspace $S$ is the closest vector $\mathbf{p}$ in $S$. The error $\mathbf{b} - \mathbf{p}$ is orthogonal to $S$.
+
+4. The projection of $\mathbf{b}$ onto the column space of $A$ is the vector $\mathbf{p} = A(A^T A)^{-1}A^T \mathbf{b}$.
+
+5. The projection matrix onto $C(A)$ is $P = A(A^T A)^{-1}A^T$. It has $\mathbf{p} = P\mathbf{b}$ and $P^2 = P = P^T$.
+
+The left nullspace is important in projections. Our subspace is the column space of $A$. The error vector $\mathbf{e}=\mathbf{b}-P\mathbf{b}$ is perpendicular to that column space. Therefore, $\mathbf{e}=\mathbf{b}-P\mathbf{b}$ is in the nullspace of $A^T$. That means $A^T(\mathbf{b}-P\mathbf{b})=0$.
+
+$A^T A$ is invertible (and symmetric) only if $A$ has independent columns (and thus is square).
+
+
+<br>
+
+### Least Squares Approximations
+
+It often happens that $A\mathbf{x}=\mathbf{b}$ has no solution. The usual reason is too many equations; $A$ has more rows than columns. There are more equations than unknowns ($m$ is greater than $n$) and the $n$ columns span a small part of $m$-dimensional space, where $\mathbf{b}$ is outside the column space of $A$.
+
+We cannot always get the error $\mathbf{e}=\mathbf{b}-A\mathbf{x}$ down to zero. When the error is zero, $\mathbf{x}$ is an exact solution to $A\mathbf{x}=\mathbf{b}$. When the error is as small as possible, $\mathbf{\hat x}$ is a **least squares solution**.
+
+1. When $A\mathbf{x}=\mathbf{b}$ has no solution, multiply by $A^T$ and solve $A^T A \mathbf{\hat x} = A^T \mathbf{b}$.
+
+2. This gives the projection $\mathbf{p} = A\mathbf{\hat x}$ of $\mathbf{b}$ onto the column space of $A$. $\mathbf{\hat x}$ is the ***least-squares solution***: $\|| \mathbf{b} - A\mathbf{\hat x} \||^2 = \text{minimum}$.
+
+Setting partial derivatives of $E = \|| A\mathbf{x} - \mathbf{b} \||^2$ to zero ($\nabla E = 0$) also produces $A^T A\mathbf{\hat x} = A^T \mathbf{b}$.
+
+To fit points $(t_1, b_1), \ldots, (t_m, b_m)$ by a straight line, $A$ has columns $(1, \ldots, 1)$ and $(t_1, \ldots, t_m)$. In that case, $A^T A$ is the $2 \times 2$ matrix
+$$
+A^T A = \begin{bmatrix}
+m & \sum t_i \\\
+\sum t_i & \sum t_i^2
+\end{bmatrix}
+$$
+and $A^T \mathbf{b}$ is the vector
+$$
+A^T \mathbf{b} = 
+\begin{bmatrix}
+\sum b_i \\\
+\sum t_i b_i
+\end{bmatrix}
+$$
+where the solution $\mathbf{\hat x} = \begin{bmatrix} x_1 \\\ x_2 \end{bmatrix}$ gives you the line $x_1 + x_2t$.
+
+
+<br>
+
+### Orthonormal Bases and Gram-Schmidt
+
+Gram-Schmidt chooses combinations of the original basis vectors of $A$ to produce orthonormal basis vectors which will be the columns of a new matrix $Q$.
+
+1. The columns $\mathbf{q}_1, \ldots, \mathbf{q}_n$ are orthonormal if $\mathbf{q}_i^T \mathbf{q}_j = 
+\begin{cases} 
+1 & \text{if } i = j, \\\
+0 & \text{if } i \neq j. 
+\end{cases}$
+Then $Q^T Q = I$.
+
+2. If $Q$ is also square, then $QQ^T = I$ and $Q^T = Q^{-1}$. $Q$ is an "orthogonal matrix."
+
+3. The least squares solution to $Q\mathbf{x} = \mathbf{b}$ is $\mathbf{x} = Q^T \mathbf{b}$. The projection of $\mathbf{b}$: $\mathbf{p} = QQ^T\mathbf{b} = P\mathbf{b}$.
+
+4. The **Gram-Schmidt** process takes independent $\mathbf{a}_i$ to orthonormal $\mathbf{q}_i$.
+
+5. Start with $\mathbf{q}_1 = \frac{\mathbf{a}_1}{\||\mathbf{a}_1\||}$. Then $\mathbf{q}_i$ is
+
+    $$\frac{\mathbf{a}_i - \text{projection } \mathbf{p}_i} {\||\mathbf{a}_i - \mathbf{p}_i\||}$$
+
+    where projection $\mathbf{p}_i = (\mathbf{a}_i^T \mathbf{q}_1) \mathbf{q}_1 + \cdots + (\mathbf{a} _i^T \mathbf{q} _{i-1}) \mathbf{q} _{i-1}$.
+
+6. Each $\mathbf{a}_i$ will be a combination of $\mathbf{q}_1$ to $\mathbf{q}_i$. Then $A = QR$: orthogonal $Q$ and triangular $R$.
+
+One important property of an orthogonal matrix $Q$ is that it leaves lengths unchanged. $||Q\mathbf{x}|| = ||\mathbf{x}||$ for any vector $\mathbf{x}$. Numbers can never grow too large when lengths of vectors are fixed, so computers use orthonormal matrices as much as possible.
+
+Another is that if the basis vectors are orthonormal, then $A^T A$ simplifies to $Q^T Q = I$.
 
 
 
