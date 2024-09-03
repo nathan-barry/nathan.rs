@@ -638,6 +638,94 @@ Another is that if the basis vectors are orthonormal, then $A^T A$ simplifies to
 ## Determinants
 ---
 
+The determinant of a square matrix is a single number. It contains a great amount of information about the matrix. It is zero when the matrix has no inverse.
+
+1. The determinant of $A = \begin{bmatrix} a & b \\\ c & d \end{bmatrix}$ is $ad - bc$. A singular matrix (non-invertible) $A = \begin{bmatrix} a & xa \\\ c & xc \end{bmatrix}$ has $\det(A) = 0$.
+
+2. Row exchange reverses sign: $P A = \begin{bmatrix} 0 & 1 \\\ 1 & 0 \end{bmatrix} \begin{bmatrix} a & b \\\ c & d \end{bmatrix} = \begin{bmatrix} c & d \\\ a & b \end{bmatrix}$ has $\det(PA) = bc - ad = -\det(A)$.
+
+3. The determinant of $\begin{bmatrix} xa+yA & xb+yB \\\ c & d \end{bmatrix}$ is $x(ad - bc) + y(Ad - Bc)$. Det is linear in row 1 by itself.
+
+4. Elimination $EA = \begin{bmatrix} a & b \\\ 0 & d - \frac{cb}{a} \end{bmatrix}$, $\det(EA)$ = $a(d - \frac{cb}{a})$ = product of pivots = $\det(A)$. 
+
+- If $A$ is $n$ by $n$, then 1, 2, 3, 4 remain true:
+   - $\det = 0$ when $A$ is singular.
+   - $\det$ reverses sign when rows are exchanged.
+   - $\det$ is linear in row 1 by itself.
+   - $\det$ = product of the pivots. $\det(BA) = (\det B)(\det A)$ and $\det(A^T) = \det(A)$.
+
+One can reason that from these properties:
+- Subtracting a row from another leaves the determinant unchanged.
+- If a $A$ is triangular, then the determinant is the product of the diagonal entries.
+
+When $A$ is invertible, the determinant of $A^{-1}$ is $\frac1{\det(A)}$. For a $2\times2$ matrix:
+
+$$ A = \begin{bmatrix} a & b \\\ c & d \end{bmatrix} \quad\text{has inverse}\quad
+A^{-1} = \frac{1}{ad - bc} \begin{bmatrix} d & -b \\\ -c & a \end{bmatrix}
+$$
+
+
+When the determinant is 0, we are asked to divide by zero and we can't--then $A$ has no inverse.
+
+The determinant of an $n$ by $n$ matrix can be found in three ways:
+1. Multiply the n pivots *(The pivot formula)*
+2. Add up n! terms *(The "big" formula)*
+3. Combine $n$ smaller determinants *(The cofactor formula)*
+
+Applications for determinants are:
+1. Determinants give $A^{-1}$ and $A^{-1}\mathbf{b}$ *(Cramer's Rule)*
+2. When edges of a box are the rows of $A$, the volume is $|\det A|$
+3. For $n$ special numbers $\lambda$, called **eigenvalues**, the determinant of $A - \lambda I$ is zero.
+
+
+<br>
+
+### Permutations and Cofactors
+
+A computer finds the determinants from the pivots. The two other ways are the "big formula" which uses all $n!$ permutations, and the "cofactor formula" using determinants of size $n-1$.
+
+1. For a $2 \times 2$ matrix, $\det(A) = ad - bc$ has $2!$ terms with $\pm$ signs. For an $n \times n$ matrix, $\det(A)$ adds $n!$ terms with $\pm$ signs.
+
+2. For $n = 3$, $\det(A)$ adds $3! = 6$ terms. Two terms are $+a_{12}a_{23}a_{31}$ and $-a_{13}a_{22}a_{31}$. Rows 1, 2, 3 and columns 1, 2, 3 appear once in each term.
+
+3. The minus sign came because the column order $3, 2, 1$ needs one exchange to recover $1, 2, 3$.
+
+4. The six terms include for example $+a_{11}a_{22}a_{33} - a_{11}a_{23}a_{32} = a_{11}(a_{22}a_{33} - a_{23}a_{32}) = a_{11} (\text{cofactor } C_{11})$.
+
+5. Always $\det(A) = a_{11}C_{11} + a_{12}C_{12} + \cdots + a_{1n} C_{1n}$. Cofactors are determinants of size $n - 1$.
+
+
+<br>
+
+### Cramer's Rule, Inverses, and Volumes 
+
+To solve an $n\times n$ system, Cramer's rule evaluates $n+1$ determinants (of $A$ and modified $A$s).
+
+1. $A^{-1}$ equals $\frac{C^T}{\det(A)}$. Then $(A^{-1}) _{ij} = \frac{\text{cofactor } C _{ji}}{\det(A)}$.
+
+2. **Cramer's Rule** computes $\mathbf{x} = A^{-1}\mathbf{b}$ from $x_j = \frac{\det(\text{A with column } j \text{ changed to } \mathbf{b})}{\det(A)}$.
+
+The determinant gives us the volume:
+
+1. The area of a parallelogram is $|ad - bc|$ if the four corners are $(0, 0)$, $(a, b)$, $(c, d)$, and $(a+c, b+d)$.
+
+2. The volume of a box is $|\det(A)|$ if the rows of $A$ (or the columns of $A$) give the sides of the box. 
+
+The cross product of $\mathbf{u}=(u_1, u_2, u_3)$ and $\mathbf{v}=(v_1, v_2, v_3)$ is a vector:
+
+$$\mathbf{u}\times\mathbf{v}=\det \begin{bmatrix} \mathbf{i} & \mathbf{j} & \mathbf{k} \\\ u_1 & u_2 & u_3 \\\ v_1 & v_2 & v_3 \end{bmatrix} = (u_2 v_3 - u_3 v_2)\mathbf{i} + (u_3 v_1 - u_1 v_3)\mathbf{j} + (u_1 v_2 - u_2 v_1)\mathbf{k}$$
+
+This vector $\mathbf{u}\times\mathbf{v}$ is perpendicular to $\mathbf{u}$ and $\mathbf{v}$. The cross product $\mathbf{v} \times \mathbf{u}$ is $-(\mathbf{u} \times \mathbf{v})$.
+
+When $\mathbf{u}$ and $\mathbf{v}$ are parallel (including if they're equal), the cross product is zero. When they are perpendicular, the dot product is zero. One involves $\sin\theta$ and the other involves $\cos\theta$. 
+
+$$
+||\mathbf{u} \times \mathbf{v}\|| = \||\mathbf{u}\||\ \||\mathbf{v}\||\ ||\sin \theta||
+\quad\text{and}\quad
+||\mathbf{u} \cdot \mathbf{v}|| = ||\mathbf{u}\||\ ||\mathbf{v}||\ ||\cos \theta||.
+$$
+
+The cross product points in the direction of your thumb when your fingers curl from $\mathbf{u}$ to $\mathbf{v}$. The cross product $\mathbf{u} \times \mathbf{v}$ equals the area of the parallelogram with sides $\mathbf{u}$ and $\mathbf{v}$.
 
 
 
@@ -645,6 +733,24 @@ Another is that if the basis vectors are orthonormal, then $A^T A$ simplifies to
 
 ## Eigenvalues and Eigenvectors
 ---
+
+All the content before was about solving $A\mathbf{x} = \mathbf{b}$: balance and quilibrium and steady state. Now we're talking about change. Time enters the picture--continuous time in a differential equation $\frac{du}{dt} = A\mathbf{u}$ or time steps in a difference equation $\mathbf{u_{k+1}} = A\mathbf{u_k}$. These equations are NOT solved by elimination.
+
+We can simplify our lives by finding a solution vector $\mathbf{u}(t)$ that stays in the same direction of a fixed vector $\mathbf{x}$. Then we only need to find the number (changing with time) that multiplies $\mathbf{x}$. 
+
+***We want "eigenvectors" $\mathbf{x}$ that don't change direction when you multiply by $A$.*** Multiply an eigenvector by $A$, and the vector $A\mathbf{x}$ is a scalar $\lambda$ times the original $\mathbf{x}$.
+
+An example is if you need to apply a transformation matrix $A$ a total of $n$ times. You can calculate it directly using the **eigenvalues** instead of calculating $A^n$.
+
+1. An eigenvector $\mathbf{x}$ lies along the same line as $A\mathbf{x}$: $A\mathbf{x} = \lambda \mathbf{x}$. The eigenvalue is $\lambda$.
+
+2. If $A\mathbf{x} = \lambda \mathbf{x}$, then $A^2 \mathbf{x} = \lambda^2 \mathbf{x}$, $A^{-1} \mathbf{x} = \lambda^{-1} \mathbf{x}$, and $(A + cI)\mathbf{x} = (\lambda + c)\mathbf{x}$.
+
+3. If $A\mathbf{x} = \lambda \mathbf{x}$, then $(A - \lambda I)\mathbf{x} = 0$ and $A - \lambda I$ is singular, and $\det(A - \lambda I) = 0$. There are $n$ eigenvalues.
+
+4. Check $\lambda$'s by $\det(A) = (\lambda_1)(\lambda_2) \cdots (\lambda_n)$ and diagonal sum $a_{11} + a_{22} + \cdots + a_{nn} = \sum \lambda_i$.
+
+5. Projections have $\lambda = 1$ and $0$. Reflections have $\lambda = 1$ and $-1$. Rotations have $\lambda = e^{i\theta}$ and $e^{-i\theta}$ (complex eigenvalues)!
 
 
 
