@@ -742,16 +742,100 @@ We can simplify our lives by finding a solution vector $\mathbf{u}(t)$ that stay
 
 An example is if you need to apply a transformation matrix $A$ a total of $n$ times. You can calculate it directly using the **eigenvalues** instead of calculating $A^n$.
 
-1. An eigenvector $\mathbf{x}$ lies along the same line as $A\mathbf{x}$: $A\mathbf{x} = \lambda \mathbf{x}$. The eigenvalue is $\lambda$.
+1. An eigenvector $\mathbf{x}$ lies along the same line as $A\mathbf{x}$, hence: $A\mathbf{x} = \lambda \mathbf{x}$. The eigenvalue is $\lambda$.
 
 2. If $A\mathbf{x} = \lambda \mathbf{x}$, then $A^2 \mathbf{x} = \lambda^2 \mathbf{x}$, $A^{-1} \mathbf{x} = \lambda^{-1} \mathbf{x}$, and $(A + cI)\mathbf{x} = (\lambda + c)\mathbf{x}$.
 
-3. If $A\mathbf{x} = \lambda \mathbf{x}$, then $(A - \lambda I)\mathbf{x} = 0$ and $A - \lambda I$ is singular, and $\det(A - \lambda I) = 0$. There are $n$ eigenvalues.
+3. If $A\mathbf{x} = \lambda \mathbf{x}$, then $(A - \lambda I)\mathbf{x} = 0$
+    - $A - \lambda I$ is singular (non-invertible)
+    - $\det(A - \lambda I) = 0$
+    - There are $n$ eigenvalues.
 
-4. Check $\lambda$'s by $\det(A) = (\lambda_1)(\lambda_2) \cdots (\lambda_n)$ and diagonal sum $a_{11} + a_{22} + \cdots + a_{nn} = \sum \lambda_i$.
+4. Check $\lambda$'s by $\det(A) = (\lambda_1)(\lambda_2) \cdots (\lambda_n)$ and diagonal sum $a_{11} + a_{22} + \cdots + a_{nn} = \sum \lambda_i$ (aka the trace).
 
-5. Projections have $\lambda = 1$ and $0$. Reflections have $\lambda = 1$ and $-1$. Rotations have $\lambda = e^{i\theta}$ and $e^{-i\theta}$ (complex eigenvalues)!
+5. Projections have $\lambda = 1$ and $0$. Reflections have $\lambda = 1$ and $-1$. Rotations have $\lambda = e^{i\theta}$ and $e^{-i\theta}$ (complex eigenvalues).
 
+Since $\det(A - \lambda I) = 0$, ***The eigenvectors make up the nullspace of*** $A - \lambda I$. The determinate gives us the **characteristic polynomial** of degree $n$. Finding the $n$ roots of this polynomial gives us $n$ eigenvalues of $A$.
+
+For each eigenvalue $\lambda$, solve $(A - \lambda I)\mathbf{x} = 0$ to find the corresponding eigenvector $\mathbf{x}$. This is just finding the special solutions per each free variable (usually one) after row reducing it. Since the eigenvector is in the null space of $A-\lambda I$, the dot product of each row with each eigenvector is zero.
+
+Exchanging rows or adding/subtracting one from another generally changes the eigenvalues. ***Elimination does not preserve the $\lambda$'s***. The product of eigenvalues is the determinant of $A$ while the sum is the sum of the diagonals of $A$ (called a trace). For a 2 by 2 matrix, we can calculate the eigenvalues just from knowing the trace and determinant.
+
+
+<br>
+
+### Diagonalizing a Matrix
+
+1. The columns of $AX = X\Lambda$ are $A\mathbf{x}_k = \lambda_k \mathbf{x}_k$. The eigenvalue matrix $\Lambda$ is diagonal.
+
+2. $n$ independent eigenvectors in $X$ diagonalize $A$: $$A = X \Lambda X^{-1} \quad\text{and}\quad \Lambda = X^{-1}AX$$
+
+3. The eigenvector matrix $X$ also diagonalizes all powers $A^k$: $$A^k = X \Lambda^k X^{-1}$$
+
+4. Solve $u_{k+1} = A u_k$ by $u_k = A^k u_0 = X \Lambda^k X^{-1} u_0 = c_1 (\lambda_1)^k \mathbf{x}_1 + \cdots + c_n (\lambda_n)^k \mathbf{x}_n$.
+
+5. No equal eigenvalues $\implies X$ is invertible and $A$ can be diagonalized.
+
+    Equal eigenvalues $\implies A$ might have too few independent eigenvectors. Then $X^{-1}$ fails.
+
+6. Every matrix $C = B^{-1}AB$ has the same eigenvalues as $A$. These $C$'s are "similar" to $A$.
+
+
+<br>
+
+### Systems of Differential Equations
+
+Eigenvalues and eigen vectors and $A=X\Lambda X^{-1}$ are perfect for matrix powers $A^k$. They are also perfect for differential equations $\frac{d\mathbf{u}}{dt}=A\mathbf{u}$. **We can convert constant-coefficient differential equations into linear algebra.**
+
+In linear algebra, the ordinary differential equations $\frac{du}{dt} = u$ and $\frac{du}{dt} = \lambda u$ are solved by exponentials:
+
+$$
+\frac{du}{dt} = u \text{ produces } u(t) = Ce^t, \quad \frac{du}{dt} = \lambda u \text{ produces } u(t) = Ce^{\lambda t}.
+$$
+
+This is a 1 by 1 problem. Linear algebra moves to n by n.
+
+1. If $A\mathbf{x} = \lambda \mathbf{x}$, then $\mathbf{u}(t) = e^{\lambda t} \mathbf{x}$ will solve $\frac{d\mathbf{u}}{dt} = A\mathbf{u}$. Each $\lambda$ and $\mathbf{x}$ give a solution $e^{\lambda t} \mathbf{x}$.
+
+2. If $A = X \Lambda X^{-1}$, then: $$\mathbf{u}(t) = e^{At}\mathbf{u}(0) = X e^{\Lambda t} X^{-1} \mathbf{u}(0) = c_1 e^{\lambda_1 t} \mathbf{x}_1 + \cdots + c_n e^{\lambda_n t} \mathbf{x}_n$$
+
+3. $A$ is stable and $\mathbf{u}(t) \to 0$ and $e^{At} \to 0$ when all eigenvalues of $A$ have real parts $< 0$.
+
+4. Matrix exponential $e^{At} = I + At + \cdots + \frac{(At)^n}{n!} + \cdots = X e^{\Lambda t} X^{-1}$ if $A$ is diagonalizable.
+
+5. Second-order equation $\frac{d^2 \mathbf{u}}{dt^2} + B \frac{d\mathbf{u}}{dt} + C\mathbf{u} = 0$ is equivalent to a first-order system: $$\begin{bmatrix} \mathbf{u} \\\ \mathbf{u^\prime}\end{bmatrix}^\prime = \begin{bmatrix} 0 & I \\\ -C & -B \end{bmatrix} \begin{bmatrix} \mathbf{u} \\\ \mathbf{u}^\prime \end{bmatrix}$$
+
+
+<br>
+
+### Symmetric Matrices
+
+Symmetric matrices are one of the most important kind of matrices.
+
+1. A symmetric matrix $S$ has $n$ real eigenvalues $\lambda_i$ and $n$ orthonormal eigenvectors $\mathbf{q}_1, \ldots, \mathbf{q}_n$.
+
+2. Every real symmetric matrix $S$ can be diagonalized: $S = Q \Lambda Q^{-1} = Q \Lambda Q^T$, where $Q$ is an orthogonal matrix.
+
+3. The number of positive eigenvalues of $S$ equals the number of positive pivots.
+
+4. Antisymmetric matrices $A = -A^T$ have imaginary eigenvalues $\lambda$ and orthonormal (complex) eigenvectors $\mathbf{q}$.
+
+
+<br>
+
+### Positive Definite Matrices
+
+Symmetric matrices that have positive (or non-negative) eigenvalues are special.
+
+1. Symmetric $S$: all eigenvalues $> 0$ $\Leftrightarrow$ all pivots $> 0$ $\Leftrightarrow$ all upper left determinants $> 0$.
+
+2. The matrix $S$ is then **positive definite**. The energy test is $\mathbf{x}^T S \mathbf{x} > 0$ for all vectors $\mathbf{x} \neq 0$.
+
+3. One more test for positive definiteness: $S = A^T A$ with independent columns in $A$.
+
+4. **Positive semidefinite** $S$ allows $\lambda = 0$, pivot = 0, determinant = 0, and energy $\mathbf{x}^T S \mathbf{x} \geq 0$.
+
+5. The equation $\mathbf{x}^T S \mathbf{x} = 1$ gives an ellipse in $\mathbb{R}^n$ when $S$ is symmetric positive definite.
 
 
 
@@ -760,3 +844,44 @@ An example is if you need to apply a transformation matrix $A$ a total of $n$ ti
 ## The Singular Value Decomposition (SVD)
 ---
 
+The **Singular Value Decomposition (SVD)** is a fundamental matrix factorization that provides deep insights into the structure of a matrix. It is a versatile tool in numerical linear algebra with a wide range of applications in data science, machine learning, and applied mathematics.
+
+The **Singular Value Decomposition** (SVD) of an $m \times n$ matrix $A$ is a factorization of the form:
+$$
+A = U \Sigma V^T,
+$$
+where:
+- $U$ is an $m \times m$ **orthogonal** (or **unitary**) matrix whose columns are the **left singular vectors** of $A.$
+- $\Sigma$ is an $m \times n$ **diagonal matrix** with non-negative real numbers on the diagonal, called the **singular values** of $A.$
+- $V$ is an $n \times n$ **orthogonal** (or **unitary**) matrix whose columns are the **right singular vectors** of $A.$
+
+**Properties of SVD**:
+- The **singular values** $\sigma_i$ in $\Sigma$ are the **square roots** of the **eigenvalues** of $A^TA$ (or $AA^T$).
+- $U$ and $V$ have orthonormal columns, so $U^TU = I_m$ and $V^TV = I_n$.
+- The **rank** of $A$ is the number of **non-zero singular values** $\sigma_i$.
+- $A^TA = V \Sigma^T \Sigma V^T$ and $AA^T = U \Sigma \Sigma^T U^T$.
+
+**Geometric Interpretation**:
+   - The SVD represents a matrix $A$ as a composition of three transformations:
+     1. **Rotation** or **reflection** by $V^T$.
+     2. **Scaling** along the coordinate axes by the singular values in $\Sigma$.
+     3. **Another rotation** or **reflection** by $U$.
+   - This allows SVD to capture both the **direction** (via $U$ and $V$) and **magnitude** (via $\Sigma$) of the transformation represented by $A$.
+
+**Applications of SVD**:
+   - **Principal Component Analysis (PCA)**: SVD is used to perform PCA, where the right singular vectors (columns of $V$) represent the **principal components**.
+   - **Low-Rank Approximations**: SVD can be used to approximate $A$ by keeping only the largest $k$ singular values and their corresponding singular vectors:
+   $$
+   A \approx U_k \Sigma_k V_k^T,
+   $$
+   where $U_k$, $\Sigma_k$, and $V_k$ are matrices truncated to the first $k$ components.
+   - **Pseudo-Inverse Calculation**: For a matrix $A$, its **Moore-Penrose pseudo-inverse** $A^+$ is given by:
+   $$
+   A^+ = V \Sigma^+ U^T,
+   $$
+   where $\Sigma^+$ is obtained by taking the reciprocal of each non-zero singular value in $\Sigma$ and transposing.
+   - **Data Compression and Noise Reduction**: SVD is used in image compression, denoising, and dimensionality reduction.
+
+The SVD of a matrix is computed using **numerical algorithms** (like the Golub-Kahan algorithm). It is more computationally intensive than methods like QR decomposition but provides more detailed information.
+
+Relationship to Eigenvalues and Eigenvectors: If $A$ is a **square symmetric matrix** ($A = A^T$), the **singular values** are the **absolute values** of its **eigenvalues**, and the **left** and **right singular vectors** are the **eigenvectors** of $A$.
