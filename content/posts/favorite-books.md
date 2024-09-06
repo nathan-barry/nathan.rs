@@ -5,7 +5,7 @@ tags = ["Personal"]
 +++
 
 <script>
-let bookNumber = 154;  // Initialize book number
+let bookNumber = 155;  // Initialize book number
 
 document.addEventListener("DOMContentLoaded", function() {
   // Auto-increment book numbers
@@ -35,6 +35,12 @@ function setHovering(isHovering, element) {
 
 ## [2024 | Age 21]
 ---
+{{< book
+    title="An Introduction to Linear Algebra"
+    author="Gilbert Strang"
+    special=""
+    description="I went back through this textbook and took notes over it. I like having notes over 'core' math like this that I can go back to time to time. Most of my classes this semester is heavy with linear algebra, so I thought it would be a good time to refresh my memory.">}}
+
 {{< book
     title="When Einstein Walked with Gödel"
     author="Jim Holt"
