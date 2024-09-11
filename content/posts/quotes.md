@@ -40,3 +40,13 @@ Mel was, I think, an unsung genius."
 "C++ is a hammer, but then everything starts to look like your finger"
 <br>— textlapse, hackernews user
 
+"What you seek is seeking you"
+<br>— Jalāl al-Dīn Muḥammad Rūmī
+
+"No matter how isolated you are and how lonely you feel, if you do your work truly and conscientiously, unknown friends will come and seek you."
+<br>— Carl Jung
+
+
+
+
+
