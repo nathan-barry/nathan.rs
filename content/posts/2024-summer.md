@@ -23,7 +23,6 @@ tags = ["Personal"]
 
 
 ### Miscellaneous
-{{% checked %}} Visit Roma in the Bay area, see Arpan and other friends (9 day trip) {{% /checked %}}
 {{% checked %}} Get decent at cooking {{% /checked %}}
 {{% checked %}} Recreate an Instagram account finally (deleted my old one years ago) {{% /checked %}}
 {{% checked %}} Fix metadata of my photos (out of chronological order, duplicates, annoying me for years) {{% /checked %}}

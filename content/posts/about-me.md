@@ -17,7 +17,7 @@ tags = ["Personal"]
 
 I am a Computer Science and Mathematics major at UT Austin. I was born in Saint Joseph, Missouri. I started programming in 2017 my freshman year of high school, with Python and JavaScript, serving PyTorch models with Flask and React. Currently, I spend most of my time on schoolwork, side projects, and (hopefully) writing.
 
-In my free time, I enjoy climbing, biking, playing ultimate frisbee, bowling, and [reading](/posts/favorite-books/). I also enjoy spending time with my lovely girlfriend, [Roma Mudnal](https://romamudnal.com).
+In my free time, I enjoy climbing, biking, playing ultimate frisbee, bowling, and [reading](/posts/favorite-books/).
 
 > "His answer to every problem, every setback, was 'I will work harder!' – which he had adopted as his personal motto."--- George Orwell, Animal Farm
 
