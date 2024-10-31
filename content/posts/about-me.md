@@ -15,7 +15,7 @@ tags = ["Personal"]
 ---
 <!-- <span class="sidenote"><b>Image Backstory:</b> There were once raccoons living in my attic. I caught them and released them away from my house. I took a photo with each one caught (this is raccoon #3 in the sacrificial demon cave).</span> -->
 
-I am a Computer Science and Mathematics major at UT Austin. I was born in Saint Joseph, Missouri. I started programming in 2017 my freshman year of high school, with Python and JavaScript, serving PyTorch models with Flask and React. Currently, I spend most of my time on schoolwork, side projects, and (hopefully) writing.
+I am a Computer Science masters student at UT Austin. I double majored in Computer Science and Mathematics at UT Austin for undergrad. I was born in Saint Joseph, Missouri. I started programming in 2017 my freshman year of high school, with Python and JavaScript, serving PyTorch models with Flask and React. Now (7 years later) I'm focused on low-level systems, theoretical machine learning, distributed systems, and robotics.
 
 In my free time, I enjoy climbing, biking, playing ultimate frisbee, bowling, and [reading](/posts/favorite-books/).
 
