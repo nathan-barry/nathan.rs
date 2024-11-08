@@ -5,7 +5,6 @@ tags = ["Personal"]
 +++
 
 
-
 ### Books Read
 {{% checked %}} Writing A Compiler In Go {{% /checked %}}
 {{% checked %}} The Cathedral & The Bazaar {{% /checked %}}
@@ -39,4 +38,3 @@ tags = ["Personal"]
 
 ### Reflections
 It was an alright summer. Read plenty of books, learned Go really well, learned more about C and C++, got pretty good at Leetcode, and did a bunch of other small things. Nothing too exciting or great, just another stretch of time of me doing things I should do and learning things I should learn.
-The main upshot of this summer is that it should help land me a good internship next summer. If I do get a great internship, it will have been because of the Leetcode prep and the very interesting project I got to work on over the summer for research at ARL.
