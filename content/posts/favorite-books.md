@@ -5,7 +5,7 @@ tags = ["Personal"]
 +++
 
 <script>
-let bookNumber = 155;  // Initialize book number
+let bookNumber = 156;  // Initialize book number
 
 document.addEventListener("DOMContentLoaded", function() {
   // Auto-increment book numbers
@@ -35,6 +35,12 @@ function setHovering(isHovering, element) {
 
 ## [2024 | Age 21]
 ---
+{{< book
+    title="Nexus"
+    author="Yuval Noah Harari"
+    special=""
+    description="">}}
+
 {{< book
     title="An Introduction to Linear Algebra"
     author="Gilbert Strang"
