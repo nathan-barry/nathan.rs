@@ -2,7 +2,7 @@
 title = "This Mountain We Climb"
 description = "This is a poem that I wrote my senior year of high school in AP Literature. It is one of the few written pieces I have of when I was younger."
 date = 2021-03-03
-tags = ["Misc"]
+tags = ["Writings"]
 +++
 
 
