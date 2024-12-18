@@ -2,7 +2,7 @@
 title = "Where Rust Shines: Algebraic Types and Match Statements"
 description = "This is a blog post about the positive ergonomics of algebraic types and enums. A more correct title might be \"where ML derived languages shine\" as this isn't unique to just rust."
 date = 2023-11-11T08:51:57-06:00
-tags = ["Rust"]
+tags = ["Programming"]
 +++
 
 Recently I was going through Thorsten Ball's "Writing An Interpreter in Go". In this book, you create a basic interpreted language and write a lexer, parser, evaluator, and REPL for it. 
