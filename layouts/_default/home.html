@@ -76,14 +76,24 @@
         <!-- Primary Posts -->
         {{ range $name, $pages := .Site.Taxonomies.tags }}
             <!-- Filter out tags here -->
-            {{ if not (or (strings.HasSuffix $name "-notes") (in (slice "misc" "personal" "note-topics") $name)) }}
+            {{ if not (or (strings.HasSuffix $name "-notes") (in (slice "personal") $name)) }}
             <div class="tag-column">
                 <h3><a href="/tags/{{ $name }}">{{ $name | humanize | title }}</a></h3>
                 <hr>
-                {{ range .Pages }}
+                <!-- Check if there are more than 5 posts and limit display to the first 5 -->
+                {{ $postsToShow := .Pages }}
+                {{ if gt (len .Pages) 5 }}
+                    {{ $postsToShow = first 5 .Pages }}
+                {{ end }}
+                <!-- Display posts -->
+                {{ range $postsToShow }}
                 <h5 class="list-link">
                     &#x2727;&nbsp; <a href="{{ .RelPermalink }}">{{ .Title }}</a>
                 </h5>
+                {{ end }}
+                <!-- Display 'View All' link if there are more than 5 posts -->
+                {{ if gt (len .Pages) 5 }}
+                    <h5><i><a class="view-all" href="/tags/{{ $name }}">View All ({{ len .Pages }})</a></i></h5>
                 {{ end }}
             </div>
             {{ end }}
@@ -92,14 +102,24 @@
         <!-- Secondary Posts -->
         {{ range $name, $pages := .Site.Taxonomies.tags }}
             <!-- Add tag here -->
-            {{ if (in (slice "misc") $name) }}
+            {{ if (in (slice ) $name) }}
             <div class="tag-column">
                 <h3><a href="/tags/{{ $name }}">{{ $name | humanize | title }}</a></h3>
                 <hr>
-                {{ range .Pages }}
+                <!-- Check if there are more than 5 posts and limit display to the first 5 -->
+                {{ $postsToShow := .Pages }}
+                {{ if gt (len .Pages) 5 }}
+                    {{ $postsToShow = first 5 .Pages }}
+                {{ end }}
+                <!-- Display posts -->
+                {{ range $postsToShow }}
                 <h5 class="list-link">
                     &#x2727;&nbsp; <a href="{{ .RelPermalink }}">{{ .Title }}</a>
                 </h5>
+                {{ end }}
+                <!-- Display 'View All' link if there are more than 5 posts -->
+                {{ if gt (len .Pages) 5 }}
+                    <h5><i><a class="view-all" href="/tags/{{ $name }}">View All ({{ len .Pages }})</a></i></h5>
                 {{ end }}
             </div>
             {{ end }}
