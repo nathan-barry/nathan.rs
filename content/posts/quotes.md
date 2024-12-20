@@ -45,8 +45,18 @@ Mel was, I think, an unsung genius."
 "No matter how isolated you are and how lonely you feel, if you do your work truly and conscientiously, unknown friends will come and seek you."
 <br>— Carl Jung
 
-The truth is that as a man's real power grows and his knowledge widens, ever the way he can follow grows narrower: until at last he chooses nothing, but does only and wholly what he must do.
+"The truth is that as a man's real power grows and his knowledge widens, ever the way he can follow grows narrower: until at last he chooses nothing, but does only and wholly what he must do."
 <br>— Ursula K. Le Guin
+
+"The thoughts of others\
+Were light and fleeting,\
+Of lovers' meeting\
+Or luck or fame.\
+Mine were of trouble,\
+And mine were steady;\
+So I was ready\
+When trouble came.”
+<br>— A.E. Housman
 
 
 
