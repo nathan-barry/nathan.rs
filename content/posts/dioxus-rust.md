@@ -229,9 +229,6 @@ pub fn Home(cx: Scope) -> Element {
 
 Like React, Dioxus has a `use_effect` hook that fires whenever the page loads. All we need to do to execute JS code is call `js_sys::eval(js_code)`. Thus, we can interact with JavaScript libraries directly in rust.
 
-In another post, I'll talk about I discovered a memory leak when testing my Conway's Game of Life implementation and what was my eventual solution, along with the implementation details on interacting directly with the DOM via the web-sys API. I’ll link it here whenever I get around to it.
-
-
 
 ## Conclusion
 ---

@@ -57,7 +57,3 @@ And mine were steady;\
 So I was ready\
 When trouble came.”
 <br>— A.E. Housman
-
-
-
-
