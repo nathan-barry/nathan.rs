@@ -57,3 +57,6 @@ And mine were steady;\
 So I was ready\
 When trouble came.”
 <br>— A.E. Housman
+
+“I used to analyze myself down to the last thread, used to compare myself with others, recalled all the smallest glances, smiles and words of those to whom I’d tried to be frank, interpreted everything in a bad light, laughed viciously at my attempts ‘to be like the rest’ –and suddenly, in the midst of my laughing, I’d give way to sadness, fall into ludicrous despondency and once again start the whole process all over again – in short, I went round and round like a squirrel on a wheel.”
+<br>— Fyodor Dostoevsky, Crime and Punishment

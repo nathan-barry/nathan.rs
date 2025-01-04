@@ -5,7 +5,7 @@ tags = ["Personal"]
 +++
 
 <script>
-let bookNumber = 157;  // Initialize book number
+let bookNumber = 158;  // Initialize book number
 
 document.addEventListener("DOMContentLoaded", function() {
   // Auto-increment book numbers
@@ -35,6 +35,12 @@ function setHovering(isHovering, element) {
 
 ## [2024 | Age 21]
 ---
+{{< book
+    title="Mere Christianity"
+    author="C.S. Lewis"
+    special=""
+    description="">}}
+
 {{< book
     title="Poor Charlie's Almanack"
     author="Peter D. Kaufman"
