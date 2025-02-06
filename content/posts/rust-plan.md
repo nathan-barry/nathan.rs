@@ -19,6 +19,7 @@ Things to do:
 - [ ] Rust Quantum Computing language interpreter
 - [ ] Rust WASM in-browser fractal renderer
 - [ ] Rust WASM in-browser terminal and VM
+- [ ] Rust static site generator (redo my website)
 
 
 
