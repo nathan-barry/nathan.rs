@@ -31,16 +31,16 @@ function setHovering(isHovering, element) {
 }
 </script>
 
-
+## [2025 | Age 22]
+---
+{{< book
+    title="The Nvidia Way"
+    author="Tae Kim"
+    special="true"
+    description="A great book about the start of Nvidia. Honestly seems like a great company to work at. High standards, flat structure, collaborative culture, and smart hardworking people. Fantastic vision from leadership (Jensen), predicting the rise of general purpose GPU programming (with CUDA) and the importance of machine learning. One step ahead for 30 years.">}}
 
 ## [2024 | Age 21]
 ---
-{{< book
-    title="Mere Christianity"
-    author="C.S. Lewis"
-    special=""
-    description="">}}
-
 {{< book
     title="Poor Charlie's Almanack"
     author="Peter D. Kaufman"
