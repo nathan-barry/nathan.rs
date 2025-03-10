@@ -29,7 +29,7 @@
             {{ $filteredPages := slice }}
             {{ range $name, $pages := .Site.Taxonomies.tags }}
                 <!-- Filter out notes -->
-                {{ if not (strings.HasSuffix $name "-notes")}}
+                {{ if not (strings.HasSuffix $name "notes")}}
                     {{ range $pages }}
                         {{ $filteredPages = $filteredPages | append . }}
                     {{ end }}
@@ -49,7 +49,7 @@
             {{ $filteredPages := slice }}
             {{ range $name, $pages := .Site.Taxonomies.tags }}
                 <!-- Filter out posts -->
-                {{ if strings.HasSuffix $name "-notes" }}
+                {{ if strings.HasSuffix $name "notes" }}
                     {{ range $pages }}
                         {{ $filteredPages = $filteredPages | append . }}
                     {{ end }}
@@ -76,9 +76,9 @@
         <!-- Primary Posts -->
         {{ range $name, $pages := .Site.Taxonomies.tags }}
             <!-- Filter out tags here -->
-            {{ if not (or (strings.HasSuffix $name "-notes") (in (slice "personal") $name)) }}
+            {{ if not (or (strings.HasSuffix $name "notes") (in (slice "personal") $name)) }}
             <div class="tag-column">
-                <h3><a href="/tags/{{ $name }}">{{ $name | humanize | title }}</a></h3>
+                <h3><a href="/tags/{{ $name | urlize }}">{{ $name | humanize | title }}</a></h3>
                 <hr>
                 <!-- Check if there are more than 5 posts and limit display to the first 5 -->
                 {{ $postsToShow := .Pages }}
@@ -93,7 +93,7 @@
                 {{ end }}
                 <!-- Display 'View All' link if there are more than 5 posts -->
                 {{ if gt (len .Pages) 5 }}
-                    <h5><i><a class="view-all" href="/tags/{{ $name }}">View All ({{ len .Pages }})</a></i></h5>
+                    <h5><i><a class="view-all" href="/tags/{{ $name | urlize }}">View All ({{ len .Pages }})</a></i></h5>
                 {{ end }}
             </div>
             {{ end }}
@@ -135,9 +135,9 @@
    <div class="tag-columns">
         <!-- Notes -->
         {{ range $name, $pages := .Site.Taxonomies.tags }}
-            {{ if strings.HasSuffix $name "-notes" }}
+            {{ if strings.HasSuffix $name "notes" }}
             <div class="tag-column">
-                <h3><a href="/tags/{{ $name }}">{{ $name | humanize | title }}</a></h3>
+                <h3><a href="/tags/{{ $name | urlize}}">{{ $name | humanize | title }}</a></h3>
                 <hr>
 
                 <!-- Sort posts by priority -->
@@ -158,7 +158,7 @@
 
                 <!-- Display 'View All' link if there are more than 5 posts -->
                 {{ if gt (len $sortedPosts) 5 }}
-                    <h5><i><a class="view-all" href="/tags/{{ $name }}">View All ({{ len $sortedPosts }})</a></i></h5>
+                    <h5><i><a class="view-all" href="/tags/{{ $name | urlize }}">View All ({{ len $sortedPosts }})</a></i></h5>
                 {{ end }}
             </div>
             {{ end }}
