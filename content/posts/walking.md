@@ -3,6 +3,7 @@ title = "Walking"
 description = ""
 date = 2024-12-18T12:21:35-06:00
 tags = ["Writings"]
+draft = true
 +++
 
 I found myself walking outside and staring at the leaves. Walking is something I find myself doing when I’m deep in thought, pondering about the complexities of life. Usually, it is in a circle in whatever room I find myself to occupy. I mindlessly stare at the floor, automatically and unconsciously moving one foot after another. I tend to walk in a counterclockwise circle, but I consciously switch to avoid any uneven wearing of my knees.
