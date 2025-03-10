@@ -31,6 +31,7 @@ function setHovering(isHovering, element) {
 }
 </script>
 
+
 ## [2025 | Age 22]
 ---
 {{< book
