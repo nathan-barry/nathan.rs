@@ -35,6 +35,18 @@ function setHovering(isHovering, element) {
 ## [2025 | Age 22]
 ---
 {{< book
+    title="All Systems Red"
+    author="Martha Wells"
+    special="false"
+    description="I had to read this for a class. It's pretty decent and is a fast read. I've never read sci-fi that much (as you can see below) but this book was pretty palatable.">}}
+
+{{< book
+    title="No Rules Rules"
+    author="Reed Hastings & Erin Meyer"
+    special="false"
+    description="This book is about Netflix. It's more similar to the book 'How Google Works' in that it's not a history of the company, but more of a description of the company culture. It's moderately interesting. Doesn't mean much to me now but probably will later.">}}
+
+{{< book
     title="The Nvidia Way"
     author="Tae Kim"
     special="true"
