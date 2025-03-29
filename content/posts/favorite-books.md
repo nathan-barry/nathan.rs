@@ -5,7 +5,7 @@ tags = ["Personal"]
 +++
 
 <script>
-let bookNumber = 158;  // Initialize book number
+let bookNumber = 161;  // Initialize book number
 
 document.addEventListener("DOMContentLoaded", function() {
   // Auto-increment book numbers
@@ -34,6 +34,12 @@ function setHovering(isHovering, element) {
 
 ## [2025 | Age 22]
 ---
+{{< book
+    title="The Innovator's Dilemma"
+    author="Clayton M. Christensen"
+    special="true"
+    description="I've always knew about this book but didn't read it until I read that it heavily influenced Jensen on how he ran Nvidia. This book actually really was good and has changed how I look at companies and their new initiatives. Very insightful. Also reminded me of Asianometry since I've watched multiple of his videos on the disk drive industry (which probably took a lot from this book).">}}
+
 {{< book
     title="All Systems Red"
     author="Martha Wells"
