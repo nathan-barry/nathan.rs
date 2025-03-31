@@ -35,6 +35,12 @@ function setHovering(isHovering, element) {
 ## [2025 | Age 22]
 ---
 {{< book
+    title="Replacing Guilt"
+    author="Nate Soares"
+    special="false"
+    description="I saw someone mentioned this on twitter. It was written by an effective altruist (way before SBF) on how to essentially be more productive and efficient. It talks about how people usually use guilt as a tool to be more productive, but how there are many cases where guilt is counter productive and how we can alter how we perceive these events to not be dragged down as much. I mainly picked it up since I've always had immense trouble allowing myself to do anything but work or to allow myself to enjoy anything that wasn't evidently productive to some end. This generally causes boom and bust cycles of productivity where you're either getting a tremendous amount done or are just completely burnt out. This actually worked pretty great during college as I became super smart and competent, but once I graduate, it is important that I start doing social things and meeting people and build that into my routine. Those things have largely been incompatible with the 'rise at 4:45 am, grind, go to be by 8 pm and never hang out with people` routine I've rocked for most of university. It feels unnatural to do anything but that, which is what I need to fix, and this books talks about a few things for that.">}}
+
+{{< book
     title="The Innovator's Dilemma"
     author="Clayton M. Christensen"
     special="true"
