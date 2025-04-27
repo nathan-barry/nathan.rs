@@ -5,7 +5,7 @@ tags = ["Personal"]
 +++
 
 <script>
-let bookNumber = 163;  // Initialize book number
+let bookNumber = 164;  // Initialize book number
 
 document.addEventListener("DOMContentLoaded", function() {
   // Auto-increment book numbers
@@ -34,6 +34,12 @@ function setHovering(isHovering, element) {
 
 ## [2025 | Age 22]
 ---
+{{< book
+    title="The Soul of a New Machine"
+    author="Tracy Kidder"
+    special="true"
+    description="This is a book that came out in 1981 covering the creation of a Data General Eclipse model. I think it does a good job at portraying the heroic in the lives we all live. The longer I exist, the more it is reinforced that in life, the proper objective function to optimize is that of adventure.">}}
+
 {{< book
     title="The World For Sale"
     author="Javier Blas & Jack Farchy"
