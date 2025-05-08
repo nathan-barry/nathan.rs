@@ -64,4 +64,5 @@ When trouble came.”
 “The day a blind man sees, the first thing he throws away is the stick that has helped him all his life”
 <br>— Unknown
 
-
+“Now, in his heart, Ahab had some glimpse of this, namely: all my means are sane, my motive and my object mad"
+<br>— Herman Melville, Moby Dick
