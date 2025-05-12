@@ -315,6 +315,11 @@ footer .theme-by {
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
   margin: 0 -10rem;
+
+}
+.first-columns {
+  /* 1em is roughly one line-height, same as one <br> */
+  margin-top: 1em;
 }
 .two-columns {
   display: grid;
@@ -379,4 +384,5 @@ footer .theme-by {
   h1 { font-size: 2rem; line-height: 2.5rem; }
   h2 { font-size: 1.5rem; line-height: 2rem; }
   img  { max-width: 90%; }
+  .first-columns { margin-top: 0rem; }
 }
