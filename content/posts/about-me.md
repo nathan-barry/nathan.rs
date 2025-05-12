@@ -5,20 +5,21 @@ tags = ["Personal"]
 +++
 
 
-<img alt="Nathan Barry" src="/images/nathan.webp">
-<p class="text-center">Me last week of college</p>
-<br>
 
 
 
 ## Nathan Barry
 ---
 
-I am a Computer Science masters student at UT Austin. I double majored in Computer Science and Mathematics at UT Austin for undergrad. I was born in Saint Joseph, Missouri. I started programming in 2017 my freshman year of high school, with Python and JavaScript, serving PyTorch models with Flask and React. Now (7 years later) I'm focused on low-level systems, theoretical machine learning, distributed systems, and robotics.
+I am a Computer Science masters student at UT Austin. I double majored in Computer Science and Mathematics at UT Austin for undergrad. I was born in Saint Joseph, Missouri. I started programming in 2017 my freshman year of high school, with Python and JavaScript, serving PyTorch models with Flask and React. Now (8 years later) I'm focused on machine learning and low-level systems.
 
 In my free time, I enjoy climbing, biking, playing ultimate frisbee, bowling, and [reading](/posts/favorite-books/).
 
-> "His answer to every problem, every setback, was 'I will work harder!' – which he had adopted as his personal motto."--- George Orwell, Animal Farm
+
+<br>
+<img alt="Nathan Barry" src="/images/nathan.webp">
+<p class="text-center">Me last week of college.</p>
+<br>
 
 
 ### Personal Records
@@ -37,6 +38,10 @@ CS:GO Rank | Gold Nova (middle school)
 Balls Juggled | 4
 Bowling Score | 203 (my proudest one!)
 
+
+<br>
+
+> "His answer to every problem, every setback, was 'I will work harder!' – which he had adopted as his personal motto."--- George Orwell, Animal Farm
 
 
 <!-- ## Life Philosophy -->
