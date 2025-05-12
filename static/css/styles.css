@@ -131,7 +131,7 @@ pre code {
 
 /* Blockquote */
 blockquote {
-  border-left: 2px solid #686868;
+  border-left: 2px solid #b4b4b4;
   font-style: italic;
   padding: 1rem 1rem 1rem 2rem;
   margin: 2rem;
@@ -224,6 +224,7 @@ caption::before {
 nav ol {
   counter-reset: item;
   padding-left: 2rem;
+  list-style: none;
 }
 nav > ul {
   counter-reset: item;
