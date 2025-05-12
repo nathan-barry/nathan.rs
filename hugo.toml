@@ -13,4 +13,4 @@ enableInlineShortcodes = true
       startLevel = 2
       endLevel = 3
   [markup.highlight]
-    style = "gruvbox"
+    style = "github"

@@ -5,6 +5,9 @@ date = 2023-11-11T08:51:57-06:00
 tags = ["Programming"]
 +++
 
+## One Recent Example
+---
+
 Recently I was going through Thorsten Ball's "Writing An Interpreter in Go". In this book, you create a basic interpreted language and write a lexer, parser, evaluator, and REPL for it. 
 
 A Lexer takes in source code and turns it into an intermediate representation, usually in the form of a string of tokens. This is called Lexical Analysis. A parser usually takes this stream of tokens and turns it into an Abstract Syntax Tree which is then evaluated and run.
