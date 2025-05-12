@@ -30,11 +30,11 @@ $$\sigma\big(\sum w_i  x_i + b\big) = z$$
 
 What is going on above? We have a list of inputs, $[x_1, x_2, ... , x_n]$, and each input has the corresponding weight $w_i$. All that a neuron does is take the *weighted sum* of the inputs (with an added scalar bias) and pass it through an activation function. An activation function is just a nonlinear function that is required to get interesting results. Multiple layers without activation functions can be collapsed into one layer.
 
-With a neural network with one neuron, our network will just simply be the input multiplied by a weight (some simple problems don't require an activation function because they can properly be represented by just one layer. For more, look into the XOR Perceptron problem).
+With a neural network with one neuron, our network will just simply be the input multiplied by a weight.
 
 $$wx = y$$
 
-Normally we initialize the weight to a random value from the normal distribution. Let's say $w=0.4$. We need a loss function that tells the model how incorrect its current prediction is. If we had $x=2$ and plugged it in, we would get $y_{pred} = 0.8$ while the correct output is $y=4$.
+Normally we initialize the weight to a random value. Let's say we sample from the normal distribution and happen to get $w=0.4$. We need a loss function that tells the model how incorrect its current prediction is. If we had $x=2$ and plugged it in, we would get $y_{pred} = 0.8$ while the correct output is $y=4$.
 
 For problems like this, we typically use mean squared error loss:
 
