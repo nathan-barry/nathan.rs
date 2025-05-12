@@ -75,7 +75,7 @@ Finally, we can answer our original question. An autograd engine is a program th
 
 This is typically done by creating a computation graph which is a tree that represents an expression into its operands and operators. An image is a worth thousand words, the image below should give you a good idea:
 
-<img alt="micrograd computation graph" src="/images/micrograd-graphviz.webp">
+<img alt="micrograd computation graph" style="border: none; max-width: 100%; margin: 10px 0" src="/images/micrograd-graphviz.webp">
 
 This image is a computation graph visual generated from Andrej Karpathy's micrograd repo. Micrograd is a small scalar-based autograd engine written in Python. It in total is only a couple hundred lines of code, and I highly recommend anyone who hasn't seen it to watch it.
 

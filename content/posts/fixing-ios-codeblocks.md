@@ -14,8 +14,8 @@ Below are a few screenshots I've taken for websites that I've seen this on:
 
 
 <div class="two-columns">
-<img alt="iovec.net code block issue" src="/images/IMG_9051.png">
-<img alt="shyam.blog code block issue" src="/images/IMG_9057.png">
+<img alt="iovec.net code block issue" src="/images/ios1.png">
+<img alt="shyam.blog code block issue" src="/images/ios2.png">
 </div>
 
 As you can see, the text-size isn't uniform across code block lines. I've seen this issue across many blogs that compile markdown files to HTML such as sites built using Hugo, Jekyll, or even [custom md-to-html shell scripts](https://github.com/git-bruh/site).
@@ -53,8 +53,8 @@ I did some investigation on my own site by removing the CSS snippet. After looki
 Below are two screenshots of different code blocks on my site:
 
 <div class="two-columns">
-<img alt="nathan.rs short code block, no issue" src="/images/IMG_9069.png">
-<img alt="shyam.blog long lines in code block, issue" src="/images/IMG_9077.png">
+<img alt="nathan.rs short code block, no issue" src="/images/ios3.png">
+<img alt="shyam.blog long lines in code block, issue" src="/images/ios4.png">
 </div>
 
 In both images, the only lines that are rendered large are the long ones. This has been true for every code block I've looked at.
