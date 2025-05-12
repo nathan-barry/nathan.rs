@@ -5,9 +5,9 @@ tags = ["Personal"]
 +++
 
 
-<!-- <img alt="Me in high school. Fellow Raccoon lover." src="/images/raccoon2.webp"> -->
-<!-- <p class="text-center">Me in high school (Yes I used Arch Linux, how could you tell?)</p> -->
-<!-- <br> -->
+<img alt="Nathan Barry" src="/images/nathan.webp">
+<p class="text-center">Me last week of college</p>
+<br>
 
 
 

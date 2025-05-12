@@ -6,6 +6,7 @@ tags = ["Programming"]
 
 
 ## The Rendering Issue
+---
 
 Lately, I've been coming across many blogs that have weird font-size rendering issues for code blocks on iOS. Basically, in a code snippet, the text-size would sometimes be much larger for some lines than others.
 
@@ -22,6 +23,7 @@ As you can see, the text-size isn't uniform across code block lines. I've seen t
 This issue seems to happen on every browser on iOS (Safari, Firefox, and Chrome in my testing).
 
 ## Solution
+---
 
 I previously spotted this issue when I was originally setting up this site. Luckily, there seems to be an easy solution.
 
@@ -42,6 +44,7 @@ This should fix the rendering issue and make the text-size in code blocks look c
 If I have sent you this post, it means that I've spotted this issue on your site. Should be an easy fix.
 
 ## What might cause this?
+---
 
 The CSS snippet above explicitly tells the browser to render the text size at its original size (the `-ms`, `-moz`, and `-webkit` are for IE, Firefox, and Safari respectively). Without this, the browser decides it's fine to change the text size for certain lines. But why?
 
@@ -56,7 +59,8 @@ Below are two screenshots of different code blocks on my site:
 
 In both images, the only lines that are rendered large are the long ones. This has been true for every code block I've looked at.
 
-### My Guess
+## My Guess
+---
 
 Let's look at the code block below:
 

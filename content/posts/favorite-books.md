@@ -1,6 +1,6 @@
 +++
 title = "Favorite Books"
-description = "I've always enjoyed seeing what books other people have read. Below are all the books I've read since middle school, roughly in order. Those highlighted orange were those I particularly enjoyed or found impactful. An asterisk (*) indicates you can click to see some of my thoughts on the book :)"
+description = "I've always enjoyed seeing what books other people have read. Below are all the books I've read since middle school, roughly in order. Those highlighted in purple were those I particularly enjoyed or found impactful. An asterisk (*) indicates you can click to see some of my thoughts on the book :)"
 tags = ["Personal"]
 +++
 
@@ -32,7 +32,7 @@ function setHovering(isHovering, element) {
 </script>
 
 
-## [2025 | Age 22]
+## 2025 -- Age 22
 ---
 {{< book
     title="The Soul of a New Machine"
@@ -76,7 +76,7 @@ function setHovering(isHovering, element) {
     special="true"
     description="A great book about the start of Nvidia. Honestly seems like a great company to work at. High standards, flat structure, collaborative culture, and smart hardworking people. Fantastic vision from leadership (Jensen), predicting the rise of general purpose GPU programming (with CUDA) and the importance of machine learning. One step ahead for 30 years.">}}
 
-## [2024 | Age 21]
+## 2024 -- Age 21
 ---
 {{< book
     title="Poor Charlie's Almanack"
@@ -192,7 +192,7 @@ function setHovering(isHovering, element) {
     special=""
     description="" >}}
 
-## [2023 | Age 20]
+## 2023 -- Age 20
 ---
 {{< book
     title="Napoleon"
@@ -378,7 +378,7 @@ function setHovering(isHovering, element) {
 
 
 
-## [2022 | Age 19]
+## 2022 -- Age 19
 ---
 {{< book
     title="A Beautiful Mind"
@@ -463,7 +463,7 @@ function setHovering(isHovering, element) {
 
 
 
-## [2021 | Age 18]
+## 2021 -- Age 18
 ---
 {{< book
     title="The Sovereign Individual"
@@ -640,7 +640,7 @@ function setHovering(isHovering, element) {
 
 
 
-## [2020 | Age 17]
+## 2020 -- Age 17
 ---
 {{< book
     title="Memories, Dreams, Reflections"
@@ -745,7 +745,7 @@ function setHovering(isHovering, element) {
 
 
 
-## [2019 | Age 16]
+## 2019 -- Age 16
 ---
 {{< book
     title="The Tipping Point"
@@ -861,7 +861,7 @@ function setHovering(isHovering, element) {
 
 
 
-## [2018 | Age 15]
+## 2018 -- Age 15
 ---
 {{< book
     title="The Richest Man In Babylon"
@@ -916,7 +916,7 @@ function setHovering(isHovering, element) {
 
 
 
-## [2017 | Age 14]
+## 2017 -- Age 14
 ---
 {{< book
     title="To Kill A Mockingbird"
@@ -957,7 +957,7 @@ function setHovering(isHovering, element) {
 
 
 
-## [2016 | Age 13]
+## 2016 -- Age 13
 ---
 {{< book
     title="The 48 Laws Of Power"
