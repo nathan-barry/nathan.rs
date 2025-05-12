@@ -36,6 +36,3 @@ tags = ["Personal"]
 
 ### Reflections
 I had an alright summer. Read plenty of books, learned Go really well, learned more about C and C++, got pretty good at Leetcode, and did a bunch of other small things. Nothing too exciting or great, just another stretch of time of me doing things I should do and learning things I should learn. Chipping away at the stone some more.
-
-### Reflections from 2025
-Seems like I'm finally starting to reap the seeds I've been sowing for all this time. It is strange on how much we don't know when we are younger. Me at 16 would find me now utterly impressive and incomprehensible. I suppose that's why wisdom generally falls on deaf ears, and we only see it from one side. There has been many times when I have greatly emphasized to a younger person the foresight I wish I had, just to see it go to the bin, while I cannot recall a time I was on the other end. It is times like these when the phrase "wisdom is earned, it cannot be given" rings true.

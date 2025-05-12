@@ -323,7 +323,7 @@ This is the most simple and obvious scheduling policy you can think of.
 
 - Often referred to as **First-In-First-Out (FIFO)**.
 - The scheduler executes jobs based on their arrival sequence.
-- Jobs run continuously until they either conclude or block due to I/O operations. {{%sidenote%}}In the earlier iterations of FCFS schedulers, a job would retain control of the CPU, even during its I/O operations.{{%/sidenote%}}
+- Jobs run continuously until they either conclude or block due to I/O operations (In the earlier iterations of FCFS schedulers, a job would retain control of the CPU, even during its I/O operations).
 
 
 ### Round Robin

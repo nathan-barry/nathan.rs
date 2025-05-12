@@ -137,7 +137,7 @@ The random variable \(X\) is called a <b>negative binomial random variable</b> w
 - $p$ - Probability of success
 
 #### Main Properties
-- Expected Value: {{%sidenote%}}The mean and variance is the same as the geometric distribution, but multiplied by $r${{%/sidenote%}}
+- Expected Value: (The mean and variance is the same as the geometric distribution, but multiplied by $r$)
 $$E[X ]=\frac{rq}{p}$$
 
 - Variance: 
@@ -318,7 +318,7 @@ $$X=a\cdot Z+b$$
 - Density Function:
 $$f_Z(z)=\frac1{\sqrt{2\pi}}e^{-(z^2/2)}\qquad -\infty<z<\infty$$
 
-- CDF: {{%sidenote%}}There's no good way to get the CDF. Use a lookup table for probabilities.{{%/sidenote%}}
+- CDF: (There's no good way to get the CDF. Use a lookup table for probabilities)
     $$F_Z(z)=\int_{-\infty}^zf_Z(u) du$$
 
 

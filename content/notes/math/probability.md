@@ -58,7 +58,7 @@ Given a set of $n$ *distinguishable* objects, an *ordered selection* (order matt
 
 Lets say we are betting on a horse race. There are 14 horses. A trifecta bet consists of selecting the first three finishers in order (1st, 2nd, and 3rd).
 
-14 can get 1st, but the winning horse cannot also finish 2nd, so only the 13 remaining horses can get 2nd. Similarly, only 12 horses can be selected for 3rd.{{%sidenote%}}Permutations are similar to combinations, but since order matters (while it doesn't in combinations), the amount of different possible outcomes are much higher.{{%/sidenote%}}
+14 can get 1st, but the winning horse cannot also finish 2nd, so only the 13 remaining horses can get 2nd. Similarly, only 12 horses can be selected for 3rd (Permutations are similar to combinations, but since order matters (while it doesn't in combinations), the amount of different possible outcomes are much higher).
 
 $$14\cdot13\cdot12=2184$$
 
@@ -234,7 +234,7 @@ With a fair coin, the sample space is $U = \{H, T\}$, with heads and tails both 
 
 #### Properties
 
-Here are some basic properties of probability.{{%sidenote%}}Some taken from Arian Maleki and Tom Do's *Review of Probability Theory* material.{{%/sidenote%}} Let A and B both be event spaces:
+Here are some basic properties of probability (some taken from Arian Maleki and Tom Do's *Review of Probability Theory* material). Let A and B both be event spaces:
 
 1. If the A is a subset of B, then the probability of A is less than the probability of B.
 $$A\subseteq B\implies Pr(A) \leq Pr(B)$$
@@ -393,7 +393,7 @@ Likewise, measures of dispersion is used to measure how spread out the values of
 - Standard Deviation
 - Coefficient of Variation
 
-We'll cover the most important and commonly used: expected value, variance, and standard deviation.{{%sidenote%}}The rest can be found in the Appendix{{%/sidenote%}}
+We'll cover the most important and commonly used: expected value, variance, and standard deviation (the rest can be found in the Appendix).
 
 
 <br>
@@ -902,7 +902,7 @@ If $x_1, x_2, \cdots, x_n$ are $n$ data points arranged in ascending order, then
 #### Quartiles
 
 - The **first quartile** corresponds to the 25th percentile and is denoted: $Q_1$
-- The **second quartile** corresponds to the 50th percentile and is denoted: $Q_2${{%sidenote%}}Median is the same as the 50th percentile{{%/sidenote%}}
+- The **second quartile** corresponds to the 50th percentile and is denoted: $Q_2$
 - The **third quartile** corresponds to the 75th percentile and is denoted: $Q_3$
 
 

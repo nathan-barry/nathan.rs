@@ -292,7 +292,7 @@ If the limit $L$ of a series does not exist and $L \neq 0$, aka:
 
 $$\lim_{n\rightarrow\infty} a_n \quad \text{does not exist}\quad or \quad\lim_{n\rightarrow\infty}\neq0$$ then the series $\sum_{n=1}^\infty a_n$ is divergent.
 
-It makes sense since if the limit of $a_n$ doesn't converge to 0, then you will be adding an infinite amount of positive numbers which will of course sum to infinity (meaning that the series will diverge).{{%sidenote%}}Note: Rule does not work in reverse. If the limit does exist and is equal to 0, you cannot conclude that it is convergent.{{%/sidenote%}}
+It makes sense since if the limit of $a_n$ doesn't converge to 0, then you will be adding an infinite amount of positive numbers which will of course sum to infinity (meaning that the series will diverge). Note: Rule does not work in reverse. If the limit does exist and is equal to 0, you cannot conclude that it is convergent.
 
 
 **Example**
@@ -311,7 +311,7 @@ Suppose $f$ is a continuous, positive, decreasing function on $[1, \infty)$ and 
 1. If $\int_1^\infty f(x) dx$ is convergent, then $\sum_{n=1}^\infty a_n$ is convergent.
 2. If $\int_1^\infty f(x) dx$ is divergent, then $\sum_{n=1}^\infty a_n$ is divergent.
 
-For the integral test to apply to a series, it must satisfy four special conditions.{{%sidenote%}}The four conditions generalizes for $[K, \infty)$ for some $K\ge1$.{{%/sidenote%}}
+For the integral test to apply to a series, it must satisfy four special conditions (The four conditions generalizes for $[K, \infty)$ for some $K\ge1$).
 
 1. Function $f$ is *continuous* on $[1, \infty)$
 2. Function $f$ is *positive*, aka $f(x)\ge 0$ on $[1,\infty)$
@@ -1054,7 +1054,7 @@ $$\frac{dy}{dx}+P(x)y=Q(x)$$
 
 where $P$ and $Q$ are continuous functions on a given interval.
 
-An example of a linear equation is $xy^\prime+y=2x$ because, for $x\neq0$, it{{%sidenote%}}Notice that this is not a separable equation because it is impossible to factor the expression for $y^\prime$ as a function of $x$ times a function of $y$.{{%/sidenote%}} can be written in the form
+An example of a linear equation is $xy^\prime+y=2x$ because, for $x\neq0$, it (notice that this is not a separable equation because it is impossible to factor the expression for $y^\prime$ as a function of $x$ times a function of $y$) can be written in the form
 
 $$y^\prime+\frac1xy=2$$
 

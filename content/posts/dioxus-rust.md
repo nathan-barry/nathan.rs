@@ -13,9 +13,9 @@ tags = ["Programming"]
 ---
 I’ve been using React and Next.js for front-end development ever since high school, it was one of the first few things I learned when it came to programming. Recently, I’ve had the itch to learn something new, specifically Rust front-end. As someone with a ".rs" domain, it felt like an inevitable fate. Finally, I can say I put the ".rs" in the "nathan.rs".
 
-The front-end Rust ecosystem has come a long way in the last few years. We are at a point where we now have Rust frameworks that are actually somewhat usable{{%sidenote%}}Huge asterisk{{%/sidenote%}}.While frameworks like Svelte, Astro, and Solid are making people rethink their approach to front-end development, Rust frameworks like Leptos and Dioxus are also maturing.
+The front-end Rust ecosystem has come a long way in the last few years. We are at a point where we now have Rust frameworks that are actually somewhat usable (huge asterisk). While frameworks like Svelte, Astro, and Solid are making people rethink their approach to front-end development, Rust frameworks like Leptos and Dioxus are also maturing.
 
-I've never been a fan of TypeScript or JS but have always loved Rust. I decided to rewrite my website in Rust using Dioxus. In addition to being more enjoyable to work on, any Rust code I write for other personal projects, I can compile down to WebAssembly and show on this site.{{% sidenote %}} Eventually rewrote the site again with Hugo. Most of my content is just text and it is pretty unnecessary to use a SPA app just for a blog. I decided to make my site statically generated for fast load times and minimum bundle size. It is the right tool for the job. {{% /sidenote %}}
+I've never been a fan of TypeScript or JS but have always loved Rust. I decided to rewrite my website in Rust using Dioxus. In addition to being more enjoyable to work on, any Rust code I write for other personal projects, I can compile down to WebAssembly and show on this site. (Note: Eventually rewrote the site again with Hugo. Most of my content is just text and it is pretty unnecessary to use a SPA app just for a blog. I decided to make my site statically generated for fast load times and minimum bundle size. It is the right tool for the job).
 
 
 

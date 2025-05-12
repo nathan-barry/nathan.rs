@@ -29,7 +29,7 @@ $$\sigma\big(\sum w_i  x_i + b\big) = z$$
 
 What is going on above? We have a list of inputs, $[x_1, x_2, ... , x_n]$, and each input has the corresponding weight $w_i$. All that a neuron does is take the *weighted sum* of the inputs (with an added scalar bias) and pass it through an activation function. An activation function is just a nonlinear function that is required to get interesting results. Multiple layers without activation functions can be collapsed into one layer.
 
-With a neural network with one neuron, our network will just simply be the input multiplied by a weight:{{%sidenote%}}Some simple problems don't require an activation function because they can properly be represented by just one layer. For more, look into the XOR Perceptron problem.{{%/sidenote%}}
+With a neural network with one neuron, our network will just simply be the input multiplied by a weight (some simple problems don't require an activation function because they can properly be represented by just one layer. For more, look into the XOR Perceptron problem).
 
 $$wx = y$$
 
