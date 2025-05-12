@@ -8,6 +8,7 @@ tags = ["Machine Learning"]
 {{< toc >}}
 
 
+(All the code below can be found in the github repo [here](https://github.com/nathan-barry/go-micrograd))
 
 ## Neural Network Basics 
 ---
@@ -37,9 +38,9 @@ Normally we initialize the weight to a random value from the normal distribution
 
 For problems like this, we typically use mean squared error loss:
 
-$$MSE = (y_{pred} - y)^2$$
+$$MSE = \frac1{N}\sum(y_{pred} - y)^2$$
 
-For our example, with MSE as the Loss function, we would get $L = (0.8 - 4)^2 = 10.24$ (which is quite large). Ideally, the difference between our prediction and $y$ would be 0, so there is some correction to do.
+With just one data point, this simplifies to just $(y_{pred} - y)^2$. For our example, with MSE as the Loss function, we would get $L = (0.8 - 4)^2 = 10.24$ (which is quite large). Ideally, the difference between our prediction and $y$ would be 0, so there is some correction to do.
 
 To reduce the loss, we must change the weight of the neuron. This is achieved through a process called backpropagation, which computes the gradient of the loss function with respect to the weight and updates the weight in the opposite direction of the gradient.
 
@@ -49,13 +50,13 @@ $$L = (wx - y)^2$$
 
 The partial derivative of the Loss with respect to weight $w$ is:
 
-$$\frac{\delta L}{\delta w} = 2(wx-y) * x$$
+$$\frac{\partial L}{\partial w} = 2(wx-y) * x$$
 
 This gradient tells us how much a small change in weight $w$ would affect the loss. From our example, the gradient is $2(0.8 - 4) * 2 = -12.8$. Thus, if we increased $w$ from 0.4 to 0.401, the loss would decrease by 0.0128.
 
 We update the weight by subtracting the gradient from the current weight:
 
-$$w_{new} = w_{old} - \alpha \cdot \frac{\delta L}{\delta w}$$
+$$w_{new} = w_{old} - \alpha \cdot \frac{\partial L}{\partial w}$$
 
 Here, alpha is the learning rate which determines how much we change the weight by. The above three steps are separated into 3 phases:
 - The Forward Pass is plugging in $x$ to get a $y_{pred}$ and loss
@@ -73,7 +74,7 @@ Now this is just a very basic example. You can see how things get more complex w
 
 Finally, we can answer our original question. An autograd engine is a program that can automatically calculate the partial derivatives of each weight with respect to the loss. The example above was simple since we only had one weight, but we currently have models with *hundreds of billions* of weights, so having a way to automatically determine these partial derivatives is essential.
 
-This is typically done by creating a computation graph which is a tree that represents an expression into its operands and operators. An image is a worth thousand words, the image below should give you a good idea:
+This is typically done by creating a computation graph which is a directed acyclic graph (DAG) that represents an expression into its operands and operators. An image is worth a thousand words, the image below should give you a good idea:
 
 <img alt="micrograd computation graph" style="border: none; max-width: 100%; margin: 10px 0" src="/images/micrograd-graphviz.webp">
 
@@ -135,7 +136,7 @@ func main() {
 }
 ```
 
-We'll find here that when we construct a new Value via `New()`, the Value instance only contains `.Data` and has an empty `.op` and `.prev`. When we get a new Value via an operation, however, the new Value has the operation for `.op` and the previous operand Value instances. You can see how, from sequential operations, we end up forming a tree of Value instances with `.prev` as the children.
+We'll find here that when we construct a new Value via `New()`, the Value instance only contains `.Data` and has an empty `.op` and `.prev`. When we get a new Value via an operation, however, the new Value has the operation for `.op` and the previous operand Value instances. You can see how, from sequential operations, we end up forming a DAG of Value instances with `.prev` as the children.
 
 Now what is this `d.DisplayGraph` method? In Andrej Karpathy's tutorial, he uses a Python library to display a nice visual of the computation graph. The `d.DisplayGraph` method is something I wrote to print a text representation of the computation graph to the terminal.
 
@@ -310,4 +311,4 @@ data -1.0000 | grad 0.0000
 -----------------------------------------------------------
 ```
 
-That's it for now. You can check out the github repo [here](https://github.com/nathan-barry/go-micrograd). It contains a much larger model (41 parameters, 3 layers, with tanh activation functions) and the implementation details of the other operations <3.
+You can check out the github repo [here](https://github.com/nathan-barry/go-micrograd) for further implementation details. It contains a much larger model (41 parameters, 3 layers, with tanh activation functions) and the implementation details of the other operations.
