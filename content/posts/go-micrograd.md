@@ -8,14 +8,14 @@ tags = ["Machine Learning"]
 {{< toc >}}
 
 
-(All the code below can be found in the github repo [here](https://github.com/nathan-barry/go-micrograd))
+(All the code below can be found in the [github repo here](https://github.com/nathan-barry/go-micrograd))
 
 ## Neural Network Basics 
 ---
 
 For a while, I wanted to build a complete autograd engine. What is an autograd engine, you might ask? To find the answer, we first must know what a neural network is.
 
-A neural network can just be seen as a function. We pass in an input into this black box and receive an output. Normally, in a function, we define the rules on how to manipulate the input to get an output. For example, if we want a function that doubles the input, i.e $f(x) = 2x$, then all we would write is:
+A neural network can just be seen as a black-box function. We pass in an input into this black box and receive an output. Normally, in a function, we define the rules on how to manipulate the input to get an output. For example, if we want a function that doubles the input, i.e $f(x) = 2x$, then all we would write is:
 
 ```python
 def double(x):
@@ -28,7 +28,7 @@ We can train a simple neural network to model our `double(x)` function. Let our 
 
 $$\sigma\big(\sum w_i  x_i + b\big) = z$$
 
-What is going on above? We have a list of inputs, $[x_1, x_2, ... , x_n]$, and each input has the corresponding weight $w_i$. All that a neuron does is take the *weighted sum* of the inputs (with an added scalar bias) and pass it through an activation function. An activation function is just a nonlinear function that is required to get interesting results. Multiple layers without activation functions can be collapsed into one layer.
+What is going on above? We have a list of inputs, $[x_1, x_2, ... , x_n]$, and each input has the corresponding weight $w_i$. All that a neuron does is take the *weighted sum* of the inputs (with an added scalar bias) and pass it through an activation function. An activation function is just a nonlinear function that is required to get interesting results. Without them, multiple layers would have no more descriptive power than a single layer (and are thus needed to model more complex functions).
 
 With a neural network with one neuron, our network will just simply be the input multiplied by a weight.
 
@@ -311,4 +311,4 @@ data -1.0000 | grad 0.0000
 -----------------------------------------------------------
 ```
 
-You can check out the github repo [here](https://github.com/nathan-barry/go-micrograd) for further implementation details. It contains a much larger model (41 parameters, 3 layers, with tanh activation functions) and the implementation details of the other operations.
+You can check out the [github repo here](https://github.com/nathan-barry/go-micrograd) for further implementation details. It contains a much larger model (41 parameters, 3 layers, with tanh activation functions) and the implementation details of the other operations.
