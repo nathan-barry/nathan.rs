@@ -370,8 +370,9 @@ footer .theme-by {
 }
 @media (max-width: 768px) {
   .tag-columns, .two-columns { grid-template-columns: 1fr; }
-  .title { margin: 0 0 3rem; font-size: 2.25rem; }
-  blockquote { padding: .5rem .5rem .5rem 1rem; margin: 2rem 1rem; }
+  .title { margin: 0 0 2rem; font-size: 2.25rem; }
+  body { margin: 1rem auto; }
+  blockquote { padding: .5rem .5rem .5rem 1rem; margin: 1rem 1rem; }
   .katex-html { font-size: 1rem; }
   .checkbox { margin-left: 0; }
   ul, ol { padding-left: 1rem; }
