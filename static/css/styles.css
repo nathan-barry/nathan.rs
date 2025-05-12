@@ -597,6 +597,10 @@ footer .theme-by {
       font-size: 1.5rem;
       line-height: 2rem;
     }
+
+    img {
+      max-width: 85%;
+    }
 }
 
 pre {
