@@ -6,8 +6,6 @@ tags = ["Personal"]
 
 
 
-
-
 ## Nathan Barry
 ---
 
@@ -38,8 +36,6 @@ CS:GO Rank | Gold Nova (middle school)
 Balls Juggled | 4
 Bowling Score | 203 (my proudest one!)
 
-
-<br>
 
 > "His answer to every problem, every setback, was 'I will work harder!' – which he had adopted as his personal motto."--- George Orwell, Animal Farm
 

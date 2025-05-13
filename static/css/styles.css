@@ -24,7 +24,7 @@ body {
   max-width: 90ch;
   margin: 2rem auto;
   padding: 2rem 1.25rem;
-  font-family: serif;
+  font-family: sans-serif;
   line-height: 1.8;
   color: #444;
   background: #fff;
@@ -42,26 +42,31 @@ h1 {
   line-height: 3.25rem;
   margin-bottom: 1.625rem;
   text-align: center;
+  font-family: serif;
 }
 h2 {
   font-size: 1.7rem;
   line-height: 2rem;
   margin: 3rem 0 0;
+  font-family: serif;
 }
 h3 {
   font-size: 1.4rem;
   line-height: 1.625rem;
   margin: 2.5rem 0 0;
+  font-family: serif;
 }
 h4 {
   font-size: 1.2rem;
   line-height: 1.625rem;
   margin: 2rem 0 0;
+  font-family: serif;
 }
 h5 {
   font-size: 1rem;
   line-height: 1.625rem;
   margin: 0.6rem 0 0;
+  font-family: serif;
 }
 h6 {
   font-size: 1rem;
@@ -82,9 +87,6 @@ h5 + h6 { margin-top: -0.8rem; }
 p {
   text-align: left;
   hyphens: auto;
-}
-article > * + * {
-  margin-top: 1em;
 }
 
 /* Links */
@@ -245,54 +247,8 @@ ul, ol {
 }
 
 /*------------------------------------
-  6. Definitions & Theorems
+  6. Utilities & Components
 ------------------------------------*/
-dl dd {
-  text-align: center;
-}
-.theorem, .lemma {
-  counter-increment: theorem;
-  margin: 1em 0;
-  font-style: italic;
-}
-.theorem::before { content: 'Theorem ' counter(theorem) '. '; font-weight: bold; font-style: normal; }
-.lemma::before   { content: 'Lemma '   counter(theorem) '. '; font-weight: bold; font-style: normal; }
-.definition {
-  counter-increment: definition;
-  margin: 1em 0;
-}
-.definition::before { content: 'Definition ' counter(definition) '. '; font-weight: bold; }
-.proof {
-  margin: 1em 0;
-  position: relative;
-}
-.proof::before {
-  content: 'Proof. \00a0' attr(title);
-  font-style: italic;
-}
-.proof::after {
-  content: '◾️';
-  position: absolute;
-  right: -12px;
-  bottom: -2px;
-}
-
-/*------------------------------------
-  7. Utilities & Components
-------------------------------------*/
-.author {
-  margin: 0.85rem 0;
-  text-align: center;
-  font-variant-caps: small-caps;
-}
-.abstract {
-  margin: 2.25rem 0;
-  text-align: center;
-}
-.abstract > h2 {
-  font-size: 1rem;
-  margin-bottom: -0.2rem;
-}
 .view-all {
   font-style: italic;
   color: #646464;
@@ -301,15 +257,6 @@ footer .theme-by {
   text-align: center;
   margin-top: 100px;
 }
-.pager {
-  list-style: none;
-  text-align: center;
-  margin: 20px 0;
-  padding: 0;
-}
-.pager .previous a { float: left; margin-top: 20px; }
-.pager .next a     { float: right; margin-top: 20px; }
-
 .tag-columns {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
