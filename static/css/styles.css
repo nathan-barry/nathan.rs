@@ -313,7 +313,7 @@ footer .theme-by {
 }
 @media (max-width: 768px) {
   .tag-columns, .two-columns { grid-template-columns: 1fr; }
-  .title { margin: 0 0 2.5rem; font-size: 2.25rem; }
+  .title { margin: 0 0 2.75rem; font-size: 2.25rem; }
   body { margin: .75rem auto; }
   blockquote { padding: .5rem .5rem .5rem 1rem; margin: 1rem 1rem; }
   .katex-html { font-size: 1rem; }
