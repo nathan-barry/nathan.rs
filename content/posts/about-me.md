@@ -9,14 +9,14 @@ tags = ["Personal"]
 ## Nathan Barry
 ---
 
-I am a Computer Science masters student at UT Austin. I double majored in Computer Science and Mathematics at UT Austin for undergrad. I was born in Saint Joseph, Missouri. I started programming in 2017 my freshman year of high school, with Python and JavaScript, serving PyTorch models with Flask and React. Now (8 years later) I'm focused on machine learning and low-level systems.
+I am a Computer Science masters student at UT Austin. I double majored in Computer Science and Mathematics at UT Austin for undergrad. I was born in Saint Joseph, Missouri. I started programming in 2017 my freshman year of high school, with Python and JavaScript, serving PyTorch models with Flask and React. Now (some 8+ years later) I'm focused on machine learning and low-level systems.
 
-In my free time, I enjoy climbing, biking, playing ultimate frisbee, bowling, and [reading](/posts/favorite-books/).
-
+In my free time, I enjoy climbing, biking, playing ultimate frisbee, bowling, and [reading](/posts/favorite-books/). People have described me as smart, hard-working, conscientious, and a tiny bit eccentric. Below is a normal photo of me my senior year of high school (I more or less look the exact same since then).
 
 <br>
-<img alt="Nathan Barry" src="/images/nathan.webp">
-<p class="text-center">Me last week of college.</p>
+<img alt="Nathan Barry" src="/images/realcave.webp">
+<br>
+<p class="text-center">Me in high school (yes, I used Arch Linux btw, how could you tell?)</p>
 <br>
 
 

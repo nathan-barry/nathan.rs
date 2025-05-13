@@ -1,6 +1,6 @@
 +++
 title = "Intro to Autograd Engines: Karpathy's Micrograd Implemented in Go"
-description = "Below goes over the fundamentals of machine learning, along with the basics of autograd engines and how to build one."
+description = "The basics of autograd engines and how to build one."
 date = 2023-11-11T08:57:53-06:00
 tags = ["Machine Learning"]
 +++
@@ -8,9 +8,7 @@ tags = ["Machine Learning"]
 {{< toc >}}
 
 
-(All the code below can be found in the [github repo here](https://github.com/nathan-barry/go-micrograd))
-
-## Neural Network Basics 
+## What Are Neural Networks
 ---
 
 For a while, I wanted to build a complete autograd engine. What is an autograd engine, you might ask? To find the answer, we first must know what a neural network is.
