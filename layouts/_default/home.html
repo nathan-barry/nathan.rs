@@ -2,17 +2,15 @@
 <!-- HOME PAGE -->
 <div class="container" role="main">
 
-
     <!-- Top paragraph -->
     <p>I'm <a class="" href="/posts/about-me">Nathan Barry</a>, a Computer Science and Mathematics major at UT Austin. Below are my posts and notes.</p>
     <blockquote>"I believe that a man should strive for only one thing in life, and that is to have a touch of greatness"— <cite>Félix Martí-Ibáñez</cite></blockquote>
+    <br>
 
 
-
-    <div class="tag-columns first-columns">
-
+    <div class="tag-columns">
         <!-- Personal -->
-        <div class="tag-column">
+        <div>
             <h3><a href="/tags/personal">Personal</a></h3>
             <hr>
             <p class="list-link">&#x2727;&nbsp; <a class="" href="/posts/favorite-books">Favorite Books</a></p>
@@ -20,9 +18,8 @@
             <p class="list-link">&#x2751;&nbsp; <a class="" href="https://github.com/nathan-barry">Github</a></p>
             <p class="list-link">&#x2751;&nbsp; <a class="" href="https://www.linkedin.com/in/nathanbarrydev/">LinkedIn</a></p>
             <p class="list-link">&#x2751;&nbsp; <a class="" href=" https://x.com/nathanbarrydev ">X</a></p> </div>
-
         <!-- Recent Posts -->
-        <div class="tag-column">
+        <div>
             <h3><a href="/posts">Recent Posts</a></h3>
             <hr>
             {{ $filteredPages := slice }}
@@ -40,9 +37,8 @@
                 </p>
             {{ end }}
         </div>
-
         <!-- Recent Notes -->
-        <div class="tag-column">
+        <div>
             <h3><a href="/notes">Recent Notes</a></h3>
             <hr>
             {{ $filteredPages := slice }}
@@ -63,12 +59,10 @@
     </div>
 
 
-    
     <br>
     <br>
     <p class="text-center">&#x2735; &#x2735; &#x2735;</p>
     <br>
-    
 
 
     <div class="tag-columns">
@@ -76,7 +70,7 @@
         {{ range $name, $pages := .Site.Taxonomies.tags }}
             <!-- Filter out tags here -->
             {{ if not (or (strings.HasSuffix $name "notes") (in (slice "personal") $name)) }}
-            <div class="tag-column">
+            <div>
                 <h3><a href="/tags/{{ $name | urlize }}">{{ $name | humanize | title }}</a></h3>
                 <hr>
                 <!-- Check if there are more than 5 posts and limit display to the first 5 -->
@@ -97,12 +91,11 @@
             </div>
             {{ end }}
         {{ end }}
-
         <!-- Secondary Posts -->
         {{ range $name, $pages := .Site.Taxonomies.tags }}
             <!-- Add tag here -->
             {{ if (in (slice ) $name) }}
-            <div class="tag-column">
+            <div>
                 <h3><a href="/tags/{{ $name }}">{{ $name | humanize | title }}</a></h3>
                 <hr>
                 <!-- Check if there are more than 5 posts and limit display to the first 5 -->
@@ -131,11 +124,12 @@
     <p class="text-center">&#x2735; &#x2735; &#x2735;</p>
     <br>
 
+
    <div class="tag-columns">
         <!-- Notes -->
         {{ range $name, $pages := .Site.Taxonomies.tags }}
             {{ if strings.HasSuffix $name "notes" }}
-            <div class="tag-column">
+            <div>
                 <h3><a href="/tags/{{ $name | urlize}}">{{ $name | humanize | title }}</a></h3>
                 <hr>
 
