@@ -24,7 +24,7 @@ body {
   max-width: 90ch;
   margin: 2rem auto;
   padding: 2rem 1.25rem;
-  font-family: sans-serif;
+  font-family: serif;
   line-height: 1.8;
   color: #444;
   background: #fff;
@@ -42,31 +42,26 @@ h1 {
   line-height: 3.25rem;
   margin-bottom: 1.625rem;
   text-align: center;
-  font-family: serif;
 }
 h2 {
   font-size: 1.7rem;
   line-height: 2rem;
   margin: 3rem 0 0;
-  font-family: serif;
 }
 h3 {
   font-size: 1.4rem;
   line-height: 1.625rem;
   margin: 2.5rem 0 0;
-  font-family: serif;
 }
 h4 {
   font-size: 1.2rem;
   line-height: 1.625rem;
   margin: 2rem 0 0;
-  font-family: serif;
 }
 h5 {
   font-size: 1rem;
   line-height: 1.625rem;
   margin: 0.6rem 0 0;
-  font-family: serif;
 }
 h6 {
   font-size: 1rem;
