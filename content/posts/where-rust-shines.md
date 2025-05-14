@@ -1,6 +1,5 @@
 +++
 title = "Where Rust Shines: Algebraic Types and Match Statements"
-description = "This is a blog post about the positive ergonomics of algebraic types and enums. A more correct title might be \"where ML derived languages shine\" as this isn't unique to just rust."
 date = 2023-11-11T08:51:57-06:00
 tags = ["Programming"]
 +++

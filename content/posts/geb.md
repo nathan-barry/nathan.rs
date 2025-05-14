@@ -1,6 +1,5 @@
 +++
 title = "Gödel Escher Bach, Self-Reference, and Transformers"
-description = "Gödel's Incompleteness Theorem, Strange Loops, and Transformer Langauge Models."
 date = 2023-08-15
 tags = ["Writings"]
 +++

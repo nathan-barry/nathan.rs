@@ -6,8 +6,6 @@ tags = ["Writings"]
 +++
 
 
-
----
 <p style="white-space: pre-line">
 Here we all are, this mountain we climb,
 the sure ascent, that lasts a lifetime,
