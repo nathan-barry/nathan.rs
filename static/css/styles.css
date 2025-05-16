@@ -108,7 +108,7 @@ h5+h6 {
 p {
 	text-align: left;
 	hyphens: auto;
-	margin-bottom: .8rem;
+	margin: .2rem 0 .6rem 0;
 }
 
 /* Links */
