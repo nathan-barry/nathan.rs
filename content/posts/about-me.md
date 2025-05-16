@@ -6,7 +6,7 @@ tags = ["Personal"]
 
 
 
-<blockquote>"I believe that a man should strive for only one thing in life, and that is to have a touch of greatness"— <cite>Félix Martí-Ibáñez</cite></blockquote>
+> "I believe that a man should strive for only one thing in life, and that is to have a touch of greatness"--- Félix Martí-Ibáñez
 
 ## Nathan Barry
 ---
@@ -38,3 +38,4 @@ Starcraft 2 Rank | Diamond (Protoss)
 CS:GO Rank | Gold Nova (middle school)
 Balls Juggled | 4
 Bowling Score | 203 (my proudest one!)
+
