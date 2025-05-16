@@ -16,8 +16,6 @@ Normally in a probability experiment, we don't know the true values of a model's
 
 Below are a few standard parameter estimation procedures used in statistics and an introduction to confidence intervals.
 
-<br>
-
 ### Estimating the Population Mean
 Let $X$ be a random variable with finite mean $\mu_X$ and variance $\sigma_X^2$. We refer to $X$ as the **population** random variable.
 
@@ -52,8 +50,6 @@ where:
 
 In general, for a fixed sample size, the higher the confidence level, the larger the margin of error and vice versa.
 
-<br>
-
 #### Estimating the Mean of a Normal Population with known Variance
 
 Let $X$ be a normally distributed population random variable with a known variance $\sigma_X^2$. Let $\bar{X}$ be the sample mean from a random sample of size $n$.
@@ -67,14 +63,9 @@ We say that that:
 $$\bar{X}\pm \epsilon = \Big(\bar{X} - z_{\alpha/2}\cdot\frac{\sigma_X}{\sqrt{n}}, \bar{X} + z_{\alpha/2}\cdot\frac{\sigma_X}{\sqrt{n}}\Big)$$
 is a $1-\alpha$ symmetric **confidence interval** for estimating the population mean $\mu_X$.
 
-
-<br>
-
 ### Estimating the Population Variance
 
 The population variance is rarely known in advanced. Thus, we use random samples to devise a suitable estimate.
-
-<br>
 
 #### Deviations from the Sample Mean
 
@@ -83,8 +74,6 @@ Let $X$ be a population random variable and $(X_i)_{i=1}^n$ be a random sample f
 1. $$\sum_{i=1}^n (X_i - \bar{X})^2 = \sum_{i=1}^n (X_i - \mu_X)^2 -n(\bar{X}-\mu_X)^2$$
 
 2. $Cov(\bar{X}, X_i - \bar{X})=0$ for each $i=1,2,\dots,n$.
-
-<br>
 
 #### The Sample Variance
 
@@ -95,8 +84,6 @@ $$S^2 = \frac{1}{n-1}\sum_{i=1}^n (X_i - \bar{X})^2$$
 The sample variance $S^2$ is an **unbiased** estimator of $\sigma_X^2$. That is:
 $$E[S^2]=\sigma_X^2$$
 
-<br>
-
 #### Properties of the Sample Variance
 
 If $X$ is a normal population random variable with $(X_i)_{i=1}^n$ as a random sample from $X$.
@@ -105,8 +92,6 @@ If $X$ is a normal population random variable with $(X_i)_{i=1}^n$ as a random s
 2. The random variable $\frac{(n-1)S^2}{\sigma_X^2}$ is chi-squared with $(n-1)$ degrees of freedom. That is:
 $$\frac{(n-1)S^2}{\sigma_X^2} \sim \chi^2(n-1)=\Gamma\Big(\frac{n-1}{2}, 2\Big)$$
 
-<br>
-
 #### Confidence Interval for the Population Variance
 
 If $X$ is a normal population random variable with $(X_i)_{i=1}^n$ as a random sample from $X$ and $S^2$ as the sample variance, then the interval
@@ -114,9 +99,6 @@ If $X$ is a normal population random variable with $(X_i)_{i=1}^n$ as a random s
 $$\bigg(\frac{(n-1)\cdot S^2}{\chi_{\alpha/2}^2 (n-1)},\frac{(n-1)\cdot S^2}{\chi_{1-\alpha/2}^2 (n-1)}\bigg)$$
 
 constitutes a $1-\alpha$ confidence interval for estimating $\sigma_X^2$.
-
-
-<br>
 
 ### Estimating Proportions
 
@@ -130,9 +112,6 @@ This is just the binomial random variable with parameters $p$ and $n$, but in th
 4. For large $n$, an approximate symmetric $1-\alpha$ confidence interval for $p$ is given by $\hat{p}\pm \epsilon$, where:
 $$\epsilon=\text{margin of error}=z_{\alpha/2}\cdot \sqrt{\frac{\hat{p}(1-\hat{p})}{n}}$$
 
-
-<br>
-
 ### Estimating the Difference Between Means
 
 A common question is whether or not two populations have the same mean.
@@ -144,8 +123,6 @@ Let $X$ and $Y$ be independent normal populations. Assume that $\sigma_X^2$ and 
 3. For a confidence level of $1-\alpha$, the margin of error in estimating $\mu_X - \mu_Y$ with $\bar{W}=\bar{X}-\bar{Y}$ is given by:
 $$\epsilon=z_{\alpha/2}\sqrt{\frac{\sigma_X^2}{m} - \frac{\sigma_Y^2}{n}}$$
 4. $\bar{W}\pm\epsilon$ is a symmetric $1-\alpha$ confidence interval for $\mu_X - \mu_Y$.
-
-<br>
 
 #### Pooled Sample Variance
 
@@ -163,17 +140,12 @@ Then we have the following properties:
 
 
 
-<br>
-
 ## Hypothesis Testing
 ---
 
 In hypothesis testing, we generally have a null hypothesis, denoted as $H_0$, which generally is the baseline position or belief, usually stated as a particular value. This value may be based on previous testing, wisdom, or guesswork. The objective of the teset is to determin on the basis of new data whether or not the null hypothesis should be accepted or rejected in favor of an alternative hypothesis, which we denote as $H_1$.
 
 In a typical test, we use data to construct something called a **test statistic**, and if the value of this statistic falls within a specified range called the **rejection region** (also called the **critical region**), then the null hypothesis is rejected in favor of the alternative.
-
-
-<br>
 
 ### Hypothesis Testing Framework
 
@@ -205,21 +177,15 @@ Usually there is a trade off between minimizing $\alpha$ and minimizing $\beta$ 
 
 Normally the alternative hypothesis is a complementary range of values. A hypothesis specifying a range of values for the parameter is called a **composite hypothesis**.
 
-<br>
-
 #### Significance Level of a Test
 
 When the alternative hypothesis is composite, we can only calculate the probability of Type I errors. The only conclusion we can draw is either to reject or accept the null hypothesis. This type of test usually specifies the allowable probability of a Type I error, also called the **significance level** and is equal to $\alpha$. This is the probability the test statistic is in the rejection region given that the null hypothesis holds.
 
 Rejecting the null hypothesis at the significance level of $\alpha$ is equivalent to having a $1-\alpha$ confidence interval that misses the null hypothesis value.
 
-<br>
-
 #### The p-Value of a Hypothesis Test
 
 Often, the result of a hypothesis test is conveyed by stating the **p-value** of the test. The p-value is the probability that the test statistic is at least as extreme as the actual observed value, given that the null hypothesis is true. Thus, we only reject the null hypothesis if and only if the p-value is smaller than $\alpha$. It quantifies how close we came to the boundery line between accepting and rejecting.
-
-<br>
 
 #### General Procedure for Hypothesis Testing
 
@@ -236,9 +202,6 @@ Let $X$ be a population random variable with an unknown parameter $\theta$ and l
 4. Construct the **rejection region** using $\alpha$, the distribution of $\hat \theta$, and the tail appropriate for the alternative hypothesis in (1).
 5. Evaluate the test statistic $\hat \theta$ using the observed values of the random sample $X_1,...,X_n$ and determine whether or not it falls in the rejection region. Reject $H_0$ if $\hat \theta$ is in the rejection region and accept $H_0$ otherwise.
 6. If feasible, calculate the p-value of the test based on the calculated value of $\hat \theta$.
-
-
-<br>
 
 ### Hypothesis Testing for Population Means
 
@@ -260,17 +223,11 @@ Three common scenarios are:
 
     $$\frac{\bar X - \mu_X}{S/\sqrt n} \sim t(n-1)$$
 
-
-<br>
-
 ### Hypothesis Testing for Population Variance
 
 Assume that $X$ is a normal population and that $X_1, ..., X_n$ is a random sample. If we wish to test for an unknown population variance or standard deviation, a natural test statistic is a standardized version of the sample variance $S^2$ (defined above). Recall that:
 
 $$\frac{(n-1)S^2}{\sigma_X^2} \sim \chi^2(n-1)=\Gamma\Big(\frac{n-1}{2}, 2\Big)$$
-
-
-<br>
 
 ### Hypothesis Testing for Proportions
 
@@ -287,9 +244,6 @@ Since $X$ is a Bernoulli trial, we have $\sigma_X = \sqrt{p(1-p)}$. Since we are
 
 $$Z \approx\frac{\hat{p}-p_0}{\sqrt{\frac{p_0(1-p_0)}{n}}}$$
 
-
-<br>
-
 ### Hypothesis Testing for Differences in Population Means
 
 Let $X$ and $Y$ be independent populations and let $(X_i)^m$ and $(Y_j)^n$ be random samples with sample means $\bar X$ and $\bar Y$ with sample standard deviations $S_X$ and $S_Y$. This is for sample sizes of larger or equal to 30.
@@ -300,8 +254,6 @@ Let $W=X-Y$, with $\bar W=\bar X-\bar Y$, and let $\mu_{W_0}$ denote the null hy
 2. $$Var[\bar{W}] = Var[\bar{X}] - Var[\bar{Y}] = \frac{S_X^2}{m} - \frac{S_Y^2}{n}$$
 3. The test statistic, $Z$ used for determining whether to accept or reject the null hypothesis is given by:
 $$Z=\frac{\bar W - \mu_{W_0}}{\sqrt{\frac{S_X^2}{m} - \frac{S_Y^2}{n}}}$$
-
-<br>
 
 #### Testing the Difference Between Population Proportions
 
@@ -325,8 +277,6 @@ $$Z\approx\frac{p_X - p_Y - (p_x - p_y)}{\sqrt{\frac{\hat p_X(1 - \hat p_X)}{m} 
 
 
 
-<br>
-
 ## Appendix 
 ---
 ### Chi-Squared
@@ -335,17 +285,12 @@ Measurements of quantities (length, weight, etc) are subject to error. These err
 
 The Chi-Square Distribution is a name for the distribution of the square of the normal distribution.
 
-<br>
-
 #### Properties
 
 Let $Z\sim N(0, 1)$ be the standard normal random variable.
 1. $Z^2 \sim\Gamma(\frac12, 2)$ is called **chi-squared with 1 degree of freedom**, and denoted as $\chi^2(1)$.
 2. Sum of $Z^2$: Let $S=Z_1^2 + Z_2^2 + \cdots + Z_n^2$. Then $S\sim\Gamma(\frac{n}2, 2)$ and is called **chi-square with n degrees of freedom**, and is denoted as $\chi^2(n)$.
 3. $E[S]=n$ and Var[S]=2n
-
-
-<br>
 
 ### Student's t-Distribution
 
@@ -366,8 +311,6 @@ $$f_T(t)=\frac{\Gamma(\frac{n+1}{2})}{\sqrt{n\pi}\cdot\Gamma(\frac{n}2)}\cdot \B
 
 The shape of the distribution is similar to the standard normal distribution, and as $n$ goes to infinity, it is exactly the standard normal distribution.
 
-<br>
-
 #### Application
 
 Let $X$ be a normal population with $X\sim N(\mu_X, \sigma_X^2)$, with $\mu_X$ and $\sigma_X^2$ both unknown. Let $(X_i)_{i=1}^n$ be a random sample with sample mean $\bar{X}$ and sample variance $S^2$.
@@ -378,9 +321,6 @@ $$\frac{\bar{X}-\mu_X}{S/\sqrt{n}}\sim t(n-1)$$
 2. A symmetric $1-\alpha$ confidence interval for $\bar{X}$ is given by:
 
 $$\bigg(\bar{X}-t_{\alpha/2}(n-1)\cdot\frac{S}{\sqrt{n}}, \bar{X}+t_{\alpha/2}(n-1)\cdot\frac{S}{\sqrt{n}}\bigg)$$
-
-
-<br>
 
 ### F-Distribution
 
@@ -396,8 +336,6 @@ $$f_F(w)=\Big(\frac{m}{n}\Big)^{m/2} \cdot \frac{\Gamma(\frac{m+n}2)}{\Gamma(\fr
 
 for $w>0$.
 
-<br>
-
 #### Application
 
 Let $X$ and $Y$ be independent normal populations with variances of $\sigma_X^2$ and $\sigma_Y^2$ respectively. Let $(X_i)$ and $(Y_j)$ be random samples from $X$ and $Y$ with resulting sample variances $S_X^2$ and $S_Y^2$. Then:
@@ -408,16 +346,11 @@ A $1-\alpha$ confidence interval for $\frac{\sigma_X^2}{\sigma_Y^2}$ is given by
 
 $$\bigg(\frac{S_X^2}{S_Y^2}\cdot\frac{1}{F_{\alpha/2}(m-1,n-1)}, \frac{S_X^2}{S_Y^2}\cdot F_{\alpha/2}(n-1,m-1)\bigg)$$
 
-<br>
-
 #### Properties of $F(m,n)$
 
 1. $$F(n,m) = \frac1{F(m,n)}$$
 1. $$[t(n)]^2 = F(1,n)$$
 3. $$F_{1-\alpha}(m,n) = \frac1{F_{\alpha}(n,m)}$$
-
-
-<br>
 
 ### Testing for Independence by a Contingency Table
 

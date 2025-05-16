@@ -31,8 +31,6 @@ $$Var[X ]= \frac{n^2-1}{12}$$
 - Mode: None 
 
 
-<br> 
-
 ---
 ### Bernoulli
 
@@ -49,8 +47,6 @@ $$E[X ]=p$$
 - Variance:
 $$Var[X ]=p\cdot q$$
 
-
-<br> 
 
 ---
 ### Binomial
@@ -83,8 +79,6 @@ $$Var[X ]=n\cdot p \cdot q$$
 $$M_S(t)=(q+pe^t)^n$$
 
 
-<br>
-
 ---
 ### Geometric
 
@@ -114,8 +108,6 @@ $$Var[X ] = \frac{q}{p^2}$$
 - Moment Generating Function:
 $$M_X(t)=\frac{p}{1-qe^t}$$
 
-
-<br> 
 
 ---
 #### Negative Binomial
@@ -151,8 +143,6 @@ $$Var[X ]=\frac{rq}{p^2}$$
 $$M_S(t)=\bigg(\frac{p}{1-qe^t}\bigg)^r$$
 
 
-<br>
-
 ---
 ### Hyper-Geometric
 \\(X \sim HyperGeometric(G,B,n)\\)
@@ -177,8 +167,6 @@ $$E[X ]=n\cdot\Big(\frac{G}{G+B}\Big)$$
 - Variance:
 $$Var[X ]=n\cdot\Big(\frac{G}{G+B}\Big)\cdot\Big(\frac{B}{G+B}\Big)\cdot\Big(\frac{G+B-n}{G+B-1}\Big)$$
 
-
-<br>
 
 ---
 ### Poisson
@@ -214,10 +202,6 @@ $$M_X(t)=e^{\lambda\cdot(e^t-1)}$$
 
 
 
-<br>
-<br>
-<br>
-
 ## Common Continuous Distributions
 ---
 
@@ -247,8 +231,6 @@ $$Var[X ]=\frac{(B-A)^2}{12}$$
 - Probability between $a$ and $b$:
 $$Pr[a\le X\le b]=\frac{b-a}{B-A}=\frac{\textnormal{Length of Event}}{\textnormal{Length of Domain}}$$
 
-
-<br>
 
 ---
 ### Exponential
@@ -297,8 +279,6 @@ $$x_{.5}=\beta\cdot \ln(2)$$
     In words, the probability of waiting at least time \\(b\\) is the same as the probability of waiting an additional time \\(b\\) given that time \\(a\\) has already elapsed.
 
 
-<br>
-
 ---
 ### Standard Normal
 \\(X \sim Normal(\mu=0,\sigma^2=0)\\)
@@ -334,8 +314,6 @@ $$\sigma_Z^2=1$$
 - Moment Generating Function:
 $$M_Z(t)=e^{t^2/2}$$
 
-
-<br>
 
 ---
 ### General Normal
@@ -390,8 +368,6 @@ $$z=\frac{x-\mu}{\sigma}=\frac{9.3-5}{2}=2.15$$
 $$Pr(X<9.3)=Pr(Z<2.15)=.9842$$
 
 
-<br>
-
 ---
 ### Lognormal
 
@@ -424,8 +400,6 @@ $$Var[Y]=e^{2\mu_X+\sigma_X^2}\cdot(e^{\sigma_X^2}-1)$$
 - For $0<a<b$,
 $$Pr[a<Y\le b ]=\Phi\bigg(\frac{\ln b-\mu_X}{\sigma_X}\bigg)-\Phi\bigg(\frac{\ln a-\mu_X}{\sigma_X}\bigg)$$
 
-
-<br>
 
 ---
 ### Gamma
@@ -470,8 +444,6 @@ $$\int_0^\infty x^{\alpha-1}e^{-(1/\beta)x}dx = \beta^\alpha\cdot\Gamma(\alpha)$
 
 - $Z^2\sim\Gamma(\frac12, 2)$. This distribution is called chi-square with 1 degree of freedom, denoted as $\chi^2(1)$
 
-
-<br>
 
 ---
 ### Beta

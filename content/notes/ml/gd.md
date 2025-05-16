@@ -9,8 +9,6 @@ tags = ["Machine Learning Notes"]
 
 
 
-<br>
-
 ## Gradient Descent
 ---
 
@@ -27,8 +25,6 @@ where:
 - $ \nabla L(\theta^t) $ denotes the gradient of the loss function $ L $ with respect to the parameters $ \theta $ at iteration $ t $.
 
 
-
-<br>
 
 ## Adagrad (Adaptive Gradient)
 ---
@@ -50,8 +46,6 @@ where:
 
 
 
-<br>
-
 ## RMSProp
 ---
 
@@ -70,8 +64,6 @@ where:
 - $ \beta $: decay factor (commonly set to $0.9$).
 - $ \epsilon $: smoothing term to avoid division by zero.
 
-
-<br>
 
 ### Comparison with Adagrad
 RMSprop can be seen as a modification of Adagrad. Below is a quick comparison between the two algorithms:
@@ -94,8 +86,6 @@ RMSprop can be seen as a modification of Adagrad. Below is a quick comparison be
 - As a result, RMSprop is often more suitable for non-convex optimization problems and deep learning applications.
 
 
-
-<br>
 
 ## Momentum
 ---
@@ -124,8 +114,6 @@ where:
 
 
 
-<br>
-
 ## Adam (Adaptive Moment Estimation)
 ---
 
@@ -153,8 +141,6 @@ where:
 
 
 
-<br>
-
 ## Stochastic Gradient Descent (SGD)
 ---
 
@@ -176,15 +162,10 @@ where:
 
 
 
-<br>
-
 ## Bias-Variance Decomposition of Stochastic Gradient Descent
 ---
 
 Understanding the bias-variance trade-off is critical for comprehending the behavior of SGD. The error of a machine learning model can be decomposed into bias, variance, and irreducible error.
-
-
-<br>
 
 ### Bias-Variance Decomposition
 The expected mean squared error of a model can be expressed as the sum of the bias squared, variance, and irreducible error:
@@ -198,15 +179,9 @@ where:
 - Variance quantifies the model's sensitivity to specific sets of sampled training data.
 - $\epsilon$ is the irreducible error due to noise in the data.
 
-
-<br>
-
 ### SGD Bias-Variance
 - **Bias:** SGD introduces bias in parameter updates by approximating gradients with subsets of data. While individual updates may be biased, SGD is unbiased in expectation as the expected value of updates equals the true gradient over different samples.
 - **Variance:** SGD exhibits high variance due to using different data subsets for updates. This variance can aid in escaping local minima but may also impede convergence.
-
-
-<br>
 
 ### Decaying Learning Rate
 Utilizing a decaying learning rate (decreasing it over time) is a common practice to mitigate the variance in SGD while ensuring convergence. As the learning rate decays:
@@ -219,8 +194,6 @@ Utilizing a decaying learning rate (decreasing it over time) is a common practic
 Decaying the learning rate is one of several techniques used to balance bias and variance effectively. Others include early stopping, regularization methods, and learning rate scheduling, each helping to ensure good generalization without overfitting.
 
 
-
-<br>
 
 ## Polyak-Lojasiewicz (PL) Inequality
 ---
@@ -244,15 +217,10 @@ Where:
 
 
 
-<br>
-
 ## Taylor Approximations in Optimization
 ---
 
 Taylor approximations provide a powerful tool for understanding and approximating the behavior of functions in the vicinity of specific points. In the context of optimization, they offer valuable insights into the landscape of the loss function, facilitating the design and analysis of optimization algorithms.
-
-
-<br>
 
 ### Second-Order Taylor Approximation
 For a twice-differentiable loss function $ L: \mathbb{R}^d \rightarrow \mathbb{R} $, the second-order Taylor approximation around a point $ \theta_t $ is given by:

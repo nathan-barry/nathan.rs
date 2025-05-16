@@ -1,5 +1,5 @@
 +++
-title = "Intro to Autograd Engines: Karpathy's Micrograd Implemented in Go"
+title = "Intro to Autograd Engines: Karpathy's Micrograd in Go"
 date = 2023-11-11T08:57:53-06:00
 tags = ["Machine Learning"]
 +++

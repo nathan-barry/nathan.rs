@@ -32,9 +32,6 @@ $$
 
 The vector $c\mathbf{v}$ lie along a line. If vector $\mathbf{w}$ is not on that line, the set of linear combinations $c\mathbf{v} + d\mathbf{w}$ fill the entire two-dimensional plane, because there is a linear combination that reaches every point.
 
-
-<br>
-
 ### Vectors and Linear Combinations
 
 1. $3\mathbf{v} + 5\mathbf{w}$ is an example linear combination $c\mathbf{v} + d\mathbf{w}$ of the vectors $\mathbf{v}$ and $\mathbf{w}$.
@@ -52,9 +49,6 @@ $$
 5. The set of linear combinations $c \begin{bmatrix} 1 \\\ 1 \\\ 1 \end{bmatrix} + d \begin{bmatrix} 2 \\\ 3 \\\ 4 \end{bmatrix}$ fill a plane in $xyz$ space.
 
 6. The set of equations, $c + 2d = 1$, $c + 3d = 0$, and $c + 4d = 0$, has no solution because its right side, $\begin{bmatrix} 1 \\\ 0 \\\ 0 \end{bmatrix}$, is not on that plane.
-
-
-<br>
 
 ### Lengths and Dot Products
 
@@ -78,9 +72,6 @@ $$
 $$
 \|\mathbf{v} \cdot \mathbf{w}\| \leq \||\mathbf{v}\|| \cdot \||\mathbf{w}\||.
 $$
-
-
-<br>
 
 ### Matrices
 
@@ -121,8 +112,6 @@ The output $\mathbf{b}$ is a linear combination of the columns in $A$ with eleme
 
 
 
-<br>
-
 ## Solving Linear Equations
 ---
 
@@ -154,9 +143,6 @@ For the row picture, we want to find the point where each equation from each row
 
 For the column picture, we want to figure out the coefficients of the column vectors which equals $\mathbf{b}$. These coefficients are the solution $\mathbf{x}$.
 
-
-<br>
-
 ### The Idea of Elimination
 
 1. For $m = n = 3$, there are three equations $A\mathbf{x} = \mathbf{b}$ and three unknowns $x_1, x_2, x_3$.
@@ -180,9 +166,6 @@ $$
 A linear system $A\mathbf{x} = \mathbf{b}$ becomes upper triangular $U\mathbf{x} = \mathbf{c}$ after elimination.
 The upper triangular system $U\mathbf{x} = \mathbf{c}$ is solved by back substitution (starting at the bottom).
 
-
-<br>
-
 ### Elimination Using Matrices
 
 1. The first step multiplies the equations $A\mathbf{x} = \mathbf{b}$ by a matrix $E_{21}$ to produce $E_{21}A\mathbf{x} = E_{21}\mathbf{b}$.
@@ -201,9 +184,6 @@ The upper triangular system $U\mathbf{x} = \mathbf{c}$ is solved by back substit
 
 The matrices $E_{ij}$ are "elimination matrices". They execute the elimination steps. They can combine into one matrix $E$ that takes all the steps at once.
 
-
-<br>
-
 ### Rules for Matrix Operations
 
 1. Matrices $A$ with $n$ columns multiply matrices $B$ with $n$ rows: $A_{m \times n} \, B_{n \times p} = C_{m \times p}$.
@@ -220,9 +200,6 @@ $$A(B + C) = AB + AC  \quad \text{and} \quad   (A + B)C = AC + BC$$
 
 6. Matrices can be multiplied by blocks: $A = [A_1 \; A_2]$ times $B = \begin{bmatrix} B_1 \\\ B_2 \end{bmatrix}$ is $A_1B_1 + A_2B_2$.
 
-
-<br>
-
 ### Inverse Matrices
 
 1. If the square matrix $A$ has an inverse, then both $A^{-1}A = I$ and $AA^{-1} = I$.
@@ -236,9 +213,6 @@ $$A(B + C) = AB + AC  \quad \text{and} \quad   (A + B)C = AC + BC$$
 5. If $A$ and $B$ (of the same size) are invertible, then so is $AB$: $(AB)^{-1} = B^{-1}A^{-1}$.
 
 6. $AA^{-1} = I$ represents $n$ equations for $n$ columns of $A^{-1}$. Gauss-Jordan elimination reduces $[A \; I]$ to $[I \; A^{-1}]$.
-
-
-<br>
 
 ### Elimination = Factorization: A = LU
 
@@ -268,9 +242,6 @@ Thus, for future inputs of $A\mathbf{x} = \mathbf{b}$, since we know $L$, we can
 
 Note: We also have $A=LDU$ where the diagonal of $U$ has been set to 1 and factored out into it's own diagonal matrix $D$.
 
-
-<br>
-
 ### Transposes and Permutations
 
 1. The transposes of $A\mathbf{x}$, $AB$, and $A^{-1}$ are $\mathbf{x}^T A^T$, $B^T A^T$, and $(A^T)^{-1}$, respectively.
@@ -293,8 +264,6 @@ The inverse of a symmetric matrix is also symmetric. A symmetric matrix's $LDU$ 
 If $A$ is invertible then a permutation $P$ will reorder its rows for $PA=LU$.
 
 
-
-<br>
 
 ## Vector Spaces
 ---
@@ -320,9 +289,6 @@ We can add any vectors in $\mathbb{R}^n$, and we can multiply any vector $\mathb
 **Definition:** The **column space** consists of **all linear combinations of the columns**. The set of linear combinations are all possible bectors $A\mathbf{x}$. They fill the column space $C(A)$.
 
 To solve $A\mathbf{x}=\mathbf{b}$ is to express $\mathbf{b}$ as a linear combination of the columns. The system $A\mathbf{x}=\mathbf{b}$ is solvable if and only if $\mathbf{b}$ is in the column space of $A$.
-
-
-<br>
 
 ### The Nullspace of A: Solving Ax = 0 and Rx = 0
 
@@ -350,9 +316,6 @@ All vectors $\mathbf{x}$ in the nullspace must be orthogonal to all row vectors 
 
 
 If the nullspace $N(A) = \mathbb{Z}$ (and thus $\text{rank}(A) = m$), it means that the columns of $A$ are independent. No linear combination of the columns gives the zero vector (except for the zero combination). All columns have pivots and no columns are free.
-
-
-<br>
 
 ### The Complete Solution to Ax = b
 
@@ -395,9 +358,6 @@ The four cases are:
 - $r = n < m$: (A is tall and thin, $A\mathbf{x} = \mathbf{b}$ has 1 or 0 solutions)
 - $r < m, r < n$: (not full rank, $A\mathbf{x} = \mathbf{b}$ 0 or $\infty$ solutions)
 
-
-<br>
-
 ### Independence, Basis and Dimension
 
 A **basis** is a set of independent vectors that span the space. Four essential ideas are:
@@ -431,9 +391,6 @@ $R$ reveals a **basis** for the three fundamental subspaces:
 **Definition**: The **row space** of a matrix is the subspace of $\mathbb{R}^n$ spanned by the rows.
 
 ***The row space of $A$ is $C(A^T)$. It is the column space of $A^T$.***
-
-
-<br>
 
 ### The Fundamental Theorem of Linear Algebra 
 
@@ -523,8 +480,6 @@ Any time there is a linearly dependent column, we can remove it and find that a 
 
 
 
-<br>
-
 ## Orthogonality
 ---
 
@@ -546,9 +501,6 @@ Two vectors are orthogonal when their dot product is zero: $\mathbf{v} \cdot \ma
 
 **Definition:** The orthogonal complement of a subspace $V$ contains **every** vector that is perpendicular to $V$. This orthogonal subspace is denoted by $V^\perp$.
 
-
-<br>
-
 ### Projections
 
 Projections is projecting one vector $\mathbf{b}$ onto another line $\mathbf{a}$ or subspace $S$ to get vector $\mathbf{p}$.
@@ -566,9 +518,6 @@ Projections is projecting one vector $\mathbf{b}$ onto another line $\mathbf{a}$
 The left nullspace is important in projections. Our subspace is the column space of $A$. The error vector $\mathbf{e}=\mathbf{b}-P\mathbf{b}$ is perpendicular to that column space. Therefore, $\mathbf{e}=\mathbf{b}-P\mathbf{b}$ is in the nullspace of $A^T$. That means $A^T(\mathbf{b}-P\mathbf{b})=0$.
 
 $A^T A$ is invertible (and symmetric) only if $A$ has independent columns (and thus is square).
-
-
-<br>
 
 ### Least Squares Approximations
 
@@ -598,9 +547,6 @@ A^T \mathbf{b} =
 \end{bmatrix}
 $$
 where the solution $\mathbf{\hat x} = \begin{bmatrix} x_1 \\\ x_2 \end{bmatrix}$ gives you the line $x_1 + x_2t$.
-
-
-<br>
 
 ### Orthonormal Bases and Gram-Schmidt
 
@@ -632,8 +578,6 @@ One important property of an orthogonal matrix $Q$ is that it leaves lengths unc
 Another is that if the basis vectors are orthonormal, then $A^T A$ simplifies to $Q^T Q = I$.
 
 
-
-<br>
 
 ## Determinants
 ---
@@ -677,9 +621,6 @@ Applications for determinants are:
 2. When edges of a box are the rows of $A$, the volume is $|\det A|$
 3. For $n$ special numbers $\lambda$, called **eigenvalues**, the determinant of $A - \lambda I$ is zero.
 
-
-<br>
-
 ### Permutations and Cofactors
 
 A computer finds the determinants from the pivots. The two other ways are the "big formula" which uses all $n!$ permutations, and the "cofactor formula" using determinants of size $n-1$.
@@ -693,9 +634,6 @@ A computer finds the determinants from the pivots. The two other ways are the "b
 4. The six terms include for example $+a_{11}a_{22}a_{33} - a_{11}a_{23}a_{32} = a_{11}(a_{22}a_{33} - a_{23}a_{32}) = a_{11} (\text{cofactor } C_{11})$.
 
 5. Always $\det(A) = a_{11}C_{11} + a_{12}C_{12} + \cdots + a_{1n} C_{1n}$. Cofactors are determinants of size $n - 1$.
-
-
-<br>
 
 ### Cramer's Rule, Inverses, and Volumes 
 
@@ -729,8 +667,6 @@ The cross product points in the direction of your thumb when your fingers curl f
 
 
 
-<br>
-
 ## Eigenvalues and Eigenvectors
 ---
 
@@ -761,9 +697,6 @@ For each eigenvalue $\lambda$, solve $(A - \lambda I)\mathbf{x} = 0$ to find the
 
 Exchanging rows or adding/subtracting one from another generally changes the eigenvalues. ***Elimination does not preserve the $\lambda$'s***. The product of eigenvalues is the determinant of $A$ while the sum is the sum of the diagonals of $A$ (called a trace). For a 2 by 2 matrix, we can calculate the eigenvalues just from knowing the trace and determinant.
 
-
-<br>
-
 ### Diagonalizing a Matrix
 
 1. The columns of $AX = X\Lambda$ are $A\mathbf{x}_k = \lambda_k \mathbf{x}_k$. The eigenvalue matrix $\Lambda$ is diagonal.
@@ -779,9 +712,6 @@ Exchanging rows or adding/subtracting one from another generally changes the eig
     Equal eigenvalues $\implies A$ might have too few independent eigenvectors. Then $X^{-1}$ fails.
 
 6. Every matrix $C = B^{-1}AB$ has the same eigenvalues as $A$. These $C$'s are "similar" to $A$.
-
-
-<br>
 
 ### Systems of Differential Equations
 
@@ -805,9 +735,6 @@ This is a 1 by 1 problem. Linear algebra moves to n by n.
 
 5. Second-order equation $\frac{d^2 \mathbf{u}}{dt^2} + B \frac{d\mathbf{u}}{dt} + C\mathbf{u} = 0$ is equivalent to a first-order system: $$\begin{bmatrix} \mathbf{u} \\\ \mathbf{u^\prime}\end{bmatrix}^\prime = \begin{bmatrix} 0 & I \\\ -C & -B \end{bmatrix} \begin{bmatrix} \mathbf{u} \\\ \mathbf{u}^\prime \end{bmatrix}$$
 
-
-<br>
-
 ### Symmetric Matrices
 
 Symmetric matrices are one of the most important kind of matrices.
@@ -819,9 +746,6 @@ Symmetric matrices are one of the most important kind of matrices.
 3. The number of positive eigenvalues of $S$ equals the number of positive pivots.
 
 4. Antisymmetric matrices $A = -A^T$ have imaginary eigenvalues $\lambda$ and orthonormal (complex) eigenvectors $\mathbf{q}$.
-
-
-<br>
 
 ### Positive Definite Matrices
 
@@ -838,8 +762,6 @@ Symmetric matrices that have positive (or non-negative) eigenvalues are special.
 5. The equation $\mathbf{x}^T S \mathbf{x} = 1$ gives an ellipse in $\mathbb{R}^n$ when $S$ is symmetric positive definite.
 
 
-
-<br>
 
 ## The Singular Value Decomposition (SVD)
 ---

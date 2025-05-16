@@ -1,7 +1,6 @@
 +++
 title = "Pleasures, by Aldous Huxley"
 description = "Preface: This is one of Huxley's works. I keep a copy here so I'll always know where I can find it."
-date = 2024-01-19T23:51:44-06:00
 tags = [""]
 +++
 
