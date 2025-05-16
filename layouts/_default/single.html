@@ -10,7 +10,7 @@
 		{{ if .Date }}
 		{{ $wordCount := len (split .Content " ") }}
 		{{ $readingTime := div $wordCount 150 }}
-		<p class="text-center"><i>
+		<p><i>
 				{{ .Date.Format "January, 02 2006" }} &bull;
 				{{ $readingTime }} min read &bull;
 				{{ $wordCount }} words
@@ -20,10 +20,8 @@
 			</i></p>
 		{{ end }}
 		{{ with .Params.description }}
-		<h6 class="text-center">{{ . }}</h6>
+		<h6>{{ . }}</h6>
 		{{ end }}
-		<br>
-
 
 		<!-- Content -->
 		{{ .Content }}

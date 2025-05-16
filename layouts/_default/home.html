@@ -13,14 +13,12 @@
 		<div>
 			<h3><a href="/tags/personal">Personal</a></h3>
 			<hr>
-			<p class="list-link">&#x2727;&nbsp; <a class="" href="/posts/favorite-books">Favorite Books</a>
+			<p class="list-link">&#x2727;&nbsp; <a href="/posts/favorite-books">Favorite Books</a>
 			</p>
-			<p class="list-link">&#x2727;&nbsp; <a class="" href="/posts/about-me">About Me</a></p>
-			<p class="list-link">&#x2751;&nbsp; <a class=""
-					href="https://github.com/nathan-barry">Github</a></p>
-			<p class="list-link">&#x2751;&nbsp; <a class=""
-					href="https://www.linkedin.com/in/nathanbarrydev/">LinkedIn</a></p>
-			<p class="list-link">&#x2751;&nbsp; <a class="" href=" https://x.com/nathanbarrydev ">X</a></p>
+			<p class="list-link">&#x2727;&nbsp; <a href="/posts/about-me">About Me</a></p>
+			<p class="list-link">&#x2751;&nbsp; <a href="https://github.com/nathan-barry">Github</a></p>
+			<p class="list-link">&#x2751;&nbsp; <a href=" https://x.com/nathanbarrydev ">X</a></p>
+			<p class="list-link">&#x2751;&nbsp; <a href="https://www.linkedin.com/in/nathanbarrydev/">LinkedIn</a></p>
 		</div>
 		<!-- Recent Posts -->
 		<div>
@@ -36,9 +34,7 @@
 			{{ end }}
 			{{ end }}
 			{{ range first 3 (sort $filteredPages "Date" "desc") }}
-			<p class="list-link">
-				&#x2727;&nbsp; <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-			</p>
+			<p class="list-link"> &#x2727;&nbsp; <a href="{{ .RelPermalink }}">{{ .Title }}</a></p>
 			{{ end }}
 		</div>
 		<!-- Recent Notes -->
@@ -55,9 +51,7 @@
 			{{ end }}
 			{{ end }}
 			{{ range first 4 (sort $filteredPages "Date" "desc") }}
-			<p class="list-link">
-				&#x2727;&nbsp; <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-			</p>
+			<p class="list-link"> &#x2727;&nbsp; <a href="{{ .RelPermalink }}">{{ .Title }}</a></p>
 			{{ end }}
 		</div>
 	</div>
@@ -84,14 +78,11 @@
 			{{ end }}
 			<!-- Display posts -->
 			{{ range $postsToShow }}
-			<p class="list-link">
-				&#x2727;&nbsp; <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-			</p>
+			<p class="list-link"> &#x2727;&nbsp; <a href="{{ .RelPermalink }}">{{ .Title }}</a></p>
 			{{ end }}
 			<!-- Display 'View All' link if there are more than 5 posts -->
 			{{ if gt (len .Pages) 5 }}
-			<p><i><a class="view-all" href="/tags/{{ $name | urlize }}">View All ({{ len .Pages }})</a></i>
-			</p>
+			<p><i><a class="view-all" href="/tags/{{ $name | urlize }}">View All ({{ len .Pages }})</a></i></p>
 			{{ end }}
 		</div>
 		{{ end }}
@@ -110,9 +101,7 @@
 			{{ end }}
 			<!-- Display posts -->
 			{{ range $postsToShow }}
-			<p class="list-link">
-				&#x2727;&nbsp; <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-			</p>
+			<p class="list-link"> &#x2727;&nbsp; <a href="{{ .RelPermalink }}">{{ .Title }}</a></p>
 			{{ end }}
 			<!-- Display 'View All' link if there are more than 5 posts -->
 			{{ if gt (len .Pages) 5 }}
@@ -149,15 +138,12 @@
 
 			<!-- Display posts -->
 			{{ range $postsToShow }}
-			<p class="list-link">
-				&#x2727;&nbsp; <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-			</p>
+			<p class="list-link"> &#x2727;&nbsp; <a href="{{ .RelPermalink }}">{{ .Title }}</a></p>
 			{{ end }}
 
 			<!-- Display 'View All' link if there are more than 5 posts -->
 			{{ if gt (len $sortedPosts) 5 }}
-			<p><i><a class="view-all" href="/tags/{{ $name | urlize }}">View All ({{ len $sortedPosts
-						}})</a></i></p>
+			<p><i><a class="view-all" href="/tags/{{ $name | urlize }}">View All ({{ len $sortedPosts }})</a></i></p>
 			{{ end }}
 		</div>
 		{{ end }}
