@@ -145,7 +145,6 @@ The **Mark-Sweep** method is a classic garbage collection strategy initially pro
 3. **Allocation**:
    - Unlike Mark-Sweep, which uses a free-list for allocation, Mark-Compact utilizes bump pointer allocation. This means that allocation is often faster and simpler as it can allocate memory in a continuous block without needing to search for an appropriate-sized space.
 
-
 ###### Pros:
 - **Fast Allocation with Good Locality**: Objects that are allocated around the same time tend to be placed close to each other in memory. This can lead to performance improvements due to better cache utilization.
 - **Space Efficiency**: By compacting memory, Mark-Compact ensures optimal usage of available memory.

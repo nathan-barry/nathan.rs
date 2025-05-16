@@ -37,6 +37,7 @@ At the base level, individual simple dumb processes interacting at a large scale
 We have already seen this in the form of chain-of-thought prompting, where the output of the model is then passed in again for the model to reflect upon, and we have seen this have great results. But there seems to always be a limit of intelligence we can squeeze from these systems that lack the agency of humans.
 
 
+
 ## The Limits of LLM Agents
 ---
 
@@ -48,6 +49,7 @@ Before a system can have a theory of mind, which is defined as "the ability to u
 Humanity has created a cornucopia of complexities and truths that have been solved. From quantum mechanics and topology to architecture and art, have we not great things to show? While we might not fully understand the origin of consciousness, or be able to modify ourselves to amplify our virtues and mute our vices (yet), it is our understanding of the flaws and passion of man that helped push us forward. The Enlightenment and beyond consists of people creating new systems, either as institutions or individual frameworks, that attempt to raise our higher selves and diminish our lower instincts. It is this gentle nudge on human nature which we have seen society progress and bear fruit.
 
 Dario Amodei, the CEO and co-founder of Anthropic, has said that a true landmark will be achieved when LLMs are smart enough to do LLM research. That would be a strange loop and require these systems to have a high understanding of their own properties and behavior.
+
 
 
 ## Self-Improving Machines

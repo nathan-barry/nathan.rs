@@ -4,6 +4,8 @@ date = 2023-11-11T08:51:57-06:00
 tags = ["Programming"]
 +++
 
+
+
 ## One Recent Example
 ---
 
@@ -102,7 +104,6 @@ type Token struct {
 	Literal string
 }
 ```
-
 
 What sucks is that instead of having an "enum" type with different variants bound to it, you have a series of constants instead which are bound to the package they are declared in. That means that you can't declare a special namespace for any enum unless you make a package specifically for that enum. The "enum" types `token.ASSIGN`, etc will share the same namespace as every single struct, function, types, and variables that are in that package. 
 

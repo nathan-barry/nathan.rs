@@ -4,6 +4,8 @@ date = 2024-12-18T12:21:35-06:00
 tags = ["Writings"]
 +++
 
+
+
 I found myself walking outside and staring at the leaves. Walking is something I find myself doing when I’m deep in thought, pondering about the complexities of life. Usually, it is in a circle in whatever room I find myself to occupy. I mindlessly stare at the floor, automatically and unconsciously moving one foot after another.
 
 Something in my conscious likes stepping on patterns. Generally, it is where the ends of the wooden boards of the floor meet, randomly peppering the floor with a cornucopia of lines which my feet follow. If the floor consists of square tiles, I might move around like a knight in chess, moving only 2 tiles up and one to the side on each step. This time, I was stepping on the scattered leaves of the winter ground.

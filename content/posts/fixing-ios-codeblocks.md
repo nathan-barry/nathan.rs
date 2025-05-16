@@ -5,6 +5,7 @@ tags = ["Programming"]
 +++
 
 
+
 ## The Rendering Issue
 ---
 
@@ -21,6 +22,8 @@ Below are a few screenshots I've taken for websites that I've seen this on:
 As you can see, the text-size isn't uniform across code block lines. I've seen this issue across many blogs that compile markdown files to HTML such as sites built using Hugo, Jekyll, or even [custom md-to-html shell scripts](https://github.com/git-bruh/site).
 
 This issue seems to happen on every browser on iOS (Safari, Firefox, and Chrome in my testing).
+
+
 
 ## Solution
 ---
@@ -43,6 +46,8 @@ This should fix the rendering issue and make the text-size in code blocks look c
 
 If I have sent you this post, it means that I've spotted this issue on your site. Should be an easy fix.
 
+
+
 ## What might cause this?
 ---
 
@@ -59,8 +64,7 @@ Below are two screenshots of different code blocks on my site:
 
 In both images, the only lines that are rendered large are the long ones. This has been true for every code block I've looked at.
 
-## My Guess
----
+### My Guess
 
 Let's look at the code block below:
 
@@ -127,7 +131,6 @@ The first line (long) looks like this:
 ```
 
 My best guess is that the longer lines overflow and the browser tries to handle them differently. I could do more experiments, but I'm satisfied with my investigation.
-
 
 ### Souls Saved
 

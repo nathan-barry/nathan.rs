@@ -52,7 +52,6 @@ The most renowned example of an internet is the Global IP Internet. Most modern 
 
 
 
-
 ## Ethernet and Network Classifications
 ---
 
@@ -74,7 +73,6 @@ The most renowned example of an internet is the Global IP Internet. Most modern 
 3. **Wide Area Network (WAN)**:
    - **What**: Links nodes across broader geographical spaces, be it statewide, nationwide, or even globally.
    - **Characteristics**: WANs tend to be slower and not as reliable compared to LANs. They often utilize high-speed point-to-point phone lines for connectivity.
-
 
 
 
@@ -144,7 +142,6 @@ Some TCP features are:
     - **Cumulative ACKs**: Acknowledging multiple segments at once.
     - **Immediate Resend on Negative Acknowledgement (nack)**
     - **Delayed ACKs**: In bidirectional communication, the response from the application acts as an implicit ACK.
-
 
 
 
@@ -221,7 +218,6 @@ TCP is deeply embedded within the OS:
 - The receiver reorders out-of-sequence segments.
 - The OS keeps all this data in the **Protocol Control Block (PCB)**.
 - TCP must acknowledge received segments promptly.
-
 
 ### Costs Involved
 

@@ -14,7 +14,7 @@ I’ve been using React and Next.js for front-end development ever since high sc
 
 The front-end Rust ecosystem has come a long way in the last few years. We are at a point where we now have Rust frameworks that are actually somewhat usable (huge asterisk). While frameworks like Svelte, Astro, and Solid are making people rethink their approach to front-end development, Rust frameworks like Leptos and Dioxus are also maturing.
 
-I've never been a fan of TypeScript or JS but have always loved Rust. I decided to rewrite my website in Rust using Dioxus. In addition to being more enjoyable to work on, any Rust code I write for other personal projects, I can compile down to WebAssembly and show on this site. (Note: Eventually rewrote the site again with Hugo. Most of my content is just text and it is pretty unnecessary to use a SPA app just for a blog. I decided to make my site statically generated for fast load times and minimum bundle size. It is the right tool for the job).
+I've never been a fan of TypeScript or JS but have always loved Rust. I decided to rewrite my website in Rust using Dioxus. In addition to being more enjoyable to work on, any Rust code I write for other personal projects, I can compile down to WebAssembly and show on this site. (EDIT: Eventually rewrote the site again with Hugo. Most of my content is just text and it is pretty unnecessary to use a SPA app just for a blog. I decided to make my site statically generated for fast load times and minimum bundle size. It is the right tool for the job).
 
 
 
@@ -29,7 +29,6 @@ The second option is `dioxus_liveview` which renders everything on the server an
 Finally, they have `dioxus_fullstack` which does SSR (Server Side Rendering). This means that they render the HTML server-side and send it to the client, as opposed to sending JS which renders it client-side as with dioxus_web.
 
 I chose `dioxus_web` mainly since GitHub Pages support only static web apps which basically eliminated the other two options. I'm also familiar with React, and as we know, old habits die hard. Now that we've covered that, let's go through the basics.
-
 
 ```rust
 // ./src/main.rs
@@ -92,7 +91,6 @@ Below is an explanation of each of the 4 snippets above:
 
 Dioxus also has its own CLI tool that makes serving easy. You just run `dx serve` to host it locally. It should say to open `https://localhost:8080/` to view the site. You can read more about how to get started with Dioxus [here](https://dioxuslabs.com/learn/0.4/getting_started).
 
-
 ### Fixing Routing with Tailwind
 To let the CLI know that you are using Tailwind, you must explicitly define it in a Dioxus config via a `Dioxus.toml` file. Here is what is provided in the [docs](https://dioxuslabs.com/learn/0.4/cookbook/tailwind).
 
@@ -118,10 +116,7 @@ That's better. We'll also talk about hosting on Github pages here because it sim
 ---
 The easiest way to host this was to move the build output directory to `/docs` and then, in the Pages settings page in the github repository, select it to build from `/docs`. Below is a screenshot of what it should look like.
 
-<!-- <img src="/images/gh-pages.webp"> -->
-
 Github Pages will host your site at `http://<USERNAME>.github.io/`. If your repository is named `<USERNAME>.github.io` the site will be hosted at the base URL, `/`. Otherwise, it'll go live at code `/<REPO_NAME>`. I have my custom domain set up so it says `http://nathan.rs/` for me.
-
 
 ```toml
 # ./Dioxus.toml
@@ -227,6 +222,7 @@ pub fn Home(cx: Scope) -> Element {
 ```
 
 Like React, Dioxus has a `use_effect` hook that fires whenever the page loads. All we need to do to execute JS code is call `js_sys::eval(js_code)`. Thus, we can interact with JavaScript libraries directly in rust.
+
 
 
 ## Conclusion

@@ -1,6 +1,6 @@
 +++
 title = "Favorite Books"
-description = "I've always enjoyed seeing what books other people have read. Below are all the books I've read since middle school, roughly in order. Those highlighted in purple were those I particularly enjoyed or found impactful. An asterisk (*) indicates you can click to see some of my thoughts on the book :)"
+description = "Below are all the books I've read since middle school, roughly in order. Those highlighted in purple were those I particularly enjoyed or found impactful. An asterisk (*) indicates you can click to see some of my thoughts on the book :)"
 tags = ["Personal"]
 +++
 
@@ -30,6 +30,7 @@ function setHovering(isHovering, element) {
   }
 }
 </script>
+
 
 
 ## 2025 -- Age 22

@@ -8,6 +8,7 @@ tags = ["Computer Science Notes"]
 {{< toc >}}
 
 
+
 ## Memory Management Basics
 ---
 
@@ -58,7 +59,6 @@ Another technique introduced is **swapping**. Swapping permits more processes to
 
 
 
-
 ## Relocation
 ---
 The Operating System, when loading a process, designates a contiguous segment of memory for that process. If the process doesn't fit, the Operating System waits for an existing process to terminate.
@@ -103,8 +103,6 @@ The Operating System typically tracks this using a linked list structure called 
 
 
 
-
-
 ## Memory Allocation and Placement Policies
 ---
 
@@ -113,7 +111,6 @@ When a process requests memory, the Operating System must determine where to pla
 - **External Fragmentation:** Unused memory spaces that reside between allocated units.
 
 - **Internal Fragmentation:** Unused memory spaces within an allocated unit. This can be likened to seating three people at a table designed for four.
-
 
 ### First-Fit Memory Allocation
 
@@ -148,8 +145,8 @@ When a process requests memory, the Operating System must determine where to pla
     - Allocation is generally quick as you select the largest block.
     - De-allocating requires checks to possibly merge the freed block with adjacent free blocks.
 
-
 Each of the above policies has its own set of advantages and disadvantages. For example, while the first-fit might be fast, it may lead to more external fragmentation over time. Best-fit might reduce fragmentation but can be computationally expensive, and worst-fit might end up wasting more memory in the long run. The choice between them often depends on the specific use case and system requirements.
+
 
 
 ## Strategies to Eliminate Fragmentation

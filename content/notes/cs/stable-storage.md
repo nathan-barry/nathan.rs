@@ -37,7 +37,6 @@ On external devices, we find:
 - A **controller** that interprets the commands and mediates between the bus and the device.
 - And, of course, the **device** itself.
 
-
 ### The Process of Communication
 
 For the Operating System (OS) to interact with an external device, a series of steps must be undertaken:
@@ -100,7 +99,6 @@ int read(){
 }
 ```
 
-
 ### Interrupt-Driven I/O
 
 Instead of the CPU incessantly checking the device's status, in interrupt-driven I/O, the device signals the CPU when the I/O operation is done. This involves:
@@ -138,8 +136,6 @@ Despite the abstraction, this process transfers much of the complexity to the ha
 
 
 
-
-
 ## Disk Drives
 ---
 
@@ -167,7 +163,6 @@ Despite the abstraction, this process transfers much of the complexity to the ha
 
 In the context of data storage, both memory and disks play pivotal roles, with disks serving as the primary storage for long-term data retention.
 
-
 ###### Why Are Hard Drives Slower?
 
 Unlike RAM, where data transfers are governed by the ultra-fast movement of electrons, hard drives rely on rapidly spinning chunks of metal. Precisely flinging metal anywhere near the speed of light is a significant challenge.
@@ -175,7 +170,6 @@ Unlike RAM, where data transfers are governed by the ultra-fast movement of elec
 ###### Why Outer Disk Parts are Faster
 
 The outer sections of a disk are notably faster than the inner sections. More disk travels past the read head per unit time when it's closer to the edge of the platter.
-
 
 ### How Disk Operations Work
 
@@ -186,9 +180,6 @@ When the CPU wants to read or write to the disk:
 - Almost all disks post-1990s use **LBA (Logical Block Addressing)**. Here, every sector gets a unique number ranging between 0 and MAX_SECTOR.
   
 - The disk controller then maneuvers the heads to the correct track and waits for the sector to pass under the drive head before reading or writing.
-
-
-
 
 ### Disk Drive Performance
 
@@ -234,7 +225,6 @@ We have the following scheduling algorithms:
 
 
 
-
 ## Solid State Drives (SSD)
 ---
 
@@ -245,13 +235,11 @@ Unlike HDDs, SSDs have no moving parts. This grants them:
 
 SSDs primarily employ NAND flash technology.
 
-
 ### Characteristics of NAND Flash
 
 A key trait of NAND Flash: while data can be set, it can't be individually unset. For unsetting, all cells must be cleared simultaneously, making in-place data overwriting nearly impossible.
 
 For instance, if you attempt to set a value at position 4 and then try to unset a value at position 1, the latter operation isn't permitted. The entire block must be cleared.
-
 
 #### Operations in NAND Flash
 

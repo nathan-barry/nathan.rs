@@ -25,7 +25,6 @@ A process's state encompasses:
 - **Registers & Their Contents**: This includes the heap pointer (HP), the program counter (PC) that points to the next instruction, and the stack pointer (SP).
 - **OS Resources**: This could be open files, the process identifier (PID), and the process's current execution status (like ready, running, etc.).
 
-
 ### Life Cycle of a Process
 
 At any given point, a process can be:
@@ -44,7 +43,6 @@ To keep track of processes, the OS employs a **Process Control Block (PCB)**. He
 - **Contents of PCB**: This includes the process identification number, program counter, stack pointer, general-purpose registers, memory management info, the process's owner, a list of open files, and any other data related to the process's execution not stored in its address space.
   
 - **Purpose of PCB**: It's a dynamic data structure in the kernel, maintained in memory. It represents the execution state and position of each process when it isn't actively executing. PCBs are initialized when a process is formed and discarded once the process ends.
-
 
 
 
@@ -67,7 +65,6 @@ A vital question arises: how does the OS maintain the boundaries for processes?
    
 However, in kernel mode, the OS has the freedom to perform all these operations. Attempting a privileged operation in user mode results in a processor exception, handing control over to the kernel.
 
-
 ### Transitioning Between User and Kernel Mode
 
 Switching from user to kernel mode is often termed as "entering the kernel". This transition can occur due to:
@@ -83,7 +80,6 @@ Switching from user to kernel mode is often termed as "entering the kernel". Thi
 
 For the User to Kernel Mode Transition, the OS saves the current state of the user program. Hardware identifies the reason for the boundary crossing and selects the relevant entry from the interrupt vector. An appropriate handler is then invoked.
   
-
 #### Saving the State of the Interrupted Process
 
 A special hardware register points to the exception stack. Upon switching, some registers of the interrupted process are pushed onto the exception stack before the handler executes. The handler then pushes the remaining. On returning, the reverse occurs.
@@ -124,8 +120,6 @@ Below we show how they work:
   4. After executing the service, the OS updates a register with the result and returns control to the user program using an RTI instruction.
   5. The user program processes the result and proceeds with its tasks.
 
-
-
 #### The Unix Shell
 
 <!-- The Unix Shell is the gateway between the user and the operating system. -->
@@ -134,14 +128,10 @@ Upon logging into a Unix system, the OS initializes a shell process for user int
 
 Some interesting features are that when appending `&` to a command, Unix runs the process alongside your shell. Without it, the shell awaits the completion of the current process before moving onto the next. Input-output redirections, pipes, and numerous other functionalities are part of the Unix shell, which we will delve into later.
 
-
-
-
 ### Spawning Processes
 
 A process can spawn other processes. The original is known as the parent, while the new ones are called child processes. In many systems, the parent can allocate resources and permissions to its children. Processes can either run concurrently or one can wait for the other to finish.
 
-  
 Unix uses the `fork()` function to create processes. This function duplicates the current process, creating a parent and a child. Both processes start executing right after the `fork()`, but each has its own memory space and variables. An interesting aspect of `fork()` is its return value. It's the child's process ID in the parent, and `0` in the child.
 
 The `exec()` function overlays a new program onto a process. Notably, the Process ID (PID) remains unchanged. This function is necessary for child processes in Unix that wish to run a different program. When `exec()` succeeds, even though it’s the same process, a new program runs.
@@ -157,7 +147,6 @@ Let's consider a simple example to understand the interplay between `fork()` and
 3. The parent process may continue to execute or wait for the child to finish, depending on the logic.
 
 This combination allows for a high degree of flexibility and concurrency in program execution, playing a pivotal role in how Unix and many other operating systems function.
-
 
 ### Process Control
 
@@ -239,18 +228,6 @@ The `wait()` system call allows a parent process to pause until one of its child
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 ## CPU Scheduling
 ---
 
@@ -265,21 +242,6 @@ These processes are created and are managed through a series of system calls. In
 
 Multiprogramming, also known as concurrency, is when a program has a single process actively running on the CPU while one or more processes handle I/O. This improves both system utilization and throughput by allowing overlapping of I/O and CPU tasks.
 
-<!-- ### Process Life Cycle -->
-
-<!-- A process will always be in one of these states: -->
-<!-- - **Running**: Actively executing instructions on the CPU. -->
-<!-- - **Ready**: Set and prepared to run but is waiting for CPU access. -->
-<!-- - **Blocked**: Paused and waiting for an event to happen. -->
-
-<!-- Illustratively, the process lifecycle can be visualized as: -->
-
-<!-- ``` -->
-<!--    New → Ready → Running → Blocked → Terminated -->
-<!-- ``` -->
-
-<!-- It's essential to recognize that at any given moment, all the processes that the OS manages will be present in one of these state queues. -->
-
 There are two kinds of scheduling:
 
 - **Long-Term Scheduling**:
@@ -287,8 +249,6 @@ There are two kinds of scheduling:
   
 - **Short-Term Scheduling**:
   - How does (or should) the OS choose a process from the ready queue for execution?
-
-<!-- ## Dive into Short-Term Scheduling -->
 
 The scheduler is responsible for deciding the next process to be executed on the CPU. This is not just a mechanism, but it also embodies a specific policy. A scheduler springs into action when:
 
@@ -308,6 +268,7 @@ Scheduling strategies can be broadly classified based on their interaction with 
   - Modern OSes predominantly employ this scheduling type.
 
 
+
 ## Scheduling Policies
 ---
 
@@ -324,7 +285,6 @@ This is the most simple and obvious scheduling policy you can think of.
 - Often referred to as **First-In-First-Out (FIFO)**.
 - The scheduler executes jobs based on their arrival sequence.
 - Jobs run continuously until they either conclude or block due to I/O operations (In the earlier iterations of FCFS schedulers, a job would retain control of the CPU, even during its I/O operations).
-
 
 ### Round Robin
 Round robin incorporates a timer for pre-emptive scheduling.
@@ -411,13 +371,6 @@ With the OS kernel loaded, the system initializes:
 
 
 
-
-
-
-
-
-
-
 ## Threads
 ---
 
@@ -481,7 +434,6 @@ Below shows some of the efficiency advantages one gets from threads.
 
 In summary, threads provide a more granular and lightweight approach to concurrent execution compared to processes. By understanding threads, developers can create more efficient and responsive applications.
 
-
 ### Understanding Thread Creation
 
 When using threads in programming, a programmer often has to define the functionality of a thread and then create an instance of it. Here's a glimpse of it:
@@ -504,8 +456,6 @@ Upon calling `thread_create()`, two significant events occur:
 - The new thread starts executing from the `thread_function()`.
 
 This simultaneous execution of both threads is what we refer to as "concurrency."
-
-
 
 ### User vs Kernel-Level Threads
 

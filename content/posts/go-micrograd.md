@@ -7,6 +7,7 @@ tags = ["Machine Learning"]
 {{< toc >}}
 
 
+
 ## What Are Neural Networks
 ---
 
@@ -225,7 +226,6 @@ func buildTopo(v *Value, topo []*Value, visited map[*Value]bool) []*Value {
 	return topo
 }
 ```
-
 
 ### Training the `double(x)` Model
 

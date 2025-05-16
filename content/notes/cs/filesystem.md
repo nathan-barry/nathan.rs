@@ -7,6 +7,7 @@ tags = ["Computer Science Notes"]
 {{< toc >}}
 
 
+
 ## Filesystems Basics
 ---
 
@@ -32,7 +33,6 @@ Files consist of two components: Data and Metadata. Metadata offers crucial insi
 - Where are the data blocks situated?
 
 The operating system keeps the metadata at a predetermined, easily accessible location. Data is actual content that users are interested in. This comprises sectors of data placed on the disk.
-
 
 #### Design Properties for an Ideal Filesystem
 
@@ -66,8 +66,6 @@ Uses of partitions encompass:
 - Housing multiple OSs on a single physical disk (useful for dual-booting systems).
 - Creating a swap partition for pages that are removed from the primary memory.
 - Designating physical disk regions for optimizing seek latency.
-
-
 
 
 
@@ -110,7 +108,6 @@ The reason why random access is efficient here is due to the contiguous nature o
 - Random Access Speed: Excellent.
 - File Growth: One major downside. If you wish to expand a file but another file obstructs its path, reallocation becomes necessary.
 - Fragmentation: There's a significant amount of external fragmentation.
-
 
 ### Linked Allocation
 
@@ -158,11 +155,9 @@ For the linked allocation:
 - Random Access Speed: Essentially equates to sequential access to the Nth block.
 - Corrupted Disk Block: Corruption of a single block obstructs access to subsequent blocks.
 
-
 ### Direct Allocation
 
 In this scheme, the file header directly points to each data block. This has good access time but forces the file to be tiny.
-
 
 ### FAT File System
 
@@ -181,8 +176,6 @@ The File Allocation Table (FAT) system originated with MS-DOS in the late 1970s.
 
 
 
-
-
 ## Directories
 ---
 
@@ -195,7 +188,6 @@ A directory is essentially a file that holds a mapping from file names to their 
 - User-level Access: While users cannot modify directories, they can read them, which aids in navigation and file retrieval.
 
 - Name Spaces: Directories maintain unique name spaces. This means that within one directory, all file names must be distinctive.
-
 
 An `inumber` within a directory can point to another directory, not just typical files. To distinguish between the two, the OS designates a special bit in the inode. 
 
@@ -235,9 +227,6 @@ While we've detailed how to:
 3. Retrieve a file header using a human-readable path.
 
 Users shouldn't need to know or perform any of these steps. The OS masks this complexity, presenting users with a straightforward interface.
-
-
-
 
 
 
@@ -326,7 +315,6 @@ Transactions can be:
 Compared to traditional methods, journaling offers a better balance of performance and reliability. `fsck`, while reliable, has several drawbacks. It employs write-through caching and in case of failures, necessitates scanning the entire partition, leading to slow recoveries. 
 
 Journaling, on the other hand, logs all metadata changes as transactions in the journal. If there's a failure, only the journal needs scanning. This provides fast recovery, although metadata still needs to be written twice.
-
 
 Disks can fail unexpectedly, risking data loss. A fundamental concern is consistency: the disk's metadata should self-align. The in-memory disk cache, while essential for performance, exacerbates consistency issues.
 

@@ -347,27 +347,6 @@ footer .theme-by {
 	overflow-x: auto;
 }
 
-.checkbox {
-	display: flex;
-	align-items: flex-start;
-	margin: 0.1rem 0 0 1rem;
-}
-
-.box {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	width: 0.8rem;
-	height: 0.8rem;
-	margin: 0.5rem 1rem 0 0;
-	border: 1px solid #d4d4d4;
-}
-
-.checked .box {
-	background-color: #9d9d9d;
-	color: #d4d4d4;
-}
-
 .hoverable:hover {
 	font-weight: bold;
 }
@@ -427,10 +406,6 @@ footer .theme-by {
 
 	.katex-html {
 		font-size: 1rem;
-	}
-
-	.checkbox {
-		margin-left: 0;
 	}
 
 	ul,

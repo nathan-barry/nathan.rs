@@ -61,9 +61,6 @@ For the condition `if(x == 1) x=2`, the steps include:
 
 Single instructions are atomic. Thus, it depends on the instruction architecture of the machine.
 
-
-
-
 ### Disable Interrupts Technique
 
 To maintain control, a thread must manage both internal events (by not yielding, avoiding I/O, and not causing exceptions) and handle external events.
@@ -77,7 +74,6 @@ This method involves instructing the hardware to postpone external events until 
 Disabling interrupts can lead to unintended consequences. Interrupts are essential for handling time-sensitive tasks.
 - On a uniprocessor, the OS may use this approach for specific data structures, crucial for systems like **Pintos**.
 - On **multiprocessors**, disabling interrupts only impacts the CPU executing the thread. Hence, other CPUs can access the critical section.
-
 
 
 
@@ -101,7 +97,6 @@ A lock enables one thread to block another from executing certain operations.
 - **Why Mutual Exclusion?**: Due to the unpredictable nature of thread scheduling.
 - On a **uniprocessor**, an operation is atomic if there's no context switch during its execution. Mutual exclusion can be achieved by preventing these switches.
 - **Context Switches** arise due to internal events (like system calls) and external events (such as interrupts).
-
 
 ### Atomic Read-Modify-Write Instructions
 
@@ -155,8 +150,6 @@ Solutions
 
 - Test&Set with Minimal Busy Waiting
     - Here, busy waiting is used only to check the lock's status (using `guard`) rather than the entire critical section. If the lock is in use, the thread is added to a wait queue.
-
-
 
 
 
@@ -237,22 +230,6 @@ When to Utilize Semaphores:
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ## Deadlocks
 ---
 
@@ -317,7 +294,6 @@ Condition variables allow threads to pause and wait for a specific event within 
   - This lock is acquired prior to executing any function.
 - *Thread Synchronization*: Monitors allow threads to synchronize their activities within the critical section, offering guarantees against deadlocks. This is achieved using condition variables.
 
-
 Implementing Monitor Functions:
 
 1. **Start by acquiring the lock**: This is the first action of every function within a monitor.
@@ -326,32 +302,6 @@ Implementing Monitor Functions:
 4. **Reacquire the lock** when the operation can resume. This too involves a condition variable.
 5. Continue to **operate on the shared data**.
 6. **Release the lock** at the function's end.
-
-<!-- ### Example Using Semaphores: -->
-
-<!-- The given BoundedBuffer example employs semaphores. Here's the segment you provided: -->
-
-<!-- ```pseudo -->
-<!-- Semaphore mutex = 1 --> 
-<!-- Semaphore empty = N --> 
-<!-- Semaphore full = 0 -->
-<!-- int buffer[N] -->
-
-<!-- BoundedBuffer::Producer() { -->
-<!--     produce item -->
-<!--     empty.down() // get an empty slot -->
-<!--     mutex.down()  // access the buffer -->
-<!--     add item to buffer -->
-<!--     mutex.up()    // release the buffer -->
-<!--     full.up()     // indicate a new item in buffer --> 
-<!-- } -->
-<!-- ``` -->
-
-<!-- While this example demonstrates the use of semaphores, transitioning to monitors would encapsulate and streamline the process, making the code more readable and maintainable. -->
-
-
-
-
 
 ### Condition Variables
 
@@ -400,8 +350,6 @@ CondVar::Broadcast(lock) {
 }
 ```
 
-
-
 ### Resource Variables & Signal Semantics
 
 Every condition variable should be paired with a **resource variable** that tracks the status of that associated resource.
@@ -447,21 +395,6 @@ Substituting `broadcast()` for `signal()` is always safe, but it will impact per
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ## Advanced Synchronization
 ---
 
@@ -472,7 +405,6 @@ Substituting `broadcast()` for `signal()` is always safe, but it will impact per
 - **Disadvantage:** Performance Limitations
     - Using a single lock for synchronization can negate the benefits of multi-threading within the secured code segment.
     - Performance benefits offered by multicore architectures are also lost for that portion of the code.
-
 
 ### Fine-Grained Locking
 
@@ -486,8 +418,6 @@ Fine-grained locking refers to using multiple locks for different parts or secti
     - Higher chances of encountering issues such as deadlocks.
 
 *Note:* The term "fine-grained" here indicates that locks are applied at a detailed level, as opposed to "coarse-grained" where one lock controls access to a large section of data.
-
-
 
 ### Conservative Two-Phase Locking
 
@@ -504,8 +434,6 @@ A protocol that ensures concurrency control:
 - **Benefits:**
     - Offers serializability: Ensures that concurrent transaction yields results consistent with some order of serial execution.
     - Effectively prevents deadlock situations.
-
-
 
 ### Schedules & Interleavings
 
@@ -527,7 +455,6 @@ void increment() {
     lock.release();
 }
 ```
-
 
 
 

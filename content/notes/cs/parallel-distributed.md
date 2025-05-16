@@ -48,7 +48,6 @@ There are primarily two models of parallel programming:
       
     - **Tools**: Libraries like MPI help abstract the intricacies of message passing.
 
-
 Shared Memory:
 - **Advantages**: Quick communication since everything is in shared memory.
   
@@ -62,7 +61,6 @@ Message Passing:
 - **Challenges**: Need to format data into messages, which might add overhead.
   
 - **Use Cases**: Best for cluster computing or scenarios where the computational load needs to be distributed across machines, e.g., cloud computing.
-
 
 
 
@@ -138,8 +136,6 @@ However, issues arise:
 
 The key question becomes: *Can we leverage messages and retries over an unreliable network to synchronize two machine's actions?*
 
-
-
 ### Distributed Consensus and The Generals’ Paradox
 
 A classic problem that illustrates the challenges of distributed consensus is **The Generals’ Paradox**:
@@ -153,7 +149,6 @@ The core challenge is ensuring that both generals are confident in the coordinat
 #### Distributed Consensus with Link Failures
 
 In situations where communication links might fail, achieving consensus is impossible. This understanding derives from an iterative elimination of message exchanges, showing that even if we have a theoretical solution, the absence of certain messages makes it impractical. As a result, timeouts become popular in distributed algorithms. Success becomes probable but is not guaranteed within a bounded time frame.
-
 
 
 
@@ -219,14 +214,11 @@ A workaround involves participants reaching out to others when a timeout occurs.
 - Sent `VOTE_ABORT`, then the transaction should be aborted.
 - If all voted to commit but none have received a `GLOBAL_*` decision, we cannot definitively commit since the coordinator might've logged `GLOBAL_ABORT`.
 
-
 The Two-Phase Commit protocol, despite its challenges, serves as a foundational approach for distributed transactions. With a message complexity of 3(N-1), it stands as a testament to the intricacies of coordinating multiple nodes. For those seeking to employ 2PC:
 
 - Recognize situations where indefinite blocking can occur.
 - Assess whether such risks are acceptable.
 - If 2PC falls short, delve into advanced distributed coordination methods or consider specialized courses in distributed computing for deeper insights.
-
-
 
 
 
@@ -236,7 +228,6 @@ The Two-Phase Commit protocol, despite its challenges, serves as a foundational 
 In distributed systems, where multiple machines or processes collaborate to achieve a goal, deciding which machine leads the charge can be crucial. This is especially true when a previously appointed leader fails or when the system starts up without an initial leader. One common solution to this problem is the use of leader election algorithms.
 
 In many distributed algorithms, a **coordinator** or leader is essential to drive the protocol, make decisions, or manage resources. If the coordinator suddenly crashes or there's no designated leader at the system's startup, we elect a leader.
-
 
 ### The Bully Algorithm
 
@@ -263,12 +254,6 @@ One popular election algorithm for leader election is the **Bully Algorithm**. L
 3. If only processes $ P_j $ with $ j < i $ respond within $ T $ seconds, $ P_i $ then declares itself as the new leader.
 4. If $ P_i $ gets a leadership claim from a process $ P_j $ where $ j < i $, $ P_i $ restarts its election process, essentially "bullying" its way.
 5. On the other hand, if $ P_i $ hears from a higher-ranked $ P_j $ claiming leadership, $ P_i $ acknowledges this.
-
-
-
-
-
-
 
 
 
@@ -340,7 +325,6 @@ Files are stored on remote file servers, and clients can access these files tran
 - **Naming**: NFS uses implicit naming, offering location transparency. This means the file's name doesn't disclose the server on which it's stored. This is different from explicit naming which might look like `<file server: file name>` or `//anslaptop/Users/ans/Desktop`.
 - **Finding the Server**: NFS uses the Mount protocol to achieve static, location-transparent mapping. Users can mount remote directories as if they were local and a mount table keeps track of the directory to server mapping.
 
-
 **Performance in Basic Use-Case**
 - **RPC Utilization**: For each file system request (open, seek, read, write, close, etc.), Remote Procedure Calls (RPC) forwards it to the remote server. The server treats each operation as a local request and returns the result.
 - **Pros**: The server offers a uniform view of the file system to all distributed clients. But, what does "consistent" really mean in this context?
@@ -370,7 +354,6 @@ Files are stored on remote file servers, and clients can access these files tran
   - Client-initiated weak consistency
 - **Strengths**: NFS is straightforward and boasts high portability.
 - **Weaknesses**: It doesn't offer strong consistency.
-
 
 
 
