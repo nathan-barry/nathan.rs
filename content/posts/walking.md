@@ -2,6 +2,7 @@
 title = "A Winter Walk"
 date = 2024-12-18T12:21:35-06:00
 tags = ["Writings"]
+draft = true
 +++
 
 
