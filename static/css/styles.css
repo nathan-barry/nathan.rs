@@ -290,7 +290,7 @@ nav>ul {
 
 nav li {
 	position: relative;
-	padding-left: 1.5em;
+	padding-left: 1.75rem;
 }
 
 nav li::before {
@@ -420,6 +420,10 @@ footer .theme-by {
 	ul,
 	ol {
 		padding-left: 1rem;
+	}
+
+	nav ol {
+		padding-left: 1.75rem;
 	}
 
 	h1 {
