@@ -1,6 +1,6 @@
 +++
 title = "Favorite Books"
-description = "Below are all the books I've read since middle school, roughly in order. Those highlighted in purple were those I particularly enjoyed or found impactful. An asterisk (*) indicates you can click to see some of my thoughts on the book :)"
+description = "Below are all the books I've read since middle school, roughly in order. Those highlighted in orange were those I particularly enjoyed or found impactful. An asterisk (*) indicates you can click to see some of my thoughts on the book :)"
 tags = ["Personal"]
 +++
 
