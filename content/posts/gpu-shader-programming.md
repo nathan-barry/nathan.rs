@@ -188,27 +188,19 @@ private _runPass(
 
 #### Forward Pass: Layer by Layer
 
-Because each pass leaves its results in VRAM, we never pay the cost of round-trips back to the CPU until the very end. Here’s each step of the forward pass that we string together:
+Because each pass leaves its results in VRAM, we never pay the cost of round-trips back to the CPU until the very end. Below is a high-level description of the entire forward pass:
 
-1. Embedding Upload
-    - Combine token and position embeddings on the CPU, upload the sum as a texture on the GPU.
-2. 12 Transformer Layers
-    - LayerNorm → produces norm1Tex
-    - Q, K, V: matMul + bias → three textures
-    - Head slicing → split into N smaller “head” textures
-    - Attention score + softmax → compute attention map
-    - Weighted sum → apply attention to values → result texture
-    - Head merge → draw each head block back into one large texture
-    - Output projection + bias → APb texture
-    - Residual add → combine with norm1Tex → res1
-    - Feed-Forward (matMul → bias → GELU → matMul → bias) → fc2b
-    - Second residual add → produces next layer’s input texture
-3. Final LayerNorm → normFTex
-4. LM Head matMul → logitsTex → read back via gl.readPixels
+1. **Upload Embeddings**: Compute the token+position embeddings on the CPU and send them to the GPU as one texture.
+2. **Transformer Layers (12 in total)**:
+    - *Normalize & Project*: Apply layer normalization, then run the attention and feed-forward sublayers entirely on the GPU.
+    - *Attention*: Compute queries, keys, values; calculate attention weights; combine values.
+    - *Feed-Forward*: Two matrix multiplies with a GELU activation in between.
+    - *Residuals*: Add the layer’s input back in at each substep.
+3. **Final Normalization & Output**: Do one last layer normalization, multiply by the output weight matrix, then read the resulting logits back to the CPU.
 
 Once logits are back on the CPU, we apply softmax and sample (top-k or top-p) to pick the next token. Then the process starts over again with the new token being appended to the context.
 
-By chaining just four simple GPU steps per operation, we keep the entire GPT-2 pipeline on the GPU until the final logits. This is how programmable shaders let us treat the graphics pipeline as a general-purpose parallel engine.
+By chaining these operation passes together, we keep the entire GPT-2 pipeline on the GPU until the final logits. This is how programmable shaders let us treat the graphics pipeline as a general-purpose parallel engine.
 
 <br>
 
