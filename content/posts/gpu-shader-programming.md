@@ -27,8 +27,8 @@ Inspired by the demand for **general-purpose GPU (GPGPU)** programming, in Novem
 ## Graphics API vs Compute API
 ---
 
-Traditional graphics APIs like OpenGL are centered around a fixed-function pipeline tailored for rendering images. The pipeline consists of stages like vertex processing, rasterization, fragment processing, etc. Each stage can be programmable with shaders, but the overall flow is fixed. 
-Using OpenGL for computation required a lot of boilerplate. One had to pack data into texture formats, use off-screen framebuffers to capture the results, and often perform multiple render passes to accomplish multi-stage algorithms. 
+Traditional graphics APIs like OpenGL are centered around a fixed-function pipeline tailored for rendering images. The pipeline consists of stages like vertex processing, rasterization, fragment processing, etc. Each stage can be programmable with shaders, but the overall flow is fixed.
+Using OpenGL for computation required a lot of boilerplate. One had to pack data into texture formats, use off-screen framebuffers to capture the results, and often perform multiple render passes to accomplish multi-stage algorithms.
 
 In contrast, OpenCL and CUDA expose a direct compute model which lets you treat the GPU as one giant SIMD processor:
 
@@ -148,7 +148,7 @@ With this structure in mind, every “shader pass” is really just:
 
 ### Chaining Passes
 
-Under the hood, every neural‐network operation—whether it’s a matrix multiply, an activation function, or a bias addition—boils down to four simple GPU steps:
+Under the hood, every neural‐network operation, whether it’s a matrix multiply, an activation function, or a bias addition, boils down to four simple GPU steps:
 
 1. Bind inputs as textures (weights, activations, or intermediate results).
 2. Attach a fresh output texture to an offscreen framebuffer (FBO).
@@ -201,6 +201,17 @@ Because each pass leaves its results in VRAM, we never pay the cost of round-tri
 Once logits are back on the CPU, we apply softmax and sample (top-k or top-p) to pick the next token. Then the process starts over again with the new token being appended to the context.
 
 By chaining these operation passes together, we keep the entire GPT-2 pipeline on the GPU until the final logits. This is how programmable shaders let us treat the graphics pipeline as a general-purpose parallel engine.
+
+### Limitations
+
+While hijacking WebGL allows us to run machine learning models on the GPU, it carries several key limitations:
+
+- **No shared/local memory**: Fragment shaders can only read/write global textures. There’s no on-chip scratchpad for blocking or data reuse, so you’re limited to element-wise passes.
+- **Texture size limits**: GPUs enforce a maximum 2D texture dimension (e.g. 16 K×16 K). Anything larger must be manually split into tiles, adding bookkeeping and extra draw calls.
+- **No synchronization or atomics**: You can’t barrier or coordinate between fragments in a pass, making reductions, scatter/gather, and other data-dependent patterns difficult or impossible.
+- **Draw-call and precision overhead**: Every neural-net operation requires binding an FBO, swapping textures, and issuing a draw call (dozens per layer) which incurs CPU overhead. Plus, you’re bound to 16- or 32-bit floats (via `EXT_color_buffer_float`), with no double precision or integer textures.
+
+Taken together, these constraints make shader-based compute an interesting educational project but a only a historical novelty for real world use. Compute APIs like CUDA or OpenCL give easier and better tools to achieve the same thing.
 
 <br>
 
