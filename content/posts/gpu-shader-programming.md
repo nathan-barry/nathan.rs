@@ -1,18 +1,18 @@
 +++
-title = "Running GPT-2 in WebGL: Rediscovering the Lost Art of GPGPU Shader Programming"
+title = "Running GPT-2 in WebGL: Rediscovering GPGPU Shader Programming"
 date = 2025-05-24T12:20:47-07:00
 tags = ["Machine Learning"]
 +++
 
 <br>
 
-Preface: A few weeks back, I implemented GPT-2 using WebGL and shaders ([Github Repo](https://github.com/nathan-barry/gpt2-webgl/tree/main)) which made the front page of Hacker News ([discussion](https://news.ycombinator.com/item?id=43870998)). By popular demand, here is a short write-up over the main ideas behind GPU shader programming (for general-purpose computing).
+Preface: A few weeks back, I implemented GPT-2 using WebGL and shaders ([Github Repo](https://github.com/nathan-barry/gpt2-webgl/tree/main)) which made the front page of Hacker News ([discussion](https://news.ycombinator.com/item?id=43870998)). By popular demand, here is a short write-up over the main ideas behind General-Purpose GPU shader programming.
 
 {{< toc >}}
 
 
 
-## The Origins of General Purpose GPU Programming
+## The Origins of General-Purpose GPU Programming
 ---
 
 In the early 2000s, NVIDIA introduced programmable shaders with the GeForce 3 (2001) and GeForce FX (2003). Instead of being limited to predetermined transformations and effects of earlier GPUs, developers were now given unprecedented control over the rendering pipeline, enabling much more sophisticated visual effects. These programmable shaders laid the foundation for modern GPU computing.
