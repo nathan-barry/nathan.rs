@@ -5,7 +5,7 @@ tags = ["Writings"]
 draft = true
 +++
 
-
+<br>
 
 I found myself walking outside and staring at the leaves. I tend to walk when I am lost in thought, a too-common occurance. Usually, I walk in a circle in whatever room I find myself to occupy. I mindlessly stare at the floor, automatically and unconsciously moving one foot after another.
 

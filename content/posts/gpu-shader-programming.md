@@ -1,5 +1,5 @@
 +++
-title = "Running GPT-2 in WebGL: Rediscovering the Lost Art of GPU Shader Programming"
+title = "Running GPT-2 in WebGL: Rediscovering the Lost Art of GPGPU Shader Programming"
 date = 2025-05-24T12:20:47-07:00
 tags = ["Machine Learning"]
 +++
@@ -28,9 +28,9 @@ Inspired by the demand for **general-purpose GPU (GPGPU)** programming, in Novem
 ---
 
 Traditional graphics APIs like OpenGL are centered around a fixed-function pipeline tailored for rendering images. The pipeline consists of stages like vertex processing, rasterization, fragment processing, etc. Each stage can be programmable with shaders, but the overall flow is fixed.
-Using OpenGL for computation required a lot of boilerplate. One had to pack data into texture formats, use off-screen framebuffers to capture the results, and often perform multiple render passes to accomplish multi-stage algorithms.
+Using the OpenGL graphics pipeline to do general-purpose computation required a lot of boilerplate. One had to pack data into texture formats, use off-screen framebuffers to capture the results, and often perform multiple render passes to accomplish multi-stage algorithms.
 
-In contrast, OpenCL and CUDA expose a direct compute model which lets you treat the GPU as one giant SIMD processor:
+In contrast, OpenCL and CUDA expose a direct compute model:
 
 - **Kernels, not shaders**: You write a function and then launch thousands of copies to run in parallel (no notion of vertices or fragments).
 - **Raw buffers**: Allocate arrays of floats or integers, read/write them directly, and move them back and forth between host and device with explicit copy calls.
@@ -38,7 +38,7 @@ In contrast, OpenCL and CUDA expose a direct compute model which lets you treat 
 
 The result is a far more natural fit for linear algebra, simulations, physics, ML, and any algorithm where you just want to compute independent calculations in bulk.
 
-In OpenGL, the output of your computation would ultimately be pixels in a framebuffer or values in a texture; in OpenCL, the output can be data in any form (float arrays, computed lists of numbers, etc.) which you then transfer back to the CPU or use in further computations. This makes OpenCL more suitable for general algorithms where you just want the numerical results.
+In OpenGL, the output would ultimately be pixels in a framebuffer or values in a texture; in OpenCL, the output can be data in any form (float arrays, computed lists of numbers, etc.) which you then transfer back to the CPU or use in further computations. This makes OpenCL more suitable for general algorithms where you just want the numerical results.
 
 
 
@@ -54,9 +54,9 @@ In traditional graphics rendering, a **texture** is simply a 2D (or 3D) array of
   Each texture is an array of floating‐point values (we use single‐channel R32F formats), where each pixel encodes one element of a matrix or vector. Just like you’d think of an H×W texture as holding H×W RGB pixels for an image, here it holds H×W scalar values for a weight matrix or activation map.
 
 * **Sampling without filtering**:
-  We use functions like `texelFetch` to read texture data by exact integer coordinates, bypassing any interpolation. This gives us deterministic, “random access” reads into our weight and activation arrays, akin to indexing into a CPU array by row and column.
+  We use functions like `texelFetch` to read texture data by exact integer coordinates. This gives us deterministic, “random access” reads into our weight and activation arrays, akin to indexing into a CPU array by row and column.
 
-A **Framebuffer Object (FBO)** is a lightweight container that lets us redirect rendering output from the screen into one of our textures:
+A **Framebuffer Object (FBO)** is a container that lets us redirect rendering output from the screen into one of our textures:
 
 1. **Attach a texture as the render target**:
    By binding a texture to an FBO, any draw call you make, normally destined for your monitor, writes into that texture instead. The fragment shader’s `out` variable becomes a write port into GPU memory.
@@ -65,13 +65,13 @@ A **Framebuffer Object (FBO)** is a lightweight container that lets us redirect 
    Because we can attach different textures in succession, we “ping-pong” between them: one pass writes into **Texture A**, the next pass reads from **Texture A** while writing into **Texture B**, and so on. This avoids ever copying data back to the CPU until the very end.
 
 3. **High‐throughput data bus**:
-   All of this happens entirely on the GPU’s VRAM bus. Binding textures and framebuffers is just pointer swapping on the GPU. Once set up, your fragment shader passes stream through millions of cores in parallel, reading, computing, and writing without ever touching system memory.
+   All of this happens entirely in the GPU’s local memory. Binding textures and framebuffers is just pointer swapping on the GPU. Once set up, your fragment shader passes stream through millions of cores in parallel, reading, computing, and writing without ever touching system memory.
 
 Together, textures and FBOs form the **data bus** of our shader‐based compute engine: textures hold the raw bits of your neural network (weights, intermediate activations, and outputs), and framebuffers let you chain shader passes seamlessly, keeping everything on the high-speed GPU pipeline until you explicitly pull the final logits back to the CPU.
 
 ### Fragment Shaders as Compute Kernels
 
-Fragment shaders are where the magic happens. Instead of using fragment shaders to shade pixels for display, we hijack them as compute kernels; each fragment invocation becomes one “thread” that calculates a single output value. The GPU will launch thousands of these in parallel, giving us massive throughput for neural-network operations.
+Fragment shaders are where the magic happens. Instead of using fragment shaders to shade pixels for display, we hijack them as compute kernels; each fragment invocation becomes one thread that calculates a single output value. The GPU will launch thousands of these in parallel, giving us massive throughput for neural-network operations.
 
 Below is an example fragment shader for matrix multiplication:
 
@@ -103,7 +103,7 @@ void main() {
 ```
 
 Here we have:
-- **Per-pixel work item**: Each fragment corresponds to one matrix element (i, j). The GPU runs this loop for every (i, j) in parallel across its shader cores.
+- **Per-pixel work item**: Each fragment corresponds to one matrix element (i, j). The GPU runs this for every (i, j) in parallel across its shader cores.
 - **Exact indexing**: texelFetch reads a single float by its integer coordinate.
 - **Write-back**: Assigning to outColor.r writes that computed value directly into the bound FBO’s texture at (i, j).
 
@@ -140,7 +140,7 @@ void main() {
 ```
 
 - **Full-screen quad**: Two triangles cover the viewport. Every pixel in the fragment stage maps to one tensor element.
-- **Reusable**: Because the vertex work is identical for all operations, we compile it once and reuse it across every matrix multiply, activation, and bias-add pass.
+- **Reusable**: Because the vertex work is identical for all operations, we compile it once and link it with every operation.
 
 With this structure in mind, every “shader pass” is really just:
 1. **Vertex shader**: map two triangles to the viewport
@@ -206,8 +206,8 @@ By chaining these operation passes together, we keep the entire GPT-2 pipeline o
 
 While hijacking WebGL allows us to run machine learning models on the GPU, it carries several key limitations:
 
-- **No shared/local memory**: Fragment shaders can only read/write global textures. There’s no on-chip scratchpad for blocking or data reuse, so you’re limited to element-wise passes.
-- **Texture size limits**: GPUs enforce a maximum 2D texture dimension (e.g. 16 K×16 K). Anything larger must be manually split into tiles, adding bookkeeping and extra draw calls.
+- **No shared/local memory**: Fragment shaders can only read/write global textures. There’s no access to on-chip scratchpad for blocking or data reuse, so you’re limited to element-wise passes.
+- **Texture size limits**: WebGL enforces a maximum 2D texture dimension (e.g. 16 K×16 K). Anything larger must be manually split into tiles, adding bookkeeping and extra draw calls.
 - **No synchronization or atomics**: You can’t barrier or coordinate between fragments in a pass, making reductions, scatter/gather, and other data-dependent patterns difficult or impossible.
 - **Draw-call and precision overhead**: Every neural-net operation requires binding an FBO, swapping textures, and issuing a draw call (dozens per layer) which incurs CPU overhead. Plus, you’re bound to 16- or 32-bit floats (via `EXT_color_buffer_float`), with no double precision or integer textures.
 
