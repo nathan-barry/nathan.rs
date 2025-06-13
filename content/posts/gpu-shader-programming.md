@@ -1,5 +1,5 @@
 +++
-title = "Running GPT-2 in WebGL: Rediscovering GPGPU Shader Programming"
+title = "Running GPT-2 in WebGL: Rediscovering Graphic Shaders GPGPU Programming"
 date = 2025-05-24T12:20:47-07:00
 tags = ["Machine Learning"]
 +++
