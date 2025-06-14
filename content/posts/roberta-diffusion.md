@@ -4,7 +4,6 @@ date = 2025-06-03T13:22:01-07:00
 tags = ["Machine Learning"]
 +++
 
-
 <br>
 <img alt="RoBERTa Diffusion" style="max-width: 100%;" src="/images/roberta-diffusion.gif">
 <br>
@@ -16,8 +15,8 @@ Google DeepMind recently unveiled Gemini Diffusion, an experimental language mod
 After reading the paper "Large Language Diffusion Models", I was surprised to find that discrete language diffusion is just a variation of masked language modeling (MLM), something we’ve been doing since 2018.
 This is a write-up over my attempt to fine-tuned RoBERTa (an old MLM model) to do language generation.
 
-
 {{< toc >}}
+
 
 
 ## A Short History of Transformers

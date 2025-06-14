@@ -5,6 +5,8 @@ tags = ["Machine Learning"]
 +++
 
 <br>
+<img alt="GPT-2 in WebGL" style="max-width: 100%;" src="/images/gpt2-webgl.gif">
+<br>
 
 Preface: A few weeks back, I implemented GPT-2 using WebGL and shaders ([Github Repo](https://github.com/nathan-barry/gpt2-webgl/tree/main)) which made the front page of Hacker News ([discussion](https://news.ycombinator.com/item?id=43870998)). By popular demand, here is a short write-up over the main ideas behind General-Purpose GPU shader programming.
 
