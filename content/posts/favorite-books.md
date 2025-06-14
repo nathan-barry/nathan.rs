@@ -5,7 +5,7 @@ tags = ["Personal"]
 +++
 
 <script>
-let bookNumber = 164;  // Initialize book number
+let bookNumber = 163;
 
 document.addEventListener("DOMContentLoaded", function() {
   // Auto-increment book numbers
@@ -44,14 +44,8 @@ function setHovering(isHovering, element) {
 {{< book
     title="The World For Sale"
     author="Javier Blas & Jack Farchy"
-    special="true"
-    description="This was a really good book over the history of commodity trading. Commodity traders have wielded immense influence over world events in the past century and little was known about them until the last couple of decades. They went wherever money could be made. Didn't matter if they were allowing states to evade sanctions, propping up dictators, bribing politicians, or funding rebels, if they could make a buck they were there. Super interesting book.">}}
-
-{{< book
-    title="Replacing Guilt"
-    author="Nate Soares"
     special=""
-    description="I saw someone mentioned this on twitter. It was written by an effective altruist (way before SBF) on how to essentially be more productive and efficient. It talks about how people usually use guilt as a tool to be more productive, but how there are many cases where guilt is counter productive and how we can alter how we perceive these events to not be dragged down as much. I mainly picked it up since I've always had immense trouble allowing myself to do anything but work or to allow myself to enjoy anything that wasn't evidently productive to some end. This generally causes boom and bust cycles of productivity where you're either getting a tremendous amount done or are just completely burnt out. This actually worked pretty great during most of college but times have certainly changed.">}}
+    description="This was a really good book over the history of commodity trading. Commodity traders have wielded immense influence over world events in the past century and little was known about them until the last couple of decades. They went wherever money could be made. Didn't matter if they were allowing states to evade sanctions, propping up dictators, bribing politicians, or funding rebels, if they could make a buck they were there. Super interesting book.">}}
 
 {{< book
     title="The Innovator's Dilemma"
@@ -124,7 +118,7 @@ function setHovering(isHovering, element) {
 {{< book
     title="Seeing Like A State"
     author="James C. Scott"
-    special=""
+    special="true"
     description="This book talks about how authoritarianism and high modernist movements have always failed because of the human tendency to abstract away concrete minute details for uniformity and simplicity. For any system that we desire to have more control over, we force it to adhere to our abstractions and shape systems to be more legible, which has had extreme successes and failures throughout the industrial world. One thing that I have pondered about in the past is whether authoritarianism ever could work. In theory, if we had a perfect omnipotent being that knew all, it should be able to devise a more perfect and efficient system than what free market forces could devise, since there is no information delay or imperfections. Perhaps in a world with the extensive data mining and tracking we have today, the Soviets would have fared much better. To the hypothetical idea of creating an AI that can plan and direct economies, I wonder if it is feasible or whether there will always be detrimental edge cases that the model doesn't generalize well on. Regardless, it'll be as heartless as any state has been when it comes to realities that it does not considers.">}}
 
 {{< book

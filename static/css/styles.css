@@ -221,8 +221,7 @@ table {
 	margin: 2rem auto;
 	border-collapse: collapse;
 	border-spacing: 0;
-	border-top: 2px solid #949494;
-	border-bottom: 2px solid #949494;
+	border-style: none;
 	counter-increment: caption;
 	overflow-x: auto;
 }
@@ -234,22 +233,10 @@ td {
 	line-height: 1.1;
 }
 
-table tr:first-child th,
-table tr:first-child td {
-	border-top: 1.36px solid #949494;
-}
-
-table tr:last-child th,
-table tr:last-child td {
-	border-bottom: 1.36px solid #949494;
-}
-
-table tr>th[scope='col'] {
-	border-bottom: 1.36px solid #949494;
-}
-
-table tr>th[scope='row'] {
-	border-right: 1.36px solid #949494;
+th:first-child,
+td:first-child {
+    white-space: nowrap;
+    padding-left: 0;
 }
 
 caption {

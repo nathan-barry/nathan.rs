@@ -11,11 +11,22 @@ tags = ["Personal"]
 ## Nathan Barry
 ---
 
-I am a Computer Science masters student at UT Austin. I double majored in Computer Science and Mathematics at UT Austin for undergrad. I was born in Saint Joseph, Missouri. I started programming in 2017 my freshman year of high school, with Python and JavaScript, serving PyTorch models with Flask and React. Now (some 8+ years later) I'm focused on machine learning and low-level systems.
+Hi, I'm Nathan! I'm a CS graduate student at UT Austin.
+I'm interested in systems and machine learning.
+I love working on hard problems with great people.
 
-In my free time, I enjoy climbing, biking, playing ultimate frisbee, bowling, and [reading](/posts/favorite-books/). People have described me as smart, hard-working, conscientious, and a tiny bit eccentric. Below is a normal photo of me my senior year of high school (I more or less look the exact same since then).
+Some things I've done: |
+--- | ---
+May 2025 - Aug 2025 | Machine Learning Intern at Apple
+May 2025 | Finished undergrad @ UT Austin in CS + Math
+May 2025 | Got top page of hacker news twice for my GPT-2 WebGL implementation and write-up
+April 2025 | Got 1st place at the Meta 8VC Austin hackathon
+Dec 2024 - Jan 2025 | Software Engineer Intern at TerraFirma (robotics startup)
+Feb 2024 - Sep 2024 | Machine Learning Researcher at Applied Research Laboratories
+May 2022 | Z fellows
+Nov 2021 - Sep 2022 | Contract work at multiple startups
 
-> "His answer to every problem, every setback, was 'I will work harder!' – which he had adopted as his personal motto."--- George Orwell, Animal Farm
+In my free time, I enjoy climbing, biking, playing ultimate frisbee, bowling, and [reading](/posts/favorite-books/). People have described me as smart, conscientious, hard-working, and somewhat eccentric.
 
 <br>
 <img alt="Nathan Barry" src="/images/realcave.webp">
@@ -29,13 +40,13 @@ I've always been a competitive person and have enjoyed excelling in various acti
 
 Event | Record
 --- | ---
-1600m | 4:28
-3200m | 9:51
+Mile | 4:28
+2 Mile | 9:51
 5k | 15:56
 Bench | 265 lbs
 Bouldering Grade | V8
 Starcraft 2 Rank | Diamond (Protoss)
-CS:GO Rank | Gold Nova (middle school)
+CS:GO Rank | Gold Nova (8th grade)
 Balls Juggled | 4
 Bowling Score | 203 (my proudest one!)
 
