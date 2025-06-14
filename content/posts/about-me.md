@@ -34,7 +34,8 @@ In my free time, I enjoy climbing, biking, playing ultimate frisbee, bowling, an
 <p class="text-center">Me in high school (yes, I used Arch Linux btw, how could you tell?)</p>
 <br>
 
-### Personal Records
+## Personal Records
+---
 
 I've always been a competitive person and have enjoyed excelling in various activities. As you can see below, I am a man of many talents.
 
