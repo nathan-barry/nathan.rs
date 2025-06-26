@@ -19,7 +19,7 @@ Some things I've done: |
 --- | ---
 May 2025 - Aug 2025 | Machine Learning Intern at Apple
 May 2025 | Finished undergrad @ UT Austin in CS + Math
-May 2025 | Got top page of hacker news twice for my GPT-2 WebGL implementation and write-up
+May 2025 | Got front page of hacker news twice for my GPT-2 WebGL implementation and write-up
 April 2025 | Got 1st place at the Meta 8VC Austin hackathon
 Dec 2024 - Jan 2025 | Software Engineer Intern at TerraFirma (robotics startup)
 Feb 2024 - Sep 2024 | Machine Learning Researcher at Applied Research Laboratories
@@ -44,7 +44,7 @@ Event | Record
 Mile | 4:28
 2 Mile | 9:51
 5k | 15:56
-Bench | 265 lbs
+Bench | 275 lbs
 Bouldering Grade | V8
 Starcraft 2 Rank | Diamond (Protoss)
 CS:GO Rank | Gold Nova (8th grade)
