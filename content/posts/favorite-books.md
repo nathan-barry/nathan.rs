@@ -5,7 +5,7 @@ tags = ["Personal"]
 +++
 
 <script>
-let bookNumber = 163;
+let bookNumber = 164;
 
 document.addEventListener("DOMContentLoaded", function() {
   // Auto-increment book numbers
@@ -35,6 +35,12 @@ function setHovering(isHovering, element) {
 
 ## 2025 -- Age 22
 ---
+{{< book
+    title="Super Pumped"
+    author="Mike Isaac"
+    special=""
+    description="This is a story about the founding of Uber and of Travis Kalanick. I was actually completely unaware of all the drama around Uber that happened in 2017. Really just a hurricane of unfortunate events (many of which were self inflicted) which crashed into them all at once.">}}
+
 {{< book
     title="The Soul of a New Machine"
     author="Tracy Kidder"
