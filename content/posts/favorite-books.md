@@ -5,7 +5,7 @@ tags = ["Personal"]
 +++
 
 <script>
-let bookNumber = 164;
+let bookNumber = 165;
 
 document.addEventListener("DOMContentLoaded", function() {
   // Auto-increment book numbers
@@ -35,6 +35,12 @@ function setHovering(isHovering, element) {
 
 ## 2025 -- Age 22
 ---
+{{< book
+    title="The Metamorphosis"
+    author="Franz Kafka"
+    special=""
+    description="I recently woke up sick one day and it was so bad that it completely changed perspective on life. I told this to a friend and they said I was the main character from this book. After reading it, it has completely different dynamics, but I appreciate the reference.">}}
+
 {{< book
     title="Super Pumped"
     author="Mike Isaac"
