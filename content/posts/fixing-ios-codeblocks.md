@@ -134,7 +134,7 @@ My best guess is that the longer lines overflow and the browser tries to handle 
 
 ### Souls Saved
 
-Below is a list of all the websites that added the fix.
+Below is a list of all the websites that added the fix. If this helped you, file an issue [here](https://github.com/nathan-barry/nathan.rs/issues) and I'll add you!
 
 Website | Date
 --- | ---
@@ -142,3 +142,4 @@ nathan.rs | 09/06/2023
 iovec.net | 02/03/2024 
 shyam.blog | 02/08/2024
 robinsonz.me/blog | 12/27/2024
+netbros.com | 08/02/2025
