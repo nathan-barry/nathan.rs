@@ -69,3 +69,6 @@ When trouble came.”
 
 “Now, in his heart, Ahab had some glimpse of this, namely: all my means are sane, my motive and my object mad"
 <br>— Herman Melville, Moby Dick
+
+"The highest possible stage in moral culture is when we recognize that we ought to control our thoughts"
+<br>— Charles Darwin 
