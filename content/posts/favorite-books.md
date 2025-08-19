@@ -39,7 +39,7 @@ function setHovering(isHovering, element) {
     title="Deng Xiaoping and the Transformation of China"
     author="Ezra F. Vogel"
     special="true"
-    description="I honestly had no idea how much knowledge I lacked over contemporary Chinese history and politics until after reading this. This makes me give the neo-liberalists some more slack since it really did seem like China was liberalizing after the sino-soviet split and the opening of China to western markets. Deng was flying a large ship through a crunched alleyway with little room for error. The fact that he started China's path to such rapid economic development while maintaining a strong grip over the country, especially when the Soviet Union was collapsing in on itself, is a grand achievement in of itself and is a testament to the keen leadership he provided while at the helm.>}}
+    description="I honestly had no idea how much knowledge I lacked over contemporary Chinese history and politics until after reading this. This makes me give the neo-liberalists some more slack since it really did seem like China was liberalizing after the sino-soviet split and the opening of China to western markets. Deng was flying a large ship through a crunched alleyway with little room for error. The fact that he started China's path to such rapid economic development while maintaining a strong grip over the country, especially when the Soviet Union was collapsing in on itself, is a grand achievement in of itself and is a testament to the keen leadership he provided while at the helm.">}}
 
 {{< book
     title="The Metamorphosis"
