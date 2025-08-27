@@ -17,7 +17,7 @@ I love working on hard problems with great people.
 
 Some things I've done: |
 --- | ---
-May 2025 - Aug 2025 | Machine Learning Intern at Apple working on time-series forcasting for predictive autoscaling
+May 2025 - Aug 2025 | Machine Learning Intern at Apple working on time-series forecasting for predictive autoscaling
 June 2025 | Attend Y Combinator's first [AI Startup School](https://events.ycombinator.com/ai-sus)
 May 2025 | Finish undergrad @ UT Austin in CS + Math
 May 2025 | Front page of hacker news twice for my [GPT-2 WebGL implementation](https://github.com/nathan-barry/gpt2-webgl) and [write-up](https://nathan.rs/posts/gpu-shader-programming/)

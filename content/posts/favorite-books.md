@@ -5,7 +5,7 @@ tags = ["Personal"]
 +++
 
 <script>
-let bookNumber = 166;
+let bookNumber = 167;
 
 document.addEventListener("DOMContentLoaded", function() {
   // Auto-increment book numbers
@@ -35,6 +35,12 @@ function setHovering(isHovering, element) {
 
 ## 2025 -- Age 22
 ---
+{{< book
+    title="Willpower"
+    author="Roy F. Baumeister & John Tierney"
+    special=""
+    description="I was at a ZFellows event in SF where one of the speakers, Adam Guild, recommended this book. It's been a long time since I've read a self-help book like this. I gave it a shot because I've actually been quite lazy recently and was looking for something to help me pick up my old good habits again. Who knows what impact this had on me, but I am starting to wake up at 5 am again and all that.">}}
+
 {{< book
     title="Deng Xiaoping and the Transformation of China"
     author="Ezra F. Vogel"
