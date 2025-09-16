@@ -4,6 +4,8 @@ description = "Here are a few of my favorite quotes I've found over the years."
 tags = ["Personal"]
 +++
 
+<br>
+
 
 
 "I believe that a man should strive for only one thing in life, and that is to have a touch of greatness"
