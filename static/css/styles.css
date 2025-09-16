@@ -130,7 +130,7 @@ a {
 }
 
 a:hover {
-	color: #db963b;
+	color: #0081FB;
 }
 
 /* Inline code, kbd */
@@ -352,7 +352,7 @@ footer .theme-by {
 }
 
 .text-highlight {
-	color: #db963b;
+	color: #0081FB;
 }
 
 .book-description {

@@ -1,6 +1,6 @@
 +++
 title = "Favorite Books"
-description = "Below are all the books I've read since middle school, roughly in order. Those highlighted in orange were those I particularly enjoyed or found impactful. An asterisk (*) indicates you can click to see some of my thoughts on the book :)"
+description = "Below are all the books I've read since middle school, roughly in order. Those highlighted in blue were those I particularly enjoyed or found impactful. An asterisk (*) indicates you can click to see some of my thoughts on the book :)"
 tags = ["Personal"]
 +++
 
@@ -161,7 +161,7 @@ function setHovering(isHovering, element) {
     title="The Founders"
     author="Jimmy Soni"
     special="true"
-    description="This was a good book that covered the history of PayPal and all the members that eventually became known as the PayPal Mafia, but this got the special orange tag because of the last chapter. That was completely out of left field and pushed this book over the edge. This guy also wrote the Claude Shannon book below, great author in general.">}}
+    description="This was a good book that covered the history of PayPal and all the members that eventually became known as the PayPal Mafia, but this got the special blue tag because of the last chapter. That was completely out of left field and pushed this book over the edge. This guy also wrote the Claude Shannon book below, great author in general.">}}
 
 {{< book
     title="The Cathedral & The Bazaar"
