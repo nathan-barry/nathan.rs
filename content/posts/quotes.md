@@ -11,6 +11,9 @@ tags = ["Personal"]
 "I believe that a man should strive for only one thing in life, and that is to have a touch of greatness"
 <br>— Félix Martí-Ibáñez
 
+"In Three Words, I Can Sum Up Everything I’ve Learned About Life. It Goes On"
+<br>— Robert Frost
+
 "A happy programmer is one who is neither underutilized nor weight down with ill-formulated goals and stressful process friction."
 <br>— Eric Raymond, The Cathedral and the Bazaar
 
