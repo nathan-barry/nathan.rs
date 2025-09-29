@@ -138,8 +138,9 @@ Below is a list of all the websites that added the fix. If this helped you, file
 
 Website | Date
 --- | ---
-nathan.rs | 09/06/2023
-iovec.net | 02/03/2024 
-shyam.blog | 02/08/2024
-robinsonz.me/blog | 12/27/2024
-netbros.com | 08/02/2025
+nathan.rs | 2023-09-06
+iovec.net | 2024-02-03
+shyam.blog | 2024-02-08
+robinsonz.me | 2024-12-27
+netbros.com | 2025-08-02
+prose.nsood.in | 2025-09-27
