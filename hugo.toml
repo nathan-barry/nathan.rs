@@ -1,16 +1,4 @@
-baseURL = "https://nathan.rs/"
-title = "nathan.rs"
-author = "Nathan Barry"
-languageCode = "en"
-enableInlineShortcodes = true
-
-[markup]
-  [markup.goldmark]
-    [markup.goldmark.renderer]
-      unsafe = true
-    [markup.tableOfContents]
-      ordered = true
-      startLevel = 2
-      endLevel = 3
-  [markup.highlight]
-    style = "github"
+[module]
+[module.hugoVersion]
+  extended = true
+  min = "0.146.0"
