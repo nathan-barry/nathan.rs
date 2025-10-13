@@ -14,8 +14,10 @@ https://github.com/alex-shpak/hugo-book
   <meta http-equiv="Refresh" content="0; url='{{ . }}'" />
 {{- end -}}
 
+{{/* Uncomment if you want Open Graph and Schema.org meta tags
 {{ partial "opengraph.html" . }}
 {{ partial "schema.html" . }}
+*/}}
 
 <title>{{ partial "docs/html-head-title" . }}</title>
 {{ partial "docs/html-head-favicon" . }}
@@ -46,7 +48,9 @@ https://github.com/alex-shpak/hugo-book
   <script defer src="{{ $swJS.RelPermalink }}" {{ template "integrity" $swJS }}></script>
 {{ end -}}
 
+{{/* Uncomment and add googleAnalytics in config if needed
 {{ partial "google_analytics.html" . }}
+*/}}
 
 <!-- RSS -->
 {{- with .OutputFormats.Get "rss" -}}
