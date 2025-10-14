@@ -4,8 +4,7 @@ description = "My notes over Mark Maxwell's course, Introduction to Mathematical
 date = 2024-02-21T14:07:21-06:00
 tags = ["Class Notes"]
 +++
-
-{{< toc >}}
+{{< katex >}}{{< /katex >}}
 
 
 

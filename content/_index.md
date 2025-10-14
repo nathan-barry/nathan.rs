@@ -70,13 +70,10 @@ Bowling Score | 203 (my proudest one!)
 
 ## Things to Fix
 I am changing much on my site currently. Here are things to fix:
-- Add notes
-- Further remove unneeded stuff
-- add google tag
-- make image responsive
 - fix images on posts
+- fix all blog post formatting and content
+- add google tag
+- make main image responsive
 - edit book summaries (more prominent now)
 - remove "edit this page"
-- fix all blog post formatting
 - Set up RSS feed
-- Add favicon
