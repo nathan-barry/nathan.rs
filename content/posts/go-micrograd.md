@@ -3,8 +3,9 @@ title = "Intro to Autograd Engines: Karpathy's Micrograd in Go"
 date = 2023-11-11T08:57:53-06:00
 tags = ["Machine Learning"]
 +++
-
 {{< katex >}}{{< /katex >}}
+
+
 
 For a while, I wanted to build a complete autograd engine. What is an autograd engine, you might ask? To find the answer, we first must know what a neural network is.
 
