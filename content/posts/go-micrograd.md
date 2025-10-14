@@ -4,12 +4,12 @@ date = 2023-11-11T08:57:53-06:00
 tags = ["Machine Learning"]
 +++
 
-
-
-## What Are Neural Networks
----
+{{< katex >}}{{< /katex >}}
 
 For a while, I wanted to build a complete autograd engine. What is an autograd engine, you might ask? To find the answer, we first must know what a neural network is.
+
+## Neural Network Crash Course
+---
 
 A neural network can just be seen as a black-box function. We pass in an input into this black box and receive an output. Normally, in a function, we define the rules on how to manipulate the input to get an output. For example, if we want a function that doubles the input, i.e $f(x) = 2x$, then all we would write is:
 

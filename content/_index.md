@@ -31,6 +31,8 @@ May 2022 | Participated in the **[Z fellows](https://www.zfellows.com)** program
 Nov 2021 - Sep 2022 | Worked at a few startups for Rust and TypeScript full-stack development
 Aug 2021 - May 2025 | Did my Bachelor's of Science in CS and Math @ UT Austin
 
+
+
 ## Life
 
 Outside of school and work, I enjoy pickleball, badminton, climbing, playing the guitar, and [reading](/posts/favorite-books)!
@@ -49,6 +51,8 @@ Of course, I have to include the following excerpt of the [Citizenship in a Repu
 
 For more quotes that I enjoy, I try to keep track of them on my [Favorite Quotes](/posts/favorite-quotes) page.
 
+
+
 ## Personal Records
 
 I've always enjoyed being good at things! If one does something, one might as well pursue excellence! Here is a list of some personal feats I've done (featuring the impressive and the useless).
@@ -63,4 +67,11 @@ Bouldering Grade | V8
 Starcraft 2 Rank | Diamond (Protoss)
 Balls Juggled | 4
 Bowling Score | 203 (my proudest one!)
+
+
+
+## Things to Fix
+I am changing much on my site currently. Here are things to fix:
+- Add notes
+- Further remove unneeded stuff
 
