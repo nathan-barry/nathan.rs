@@ -1,8 +1,8 @@
----
-title: "Favorite Books"
-date: 2025-10-14T10:45:41-05:00
-tags: ["Personal"]
----
++++
+title = "Favorite Books"
+date = 2023-10-14T10:45:41-05:00
+tags = ["Personal"]
++++
 
 <script>
 let bookNumber = 167;
