@@ -1,6 +1,5 @@
 ---
 title: "Home"
-# bookToc: false
 ---
 
 
@@ -79,3 +78,5 @@ I am changing much on my site currently. Here are things to fix:
 - edit book summaries (more prominent now)
 - remove "edit this page"
 - fix all blog post formatting
+- Set up RSS feed
+- Add favicon

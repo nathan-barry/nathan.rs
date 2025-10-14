@@ -5,30 +5,28 @@
     <li>
       <a href="/posts">All Posts</a>
     </li>
-
-
-    <li style="margin-top: 8px;"><strong>Popular Posts</strong></li>
-    <ul>
-      <li>
-	    <a href="/posts/gpu-shader-programming/">Running GPT-2 in WebGL: Rediscovering Graphic Shaders GPGPU Programming</a>
-      </li>
-    </ul>
-
-    <li style="margin-top: 8px;"><strong>Recent Posts</strong></li>
-    {{ range first 3 (where .Site.RegularPages "Section" "posts").ByDate.Reverse }}
-    <ul>
-      <li>
-        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-      </li>
-    </ul>
-    {{ end }}
-
     <li>
       <a href="/posts/research-log">Research Log</a>
     </li>
     <li>
       <a href="/posts/favorite-books">Favorite Books</a>
     </li>
+
+    <li style="margin-top: 8px;"><strong>Popular Posts</strong></li>
+    <ul style="margin-bottom: 6px;">
+      <li>
+	    <a href="/posts/gpu-shader-programming/">Running GPT-2 in WebGL: Rediscovering Graphic Shaders GPGPU Programming</a>
+      </li>
+    </ul>
+
+    <li style="margin-top: 8px;"><strong>Recent Posts</strong></li>
+    <ul style="margin-bottom: 6px;">
+      {{ range first 3 (where .Site.RegularPages "Section" "posts").ByDate.Reverse }}
+      <li>
+        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+      </li>
+      {{ end }}
+    </ul>
 
     <li>
       <a href="https://x.com/nathanbarrydev">𝕏</a>

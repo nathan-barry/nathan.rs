@@ -1,7 +1,7 @@
 +++
 title = "Favorite Quotes"
 description = "Here are a few of my favorite quotes I've found over the years."
-tags = ["Personal"]
+tags = ["Miscellaneous"]
 +++
 
 
