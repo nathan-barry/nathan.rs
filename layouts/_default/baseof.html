@@ -2,7 +2,6 @@
 <html lang="{{ default .Site.Language.Lang .Site.LanguageCode }}" dir="{{ default "ltr" .Site.Language.LanguageDirection }}">
 <head>
   {{ partial "docs/html-head" . }}
-  {{ partial "docs/inject/head" . }}
 </head>
 <body dir="{{ default "ltr" .Site.Language.LanguageDirection }}" class="book-kind-{{ .Kind }} book-type-{{ .Type }}{{ with .Layout }} book-layout-{{ . }}{{ end }}">
   <input type="checkbox" class="hidden toggle" id="menu-control" />
@@ -24,8 +23,6 @@
 
       <footer class="book-footer">
         {{ template "footer" . }} <!-- Footer under page content -->
-        {{ template "comments" . }} <!-- Comments block -->
-        {{ partial "docs/inject/footer" . }}
         {{ template "copyright" . }} <!-- Copyright block -->
         {{ template "clipboard" . }}
       </footer>
@@ -36,7 +33,6 @@
     {{ template "toc-container" . }} <!-- Table of Contents -->
   </main>
 
-  {{ partial "docs/inject/body" . }}
 </body>
 </html>
 
@@ -77,14 +73,6 @@
   {{ if .Site.Copyright }}
   <div class="book-copyright flex justify-center">
     {{ partial "docs/copyright" . }}
-  </div>
-  {{ end }}
-{{ end }}
-
-{{ define "comments" }}
-  {{ if and .Content (default true (default .Site.Params.BookComments .Params.BookComments)) }}
-  <div class="book-comments">
-    {{- partial "docs/comments" . -}}
   </div>
   {{ end }}
 {{ end }}
