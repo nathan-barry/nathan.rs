@@ -4,7 +4,7 @@
 # hugo server --printPathWarnings --disableFastRender --cleanDestinationDir=true --logLevel=debug \
 # --gc -M -s exampleSite --themesDir ../.. -b http://127.0.0.1/
 
-baseURL = 'http://localhost:1313/'
+baseURL = 'https://nathan.rs/'
 title = 'nathan.rs'
 
 copyright = '© 2025 Nathan Barry'
@@ -59,7 +59,7 @@ enableGitInfo = true
   BookSection = 'posts'
 
   # Uncomment and set your repo if you want git commit/edit links
-  BookRepo = 'https://github.com/nathan-barry/nathan-rs'
+  BookRepo = 'https://github.com/nathan-barry/nathan.rs'
   BookLastChangeLink = '{{ .Site.Params.BookRepo }}/commit/{{ .GitInfo.Hash }}'
   BookEditLink = '{{ .Site.Params.BookRepo }}/edit/main/{{ .Path }}'
 
