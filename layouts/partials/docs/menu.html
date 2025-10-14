@@ -2,6 +2,7 @@
 {{ partial "docs/brand" . }}
 {{ partial "docs/search" . }}
   <ul>
+    <!-- Main Pages -->
     <li>
       <a href="/posts">All Posts</a>
     </li>
@@ -12,13 +13,18 @@
       <a href="/posts/favorite-books">Favorite Books</a>
     </li>
 
+    <!-- Popular Posts -->
     <li style="margin-top: 8px;"><strong>Popular Posts</strong></li>
     <ul style="margin-bottom: 6px;">
       <li>
 	    <a href="/posts/gpu-shader-programming/">Running GPT-2 in WebGL: Rediscovering Classic GPGPU Programming</a>
       </li>
+      <li>
+	    <a href="/posts/fixing-ios-codeblocks/">How to Fix Hugo's iOS Code-Block Text-Size Rendering Issue</a>
+      </li>
     </ul>
 
+    <!-- Recent Posts -->
     <li style="margin-top: 8px;"><strong>Recent Posts</strong></li>
     <ul style="margin-bottom: 6px;">
       {{ range first 3 (where .Site.RegularPages "Section" "posts").ByDate.Reverse }}
@@ -28,11 +34,14 @@
       {{ end }}
     </ul>
 
-    <li>
-      <a href="https://x.com/nathanbarrydev">𝕏</a>
-    </li>
+    <br>
+
+    <!-- Socials -->
     <li>
       <a href="https://github.com/nathan-barry">Github</a>
+    </li>
+    <li>
+      <a href="https://x.com/nathanbarrydev">𝕏</a>
     </li>
     <li>
       <a href="https://www.linkedin.com/in/nathanbarrydev/">LinkedIn</a>
