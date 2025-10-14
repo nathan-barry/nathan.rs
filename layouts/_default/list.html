@@ -1,4 +1,5 @@
 {{ define "main" }}
+
   {{ range sort .Paginator.Pages }}
   <article class="book-post markdown">
     <h2>
@@ -7,8 +8,8 @@
     <div class="book-post-container flex gap">
       <div>
         {{ partial "docs/post-meta" . }}
-        <div class="book-post-content markdown-inner">
-          {{- .Summary | truncate 128 -}}
+        <div class="book-post-content">
+          {{- .Summary | plainify | htmlUnescape | replaceRE `\s*#\s*` ": " | truncate 256 -}}
         </div>
       </div>
     </div>
@@ -30,4 +31,11 @@
 
 {{ define "footer" }}
   {{ partial "docs/pagination.html" . }}
+
+  {{- /* Load KaTeX for list page summaries */ -}}
+  <link rel="stylesheet" href="{{ "katex/katex.min.css" | relURL }}" />
+  <script defer src="{{ "katex/katex.min.js" | relURL }}"></script>
+  {{- with resources.Get "katex.json" | minify -}}
+    <script defer src="{{ "katex/auto-render.min.js" | relURL }}" onload="renderMathInElement(document.body, {{ .Content | safeJS }});"></script>
+  {{- end -}}
 {{ end }}
