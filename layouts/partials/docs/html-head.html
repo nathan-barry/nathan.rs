@@ -22,8 +22,6 @@ https://github.com/alex-shpak/hugo-book
 <title>{{ partial "docs/html-head-title" . }}</title>
 {{ partial "docs/html-head-favicon" . }}
 
-{{- $manifest := resources.Get "manifest.json" | resources.ExecuteAsTemplate "manifest.json" . }}
-<link rel="manifest" href="{{ $manifest.RelPermalink }}">
 <link rel="canonical" href="{{ .Permalink }}">
 
 <!-- Theme stylesheet, you can customize scss by creating `assets/custom.scss` in your website -->
@@ -36,12 +34,6 @@ https://github.com/alex-shpak/hugo-book
   {{- $searchJS := resources.Get "search.js" | resources.ExecuteAsTemplate $searchJSFile . | resources.Minify | resources.Fingerprint }}
   <script defer src="{{ "fuse.min.js" | relURL }}"></script>
   <script defer src="{{ partial "docs/links/resource-precache" $searchJS }}" {{ template "integrity" $searchJS }}></script>
-{{ end -}}
-
-<!-- Service Worker -->
-{{- if .Site.Params.BookServiceWorker -}}
-  {{- $swJS := resources.Get "sw-register.js" | resources.ExecuteAsTemplate "sw.js" . | resources.Minify | resources.Fingerprint }}
-  <script defer src="{{ $swJS.RelPermalink }}" {{ template "integrity" $swJS }}></script>
 {{ end -}}
 
 {{/* Uncomment and add googleAnalytics in config if needed
