@@ -8,9 +8,9 @@ title: "Home"
 
 Greetings fellow traveler! Salutations! Callooh! Callay!
 
-I'm Nathan! I'm a CS graduate student at UT Austin.
-I'm interested in systems and machine learning.
+My name is Nathan Barry. I'm a CS graduate student at UT Austin and am interested in systems and machine learning.
 I love working on hard problems with great people.
+
 
 Currently I'm
 --- | ---
@@ -68,12 +68,12 @@ Bowling Score | 203 (my proudest one!)
 
 
 
-## Things to Fix
+## Website: Things to Fix
 I am changing much on my site currently. Here are things to fix:
 - fix images on posts
 - fix all blog post formatting and content
 - add google tag
-- make main image responsive
 - edit book summaries (more prominent now)
 - remove "edit this page"
 - Set up RSS feed
+- Start research log
