@@ -5,7 +5,6 @@ title: "Home"
 
 
 
-
 # Welcome to *my* corner of the internet!
 
 Greetings fellow traveler! Salutations! Callooh! Callay!
@@ -74,4 +73,9 @@ Bowling Score | 203 (my proudest one!)
 I am changing much on my site currently. Here are things to fix:
 - Add notes
 - Further remove unneeded stuff
-
+- add google tag
+- make image responsive
+- fix images on posts
+- edit book summaries (more prominent now)
+- remove "edit this page"
+- fix all blog post formatting

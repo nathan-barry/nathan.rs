@@ -8,15 +8,9 @@
       <div>
         {{ partial "docs/post-meta" . }}
         <div class="book-post-content markdown-inner">
-          {{- .Summary | truncate 256 -}}
+          {{- .Summary | truncate 128 -}}
         </div>
       </div>
-      {{- $thumbnail := default "thumbnail.*" .Params.BookPostThumbnail -}}
-      {{- with or (.Resources.GetMatch $thumbnail) (resources.GetMatch $thumbnail) -}}
-      <div class="book-post-thumbnail">
-        <img src="{{ .RelPermalink }}" alt="{{ partial "docs/text/i18n" "Thumbnail" }}" />
-      </div>
-      {{- end -}}
     </div>
   </article>
   {{ end }}
