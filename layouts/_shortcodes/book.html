@@ -1,0 +1,8 @@
+<div class="book-item" onclick="toggleDescription(this)">
+	<p class="book-title" style="{{ if .Get "special" }}color: #0055bb;{{ end }}">
+		<span class="book-number"></span> {{ .Get "title" }} - {{ .Get "author" }}
+	</p>
+	{{ with .Get "description" }}
+    <blockquote> {{ . }} </blockquote>
+	{{ end }}
+</div>

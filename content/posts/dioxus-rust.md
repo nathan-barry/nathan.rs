@@ -6,7 +6,6 @@ tags = ["Programming"]
 
 
 
-
 ## Why Rust for Front-End Development
 ---
 I’ve been using React and Next.js for front-end development ever since high school, it was one of the first few things I learned when it came to programming. Recently, I’ve had the itch to learn something new, specifically Rust front-end. As someone with a ".rs" domain, it felt like an inevitable fate. Finally, I can say I put the ".rs" in the "nathan.rs".

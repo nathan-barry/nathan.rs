@@ -1,6 +1,6 @@
----
-title: "{{ .Name | humanize | title }}"
-date: {{ .Date }}
++++
+title = "{{ .Name | humanize | title }}"
+date = {{ .Date }}
 tags = []
 # bookHidden = false
----
++++
