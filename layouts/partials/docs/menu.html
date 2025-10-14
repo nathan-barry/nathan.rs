@@ -1,17 +1,46 @@
 <nav>
 {{ partial "docs/brand" . }}
 {{ partial "docs/search" . }}
-{{ if hugo.IsMultilingual }}
-  {{ partial "docs/languages" . }}
-{{ end }}
+  <ul>
+    <li>
+      <a href="/posts">All Posts</a>
+    </li>
 
-{{ partial "docs/inject/menu-before" . }}
-{{ partial "docs/menu-hugo" (dict "Page" .Page "Menu" .Site.Menus.before) }}
 
-{{ partial "docs/menu-filetree" . }}
+    <li style="margin-top: 8px;"><strong>Popular Posts</strong></li>
+    <ul>
+      <li>
+	    <a href="/posts/gpu-shader-programming/">Running GPT-2 in WebGL: Rediscovering Graphic Shaders GPGPU Programming</a>
+      </li>
+    </ul>
 
-{{ partial "docs/menu-hugo" (dict "Page" .Page "Menu" .Site.Menus.after) }}
-{{ partial "docs/inject/menu-after" . }}
+    <li style="margin-top: 8px;"><strong>Recent Posts</strong></li>
+    {{ range first 3 (where .Site.RegularPages "Section" "posts").ByDate.Reverse }}
+    <ul>
+      <li>
+        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+      </li>
+    </ul>
+    {{ end }}
+
+    <li>
+      <a href="/posts/research-log">Research Log</a>
+    </li>
+    <li>
+      <a href="/posts/favorite-books">Favorite Books</a>
+    </li>
+
+    <li>
+      <a href="https://x.com/nathanbarrydev">𝕏</a>
+    </li>
+    <li>
+      <a href="https://github.com/nathan-barry">Github</a>
+    </li>
+    <li>
+      <a href="https://www.linkedin.com/in/nathanbarrydev/">LinkedIn</a>
+    </li>
+
+  </ul>
 </nav>
 
 <!-- Restore menu position as soon as possible to avoid flickering -->

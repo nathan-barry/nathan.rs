@@ -1,5 +1,6 @@
 ---
 title: "Home"
+# bookToc: false
 ---
 
 # Nathan Barry
@@ -12,7 +13,9 @@ Hi, I'm Nathan! I'm a CS graduate student at UT Austin.
 I'm interested in systems and machine learning.
 I love working on hard problems with great people.
 
-Some things I've done: |
+**Some things I've done:**
+
+Year | Activity
 --- | ---
 *Aug 2025 - Present* | Graduate Researcher at UT Austin working on asynchronous distributed training
 *May 2025 - Aug 2025* | Machine Learning Intern at Apple working on time-series forecasting for predictive autoscaling

@@ -92,26 +92,3 @@ enableGitInfo = true
   # When set to 'preache' it enables a service worker that caches visited pages and resources for offline use.
   # Possible values are false | true | 'precache'
   BookServiceWorker = 'precache'
-
-[menu]
-    # Custom links at the top
-    [[menu.before]]
-      name = "GitHub"
-      url = "https://github.com/yourusername"
-      weight = 1
-
-    [[menu.before]]
-      name = "Twitter"
-      url = "https://twitter.com/yourusername"
-      weight = 2
-
-    # Custom sections
-    [[menu.main]]
-      name = "Recent Posts"
-      identifier = "recent"
-      weight = 1
-
-    [[menu.main]]
-      name = "All Posts"
-      pageRef = "/posts"
-      weight = 2
