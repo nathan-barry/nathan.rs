@@ -9,11 +9,10 @@ jobs:
       matrix:
         hugo-version:
           - 'latest'
-          - '0.146.7'
+          - '0.151.0'
     steps:
       - uses: actions/checkout@v4
         with:
-          submodules: true  # Fetch Hugo themes (true OR recursive)
           fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
 
       - name: Setup Hugo
@@ -23,5 +22,4 @@ jobs:
           extended: true
 
       - name: Run Hugo
-        working-directory: exampleSite
-        run: hugo --themesDir ../..
+        run: hugo --minify

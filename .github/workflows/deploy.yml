@@ -24,20 +24,21 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3
         with:
-          hugo-version: 0.146.7
+          hugo-version: '0.151.0'
           extended: true
       - name: Run Hugo
-        working-directory: exampleSite
-        run: hugo --minify --themesDir ../.. --baseURL="https://book.alxs.dev/"
+        run: hugo --minify
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: 'exampleSite/public'
+          path: './public'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
