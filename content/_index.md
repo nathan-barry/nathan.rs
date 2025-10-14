@@ -4,7 +4,6 @@ title: "Home"
 ---
 
 
-<img style="width: 200px;" alt="A doorknob" src="/images/doorknob.svg">
 
 
 # Welcome to *my* corner of the internet!
