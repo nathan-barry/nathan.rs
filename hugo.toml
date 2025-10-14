@@ -5,9 +5,9 @@
 # --gc -M -s exampleSite --themesDir ../.. -b http://127.0.0.1/
 
 baseURL = 'http://localhost:1313/'
-title = 'Your Site Title'
+title = 'nathan.rs'
 
-copyright = '© 2024 Your Name'
+copyright = '© 2025 Nathan Barry'
 
 # Book configuration
 disablePathToLower = true
@@ -56,7 +56,7 @@ enableGitInfo = true
   # (Optional, default docs) Specify root page to render child pages as menu.
   # Page is resoled by .GetPage function: https://gohugo.io/functions/getpage/
   # For backward compatibility you can set '*' to render all sections to menu. Acts same as '/'
-  BookSection = 'docs'
+  BookSection = 'posts'
 
   # Uncomment and set your repo if you want git commit/edit links
   # BookRepo = 'https://github.com/yourusername/yourrepo'
@@ -93,6 +93,25 @@ enableGitInfo = true
   # Possible values are false | true | 'precache'
   BookServiceWorker = 'precache'
 
-  # /!\ This is an experimental feature, might be removed or changed at any time
-  # (Optional, experimental, default false) Enables a drop-down menu for translations only if a translation is present.
-  BookTranslatedOnly = false
+[menu]
+    # Custom links at the top
+    [[menu.before]]
+      name = "GitHub"
+      url = "https://github.com/yourusername"
+      weight = 1
+
+    [[menu.before]]
+      name = "Twitter"
+      url = "https://twitter.com/yourusername"
+      weight = 2
+
+    # Custom sections
+    [[menu.main]]
+      name = "Recent Posts"
+      identifier = "recent"
+      weight = 1
+
+    [[menu.main]]
+      name = "All Posts"
+      pageRef = "/posts"
+      weight = 2

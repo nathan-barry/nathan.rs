@@ -1,7 +1,14 @@
 ---
 title: "{{ .Name | humanize | title }}"
 date: {{ .Date }}
+# bookFlatSection: false
+# bookToc: true
+# bookHidden: false
+# bookCollapseSection: false
 # bookComments: false
 # bookSearchExclude: false
-# bookPostThumbnail: thumbnail.*
+# bookHref: ''
+# bookIcon: ''
+# bookComments: false
+# bookSearchExclude: false
 ---
