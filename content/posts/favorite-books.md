@@ -4,6 +4,8 @@ date = 2023-10-14T10:45:41-05:00
 tags = ["Miscellaneous"]
 +++
 
+Below are all the books I've read since middle school, roughly in order. Those highlighted in blue were those I particularly enjoyed :)
+
 <script>
 let bookNumber = 167;
 document.addEventListener("DOMContentLoaded", function() {
@@ -14,8 +16,6 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 </script>
 
-
-Below are all the books I've read since middle school, roughly in order. Those highlighted in blue were those I particularly enjoyed :)
 
 
 ## 2025 -- Age 22

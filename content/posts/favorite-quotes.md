@@ -1,8 +1,11 @@
 +++
 title = "Favorite Quotes"
-description = "Here are a few of my favorite quotes I've found over the years."
+date = 2023-10-14T10:45:41-05:00
 tags = ["Miscellaneous"]
 +++
+
+*Here are a few of my favorite quotes I've found over the years.*
+
 
 
 > "I believe that a man should strive for only one thing in life, and that is to have a touch of greatness"

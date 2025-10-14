@@ -1,10 +1,11 @@
 +++
 title = "Calculus"
-description = "A small review over Calculus 1, 2, and 3"
 date = 2023-01-06T11:19:22-06:00
 tags = ["Class Notes"]
 +++
 {{< katex >}}{{< /katex >}}
+
+*A small review over Calculus 1, 2, and 3.*
 
 
 
