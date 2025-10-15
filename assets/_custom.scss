@@ -12,3 +12,17 @@
       ...
     }
 */
+
+// Make KaTeX responsive on mobile
+.katex-display {
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.katex {
+  font-size: 1em;
+
+  @media (max-width: 600px) {
+    font-size: 0.9em;
+  }
+}
