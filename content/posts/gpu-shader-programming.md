@@ -200,15 +200,11 @@ By chaining these operation passes together, we keep the entire GPT-2 pipeline o
 
 ### Limitations
 
-While hijacking WebGL allows us to run machine learning models on the GPU, it carries several key limitations:
+While WebGL allows us to run machine learning models on the GPU, it has several key limitations:
 
 - **No shared/local memory**: Fragment shaders can only read/write global textures. There’s no access to on-chip scratchpad for blocking or data reuse, so you’re limited to element-wise passes.
 - **Texture size limits**: WebGL enforces a maximum 2D texture dimension (e.g. 16 K×16 K). Anything larger must be manually split into tiles, adding bookkeeping and extra draw calls.
 - **No synchronization or atomics**: You can’t barrier or coordinate between fragments in a pass, making reductions, scatter/gather, and other data-dependent patterns difficult or impossible.
 - **Draw-call and precision overhead**: Every neural-net operation requires binding an FBO, swapping textures, and issuing a draw call (dozens per layer) which incurs CPU overhead. Plus, you’re bound to 16- or 32-bit floats (via `EXT_color_buffer_float`), with no double precision or integer textures.
 
-Taken together, these constraints make shader-based compute an interesting educational project but a only a historical novelty for real world use. Compute APIs like CUDA or OpenCL give easier and better tools to achieve the same thing.
-
-<br>
-
-Thanks for reading! You can view the code and run the demo locally at the repo [here](https://github.com/nathan-barry/gpt2-webgl/tree/main). Contact me on [X](https://x.com/nathanbarrydev) if you have any suggestions.
+Compute APIs like CUDA or OpenCL give easier and better tools to achieve the same thing. Here we saw how people used to do GPGPU programming using old techniques!
