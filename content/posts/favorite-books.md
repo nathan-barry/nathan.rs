@@ -7,7 +7,7 @@ tags = ["Miscellaneous"]
 > Below are all the books I've read since middle school, roughly in order. Those highlighted in blue were those I particularly enjoyed :)
 
 <script>
-let bookNumber = 167;
+let bookNumber = 166;
 document.addEventListener("DOMContentLoaded", function() {
   // Auto-increment book numbers
   document.querySelectorAll('.book-number').forEach((book) => {
@@ -24,31 +24,31 @@ document.addEventListener("DOMContentLoaded", function() {
     title="Willpower"
     author="Roy F. Baumeister & John Tierney"
     special=""
-    description="I was at a ZFellows event in SF where one of the speakers, Adam Guild, recommended this book. It's been a long time since I've read a self-help book like this. I gave it a shot because I've actually been quite lazy recently and was looking for something to help me pick up my old good habits again. Who knows what impact this had on me, but I am starting to wake up at 5 am again and all that.">}}
+    description="I was at a ZFellows event in SF where one of the speakers, Adam Guild, recommended this book. It's been a long time since I've read a self-help book like this. I gave it a shot because I've felt lazy recently and was looking for something to help me pick up my old good habits again. EDIT: I did start waking up early again, there has been a directional shift.">}}
 
 {{< book
     title="Deng Xiaoping and the Transformation of China"
     author="Ezra F. Vogel"
     special="true"
-    description="I honestly had no idea how much knowledge I lacked over contemporary Chinese history and politics until after reading this. This makes me give the neo-liberalists some more slack since it really did seem like China was liberalizing after the sino-soviet split and the opening of China to western markets. Deng was flying a large ship through a crunched alleyway with little room for error. The fact that he started China's path to such rapid economic development while maintaining a strong grip over the country, especially when the Soviet Union was collapsing in on itself, is a grand achievement in of itself and is a testament to the keen leadership he provided while at the helm.">}}
+    description="I honestly had no idea how much knowledge I lacked over contemporary Chinese history and politics until after reading this. This makes me give the neo-liberalists some more slack since it really did seem like China was liberalizing after the sino-soviet split and the opening of China to western markets. Deng was flying a large ship through a tight alleyway. Starting China's rapid economic development while maintaining a strong grip over the country, especially when the Soviet Union was collapsing in on itself, is a testament to the keen leadership he provided while at the helm.">}}
 
 {{< book
     title="The Metamorphosis"
     author="Franz Kafka"
     special=""
-    description="I recently woke up sick one day and it was so bad that it completely changed perspective on life. I told this to a friend and they said I was the main character from this book. After reading it, it has completely different dynamics, but I appreciate the reference.">}}
+    description="I recently woke up sick one day and it was so bad that it made me read this book. I didn't like it.">}}
 
 {{< book
     title="Super Pumped"
     author="Mike Isaac"
     special=""
-    description="This is a story about the founding of Uber and of Travis Kalanick. I was actually completely unaware of all the drama around Uber that happened in 2017. Really just a hurricane of unfortunate events (many of which were self inflicted) which crashed into them all at once.">}}
+    description="This is a story about the founding of Uber and of Travis Kalanick. I was completely unaware of all the drama around Uber that happened in 2017. Really just a hurricane of unfortunate events (many of which were self-inflicted) which crashed into them all at once.">}}
 
 {{< book
     title="The Soul of a New Machine"
     author="Tracy Kidder"
     special="true"
-    description="This is a book that came out in 1981 covering the creation of a Data General Eclipse model. I think it does a good job at portraying the heroic in the lives we all live. The longer I exist, the more it is reinforced that in life, the proper objective function to optimize is that of adventure.">}}
+    description="This book came out in 1981 and covered the creation of a Data General Eclipse machine. I think it does a good job at portraying the heroic in the lives we all live. The longer I exist, the more it is reinforced that in life, the proper objective function to optimize is that of adventure.">}}
 
 {{< book
     title="The World For Sale"
@@ -72,7 +72,7 @@ document.addEventListener("DOMContentLoaded", function() {
     title="No Rules Rules"
     author="Reed Hastings & Erin Meyer"
     special=""
-    description="This book is about Netflix. It's more similar to the book 'How Google Works' in that it's not a history of the company, but more of a description of the company culture. It's moderately interesting. Doesn't mean much to me now but probably will later.">}}
+    description="This book is about Netflix. It's more similar to the book 'How Google Works' in that it's not a history of the company, but more of a description of the company culture. It's moderately interesting. Doesn't mean much to me now but might later.">}}
 
 {{< book
     title="The Nvidia Way"
@@ -98,7 +98,7 @@ document.addEventListener("DOMContentLoaded", function() {
     title="An Introduction to Linear Algebra"
     author="Gilbert Strang"
     special=""
-    description="I went back through this textbook and took notes over it. I like having notes over 'core' math like this that I can go back to time to time. Most of my classes this semester is heavy with linear algebra, so I thought it would be a good time to refresh my memory.">}}
+    description="I went back through this textbook and took notes over it. I like having notes over 'core' math like this that I can go back to time to time. Most of my classes this semester is heavy with linear algebra, so I thought it would be good to refresh my memory.">}}
 
 {{< book
     title="When Einstein Walked with Gödel"
@@ -110,7 +110,7 @@ document.addEventListener("DOMContentLoaded", function() {
     title="The C Programming Language"
     author="Brian W. Kernighan & Dennis M. Ritchie"
     special=""
-    description="This is the third time I've picked up this book. The first time was when I first entered Computer Architecture and read about the first 50 pages. I'm thinking that I might do a lot of C development, and I always prefer to read everything about a language if I'm going to use it a lot. Always things you pick up here and there.">}}
+    description="This is the third time I've picked up this book. The first time was when I first entered Computer Architecture and read about the first 50 pages. I'm thinking that I might do a lot of C development, and I always prefer to read everything about a language if I'm going to use it a lot. There's always nuggets you find here and there.">}}
 
 {{< book
     title="Competitive Programmer's Handbook"
@@ -122,31 +122,31 @@ document.addEventListener("DOMContentLoaded", function() {
     title="Going Infinite"
     author="Michael Lewis"
     special="true"
-    description="This book is about the FTX collapse and is a short and enjoyable read. It was a very interesting book to listen to, especially as someone who was interested and working at DeFi startups at the time. That year itself was just absolutely wild. Beanstalk, Terra, FTX, and all the hacks that happened, things blowing up left and right. Seeing the outcome of an overleveraged market imploding on itself, combined with the outcome of dozens of bad (irrational) decisions. What is most wild about this story is just how fine FTX was. They were making half a billion a year in profits. The only reason why FTX went insolvent was because they illegally backdoored their own customer funds to Alameda Research. Most people working there when things started to collapse were in absolute disbelief that they were insolvent, since they were literally operating a money printer.">}}
+    description="This book is about the FTX collapse. That period of time was just absolutely crazy. FTX, Terra, all the hacks that happened, things blowing up left and right, etc. What is most wild about this story is just how fine FTX was. They were making half a billion a year in profits. The only reason why FTX went insolvent was because they illegally backdoored their own customer funds to Alameda Research. Most people working there when things started to collapse were in absolute disbelief that they were insolvent, since they were literally operating a money printer.">}}
 
 {{< book
     title="Seeing Like A State"
     author="James C. Scott"
     special="true"
-    description="This book talks about how authoritarianism and high modernist movements have always failed because of the human tendency to abstract away concrete minute details for uniformity and simplicity. For any system that we desire to have more control over, we force it to adhere to our abstractions and shape systems to be more legible, which has had extreme successes and failures throughout the industrial world. One thing that I have pondered about in the past is whether authoritarianism ever could work. In theory, if we had a perfect omnipotent being that knew all, it should be able to devise a more perfect and efficient system than what free market forces could devise, since there is no information delay or imperfections. Perhaps in a world with the extensive data mining and tracking we have today, the Soviets would have fared much better. To the hypothetical idea of creating an AI that can plan and direct economies, I wonder if it is feasible or whether there will always be detrimental edge cases that the model doesn't generalize well on. Regardless, it'll be as heartless as any state has been when it comes to realities that it does not considers.">}}
+    description="This book talks about how authoritarianism and high modernist movements have always failed because of the human tendency to abstract away concrete minute details for uniformity and simplicity. For any system that we desire to have more control over, we force it to adhere to our abstractions and shape systems to be more legible, which has had extreme successes and failures throughout the industrial world. One thing that I have pondered about in the past is whether authoritarianism ever could work. In theory, if we had a perfect omnipotent being that knew all, it should be able to devise a more perfect and efficient system than what free market forces could devise, since there is no information delay or imperfections. Perhaps in a world with the extensive data mining and tracking we have today, the Soviets would have fared much better. To the hypothetical idea of creating an AI that can plan and direct economies, I wonder if it is feasible or whether there will always be some critical component missing. Regardless, it'll be as heartless as any state when it comes to realities that it does not considers.">}}
 
 {{< book
     title="The Innovators"
     author="Walter Isaacson"
     special=""
-    description="I've read plenty of books about the history of technology and silicon valley, but this one has been by far the most extensive and complete. One beauty of learning things is that you see how many things are connected. This book added on to that. For instance, I already knew about the history of Fairchild Semiconductor, but I somehow missed the huge connection that Noyce also founded Intel as well. What a glaring gap in my knowledge now resolved. I liked the chronological order of this book, from Babbage to modern day, as a lot of these stories that I've heard were individual instances and this book showed the connections from the flow of time.">}}
+    description="I've read plenty of books about the history of technology and silicon valley, but this one has been by far the most extensive and complete. One beauty of learning things is that you see how many things are connected. This book added on to that. For instance, I already knew about the history of Fairchild Semiconductor, but I somehow missed the huge connection that Noyce also founded Intel as well. What a glaring gap in my knowledge now resolved. I liked the chronological order of this book, from Babbage to modern day, as a lot of these stories that I've heard were individual instances and this book showed the connections across the flow of time.">}}
 
 {{< book
     title="Industrial Society And Its Future"
     author="Ted Kaczynski"
     special=""
-    description="This is a very interesting book which covers a broad set of ideas similar to Seeing Like A State, Huxley's Brave New World, Nietzsche's Thus Spoke Zarathustra, and Bostrom's Superintelligence. Most of his commentary on contemporary society is true (especially interesting is his commentary on the insatiable character of left-wing movements) but the conclusion he draws is bizarre. Yes, technology is great, it has reduced the burden of man and has drastically increased the quality of life for billions of people. It has also alienated man from their natural state, caused mass societal and environmental problems, and has arguably reduced humans to gears in a system, with that system restricting freedom and turning out lives Kafkaesque with rules imposed on us and our individuality consistently stripped away. However, the solution is to not eradicate 95% of the human race and nuke us back to the Stone Age, as his solution must inevitably cause. If mankind has shown one specialty, it is innovating and having the capabilities to dig itself out of its own holes it inevitably creates by the unintended side effects of progress. Progress is just the motif of humanity and trying to create a world where it is limited is a fools errand, even if it wasn't a terrible idea from the offset. One striking curiosity is how the anti-human Unabomber worldview has become fashionable amongst those exact same over-socialized elites Kaczynski laments about in his work. Hopefully, the future will shine fortune on those who want to take humanity to the stars than those who desire to revert it to the yesteryears wherein for most of man, life is nasty, brutish, and short.">}}
+    description="This is a very interesting book which covers a broad set of ideas similar to Seeing Like A State, Huxley's Brave New World, Nietzsche's Thus Spoke Zarathustra, and Bostrom's Superintelligence. Most of his commentary on contemporary society is true, but the conclusion he draws is just wrong. Yes, technology is great, it has reduced the burden of man and has drastically increased the quality of life for billions of people. Yes, it has also alienated man from their natural state, caused mass societal and environmental problems, and has arguably reduced humans to gears in a system, with that system restricting freedom and turning out lives Kafkaesque with rules imposed on us and our individuality consistently stripped away. The solution is to not eradicate 95% of the human race and nuke us back to the Stone Age, as his solution must inevitably cause. If mankind has shown one specialty, it is innovating and having the capabilities to dig itself out of its own holes it inevitably creates by the unintended side effects of progress. One striking curiosity is how the anti-human and anti-growth Unabomber worldview has become fashionable amongst those exact same over-socialized elites Kaczynski laments about in his work. Hopefully, the future will shine fortune on those who want to take humanity to the stars than those who desire to revert it to the yesteryears wherein life was nasty, brutish, and short.">}}
 
 {{< book
     title="The Founders"
     author="Jimmy Soni"
     special="true"
-    description="This was a good book that covered the history of PayPal and all the members that eventually became known as the PayPal Mafia, but this got the special blue tag because of the last chapter. That was completely out of left field and pushed this book over the edge. This guy also wrote the Claude Shannon book below, great author in general.">}}
+    description="This was a good book that covered the history of PayPal and all the members that eventually became known as the PayPal Mafia. This got the special blue tag because of the last chapter. That was completely out of left field and pushed this book over the edge. This guy also wrote the Claude Shannon book below, great author in general.">}}
 
 {{< book
     title="The Cathedral & The Bazaar"
@@ -158,7 +158,7 @@ document.addEventListener("DOMContentLoaded", function() {
     title="The Man Who Solved The Market"
     author="John Steele Gordon"
     special=""
-    description="This was about Jim Simons and Renaissance Technology. Jim recently passed away a few weeks before me reading the book. Very interesting read. I'm surprised to have heard names like John Nash and Claude Shannon appear throughout the book.">}}
+    description="This was about Jim Simons and Renaissance Technology. Simons recently passed away a few weeks before I read the book. Very interesting read. I'm surprised to have heard characters like John Nash and Claude Shannon appear throughout the book.">}}
 
 {{< book
     title="An Empire of Wealth"
@@ -182,19 +182,19 @@ document.addEventListener("DOMContentLoaded", function() {
     title="Computer Architecture: A Quantitative Approach"
     author="John L. Hennessy & David A. Patterson"
     special="true"
-    description="Went through a bit of this for Advanced Computer Architecture. The Appendix was a great review of normal comp arch. Good book and good class." >}}
+    description="Went through a bit of this for Advanced Computer Architecture. The Appendix was a great review of normal computer architecture. Good book and good class." >}}
 
 {{< book
     title="Alexander Hamilton"
     author="Ron Chernow"
     special="true"
-    description="I just found out that Ron Chernow was the author of the book that the musical was largely inspired from. Decided to give it a read, and it's my favorite of his work. Certainly a book worth reading. I realized that I knew much less about the early founding period than I previously thought." >}}
+    description="I just found out that Ron Chernow was the author of this book that the musical was largely inspired from. Decided to give it a read, and it's my favorite of his work. Certainly a book worth reading. I realized that I knew much less about the early founding period than I previously thought." >}}
 
 {{< book
     title="Titan: The Life of John D. Rockefeller"
     author="Ron Chernow"
     special=""
-    description="" >}}
+    description="It's always interesting to read about the original titans of the industrial age. Despite so much having changed since then, many fundamental characteristics and behaviors of humans and society seem to stay the same." >}}
 
 ## 2023 -- Age 20
 ---
@@ -202,19 +202,19 @@ document.addEventListener("DOMContentLoaded", function() {
     title="Napoleon"
     author="Andrew Roberts"
     special="true"
-    description="I've read dozens of books about entrepreneurs, statesmen, scientists, etc, but this book makes me feel something more than just inspiration for worldly pursuits. Napoleon was one of the last Great individuals. We today have great people everywhere which is great for humanity, but long gone is the time when an era could be named after an individual alone. He is put in the group of great conquerors of history, along side Caesar and Alexander, and he is the last." >}}
+    description="I've read dozens of books about entrepreneurs, statesmen, scientists, etc, but this book makes me feel something more than just inspiration for worldly pursuits. Napoleon was one of the last Great individuals of history. We today have an abundance great people, but long gone is the time when an era could be named after an individual alone." >}}
 
 {{< book
     title="A Tour of C++"
     author="Bjarne Stroustrup"
     special=""
-    description="I've never seen a language so great and terrible. I've yet to dive deep in a project with it. My biggest gripe about it is just the lack of decent tooling around it. I'd rather use something like Zig and Rust, where making it deployable seems like a sane task. Having to deal with the lack of coherence (tooling, package management, different versions) just makes it seem like a pain. Things like C++ supporting Modules, but 3 years later GCC doesn't support it is just wild to me.">}}
+    description="I've never seen a language so great and terrible. I've yet to dive deep in a project with it. My biggest gripe about it is just the lack of decent tooling around it. I'd rather use something like Zig and Rust, where making it deployable seems like a sane task. Having to deal with the lack of coherence (tooling, package management, different versions) just makes it seem like a pain. Things like C++ supporting Modules, but 3 years later GCC still doesn't support it says it all.">}}
 
 {{< book
     title="Efficient Go"
     author="Bartiomiej Plotka"
     special=""
-    description="This book was alright. The first half was about Go and the second half was just a review of computer architecture. I half read a handful of books covering Go, but since I only half read them, this is the only one that is included.">}}
+    description="This book was alright. The first half was about Go and the second half was just a review of computer architecture. Nothing super crazy here.">}}
 
 {{< book
     title="Writing an Interpreter In Go"
@@ -237,7 +237,7 @@ document.addEventListener("DOMContentLoaded", function() {
 {{< book
     title="The House of Morgan"
     author="Ron Chernow"
-    description="This behemoth of a book is about the Morgan banking dynasty, from George Peabody and J.S. Morgan to now. Because the Morgan Dynasty has been around for 200 years, this book also is nearly a history of modern banking as a whole. What I thought was interesting was the evolution of the relation between bank and the state. From king makers to diplomats to tools of the state, their power (and power of bankers in general) has diminished greatly.">}}
+    description="This behemoth of a book is about the Morgan banking dynasty, from George Peabody and J.S. Morgan to now. Because the Morgan Dynasty has been around for 200 years, this book ends up also being a nearly complete history of modern banking as a whole. What I thought was interesting was the evolution of the relation between bank and the state. From king makers to diplomats to tools of the state, their power (and power of bankers in general) has diminished greatly.">}}
 
 {{< book
     title="The Rust Programming Language"
@@ -479,11 +479,6 @@ document.addEventListener("DOMContentLoaded", function() {
     title="The Origin Of Virtue"
     author="Matt Ridley"
     description="">}} 
-
-{{< book
-    title="The Rational Male"
-    author="Rollo Tomassi"
-    description="I've seen this book here and there for years but didn't have any idea of what it was until I finally checked it out. This is apparently the original redpill manifesto. I don't agree with this life philosophy, but I do think it does has a lot of things any young guy should be conscious of. I certainly disagree with the nihilistic hypergamous view of cross-gender relations. Underneath the 'toxic masculinity' dressing, the book just vouches for good habits and that one should look inwards for validation instead of from the people around us.">}} 
 
 {{< book
     title="The Infinite Machine"
