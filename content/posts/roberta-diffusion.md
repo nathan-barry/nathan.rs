@@ -2,10 +2,9 @@
 title = "Can BERT do Language Diffusion?"
 date = 2025-06-03T13:22:01-07:00
 tags = ["Machine Learning"]
-bookHidden = true
 +++
 
-(THIS IS AN UNFINISHED ROUGH DRAFT)
+> (THIS IS AN UNFINISHED ROUGH DRAFT)
 
 Google DeepMind recently unveiled Gemini Diffusion, an experimental language model that generates text using diffusion. Unlike traditional GPT-style models that generate one word at a time, Gemini Diffusion creates whole blocks of text by refining random noise step-by-step.
 
