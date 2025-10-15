@@ -11,13 +11,14 @@ Greetings fellow traveler! Salutations! Callooh! Callay!
 My name is Nathan Barry. I'm a CS graduate student at UT Austin and am interested in systems and machine learning.
 I love working on hard problems with great people.
 
+Below are some of the things I've been doing.
 
-Currently I'm
+Currently
 --- | ---
 Aug 2025 - Present | A **Graduate Researcher** at UT Austin working on distributed low-comunication training
 Aug 2024 - Present | Finishing my Master's of Science in CS @ UT Austin
 
-Previously I
+Previously
 --- | ---
 May 2025 - Aug 2025 | Worked at **Apple** as a **Machine Learning Intern**, working on time-series forecasting for predictive autoscaling
 Jun 2025 | Attended Y Combinator's first [AI Startup School](https://events.ycombinator.com/ai-sus) (and other summer events)
@@ -45,7 +46,7 @@ Another favorite of mine is:
 > “The truth is that as a man’s real power grows and his knowledge widens, ever the way he can follow grows narrower: until at last he chooses nothing, but does only and wholly what he must do.”
 --- Ursula K. Le Guin
 
-Of course, I have to include the following excerpt of the [Citizenship in a Republic](https://en.wikipedia.org/wiki/Citizenship_in_a_Republic) Teddy Roosevelt speech that I've had memorized since high school.
+Of course, I have to include the following excerpt of the grand [Citizenship in a Republic](https://en.wikipedia.org/wiki/Citizenship_in_a_Republic) speech that I've had memorized since high school:
 
 > "It is not the critic who counts; not the man who points out how the strong man stumbles, or where the doer of deeds could have done them better. The credit belongs to the man who is actually in the arena, whose face is marred by dust and sweat and blood; who strives valiantly; who errs, who comes short again and again, because there is no effort without error and shortcoming; but who does actually strive to do the deeds; who knows the great enthusiasms, the great devotions; who spends himself in a worthy cause; who at the best knows in the end the triumph of high achievement, and who at the worst, if he fails, at least fails while daring greatly, so that his place shall never be with those cold and timid souls who neither know victory nor defeat."
 --- Theodore Roosevelt
@@ -72,7 +73,8 @@ Bowling Score | 203 (my proudest one!)
 
 
 ## Website: Things to Fix
-I am changing much on my site currently. Here are things to fix:
+
+I am in the process of completely redoing my website. Here are things I need to fix:
 - fix images on posts
 - fix all blog post formatting and content
 - add google tag
