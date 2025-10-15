@@ -9,7 +9,7 @@ title: "Home"
 Greetings fellow traveler! Salutations! Callooh! Callay!
 
 My name is Nathan Barry. I'm a CS graduate student at UT Austin and am interested in systems and machine learning.
-I love working on hard problems with great people.
+I love working on hard problems with great people. Occasionally, [I write about what I'm working on](/posts).
 
 Below are some of the things I've been doing.
 
