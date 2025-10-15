@@ -4,6 +4,8 @@ date = 2023-08-16
 tags = ["Programming"]
 +++
 
+> *October 14th, 2025:* This post is old and is most likely outdated if you're reading this! Dioxus has possibly changed a substantial amount, thus do not read this as a how-to-guide.
+
 
 
 ## Why Rust for Front-End Development
@@ -12,7 +14,9 @@ I’ve been using React and Next.js for front-end development ever since high sc
 
 The front-end Rust ecosystem has come a long way in the last few years. We are at a point where we now have Rust frameworks that are actually somewhat usable (huge asterisk). While frameworks like Svelte, Astro, and Solid are making people rethink their approach to front-end development, Rust frameworks like Leptos and Dioxus are also maturing.
 
-I've never been a fan of TypeScript or JS but have always loved Rust. I decided to rewrite my website in Rust using Dioxus. In addition to being more enjoyable to work on, any Rust code I write for other personal projects, I can compile down to WebAssembly and show on this site. (EDIT: Eventually rewrote the site again with Hugo. Most of my content is just text and it is pretty unnecessary to use a SPA app just for a blog. I decided to make my site statically generated for fast load times and minimum bundle size. It is the right tool for the job).
+I've never been a fan of TypeScript or JS but have always loved Rust. I decided to rewrite my website in Rust using Dioxus. In addition to being more enjoyable to work on, any Rust code I write for other personal projects, I can compile down to WebAssembly and show on this site.
+
+> EDIT: Eventually rewrote the site again with Hugo. Most of my content is just text and it is pretty unnecessary to use a SPA app just for a blog. I decided to make my site statically generated for fast load times and minimum bundle size. It is the right tool for the job.
 
 
 
@@ -229,4 +233,4 @@ I had a very enjoyable time reimplementing my website in Rust using this framewo
 
 All of these Rust front-end libraries are very new and share the same characteristics as any frontier. There is usually poor documentation. Sometimes things just don't work. At times you'll have to dive deep into the source code to find answers. On the other hand, the codebase is 'small' enough to where one person can comprehend it. Such a challenge is possible and rewarding.
 
-I think that such projects are lovely to work on. It requires you to get your hands dirty and actually understand what is going on under the hood. In the past, I was a classic React user that only knew the abstraction, not the layers of complexity beneath it. This project helped uncover some of that complexity while teaching me the basics of WebAssembly. I can recommend giving this library a try.
+I think that such projects are lovely to work on. It requires you to get your hands dirty and actually understand what is going on under the hood. In the past, I was a classic React user that only knew the abstraction, not the layers of complexity beneath it. This project helped uncover some of that complexity while teaching me the basics of WebAssembly. I recommend giving this library a try.

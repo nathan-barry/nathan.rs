@@ -4,20 +4,11 @@ date = 2024-02-04T17:23:27-06:00
 tags = ["Programming"]
 +++
 
-
-
-## The Rendering Issue
----
-
 Lately, I've been coming across many blogs that have weird font-size rendering issues for code blocks on iOS. Basically, in a code snippet, the text-size would sometimes be much larger for some lines than others.
 
-Below are a few screenshots I've taken for websites that I've seen this on:
+Below is a screenshot from a website I've seen this occur.
 
-
-<div class="two-columns">
-<img alt="iovec.net code block issue" src="/images/ios1.png">
-<img alt="shyam.blog code block issue" src="/images/ios2.png">
-</div>
+<img alt="code block issue" src="/images/ios-render-issue.webp">
 
 As you can see, the text-size isn't uniform across code block lines. I've seen this issue across many blogs that compile markdown files to HTML such as sites built using Hugo, Jekyll, or even [custom md-to-html shell scripts](https://github.com/git-bruh/site).
 
@@ -44,8 +35,6 @@ code {
 
 This should fix the rendering issue and make the text-size in code blocks look correct. 
 
-If I have sent you this post, it means that I've spotted this issue on your site. Should be an easy fix.
-
 
 
 ## What might cause this?
@@ -55,14 +44,7 @@ The CSS snippet above explicitly tells the browser to render the text size at it
 
 I did some investigation on my own site by removing the CSS snippet. After looking at a couple of posts, there was an obvious pattern to what lines were rendered large: **line length**.
 
-Below are two screenshots of different code blocks on my site:
-
-<div class="two-columns">
-<img alt="nathan.rs short code block, no issue" src="/images/ios3.png">
-<img alt="shyam.blog long lines in code block, issue" src="/images/ios4.png">
-</div>
-
-In both images, the only lines that are rendered large are the long ones. This has been true for every code block I've looked at.
+In the screenshot above, the only lines that are rendered large are the long ones. This has been true for every code block I've looked at.
 
 ### My Guess
 
@@ -94,7 +76,7 @@ If we inspect element, we can view the HTML of the code block.
 </code>
 ```
 
-Let us look at one of the lines (line 4 in this case). The HTML of a line of code is just a bunch of nested spans. If the code is highlighted, it's wrapped in another nested span with the color styling, otherwise it is just the text. 
+Let us look at line 4. The HTML of a line of code is just a bunch of nested spans. If the code is highlighted, it's wrapped in an additional span for color styling, otherwise it is just the text. 
 
 ```html
 <span style="display:flex;"><span>
@@ -130,7 +112,7 @@ The first line (long) looks like this:
 </span>
 ```
 
-My best guess is that the longer lines overflow and the browser tries to handle them differently. I could do more experiments, but I'm satisfied with my investigation.
+Perhaps longer lines overflow (in some sense) and the browser tries to handle them differently. It could also be the additional nested span that was for some reason generation. Whatever it is, hopefully the solution worked for you!
 
 ### Souls Saved
 
