@@ -84,7 +84,6 @@ I am in the process of completely redoing my website. Here are things I need to 
     - edit book summaries (more prominent now)
 - New Posts:
     - Finish BERT post
-    - Start Research Log
 - New Notes:
     - ECE ML Hardware Algo
     - Quantum information science
@@ -92,4 +91,3 @@ I am in the process of completely redoing my website. Here are things I need to 
     - Distributed Computing
     - Computer Graphics
     - Physics
-    - Diff Eq and Vector Calc
