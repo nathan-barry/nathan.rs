@@ -24,34 +24,14 @@ enableGitInfo = true
 [markup.highlight]
   style = 'base16-snazzy'
 
-# Single language site - no need for multi-language config
-# Content directory is the default 'content/'
-
-# Menu configuration
-# You can add custom menu items here if needed
-# Example:
-# [[menu.after]]
-#   name = 'GitHub'
-#   url = 'https://github.com/yourusername'
-#   weight = 10
-
 [params]
   # (Optional, default light) Sets color theme: light, dark or auto.
   # Theme 'auto' switches between dark and light modes based on browser/os preferences
   BookTheme = 'light'
 
-  # (Optional, default none) Controls table of contents visibility on right side of pages.
-  # Start and end levels can be controlled globally with markup.tableOfContents setting.
-  # You can also specify this parameter per page in front matter.
-  # BookToC = true
-
   # (Optional, default favicon.png) Set the path to a favicon file.
   # If the favicon is /static/favicon.png then the path would be favicon.png
   # BookFavicon = 'favicon.png'
-
-  # (Optional, default none) Set the path to a logo for the book.
-  # If the logo is /static/logo.png then the path would be logo.png
-  # BookLogo = 'logo.png'
 
   # (Optional, default docs) Specify root page to render child pages as menu.
   # Page is resoled by .GetPage function: https://gohugo.io/functions/getpage/

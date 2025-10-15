@@ -36,9 +36,14 @@ https://github.com/alex-shpak/hugo-book
   <script defer src="{{ partial "docs/links/resource-precache" $searchJS }}" {{ template "integrity" $searchJS }}></script>
 {{ end -}}
 
-{{/* Uncomment and add googleAnalytics in config if needed
-{{ partial "google_analytics.html" . }}
-*/}}
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1Y735N717D"></script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag() {dataLayer.push(arguments);}
+	gtag('js', new Date());
+
+	gtag('config', 'G-1Y735N717D');
+</script>
 
 <!-- RSS -->
 {{- with .OutputFormats.Get "rss" -}}

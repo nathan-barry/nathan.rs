@@ -77,7 +77,6 @@ Bowling Score | 203 (my proudest one!)
 I am in the process of completely redoing my website. Here are things I need to fix:
 - fix images on posts
 - fix all blog post formatting and content
-- add google tag
 - edit book summaries (more prominent now)
 - remove "edit this page"
 - Set up RSS feed
