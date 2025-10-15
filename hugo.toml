@@ -26,8 +26,8 @@ enableGitInfo = true
 
 [params]
   # Open Graph
-  description = 'nathan.rs'
-  images = ['doorknob.png']
+  description = 'Nathan Barry and his thoughts'
+  images = ['doorknob-real.png']
   title = 'nathan.rs'
 
   # (Optional, default light) Sets color theme: light, dark or auto.
