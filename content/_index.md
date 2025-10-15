@@ -15,14 +15,14 @@ Below are some of the things I've been doing.
 
 Currently
 --- | ---
-Aug 2025 - Present | A **Graduate Researcher** at UT Austin working on distributed low-comunication training
+Aug 2025 - Present | A **Graduate Researcher** at UT Austin [working on distributed low-comunication training](/posts/research-log)
 Aug 2024 - Present | Finishing my Master's of Science in CS @ UT Austin
 
 Previously
 --- | ---
 May 2025 - Aug 2025 | Worked at **Apple** as a **Machine Learning Intern**, working on time-series forecasting for predictive autoscaling
 Jun 2025 | Attended Y Combinator's first [AI Startup School](https://events.ycombinator.com/ai-sus) (and other summer events)
-May 2025 | Made the **front page of Hacker News** twice for my [GPT-2 WebGL implementation](https://github.com/nathan-barry/gpt2-webgl) and [write-up](https://nathan.rs/posts/gpu-shader-programming/)
+May 2025 | Made the **front page of Hacker News** twice for my [GPT-2 WebGL implementation](https://github.com/nathan-barry/gpt2-webgl) and [write-up](/posts/gpu-shader-programming/)
 Apr 2025 | Got 1st place at the Meta 8VC Austin hackathon for building a [GDB LLM agent](https://github.com/d0rbu/llamastack-austin)
 Dec 2024 - Jan 2025 | Worked at **TerraFirma Robotics** as a **Software Engineer Intern**, working on coverage path-planning algorithms for autonomous vehicles
 Feb 2024 - Sep 2024 | Was a **Undergraduate Researcher** at UT Austin working on ML infrastructure for LLM dataset contamination research
