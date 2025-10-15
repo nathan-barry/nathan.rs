@@ -41,17 +41,20 @@ I think that the *spirit* of my life phisosophy is tersely summed up by the quot
 > "I believe that a man should strive for only one thing in life, and that is to have a touch of greatness"
 --- Félix Martí-Ibáñez
 
-Another favorite of mine is:
+While the previous quote gave the grand and aspirational, the following short poem expresses the required conscientiousness:
 
-> “The truth is that as a man’s real power grows and his knowledge widens, ever the way he can follow grows narrower: until at last he chooses nothing, but does only and wholly what he must do.”
---- Ursula K. Le Guin
+> "The thoughts of others---Were light and fleeting,\
+Of lovers' meeting---Or luck or fame.\
+Mine were of trouble---And mine were steady;\
+So I was ready---When trouble came.”
+<br>— A.E. Housman
 
-Of course, I have to include the following excerpt of the grand [Citizenship in a Republic](https://en.wikipedia.org/wiki/Citizenship_in_a_Republic) speech that I've had memorized since high school:
+Of course, I have to include the following excerpt of the grand [Citizenship in a Republic](https://en.wikipedia.org/wiki/Citizenship_in_a_Republic) speech that I had memorized since high school. It conjurs the proper spirit and hutzpah necessary for living a true and actualized life.
 
 > "It is not the critic who counts; not the man who points out how the strong man stumbles, or where the doer of deeds could have done them better. The credit belongs to the man who is actually in the arena, whose face is marred by dust and sweat and blood; who strives valiantly; who errs, who comes short again and again, because there is no effort without error and shortcoming; but who does actually strive to do the deeds; who knows the great enthusiasms, the great devotions; who spends himself in a worthy cause; who at the best knows in the end the triumph of high achievement, and who at the worst, if he fails, at least fails while daring greatly, so that his place shall never be with those cold and timid souls who neither know victory nor defeat."
 --- Theodore Roosevelt
 
-For more quotes that I enjoy, visit my [Favorite Quotes](/posts/favorite-quotes) page.
+For more pieces of text that I enjoy, visit my [Favorite Quotes](/posts/favorite-quotes) page.
 
 
 
