@@ -74,12 +74,22 @@ Bowling Score | 203 (my proudest one!)
 
 
 
-## Website: Things to Fix
+## Website: Things to do
 
 I am in the process of completely redoing my website. Here are things I need to fix:
-- fix images on posts
-- fix all blog post formatting and content
-- edit book summaries (more prominent now)
-- remove "edit this page"
-- Set up RSS feed
-- Start research log
+- Add:
+    - Set up RSS feed
+- Fix:
+    - all blog post formatting and content
+    - edit book summaries (more prominent now)
+- New Posts:
+    - Finish BERT post
+    - Start Research Log
+- New Notes:
+    - ECE ML Hardware Algo
+    - Quantum information science
+    - Generative ML
+    - Distributed Computing
+    - Computer Graphics
+    - Physics
+    - Diff Eq and Vector Calc
