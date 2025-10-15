@@ -4,7 +4,7 @@ date = 2023-10-14T10:45:41-05:00
 tags = ["Miscellaneous"]
 +++
 
-*Below are all the books I've read since middle school, roughly in order. Those highlighted in blue were those I particularly enjoyed :)*
+> Below are all the books I've read since middle school, roughly in order. Those highlighted in blue were those I particularly enjoyed :)
 
 <script>
 let bookNumber = 167;
