@@ -5,7 +5,7 @@ tags = ["Class Notes"]
 +++
 {{< katex >}}{{< /katex >}}
 
-*My notes over Mark Maxwell's course, Introduction to Mathematical Statistics, and textbook, Probability & Statistics with Applications, Second Edition.*
+> My notes over Mark Maxwell's course, Introduction to Mathematical Statistics, and his textbook, Probability & Statistics with Applications, Second Edition.
 
 
 

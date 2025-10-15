@@ -5,7 +5,7 @@ tags = ["Class Notes"]
 +++
 {{< katex >}}{{< /katex >}}
 
-*An overview of common discrete and continuous distributions found in probability and statistics.*
+> An overview of common discrete and continuous distributions found in probability and statistics, from Mark Maxwell's textbook, Probability & Statistics with Applications, Second Edition.
 
 
 

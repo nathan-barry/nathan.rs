@@ -4,7 +4,7 @@ date = 2021-03-03
 tags = ["Miscellaneous"]
 +++
 
-> Preface: This is a poem that I wrote my senior year of high school in AP Literature.
+> This is a poem that I wrote my senior year of high school in AP Literature.
 
 <p style="white-space: pre-line">
 Here we all are, this mountain we climb,

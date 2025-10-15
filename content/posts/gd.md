@@ -5,7 +5,7 @@ tags = ["Class Notes"]
 +++
 {{< katex >}}{{< /katex >}}
 
-Theses are some of my over Machine Learning 2.
+> Theses are some of my over Qiang Liu's course, Machine Learning II.
 
 
 

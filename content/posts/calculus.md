@@ -1,11 +1,11 @@
 +++
-title = "Calculus"
+title = "Basic Calculus"
 date = 2023-01-06T11:19:22-06:00
 tags = ["Class Notes"]
 +++
 {{< katex >}}{{< /katex >}}
 
-*A small review over Calculus 1, 2, and 3.*
+> A small review over Calculus 1, 2, and 3, based on the textbook, Calculus: Early Transcendentals (Eight Edition).
 
 
 

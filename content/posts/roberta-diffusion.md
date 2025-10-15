@@ -2,7 +2,7 @@
 title = "Can BERT do Language Diffusion?"
 date = 2025-06-03T13:22:01-07:00
 tags = ["Machine Learning"]
-bookHidden = false
+bookHidden = true
 +++
 
 (THIS IS AN UNFINISHED ROUGH DRAFT)

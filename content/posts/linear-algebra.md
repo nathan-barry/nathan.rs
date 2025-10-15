@@ -5,7 +5,7 @@ tags = ["Class Notes"]
 +++
 {{< katex >}}{{< /katex >}}
 
-*These are my notes over my review of Linear Algebra, going through Gilbert Strang's Introduction To Linear Algebra.*
+> These are my notes over my review of Linear Algebra, going through Gilbert Strang's Introduction To Linear Algebra.
 
 
 

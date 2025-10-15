@@ -5,7 +5,7 @@ tags = ["Class Notes"]
 +++
 {{< katex >}}{{< /katex >}}
 
-*These are a few of my notes from Eunsol Choi's NLP class at UT Austin.*
+> These are a few of my notes from Eunsol Choi's NLP class at UT Austin.
 
 
 

@@ -5,7 +5,7 @@ tags = ["Class Notes"]
 +++
 {{< katex >}}{{< /katex >}}
 
-A mildly complete overview of basic univariate probability.
+> My notes over Mark Maxwell's course, Probability I, and his textbook, Probability & Statistics with Applications, Second Edition.
 
 
 
