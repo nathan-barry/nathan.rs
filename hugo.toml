@@ -25,6 +25,11 @@ enableGitInfo = true
   style = 'base16-snazzy'
 
 [params]
+  # Open Graph
+  description = 'nathan.rs'
+  images = ['doorknob.png']
+  title = 'nathan.rs'
+
   # (Optional, default light) Sets color theme: light, dark or auto.
   # Theme 'auto' switches between dark and light modes based on browser/os preferences
   BookTheme = 'light'
