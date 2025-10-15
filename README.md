@@ -1,6 +1,6 @@
 # nathan.rs
 
-Hey welcome to my site! Currently, the site is based on a **heavily modified* version of [hugo-book](https://github.com/alex-shpak/hugo-book/). Hugo-Book was designed for documentation, and I have many substantial changes to the repo (and removed many things) to make it suitable for a beautiful blog.
+Hey welcome to my site! Currently, the site is based on a ***heavily modified*** version of [hugo-book](https://github.com/alex-shpak/hugo-book/). Hugo-Book was designed for documentation, and I have many substantial changes to the repo (and removed many things) to make it suitable for a beautiful blog.
 
 ## Shortcodes
 
