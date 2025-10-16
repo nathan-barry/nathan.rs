@@ -44,6 +44,9 @@ When trouble came.”
 > “Now, in his heart, Ahab had some glimpse of this, namely: all my means are sane, my motive and my object mad"
 <br>— Herman Melville, Moby Dick
 
+> "The average person puts only 25% of his energy and ability into his work. The world takes off its hat to those who put in more than 50% of their capacity, and stands on its head for those few and far between souls who devote 100%"
+<br>— Andrew Carnegie
+
 
 
 ## Statements

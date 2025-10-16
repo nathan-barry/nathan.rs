@@ -249,23 +249,23 @@ document.addEventListener("DOMContentLoaded", function() {
     title="The Odyssey"
     author="Translated by Emily Wilson"
     special="true"
-    description="Surprisingly, I've never read many 'classics'. Emily Wilson did a fantastic translation. I did enjoy the story. These old archetypal stories always reflect aspects of the human condition that we can relate to and cause us to reflect deeper about our lives. We are all the hero in our own lives on our own journey, and we must make the best of it.">}}
+    description="Surprisingly, I've never read many 'classics'. Emily Wilson did a fantastic translation. I did enjoy the story. These old archetypal stories always reflect aspects of the human condition that we can relate to and cause us to reflect deeper about our lives.">}}
 
 {{< book
     title="Physics for Engineers and Scientists, Vol. 1"
     author="Hans C. Ohanian & John T. Markert"
     special="true"
-    description="This is the first textbook I've actually nearly read to from cover to cover. Everything excepct for the sections on heat and thermodynamics. It was a very good textbook. I noticed that there's a really large gap in my understanding of the world. Math and computer science is solid knowledge, but in terms of how the world actually works, I've been fully ignorant until now." >}}
+    description="This is the first textbook I've actually nearly read to from cover to cover. Everything excepct for the sections on heat and thermodynamics. It was a very good textbook. I noticed that there's a really large gap in my understanding of the physical world. Math and computer science is solid knowledge, but they don't cover the physical reality around us. It's good to know those kinds of things too." >}}
 
 {{< book
     title="Six Easy Pieces"
     author="Richard P. Feynman"
-    description="Feels great to actually understand physics (currently also taking a physics sequence at UT). After a couple of books about general relativity and quantum mechanics, I'll tap out of physics. I'll have a reasonable understanding. I can die satisfied." >}}
+    description="Feels great to actually understand physics (currently also taking a physics sequence at UT). After a couple of books about general relativity and quantum mechanics, I'll tap out of physics. I'll have a reasonable understanding (more than I'll ever need). I can die satisfied." >}}
 
 {{< book
     title="Rome: An Empire's Story"
     author="Greg Woolf"
-    description="I loved the end, when it was talking about what causes a culture to create monuments. The late republic and early empire, tons of monuments were built. People that build monuments have enough trust that there will be someone there in the future to remember them. Very few monuments were built after the early life of the empire, which also lines up with the start of its decline. Of course, economic factors play in, but maybe people didn't believe that future generations would be there for them? Or at least future generations that they cared about." >}}
+    description="I loved the end, when it was talking about what causes a culture to create monuments. The late republic and early empire, tons of monuments were built. People who build monuments trust there will be people in the future to remember them. Very few monuments were built after the early life of the empire, which also lines up with the start of its decline." >}}
 
 {{< book
     title="The Man From The Future"
@@ -281,18 +281,18 @@ document.addEventListener("DOMContentLoaded", function() {
 {{< book
     title="Einstein"
     author="Walter Isaacson"
-    description="This book became so much better and more enriching after I learned about the basics of topology and the history of non-Euclidian geometry and the early Prussian university system with the characters and historic figues that came out of there. I love more about the same things through different lenses. Great biography in general." >}}
+    description="This book became so much better and more enriching after I learned about the basics of topology and the history of non-Euclidian geometry and the early Prussian university system with the characters and historic figues that came out of there. The more I understand about the world, the more beautiful things seem. Great biography in general." >}}
 
 {{< book
     title="Algorithms to Live By"
     author="Brian Christian & Tom Griffiths"
-    description="This book made me wonder how much knowledge I didn't catch throughout my life. I read a part of this book in the past before. Rereading it again, after taking computer architecture and OS, is a completely different experience. Things that I didn't understand or pick up on are now obvious to me and the amount I take away is greatly different." >}}
+    description="This book made me wonder how much knowledge I didn't catch throughout my life. I read a part of this book in the past before. Rereading it again, after taking computer architecture and OS, is a completely different experience. Things that I didn't understand or pick up on are now self-evident and apparent and the amount I can take away from things is greatly different." >}}
 
 {{< book
     title="Gödel's Proof"
     author="Ernest Nagel & James R. Newman"
     special="true"
-    description="For the first time in my life, I feel like I actually have a fairly intuitive understanding of Gödel's Incompleteness Theorem (EDIT: forgot it already). I decided to read this because I started Gödel Escher Bach and wanted to truly understand the concept that sparked it all before reading such a Tour De Force." >}}
+    description="For the first time in my life, I feel like I actually have a fairly intuitive understanding of Gödel's Incompleteness Theorem (EDIT: forgot it already). I decided to read this because I started Gödel Escher Bach and wanted to have a good understanding the concept that inspired much of it before reading such a Tour De Force." >}}
 
 {{< book
     title="The Joy of X"
@@ -314,7 +314,7 @@ document.addEventListener("DOMContentLoaded", function() {
     title="A Mind at Play"
     author="Rob Goodman & Jimmy Soni"
     special="true"
-    description="I love Claude Shannon. Really a human to cause inspires in others. The archetypal tinkerer. Just a terrific man. While I might not ever be able to outshine his genius, I might one day be able to juggle better than him (5 balls instead of 4)!" >}}
+    description="I love Claude Shannon. Really a human to cause inspires in others. The archetypal tinkerer, just a terrific man. While I might not ever be able to outshine his genius, I might one day be able to juggle better than him (5 balls instead of 4)!" >}}
 
 {{< book
     title="The Poincaré Conjecture"
@@ -341,7 +341,7 @@ document.addEventListener("DOMContentLoaded", function() {
 {{< book
     title="Chip War"
     author="Chris Miller"
-    description="This book is about the history of the microchip industry, mentioning the rise of globalism, of Japan, Tiwan, South Korea, the history of Silicon Valley and its relation with the US military, and the national security concerns China and the US has over the lack of control over technologies that make up the majority of their military might. Fantastic book, right down my alley." >}}
+    description="This book is about the history of the microchip industry, mentioning the rise of globalism, of Japan, Taiwan, South Korea, the history of Silicon Valley and its relation with the US military, and the national security concerns China and the US has over the lack of control over technologies that make up the majority of their military might. Fantastic book, right down my alley." >}}
 
 {{< book
     title="Empire of Pain"
@@ -367,7 +367,7 @@ document.addEventListener("DOMContentLoaded", function() {
     title="The Smartest Guys In The Room"
     author="Bethany McLean"
     special="true"
-    description="It's always interesting to ready more about these interconnected web of major corporations that had a large impact on american society, mainly because we learn about these things as if they happened in a vacuum while in reality thousands of other things were going on and much of it interweaved. After reading books about Bechtel and McKinsey and seeing how those companies had a large impact on Enron and how it all feeds one another, one realizes what a complicated beast humanity is. I also just thought it's interesting seeing how historically, periods of exuberance come again and again and how our window of pattern recognition is far smaller than how often these periods occur. Problems are always ignored when the momentum of things are positive and it is only until the floor from under us begins to shake that we realize our folly. Innate suscpicion is the only cure to exaulted hubris, but it's a fine line between conservatism and letting opportunities pass." >}}
+    description="This book is about the rise and fall of Enron. It's always interesting to ready more about these interconnected web of major corporations that had a large impact on american society, mainly because we learn about these things as if they happened in a vacuum while in reality thousands of other things were going on and much of it interweaved. After reading books about Bechtel and McKinsey and seeing how those companies had a large impact on Enron and how it all feeds one another, one realizes what a complicated beast humanity is. I also just thought it's interesting seeing how historically, periods of exuberance come again and again and how our window of pattern recognition is far smaller than how often these periods occur. Problems are always ignored when the momentum of things are positive and it is only until the floor from under us begins to shake that we realize our folly. Innate suspicion is the only cure to exaulted hubris, but it's a fine line between conservatism and letting opportunities pass." >}}
 
 {{< book
     title="The Firm"
@@ -378,7 +378,7 @@ document.addEventListener("DOMContentLoaded", function() {
 {{< book
     title="The United States and the Middle East"
     author="Salim Yaqub"
-    description="This is a Greats Course lecture series on Audible. I've always had a fairly deep amount of knowledge with western history but lacked historical knowledge of other cultures. The whole rise of pan-Arabism, the origin of anti-US hostility, anti-Zionism and the relation between Israel and the other states, the history of colonial european powers in the area, and the dynamic the cold war played are things I think are necessary to know to understand the last century of conflicts with this part of the world." >}}
+    description="This is a Greats Course lecture series on Audible. I've always had a fairly deep amount of knowledge with western history but lacked historical knowledge of other cultures. The whole rise of pan-Arabism, the origin of anti-US hostility, anti-Zionism and the relation between Israel and the other states, the history of colonial european powers in the area, and the dynamic the cold war played are things I think are necessary to know to understand the last century of conflicts in this part of the world." >}}
 
 
 
@@ -387,7 +387,7 @@ document.addEventListener("DOMContentLoaded", function() {
 {{< book
     title="A Beautiful Mind"
     author="Sylvia Nasar"
-    description="This is a biography of the mathematician John Nash. He produced great work in multiple areas of mathematics but you probably have heard of him from Game Theory via the Nash Equilibrium. He suffered from Schizophrenia and lost a large chunk of his productive life due to it. Started off incredibly smart and promising, slowly lost the ability to reason, and then gained it back. Sad in its own way. By then much of his life had passed him by. He still produced work but his golden years had passed. Always reminds me to not take the time I have today for granted.">}} 
+    description="This is a biography of the mathematician John Nash. He produced great work in multiple areas of mathematics. You have most likely heard of him from his work Game Theory, the Nash Equilibrium. He suffered from Schizophrenia and lost a large chunk of his productive life due to it. Started off incredibly smart and promising, slowly lost the ability to reason, and then gained it back. By then much of his life had passed him by. He still produced work but his golden years had passed. Always reminds me to not take the time I have today for granted.">}} 
 
 {{< book
     title="How Markets Fail"
@@ -404,7 +404,7 @@ document.addEventListener("DOMContentLoaded", function() {
     title="Masters of DOOM"
     author="David Kushner"
     special="true"
-    description="I've always been a massive fan of John Carmack. The paragon of the engineer, of competence itself. This story goes over the entire video game arc of him and John Romero. The ingenious of Carmack for every game engine he developed was otherworldly. Once in a generation mind.">}} 
+    description="I've always been a massive fan of John Carmack. The paragon of engineers, of competence itself. This story goes over the entire video game arc of him and John Romero. The ingenious of Carmack for every game engine he developed was otherworldly. Once in a generation mind.">}} 
 
 {{< book
     title="Blitzed: Drugs in the Third Reich"
@@ -437,7 +437,7 @@ document.addEventListener("DOMContentLoaded", function() {
     title="Atlas Shrugged"
     author="Ayn Rand"
     special="true"
-    description="I did love Ayn Rand's novels. I think I did prefer 'The Fountainhead' for the most part, but this story does a great job at appealing to the ideal side of humanism.">}} 
+    description="Ayn Rand wrote many important novels. Although I enjoyed 'The Fountainhead' more for the most part, this story is much more relevant to contemporary times.">}} 
 
 {{< book
     title="The Road To Serfdom"
@@ -453,7 +453,7 @@ document.addEventListener("DOMContentLoaded", function() {
     title="The Fountain Head"
     author="Ayn Rand"
     special="true"
-    description="Already wrote a bit about Rand for Atlas Shrugged (banger title btw). I think that this is her best work as it just solely inspires the creative side of man through the archetypal story of a hero that will complete his quest no matter what and who stays true to himself and his vision despite the world telling him that his perception of the world is incorrect.">}} 
+    description="Already wrote a bit about Rand for Atlas Shrugged (banger title btw). I think that this is her best work as it just solely inspires the creative side of man through the archetypal story of a hero who pushes through and stays true to himself and his vision despite the world saying his perception of the world is incorrect. We all sometimes doubt ourselves. We must trust our guts and persist.">}} 
 
 {{< book
     title="The New Right"
@@ -708,7 +708,7 @@ document.addEventListener("DOMContentLoaded", function() {
     title="The Boys In The Boat"
     author="Daniel James Brown"
     special="true"
-    description="My high school cross country coach, Bob Miller, brought up this boat. A beautiful story of a group of young boys sacrificing for something greater than themselves. Truly one of the most special moments a human can experience. One day I wish to do the same.">}} 
+    description="My high school cross country coach, Bob Miller, brought up this book. A beautiful story of a group of young boys sacrificing for something greater than themselves. Truly one of the most special moments a human can experience. One day I wish to do the same.">}} 
 
 {{< book
     title="Bad Blood"
@@ -963,7 +963,3 @@ document.addEventListener("DOMContentLoaded", function() {
     author="Robert Greene"
     special="true"
     description="">}}
-
-
-
-> "The average person puts only 25% of his energy and ability into his work. The world takes off its hat to those who put in more than 50% of their capacity, and stands on its head for those few and far between souls who devote 100%" - Andrew Carnegie
