@@ -7,7 +7,7 @@ tags = ["Machine Learning"]
 
 > I will write what I learn every day to this page.
 
-## Day 1: HALoS
+## Day 2: HALoS
 
 I've spent much of today reading the [source code](https://github.com/utnslab/halos) of [HALoS](https://icml.cc/virtual/2025/poster/45594). The main idea of the paper is right in the title, "HALoS: Hierarchical Asynchronous Local SGD over Slow Networks for Geo-Distributed Large Language Model Training".
 
@@ -30,7 +30,7 @@ graph TD
   A <-->|Async Updates| E[Worker 4]
 ```
 
-While this means we don't suffer synchronization costs, we now suffer from staleness because we are applying multiple individual outer-update steps synchronously between workers instead of taking one step using the average. This makes parameter drift (gradients being applied when the loss landscape has changed) which can lead to convergence issues.
+While this means we don't suffer synchronization costs, we now suffer from staleness because we are applying each worker's outer-update step individually and synchronously instead of taking one step using the average. This makes parameter drift (gradients being applied when the loss landscape has changed) which can lead to convergence issues.
 
 HALoS doesn't directly address the staleness issue. Instead, it focuses on minimizing computation idle time. HALoS introduces *Local Parameter Servers (LPS)* within each region and a *global parameter server (GPS)* which merges updates across regions. One way to think about it is that we are running multiple instances of Async Local-SGD, each having multiple workers within the same region. We treat each LPS as a worker in Async Local-SGD and have another parameter server (the GPS) which they send updates to.
 
@@ -49,13 +49,13 @@ Empirically, their evaluation shows that HALoS achieves up to $7.5\times$ conver
 
 ### Simulator
 
-The main thing thing of importance to me here is that their open-source simulator currently supports DiLoCo, Async Local-SGD, and HALoS. It would not be hard to add support for Overlap Local-SGD or One-step-delay DiLoCo and Eager Update DiLoCo (although Streaming DiLoCo would require a major rewrite).
+The main thing of importance to me here is that their open-source simulator currently supports DiLoCo, Async Local-SGD, and HALoS. It would not be hard to add support for Overlap Local-SGD or One-step-delay DiLoCo and Eager Update DiLoCo (although Streaming DiLoCo would require a major rewrite).
 
 I'll read the source-code and run it for my own experiments with heterogeneous workers, and then modify it for my experiments with parameter drift.
 
 
 
-## Day 0: DiLoCo Days
+## Day 1: DiLoCo Days
 It is October 15th, 2025. For my last year of my master's, I decided to a thesis around distributed low-communication training. Essentially, how can we train large models efficiently across distributed nodes and not be utterly destroyed by network latency and bandwidth?
 
 The main approach currently is Local SGD, where we have $M$ distributed workers (which consist of one or more nodes) that each take $H$ local optimization steps. After each worker finishes their $H$ steps, we take the average of the distance of each worker's ending parameter state from their starting parameter state to get what we call an *outer-gradient* or a *pseudo-gradient*. We update the original weights with the outer-gradient using an outer-optimizer. 
