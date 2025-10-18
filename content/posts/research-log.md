@@ -5,7 +5,37 @@ tags = ["Machine Learning"]
 +++
 {{< katex >}}{{< /katex >}}
 
-> I will write what I learn every day to this page.
+> I'm doing my master's thesis around distributed low-communication training. Essentially, how can we train large models efficiently across distributed nodes and not be utterly destroyed by network latency and bandwidth? Below is some of what I've learned and investigated throughout the days.
+
+
+
+## Day 3: Current Work on Heterogeneous Workers
+
+A desirable problem to solve is being able to use different kinds of hardware for training. Even within the same generation, NVIDIA B300 GPUs are 50% faster than B200s. Companies like Meta have many homogeneous clusters that differ in hardware. It would be ideal to be able to train a model across clusters regardless of the exact underlying hardware used.
+
+The two main recent works I've found on heterogeneous workers is [HALoS](https://icml.cc/virtual/2025/poster/45594) and [Async Local-SGD](https://arxiv.org/abs/2401.09135). The former uses a wide variety of worker speeds in their experiments, but there is no ablation study showing how differing worker speeds specifically impact convergence, so we will mainly focus on the latter. There are perhaps other important works that studied this, but I am unaware of them.
+
+Both of these papers introduce a method where they scale the number of inner steps taken by a worker to their relative speed. For instance, if worker 1 has $H=100$ inner steps, if worker 2 is half as fast, worker 2 would take $H=50$ inner steps.
+
+In Async Local-SGD (also known as Async DiLoCo), they have an ablation study which looks at how varying worker speeds affect the perplexity of their algorithm. For the first 3 algorithms just take more wall-clock time because each suffers from the straggler effect (but training is the exact same). The naive Async DiLoCo implementation (same number of worker steps) and the improved version (better optimizer + scaled worker steps to match speed) both seem to also not be impacted by heterogeneous worker speed.
+
+Level of heterogeneity | no | slight | moderate | very
+--- | --- | --- | --- | ---
+Pretrained (24K) | 61.64 | 61.64 | 61.64 | 61.64 
+Finetune (4× batch size) | 42.47 | 42.47 | 42.47 | 42.47 
+DiLoCo (Douillard et al., 2023) | 41.35 | 41.35 | 41.35 | 41.35 
+--- | --- | --- | --- | ---
+Async. DiLoCo | 44.27 | 44.38 | 44.29 | 44.27 
+Async. DN + DyLU (ours) | **41.27** | **41.27** | **41.09** | **41.13**
+
+I found this very strange. In the naive Async DiLoCo implementation, a worker that is twice as slow will apply outer-gradients that are twice as stale, since each worker takes the same number of inner steps. In an earlier part of the paper, they found that just the inherent staleness, which comes from applying individual worker updates sequentially instead of averaging them and applying it once, lead to "considerable performance drops." So I would have imagined that significantly increasing staleness for certain workers would have *some* impact on convergence.
+
+In the better version with the new Delayed Nesterov optimizer and Dynamic Local Updates (scaling inner steps $H$ to match worker speed), I would have still imagined some impact on convergence due to a different set of reasons.
+Because outer-gradients (really parameter differences) have similar behavior to normal gradient, let's think about the normal DDP training setting where we synchronize at every step. Having a different inner step per worker in Async Local-SGD is analogous to having a different weight per worker when averaging in the DDP case. This seems like it would fundamentally impact training behavior.
+
+Aiming to get a small Pythia 14M model running on the HALoS simulator and some basic tests set up by the end of the day.
+
+
 
 ## Day 2: HALoS
 
@@ -101,7 +131,7 @@ There are many potential research directions I've thought of. The easiest to tes
 
 The Async Local SGD paper (referred to as Async DiLoCo by the [author](https://arthurdouillard.com/research/)) tested giving each workers a different number of inner steps to process based on relative processing speed. If worker 1 has $H_1=100$ and worker 2 is half as fast, we give them half as many steps ($H_2=50$) so that they both finish around the same time.
 
-This idea is very simple and makes sense, but it is completely non-trivial on how this impact convergence. The best comparison is, imagine we are doing Distributed Data Parallel training (DDP), but each worker has a different learning rate? In both cases, the magnitudes of the gradient (and pseudo-gradient) we are averaging over are different between each worker. This seems like it fundamentally changes training behavior.
+This idea is very simple and makes sense, but it is completely non-trivial on how this impact convergence. The best comparison is, imagine we are doing Distributed Data Parallel training (DDP), but each worker has a different weight when averaging? In both cases, the magnitudes of the gradient (and pseudo-gradient) we are averaging over are different between each worker. This seems like it fundamentally changes training behavior.
 
 From empirical experiments, it seems like models are generally robust to it, but a rigorous study over this would be useful, especially if we are choosing to dynamically change worker inner steps during training.
 
