@@ -15,7 +15,7 @@
 
     <!-- Popular Posts -->
     <li style="margin-top: 8px;"><strong>Popular Posts</strong></li>
-    <ul style="margin-bottom: 6px;">
+    <ul>
       <li>
 	    <a href="/posts/gpu-shader-programming/">Running GPT-2 in WebGL: Rediscovering Classic GPGPU Programming</a>
       </li>
@@ -29,7 +29,7 @@
 
     <!-- Recent Posts -->
     <li style="margin-top: 8px;"><strong>Recent Posts</strong></li>
-    <ul style="margin-bottom: 6px;">
+    <ul>
       {{ range first 5 (where .Site.RegularPages "Section" "posts").ByDate.Reverse }}
       <li>
         <a href="{{ .RelPermalink }}">{{ .Title }}</a>
@@ -37,14 +37,12 @@
       {{ end }}
     </ul>
 
-    <br>
-
     <!-- Socials -->
     <li>
-      <a href="https://github.com/nathan-barry">Github</a>
+      <a href="https://x.com/nathanbarrydev">𝕏</a>
     </li>
     <li>
-      <a href="https://x.com/nathanbarrydev">𝕏</a>
+      <a href="https://github.com/nathan-barry">Github</a>
     </li>
     <li>
       <a href="https://www.linkedin.com/in/nathanbarrydev/">LinkedIn</a>

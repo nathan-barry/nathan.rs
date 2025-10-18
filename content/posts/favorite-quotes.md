@@ -4,7 +4,7 @@ date = 2023-10-14T10:45:41-05:00
 tags = ["Miscellaneous"]
 +++
 
-> Here are a few of my favorite quotes I've found over the years.
+Here are a few of my favorite quotes I've liked over the years.
 
 
 
