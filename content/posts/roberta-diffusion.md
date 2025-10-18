@@ -1,34 +1,38 @@
 +++
-title = "Can BERT do Language Diffusion?"
+title = "BERT is just a Subset of a Language Diffusion Model"
 date = 2025-06-03T13:22:01-07:00
 tags = ["Machine Learning"]
 +++
+{{< katex >}}{{< /katex >}}
 
-> (THIS IS AN UNFINISHED ROUGH DRAFT)
+> Preface: After I wrote the article I stumbed upon the paper [DiffusionBERT](https://arxiv.org/abs/2211.15029) which does essentially the same thing but with more rigorous testing! Check it out if this post interested you.
 
-Google DeepMind recently unveiled Gemini Diffusion, an experimental language model that generates text using diffusion. Unlike traditional GPT-style models that generate one word at a time, Gemini Diffusion creates whole blocks of text by refining random noise step-by-step.
+<img alt="Text Diffusion" style="max-width: 100%" src="/images/roberta-diffusion.gif">
 
-After reading the paper "Large Language Diffusion Models", I was surprised to find that discrete language diffusion is just a variation of masked language modeling (MLM), something we’ve been doing since 2018.
-This is a write-up over my attempt to fine-tuned RoBERTa (an old MLM model) to do language generation.
+A while back, Google DeepMind unveiled Gemini Diffusion, an experimental language model that generates text using diffusion. Unlike traditional GPT-style models that generate one word at a time, Gemini Diffusion creates whole blocks of text by refining random noise step-by-step.
 
+I read the paper "Large Language Diffusion Models" and was surprised to find that discrete language diffusion is just a variation of masked language modeling (MLM), something we’ve been doing since 2018.
+The first thought I had was, "can we finetune a BERT-like model to do language generation?"
 
 
 
 ## A Short History of Transformers
 ---
-The Transformer architecture, introduced in the 2017 paper “Attention is all you need”, was built around an encoder-decoder framework. In 2018, researchers realized that the encoder and decoder components of the model could be decoupled (with the advent of BERT and GPT), and two distinct families of models were created:
+The original Transformer architecture, introduced in 2017, was an encoder-decoder model. In 2018, researchers realized that the encoder and decoder components of the model could be decoupled (with the advent of BERT and GPT), and two distinct families of models were created:
 
 1. **Encoder-only models (BERT-style, bidirectional)**
-    - Focus on masked language modeling (MLM): randomly mask out a subset of tokens of each input, train the encoder to reconstruct the missing tokens (fill in the blanks).
-    - Sees the entire (partially masked) context at once, learns bidirectional representations.
-    - Excelled at tasks requiring a full‐sentence (or paragraph) representation (e.g., classification and retrieval).
+
+Encoder models used masked language modeling (MLM) as a training objective: randomly mask out a subset of tokens of each input and train the encoder to reconstruct the missing tokens (fill in the blanks).
+The model sees the entire (partially masked) context at once and learns bidirectional representations.
+This architecture excelled at tasks requiring a full‐sentence (or paragraph) representation (e.g., classification and retrieval).
 
 2. **Decoder-only models (GPT-style, autoregressive)**
-    - Focus on next‐token prediction: at each position $t$, predict the token at position $t + 1$ given all tokens up to $t$ as context.  
-    - Sees only left context (unidirectional), learns to predict the next token in the sequence.
-    - Excelled at generative tasks where you produce text one token at a time, such as open‐ended generation, summarization, and translation.
 
-Both BERT and GPT were released in 2018. Originally, BERT saw immediate use in tasks such as classification, whereas GPT remained a research novelty due to its minimal generation capabilities. Eventually, the generation capabilities of autoregressive transformers vastly improved, and the general training objective of “next token prediction” meant a much larger space of possibilities and use cases.
+Decoder models used next‐token prediction as a training objective: at each position $t$, predict the token at position $t + 1$ given all tokens up to $t$ as context. Only the left context is used to predict future values (unidirectional).
+This architecture excelled at generative tasks where you produce text one token at a time, such as open‐ended generation, summarization, and translation.
+
+Originally, BERT saw immediate use in tasks such as classification, whereas GPT-style models didn't become popular until later. Eventually, the generation capabilities of autoregressive (decoder) transformers vastly improved. The general training objective of “next token prediction” meant a much larger space of possibilities and use cases.
+
 
 
 ## Discrete Language Diffusion Models
@@ -52,29 +56,25 @@ The simplest way to do this is a **masking‐based noise process**:
    - This is akin to performing masked language modeling at varying mask rates: at early timesteps, only a few tokens are masked (easy to predict); at later timesteps, many tokens are masked (harder).  
    - By chaining together predictions from high‐mask‐rate back down to zero, you can recover (or generate) a full sequence.
 
-In this discrete diffusion framework, the model learns a **likelihood bound** on the data distribution by optimizing a sum of denoising losses over all timesteps, rather than a single MLM objective at a fixed mask probability. 
+In this discrete text diffusion framework, the model learns a likelihood bound on the data distribution by optimizing a sum of denoising losses over all timesteps, rather than a single MLM objective at a fixed mask probability. 
 
-By introducing variable masking rates and a scheduled sequence of denoising steps (inspired by diffusion theory), we can transform BERT’s masked language modeling objective into a full generative procedure.
+As we can see, BERT's masked language modeling objective is the **same training objective as text diffusion, but just for a subset of masking rates**.
+By introducing variable masking rates (from 0 to 1) and a scheduled sequence of denoising steps (inspired by diffusion theory), we can transform BERT’s masked language modeling objective into a full generative procedure.
+
+
 
 ## RoBERTa Diffusion
 ---
 
-In 2019, the paper RoBERTa was released. It was essentially just an enhancement of the original BERT model, with better hyperparameters and data training size.
+In 2019, RoBERTa was released. It was essentially just an enhancement of the original BERT model, with better hyperparameters, data training size, and a more simple training objective (MLM only, removed next sentence prediction).
 
-I used the HuggingFace `transformers` and `dataset` libraries to easily pull in the original RoBERTa weights, tokenizer, and the Trainer class to easily finetune the model on the WikiText dataset.
+Here we use the HuggingFace `transformers` and `dataset` libraries to pull in the original RoBERTa weights, tokenizer, and the Trainer class to easily finetune the model on the WikiText dataset.
 The code looks like this below:
 
 ```python
 # Load and tokenize dataset and instantiate the model
 dataset = load_dataset("wikitext", "wikitext-2-raw-v1")
 tokenizer = RobertaTokenizerFast.from_pretrained("roberta-base")
-# ...
-tokenized = dataset.map(
-    tokenize_function,
-    batched=True,
-    remove_columns=["text"],
-)
-
 model = RobertaForMaskedLM.from_pretrained("roberta-base")
 
 # Create the training args and Trainer instance
@@ -102,18 +102,19 @@ trainer.train()
 trainer.save_model("finetuned-roberta-diffusion")
 ```
 
-The custom `diffusion_collator` function (see code in repo) is doing the heavy lifting:
-1. Currently we have 10 diffusion steps, so we randomly sample a percentage $p$ out of `mask_probs` (1.0, 0.9, 0.9, ..., 0.1) and mask that percent of the tokens each batch.
-2. Diffusion models generate text in chunks of a fixed size. I chose 256 mainly since 512, what RoBERTa normally uses, was too long to fit into a visualization.
-3. To be able to condition the generation on a "prompt", we currently never mask the first 16 tokens. That means that during training, each step will always have the first 16 tokens as context for generation.
+The custom `diffusion_collator` function (see code in repo) is doing the heavy lifting.
+Currently we have 10 diffusion steps, so we randomly sample a percentage $p$ out of `mask_probs` (1.0, 0.9, 0.9, ..., 0.1) and mask that percent of the tokens each batch.
+
+Diffusion models generate text in chunks of a fixed size. I chose 256 mainly since 512, what RoBERTa normally uses, was too long to fit into a visualization.
+To be able to condition the generation on a "prompt", we currently never mask the first 16 tokens. That means that during training, each step will always have the first 16 tokens as context for generation.
 
 Here is an example output generation of the fine-tuned model with the first line as the prompt:
 
 ```
 Following their victory in the French and Indian War, Britain began to assert
-greater ...
+greater...
 
-... dominion over Europe beginning about the early 19th. There conflict took
+...dominion over Europe beginning about the early 19th. There conflict took
 place on the island, between British and Irish Ireland. British officials 
 administered British Ireland, a Celtic empire under the control of the Irish 
 nationalist authorities, defined as a dominion of Britain. As the newly Fortic 
@@ -124,26 +125,19 @@ this period the Non @-@ Parliamentaryist Party won its influence in Britain in
 Sinclair, Lewis questioned, and debated the need to describe " The New Britain "
 ```
 
-This output is suprisingly decently coherent.
-The spaces around certain punctuation and also the appearence of "@-@" are just quirks of the formatting of WikiText (`British-controled` becomes `British @-@ controled`).
+The output is surprisingly coherent! The spaces around certain punctuation and also the appearence of `@-@` are just quirks of the formatting of WikiText (`British-controled` to `British @-@ controled`).
 
 Below is a comparison between our diffusion model and GPT-2:
 
-<br>
 <img alt="RoBERTa Diffusion vs GPT" style="max-width: 100%" src="/images/roberta-diffusion-gpt.gif">
-<br>
 
-We can clearly see that GPT-2 is much more coherent and slightly faster (~9 seconds vs ~13) but I'm pleasantly suprised with how good my simple implementation was. It is a good proof of concept, and with new approaches like AR-Diffusion and Skip-Step Diffusion, the quality and speed can be drastically improved.
+We see GPT-2's output is more coherent and slightly faster (~9 seconds vs ~13) but I'm pleasantly suprised with how good my simple implementation was. It is a good proof of concept, and with new approaches like AR-Diffusion and Skip-Step Diffusion, the quality and speed can be drastically improved.
 
-### Conclusion
 
-In this exploration, we’ve seen that masked language models like RoBERTa, originally designed for fill-in-the-blank tasks, can be repurposed into fully generative engines by interpreting variable-rate masking as a discrete diffusion process. By gradually corrupting text with `[MASK]` tokens and training the model to iteratively denoise at increasing mask intensities, we effectively turn the standard MLM objective into a step-by-step generation procedure. Our proof-of-concept demonstrates that even without architectural changes, RoBERTa can produce surprisingly coherent passages, validating the core idea that “language diffusion” is, at heart, a generalization of classical masked language modeling.
 
-Of course, there’s a trade-off. Compared to decoder-only transformers like GPT-2, diffusion-based RoBERTa is currently slower and its outputs—while coherent—can exhibit artifacts such as suboptimal punctuation spacing or tokenization quirks from the WikiText dataset. However, this gap can be narrowed through a number of promising directions:
+## Conclusion
+---
 
-* **Advanced schedules**: Techniques like AR-Diffusion or Skip-Step Diffusion can reduce the number of denoising steps without sacrificing quality, dramatically improving generation speed.
-* **Hybrid architectures**: Incorporating lightweight decoder modules or cross-attention layers could help the model focus on longer-range dependencies during the reverse process.
-* **Fine-tuned tokenization**: Adapting the tokenizer or employing byte-pair encodings that minimize artifacts (e.g., reducing occurrences of `@-@`) will make outputs cleaner.
-* **Larger pre-training corpora**: Re-training or further pre-training on data closer to the target domain can improve both fluency and factual accuracy.
+We’ve seen that masked language models like RoBERTa, originally designed for fill-in-the-blank tasks, can be repurposed into fully generative engines by interpreting variable-rate masking as a discrete diffusion process. By gradually corrupting text with `[MASK]` tokens and training the model to iteratively denoise at increasing mask intensities, we effectively turn the standard MLM objective into a step-by-step generation procedure.
 
-Ultimately, discrete language diffusion offers a compelling alternative to autoregressive generation—one that leverages bidirectional context at every step and provides a principled likelihood framework for text. As the research community continues to refine diffusion schedules and model architectures, we can expect these models to close the gap on speed and coherence, unlocking new possibilities for flexible, high-quality text generation. If you’re curious to experiment further, the full code and model checkpoints are available in the repo—happy diffusing!
+Even without architectural changes, a fine-tuned RoBERTa can produce surprisingly coherent passages, validating the core idea that text diffusion is essentially just a generalization of classical masked language modeling.

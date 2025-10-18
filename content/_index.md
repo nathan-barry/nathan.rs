@@ -71,18 +71,3 @@ Bouldering Grade | V8
 Starcraft 2 Rank | Diamond (Protoss)
 Balls Juggled | 4
 Bowling Score | 203 (my proudest one!)
-
-
-
-## Website: Things to do
-
-I am in the process of completely redoing my website. Here are things I need to fix:
-- New Posts:
-    - Finish BERT post
-- New Notes:
-    - ECE ML Hardware Algo
-    - Quantum information science
-    - Generative ML
-    - Distributed Computing
-    - Computer Graphics
-    - Physics
