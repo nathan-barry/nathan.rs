@@ -1,6 +1,6 @@
 +++
 title = "BERT is just a Subset of a Language Diffusion Model"
-date = 2025-06-03T13:22:01-07:00
+date = 2025-10-20
 tags = ["Machine Learning"]
 +++
 {{< katex >}}{{< /katex >}}
