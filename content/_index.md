@@ -9,7 +9,7 @@ title: "Home"
 Greetings fellow traveler! Salutations! Callooh! Callay!
 
 My name is Nathan Barry. I'm a CS graduate student at UT Austin and am interested in systems and machine learning.
-I love working on hard problems with great people. Occasionally, [I write about what I'm working on](/posts).
+I love working on hard problems with great people. Occasionally, [I write about things that interest me](/posts).
 
 Below are some of the things I've been doing.
 
@@ -57,9 +57,21 @@ There are many more pieces that I enjoy, many of which you can find on my [Favor
 
 
 
+## Hacker News Archive
+
+Some of my posts have appeared on the front page of Hacker News! Below are links to the discussions:
+
+Title | Date
+--- | ---
+[BERT Is Just a Single Text Diffusion Step](https://news.ycombinator.com/item?id=45644328) | October 20th, 2025
+[Running GPT-2 in WebGL: Rediscovering Classic GPGPU Programming](https://news.ycombinator.com/item?id=44109257) | May 24th, 2025
+[Show HN: GPT-2 implemented using graphics shaders](https://news.ycombinator.com/item?id=43870998) | May 2nd, 2025
+
+
+
 ## Personal Records
 
-I've always enjoyed being good at things! If one does something, one might as well pursue excellence! Here is a list of some personal feats I've done (featuring the impressive and the useless).
+I've always been lucky enough to be naturally good at a lot of things! Here is a list of some personal feats I've done (featuring the impressive and the useless).
 
 Event | Record
 --- | ---
