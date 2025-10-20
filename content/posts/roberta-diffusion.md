@@ -1,5 +1,5 @@
 +++
-title = "BERT is just a Subset of a Language Diffusion Model"
+title = "BERT is just a Single Text Diffusion Step"
 date = 2025-10-20
 tags = ["Machine Learning"]
 +++
