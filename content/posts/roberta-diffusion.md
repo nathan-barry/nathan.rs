@@ -199,4 +199,4 @@ We see GPT-2's output is more coherent and slightly faster (~9 seconds vs ~13) b
 
 We’ve seen that masked language models like RoBERTa, originally designed for fill-in-the-blank tasks, can be repurposed into fully generative engines by interpreting variable-rate masking as a discrete diffusion process. By gradually corrupting text with `<MASK>` tokens and training the model to iteratively denoise at increasing mask intensities, we effectively turn the standard MLM objective into a step-by-step generation procedure.
 
-Even without architectural changes, a fine-tuned RoBERTa can produce surprisingly coherent passages, validating the core idea that text diffusion is essentially just a generalization of classical masked language modeling.
+Even without architectural changes, a fine-tuned RoBERTa can generate coherent looking text after slightly modifying the training objective, validating the idea that BERT-style models are essentially just text diffusion models trained on one masking rate.
