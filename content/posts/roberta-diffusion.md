@@ -9,8 +9,8 @@ tags = ["Machine Learning"]
 
 A while back, Google DeepMind unveiled [Gemini Diffusion](https://deepmind.google/models/gemini-diffusion/), an experimental language model that generates text using diffusion. Unlike traditional GPT-style models that generate one word at a time, Gemini Diffusion creates whole blocks of text by refining random noise step-by-step.
 
-I read the paper [Large Language Diffusion Models](https://arxiv.org/abs/2502.09992) and was surprised to find that discrete language diffusion is just a variation of masked language modeling (MLM), something we’ve been doing since [2018](https://arxiv.org/abs/1810.04805).
-The first thought I had was, "can we finetune a BERT-like model to do language generation?" I decided to try a quick proof of concept out of curiosity.
+I read the paper [Large Language Diffusion Models](https://arxiv.org/abs/2502.09992) and was surprised to find that discrete language diffusion is just a generalization of masked language modeling (MLM), something we’ve been doing since [2018](https://arxiv.org/abs/1810.04805).
+The first thought I had was, "can we finetune a BERT-like model to do text generation?" I decided to try a quick proof of concept out of curiosity.
 
 > NOTE: After I wrote the article I stumbled upon the paper [DiffusionBERT](https://arxiv.org/abs/2211.15029) which does essentially the same thing but with more rigorous testing! Check it out if this post interested you.
 
