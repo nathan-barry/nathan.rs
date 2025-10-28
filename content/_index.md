@@ -25,7 +25,7 @@ Previously |
 Oct 2025 | Placed 3rd for the Play-Do Prize at [Cal Hacks 2025](https://www.calhacks.io). Built [Curserve](https://devpost.com/software/curserve), a coding agent serving framework with significantly faster end-to-end generation
 May 2025 - Aug 2025 | Worked at **Apple** as a **Machine Learning Intern**, working on time-series forecasting for predictive autoscaling
 Jun 2025 | Attended Y Combinator's first [AI Startup School](https://events.ycombinator.com/ai-sus) (and other summer events)
-Apr 2025 | Won the Meta 8VC Austin hackathon (1st place). Built an [auto-debugging LLM agent](https://github.com/d0rbu/llamastack-austin) (CLI tool and VSCode extension) which used GDB for you
+Apr 2025 | Won the Austin Meta 8VC Hackathon (1st place). Built an [auto-debugging LLM agent](https://devpost.com/software/gdbuddy) (CLI tool and VSCode extension) which used GDB for you
 Dec 2024 - Jan 2025 | Worked at **TerraFirma Robotics** as a **Software Engineer Intern**, working on coverage path-planning algorithms for autonomous vehicles
 Feb 2024 - Sep 2024 | Was a **Undergraduate Researcher** at UT Austin working on ML infrastructure for LLM dataset contamination research
 May 2022 | Participated in the **[Z fellows](https://www.zfellows.com)** program
