@@ -45,14 +45,14 @@ Aug 2021 - May 2025 | Did my Bachelor's of Science in CS and Math @ UT Austin
 
 ## Life
 
-Outside of school and work, I enjoy pickleball, badminton, climbing, playing the guitar, and [reading](/posts/favorite-books)!
+Outside of school and work, I enjoy pickleball, badminton, climbing, playing the guitar, and reading! You can see what books I've read on my [Favorite Books](/posts/favorite-books) page.
 
-I think that the *spirit* of my life phisosophy is tersely summed up by the quote below, which is an obscure and relatively unimportant piece of dialogue from the book [The Empire of Pain](https://en.wikipedia.org/wiki/Empire_of_Pain).
+I think that the *spirit* of my life philosophy is tersely captured by the quote below, which I came across in the book [The Empire of Pain](https://en.wikipedia.org/wiki/Empire_of_Pain).
 
 > "I believe that a man should strive for only one thing in life, and that is to have a touch of greatness"
 --- Félix Martí-Ibáñez
 
-While the previous quote gave the grand and aspirational, the following expresses the needed dose of conscientiousness.
+While the previous quote expresses the grand and aspirational, the following gives a needed dose of conscientiousness.
 
 > "The thoughts of others\
 Were light and fleeting,\
@@ -70,7 +70,7 @@ There are many more pieces that I enjoy, many of which you can find on my [Favor
 
 ## Hacker News Archive
 
-Some of my posts have appeared on the front page of Hacker News! Below are links to the discussions:
+Some of my posts and projects have appeared on the front page of Hacker News! Below are links to the discussions:
 
 Title | Date
 --- | ---
@@ -82,7 +82,7 @@ Title | Date
 
 ## Personal Records
 
-I've always been lucky enough to be naturally good at a lot of things! Here is a list of some personal feats I've done (featuring the impressive and the useless).
+Here is a list of some personal feats I've done (featuring the impressive and the useless).
 
 Event | Record
 --- | ---
