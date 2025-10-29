@@ -32,7 +32,7 @@ $mobile-breakpoint: $menu-width + $body-min-width * 1.2 + $toc-width !default;
   --body-font-color: black;
 
   --color-link: #0055bb;
-  --color-visited-link: #5500bb;
+  --color-visited-link: #0055bb;
 
   --icon-filter: none;
 
@@ -60,7 +60,7 @@ $mobile-breakpoint: $menu-width + $body-min-width * 1.2 + $toc-width !default;
   --body-font-color: #e9ecef;
 
   --color-link: #84b2ff;
-  --color-visited-link: #b88dff;
+  --color-visited-link: #84b2ff;
 
   --icon-filter: brightness(0) invert(1);
 
