@@ -1,15 +1,15 @@
 +++
-title = "DiLoCo Research Questions"
+title = "Local SGD and DiLoCo Research Musings"
 date = 2025-10-14T10:54:27-05:00
 tags = ["Machine Learning"]
 +++
 {{< katex >}}{{< /katex >}}
 
-> Originally, I was doing my master's thesis around distributed low-communication training. I eventually changed my focus to a different area, but these are some of the notes I wrote about the original topic.
+> Originally, I was doing my master's thesis on this topic. I eventually changed my focus, but these are some of the notes I wrote from when I was looking at Local SGD and DiLoCo.
 
 
 
-## DiLoCo and Local SGD Overview
+## Local SGD and DiLoCo Overview
 It is October 15th, 2025. For my last year of my master's, I decided to a thesis around distributed low-communication training. Essentially, how can we train large models efficiently across distributed nodes and not be utterly destroyed by network latency and bandwidth?
 
 The main approach currently is Local SGD, where we have $M$ distributed workers (which consist of one or more nodes) that each take $H$ local optimization steps. After each worker finishes their $H$ steps, we take the average of the distance of each worker's ending parameter state from their starting parameter state to get what we call an *outer-gradient* or a *pseudo-gradient*. We update the original weights with the outer-gradient using an outer-optimizer.
