@@ -17,19 +17,19 @@ Below are some of the things I've been doing.
 
 Currently |
 --- | ---
-Aug 2025 - Present | A **Graduate Researcher** at UT Austin [working on distributed low-comunication training](/posts/research-log)
 Aug 2024 - Present | Finishing my Master's of Science in CS @ UT Austin
+Aug 2025 - Present | A **Graduate Researcher** at UT Austin [working on distributed low-comunication training](/posts/research-log)
 
 Previously |
 --- | ---
 Oct 2025 | Placed 3rd for the Play-Do Prize at [Cal Hacks 2025](https://www.calhacks.io). Built [Curserve](https://devpost.com/software/curserve), a coding agent serving framework with significantly faster end-to-end generation
 May 2025 - Aug 2025 | Worked at **Apple** as a **Machine Learning Intern**, working on time-series forecasting for predictive autoscaling
 Jun 2025 | Attended Y Combinator's first [AI Startup School](https://events.ycombinator.com/ai-sus) (and other summer events)
+Aug 2021 - May 2025 | Finished my Bachelor's of Science in CS and Math @ UT Austin
 Apr 2025 | Won the Austin Meta 8VC Hackathon (1st place). Built an [auto-debugging LLM agent](https://devpost.com/software/gdbuddy) (CLI tool and VSCode extension) which used GDB for you
+Nov 2021 - Jan 2025 | Worked at multiple startups using Rust and TypeScript for full-stack development and Python and C for machine learning and robotics
 Feb 2024 - Sep 2024 | Was a **Undergraduate Researcher** at UT Austin working on ML infrastructure for LLM dataset contamination research
 May 2022 | Participated in the **[Z fellows](https://www.zfellows.com)** program
-Nov 2021 - Jan 2025 | Worked at multiple startups using Rust and TypeScript for full-stack development and Python and C for machine learning and robotics
-Aug 2021 - May 2025 | Did my Bachelor's of Science in CS and Math @ UT Austin
 
 </div>
 
