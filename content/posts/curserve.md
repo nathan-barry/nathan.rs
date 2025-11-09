@@ -1,13 +1,11 @@
 +++
-title = "Curserve: A Hackathon Project to Research Misadventure"
+title = "Curserve: From Hackathon Win to Research Dead End"
 date = 2025-11-09T10:17:51-06:00
 tags = []
 draft = true
 +++
 
-Recently, me and a few friends built [Curserve](https://devpost.com/software/curserve), a fast and scalable server-side engine for agentic coding, which ended up placing for one of the sponsor prizes at [Cal Hacks](https://calhacks.io).
-
-My friend [Alex Kranias](https://alexkranias.com) was who came up with the project idea. We didn't go to Cal Hacks to try and win, but to instead have a good excuse to work on a potential research direction.
+For [Cal Hacks 2025](https://calhacks.io), a few friends and I built [Curserve](https://devpost.com/software/curserve), a fast and scalable server-side engine for agentic coding, which ended up placing for one of the sponsor prizes. We didn't go to Cal Hacks to try and win, but to instead have a good excuse to work on a potential research direction.
 
 This post documents our original hackathon project, our exploration into actual research, and our findings on why this ended up being a dead research direction.
 
@@ -78,9 +76,9 @@ This last change gave a few additional benefits as well. Because there is a copy
 
 We planned on having a [gVisor](https://github.com/google/gvisor) instance run on the server with a container for each user session for security. But before we seriously got started, we needed to do Back-of-The-Napkin Math™ to make sure the benefits of our system weren't marginal.
 
-### Spoiler, The Potential Benefits Seem Marginal
+### The Hard Numbers
 
-Below is a list of the TPS and Time-Per-Output-Token (TPOT) for a few popular models (including Cognition's new agentic search models):
+To see what benefits our system would have, we needed the following numbers. Below is a list of the TPS and Time-Per-Output-Token (TPOT) for a few popular models (including Cognition's new agentic search models):
 
 Model               | TPS   | TPOT
 ---                 | ---   | ---
@@ -102,7 +100,9 @@ US ↔ Asia (trans-Pacific)       | 120–200+ ms   | Longer subsea routes; ofte
 
 Our demo did so well because the server we were renting from [Vast.ai](https://vast.ai) happened to be located in Taiwan, leading to a potentially 200+ ms round trip for each tool call. In most realistic cases, a round trip call would be possibly two orders of magnitudes faster.
 
-If Cursor and Anthropic don't currently already have servers in deployed every region, leading to inter-region round-trip-times for some, this is because network overhead is negligible. When it ever becomes a problem, deploying in more regions is the obvious solution.
+### Potential Benefits Seem Marginal for Real-World Usage
+
+If Cursor and Anthropic don't currently already have servers in deployed every region, leading to inter-region round-trip-times for some, it is precisely because network overhead currently is negligible. If it ever becomes a problem, deploying in more regions is the obvious solution.
 
 In this case, we have a 1-2 ms overhead, which combined with the tool call (~1 ms for ripgrep), takes around 2-4 ms in total. This is currently less time than than it takes to generate a single token from Claude Haiku 4.5. While it is 2-3 tokens for SWE-grep and 6-12 tokens for SWE-grep-mini, this isn't as substantial as I originally would have thought.
 
@@ -110,6 +110,6 @@ With the normal disaggregated prefill decode serving paradigm, this becomes much
 
 In colocated serving, where the same node does both prefill and decoding per iteration step, the benefits seem marginal as well. It would enable slightly faster end-to-end generation for a request, but the effect to throughput might be negligible. Potentially it might improve goodput slightly, but it is not worth the added system complexity.
 
-### Conclusion
+## Conclusion
 
 Hackathons are fun! I highly recommend. I had a great experience at Cal Hacks this year. As for the research direciton, it is always insightful to explore new ideas. This is just apart of the typical research journey, churning through ideas and figuring out what is worth working on vs what is not (or what has already been done before). Onto the next idea!
