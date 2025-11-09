@@ -74,7 +74,7 @@ Some of my posts and projects have appeared on the front page of Hacker News! Be
 Title | Date
 --- | ---
 [BERT Is Just a Single Text Diffusion Step](https://news.ycombinator.com/item?id=45644328) | October 20th, 2025
-[Running GPT-2 in WebGL: Rediscovering Classic GPGPU Programming](https://news.ycombinator.com/item?id=44109257) | May 24th, 2025
+[Running GPT-2 in WebGL with Classic GPGPU Programming](https://news.ycombinator.com/item?id=44109257) | May 24th, 2025
 [Show HN: GPT-2 implemented using graphics shaders](https://news.ycombinator.com/item?id=43870998) | May 2nd, 2025
 
 

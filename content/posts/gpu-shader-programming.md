@@ -1,5 +1,5 @@
 +++
-title = "Running GPT-2 in WebGL: Rediscovering Classic GPGPU Programming"
+title = "Running GPT-2 in WebGL with Classic GPGPU Programming"
 date = 2025-05-24T12:20:47-07:00
 tags = ["Machine Learning", "Programming"]
 +++
@@ -16,7 +16,9 @@ In the early 2000s, NVIDIA introduced programmable shaders with the GeForce 3 (2
 Researchers soon discovered that certain computations (like linear algebra involving matrices and vectors) could be accelerated by casting them as graphics operations on the GPU.
 However, using shader languages like OpenGL’s GLSL for no-graphics tasks was cumbersome. By the mid-2000s, the need for a more straightforward, non-graphics interface to GPUs had become clear, and NVIDIA saw a new opportunity.
 
-Inspired by the demand for **general-purpose GPU** (GPGPU) programming, in November 2006, NVIDIA released **CUDA**, the **Compute Unified Device Architecture**. CUDA is a parallel computing platform and programming model that gives developers direct access to the GPU’s computational power without the intermediary of a graphics API. With CUDA, one could write C/C++ code to execute on the CPU using straightforward extensions for parallel kernels and managing GPU memory explicitly. This meant that developers could now ignore graphics-specific concepts and dramatically lowered the barrier for general-purpose GPU computing. Following CUDA came OpenCL which expanded general purpose computing beyond the NVIDIA ecosystem.
+Inspired by the demand for **general-purpose GPU** (GPGPU) programming, in November 2006, NVIDIA released **CUDA**, the **Compute Unified Device Architecture**. CUDA is a parallel computing platform and programming model that gives developers direct access to the GPU’s computational power without the intermediary of a graphics API.
+
+With CUDA, one could write C/C++ code to execute on the CPU using straightforward extensions for parallel kernels and managing GPU memory explicitly. This meant that developers could now ignore graphics-specific concepts and dramatically lowered the barrier for general-purpose GPU computing. Following CUDA came OpenCL which expanded general purpose computing beyond the NVIDIA ecosystem.
 
 
 
@@ -38,9 +40,11 @@ In OpenGL, the output would ultimately be pixels in a framebuffer or values in a
 
 
 
-## Implementing GPT-2 with shaders
+## Implementing GPT-2 via Classic GPGPU Programming
 ---
-Below covers textures, framebuffers, vertex and fragment shaders, and other graphics specific concepts I hijacked to get GPT-2 running on a GPU using shaders.
+Instead of CUDA or OpenCL, I decided to implement the forward pass of GPT-2 using the old school way, using the graphics pipeline.
+
+First, we need to cover textures, framebuffers, vertex and fragment shaders, and other graphics specific concepts needed for this.
 
 ### Textures & Framebuffers: The Data Bus
 
@@ -198,7 +202,9 @@ Once logits are back on the CPU, we apply softmax and sample (top-k or top-p) to
 
 By chaining these operation passes together, we keep the entire GPT-2 pipeline on the GPU until the final logits. This is how programmable shaders let us treat the graphics pipeline as a general-purpose parallel engine.
 
-### Limitations
+## Conclusion
+
+This was a fun project! I chose to do this as a final projects for my Graphics: Honors class at UT Austin (hence why I decided to use the graphics pipeline in the first place).
 
 While WebGL allows us to run machine learning models on the GPU, it has several key limitations:
 
@@ -207,4 +213,5 @@ While WebGL allows us to run machine learning models on the GPU, it has several 
 - **No synchronization or atomics**: You can’t barrier or coordinate between fragments in a pass, making reductions, scatter/gather, and other data-dependent patterns difficult or impossible.
 - **Draw-call and precision overhead**: Every neural-net operation requires binding an FBO, swapping textures, and issuing a draw call (dozens per layer) which incurs CPU overhead. Plus, you’re bound to 16- or 32-bit floats (via `EXT_color_buffer_float`), with no double precision or integer textures.
 
-Compute APIs like CUDA or OpenCL give easier and better tools to achieve the same thing. Here we saw how people used to do GPGPU programming using old techniques!
+Compute APIs like CUDA or OpenCL have better APIs and require substantially less host boilerplate code to achieve the same thing.
+Now go forth and never look back. Appreciate CUDA for all it does for you.
