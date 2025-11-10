@@ -1,6 +1,6 @@
 +++
 title = "How to Optimize a CUDA Matmul Kernel for cuBLAS-like Performance: a Companion Guide"
-date = 2025-11-07T06:12:44-06:00
+date = 2025-11-10T06:12:44-06:00
 tags = ["Programming"]
 draft = true
 +++

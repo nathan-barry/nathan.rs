@@ -1,15 +1,15 @@
 +++
-title = "Curserve: From Hackathon Win to Research Dead End"
+title = "The Short Lifecyle of a Research Idea"
 date = 2025-11-09T10:17:51-06:00
-tags = []
-draft = true
+tags = ["Research", "Programming"]
 +++
 
 For [Cal Hacks 2025](https://calhacks.io), a few friends and I built [Curserve](https://devpost.com/software/curserve), a fast and scalable server-side engine for agentic coding, which ended up placing for one of the sponsor prizes. We didn't go to Cal Hacks to try and win, but to instead have a good excuse to work on a potential research direction.
+It turns out that our idea was a much better hackathon project than it was a research direction!
 
-This post documents our original hackathon project, our exploration into actual research, and our findings on why this ended up being a dead research direction.
+This post documents our original hackathon project, our exploration into actual research, and our findings on why this ended up being a research dead-end.
 
-## The Hackathon Project
+## Curserve - Our Hackathon Project
 
 The original idea came from when we came across Cognition's new [agentic search models](https://cognition.ai/blog/swe-grep), which had substantially higher TPS than off-the-shelf models. SWE-grep-mini can generate 2858 tokens per second, 20x the TPS of Claude Haiku 4.5.
 
@@ -67,7 +67,7 @@ All this (plus actually placing for something), gave us hope that this might hav
 
 ## The Birth (and Death) of a Research Direction
 
-Instantly, we decided to make two small pivots:
+Right off the bat, we decided to make two small pivots:
 
 1. The subprocess overhead is negligible. We felt like network latency would dominate and thus threw out the tool daemon. 
 2. Our system should be transparent. Forcing people to SSH into the server changes the user workflow. Instead, we should have a copy of the codebase on both the client and server and stream changes to each other.
@@ -102,9 +102,9 @@ Our demo did so well because the server we were renting from [Vast.ai](https://v
 
 ### Potential Benefits Seem Marginal for Real-World Usage
 
-If Cursor and Anthropic don't currently already have servers in deployed every region, leading to inter-region round-trip-times for some, it is precisely because network overhead currently is negligible. If it ever becomes a problem, deploying in more regions is the obvious solution.
+If Cursor and Anthropic don't currently already have servers in deployed every region, leading to inter-region round-trip-times for some, it is precisely because network overhead currently is negligible. If it ever becomes a problem, the easy solution would be deploying in more regions.
 
-In this case, we have a 1-2 ms overhead, which combined with the tool call (~1 ms for ripgrep), takes around 2-4 ms in total. This is currently less time than than it takes to generate a single token from Claude Haiku 4.5. While it is 2-3 tokens for SWE-grep and 6-12 tokens for SWE-grep-mini, this isn't as substantial as I originally would have thought.
+Thus, for real world usage, we would likely be in the intra-region scenario. The 1-2 ms overhead, when combined with the tool call (~1 ms for ripgrep), takes around 2-4 ms in total. This is currently less time than than it takes to generate a single token from Claude Haiku 4.5. While it is 2-3 tokens for SWE-grep and 6-12 tokens for SWE-grep-mini, this isn't as substantial as I originally would have thought.
 
 With the normal disaggregated prefill decode serving paradigm, this becomes much less of an issue because for each tool call, the KVcache will be moved from the decoding server to the prefill server anyways and be scheduled again. All in all, the benefits require us to be using an agent specifically created for super fast agentic search like SWE-grep-mini (which is running on Cerebras hardware to have such a high TPS), and even then the potential benefits are dubious when doing disaggregated serving.
 
@@ -112,4 +112,6 @@ In colocated serving, where the same node does both prefill and decoding per ite
 
 ## Conclusion
 
-Hackathons are fun! I highly recommend. I had a great experience at Cal Hacks this year. As for the research direciton, it is always insightful to explore new ideas. This is just apart of the typical research journey, churning through ideas and figuring out what is worth working on vs what is not (or what has already been done before). Onto the next idea!
+Hackathons are fun! I highly recommend. I had a great experience at Cal Hacks this year. As for the research direciton, it is always insightful to explore new ideas.
+
+This is fairly typical of research process, churning through ideas and figuring out what is worth working on vs what is not (or what has already been done before). Onto the next idea!
