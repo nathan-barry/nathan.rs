@@ -1,5 +1,5 @@
 +++
-title = "The Short Life and Death of a Research Idea"
+title = "Curserve: The Short Life and Death of a Research Idea"
 date = 2025-11-09T10:17:51-06:00
 tags = ["Research", "Programming"]
 +++
