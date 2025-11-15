@@ -71,8 +71,9 @@ There are many more pieces that I enjoy, many of which you can find on my [Favor
 
 Some of my posts and projects have appeared on the front page of Hacker News! Below are links to the discussions:
 
-Title | Date
+Post | Date
 --- | ---
+[Show HN: Tiny Diffusion – A character-level text diffusion model from scratch](https://news.ycombinator.com/item?id=45876742) | November 14th, 2025
 [BERT Is Just a Single Text Diffusion Step](https://news.ycombinator.com/item?id=45644328) | October 20th, 2025
 [Running GPT-2 in WebGL with Classic GPGPU Programming](https://news.ycombinator.com/item?id=44109257) | May 24th, 2025
 [Show HN: GPT-2 implemented using graphics shaders](https://news.ycombinator.com/item?id=43870998) | May 2nd, 2025
