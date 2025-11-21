@@ -5,7 +5,7 @@ tags = ["Research", "Machine Learning"]
 +++
 {{< katex >}}{{< /katex >}}
 
-> Originally, I was doing my master's thesis on this topic. I eventually changed my focus, but these are some of the notes I wrote from when I was looking at Local SGD and DiLoCo.
+> Here are some notes I wrote over this topic. I've switched my master's thesis to a different topic, but there are many interesting research directions to explore in this area.
 
 
 
@@ -49,15 +49,15 @@ Some relevant papers building upon DiLoCo to improve and scale it are:
 - [Eager Updates For Overlapped Communication and Computation in DiLoCo](https://arxiv.org/abs/2502.12996)
 - [DiLoCoX: A Low-Communication Large-Scale Training Framework for Decentralized Cluster](https://arxiv.org/abs/2506.21263)
 
-### Research Directions
+### Open Questions and Research Directions
 
-There are many potential research directions I've thought of. The easiest to test and most useful is:
+There are many potential research directions I've thought of. The easiest to test and most useful are:
 
 1. Study the impact of heterogeneous workers.
 
 The Async Local SGD paper (referred to as Async DiLoCo by the [author](https://arthurdouillard.com/research/)) tested giving each workers a different number of inner steps to process based on relative processing speed. If worker 1 has $H_1=100$ and worker 2 is half as fast, we give them half as many steps ($H_2=50$) so that they both finish around the same time.
 
-This idea is very simple and makes sense, but it is completely non-trivial on how this impact convergence. The best comparison is, imagine we are doing Distributed Data Parallel training (DDP), but each worker has a different weight when averaging? In both cases, the magnitudes of the gradient (and pseudo-gradient) we are averaging over are different between each worker. This seems like it fundamentally changes training behavior.
+This idea is very simple and makes sense, but it is certainly non-trivial on how this impact convergence. The best comparison is, imagine we are doing Distributed Data Parallel training (DDP), but each worker has a different weight when averaging? In both cases, the magnitudes of the gradient (and pseudo-gradient) we are averaging over are different between each worker. This seems like it fundamentally changes training behavior.
 
 From empirical experiments, it seems like models are generally robust to it, but a rigorous study over this would be useful, especially if we are choosing to dynamically change worker inner steps during training.
 
@@ -67,7 +67,7 @@ Each variant of DiLoCo which tries to mask communication cost suffers some kind 
 
 Each of these variants suffer from a different amount of decreased convergence performance, and I have a hunch that parameter drift might be an important metric correlated with this.
 
-I have more ideas, but these are two good ones I will start investigating.
+I have more ideas, but these are two good ones I find compelling.
 
 
 
