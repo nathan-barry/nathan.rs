@@ -1,5 +1,5 @@
 +++
-title = "Curserve: A Small Research and Hackathon Project"
+title = "Our Cal Hacks Journey to Speed Up Agentic Coding"
 date = 2025-11-09T10:17:51-06:00
 tags = ["Research", "Programming"]
 +++
@@ -106,7 +106,7 @@ Our demo did so well partially because the server we were renting from [Vast.ai]
 
 ### Potential Benefits
 
-The networking overhead is substantial enough to where it could lead to underutilized resources or force rescheduling of requests in a colocated serving setting when serving small models. This might be an area where our system could have benefits. Reducing end-to-end latency for individual requests additionally give us more flexibility with scheduling and can perhaps lead to fewer SLO violations.
+The networking overhead seems substantial enough to where it could lead to underutilized resources or force rescheduling of requests in a colocated serving setting when serving small models. Our system could help that and reduce end-to-end latency for individual requests. The latter additionally give us more flexibility with scheduling and can perhaps lead to fewer SLO violations.
 
 With disaggregated prefill decode serving (which I believe is more common), the benefits might be minimal because for each tool call, the KVcache will be moved from the decoding server to the prefill server anyway and be scheduled again (according to my understanding).
 
@@ -116,8 +116,7 @@ All in all, there *might* be something here. It would need to be investigated mo
 
 ## Conclusion
 ---
+
+Alex and I have moved on to other research ideas, but this was an exploration of one which might have some legs. The [Parrot paper](https://arxiv.org/abs/2405.19888v1) from Microsoft, which came out earlier this year, explored something similar (in terms of reducing end-to-end latency for individual requests) and found many benefits to be gained from it.
+
 Hackathons are fun! I highly recommend. I had a great experience at Cal Hacks this year. As for the research direction, it is always insightful to explore new ideas.
-
-This research idea might have some potential! The [Parrot paper](https://arxiv.org/abs/2405.19888v1) from Microsoft, which came out earlier this year, explored something similar (in terms of reducing end-to-end latency for individual requests) and found many benefits to be gained from it.
-
-Alex and I have moved on to other research ideas, but this was an exploration of one which might have some legs.
