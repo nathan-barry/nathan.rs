@@ -1,5 +1,5 @@
 +++
-title = "Our Cal Hacks Journey to Speed Up Agentic Coding"
+title = "Curserve: Minimizing Agentic Coding End-to-End Latency"
 date = 2025-11-09T10:17:51-06:00
 tags = ["Research", "Programming"]
 +++
