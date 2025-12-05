@@ -5,7 +5,7 @@ tags = ["Machine Learning"]
 +++
 {{< katex >}}{{< /katex >}}
 
-> This article appeared on Hacker News. Link to the [discussion here](https://news.ycombinator.com/item?id=45644328).
+> This article appeared on Hacker News. Link to the [discussion here](https://news.ycombinator.com/item?id=45644328). Additionally, [Andrej Karpathy](https://karpathy.ai) wrote his thoughts about the post, [linked here](https://x.com/karpathy/status/1980347971935068380?s=20).
 
 <img alt="Text Diffusion" style="max-width: 100%" src="/images/roberta-diffusion.gif">
 
