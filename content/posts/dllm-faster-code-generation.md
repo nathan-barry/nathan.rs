@@ -4,6 +4,7 @@ date = 2025-12-13T08:13:54-06:00
 tags = ["Machine Learning"]
 +++
 
+> In this post, I run small experiments showing that diffusion language models generate code (and other structured text) at a faster rate. Increased stucture tends to correlate with reduced entropy, which leads to higher confident token predictions, which directly means more tokens decoded in parallel per step.[^1]
 
 
 ## Speculative Decoding and Diffusion Language Models
