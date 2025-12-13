@@ -214,7 +214,7 @@ Even without architectural changes, a fine-tuned RoBERTa can generate coherent l
 
 
 
-### Footnotes
+#### Footnotes
 [^1]: After I wrote the article, I stumbled upon the paper [DiffusionBERT](https://arxiv.org/abs/2211.15029), which does essentially the same thing but with more rigorous testing! Check it out if this post interested you.
 [^2]: The addition of never remasking simplifies [D3PM](https://arxiv.org/abs/2107.03006)'s NELBO training objective and leads to an improved likelihood, according to the paper, [Simple and Effective Masked Diffusion Language Models](https://arxiv.org/abs/2406.07524)
 [^3]: Bidirectional attention disallows the naive use of KVCaching. Additionally, it turns the attention mechanism from a memory-bound to a compute-bound operation, reducing the effectiveness of batching requests together (the GPU is already saturated). This is an area that requires further study and improvements, as there are probably many more tricks to getting around this (like [KVCache approximation](https://arxiv.org/abs/2505.22618)).
