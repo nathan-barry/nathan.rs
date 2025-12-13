@@ -12,9 +12,7 @@ tags = ["Machine Learning"]
 A while back, Google DeepMind unveiled [Gemini Diffusion](https://deepmind.google/models/gemini-diffusion/), an experimental language model that generates text using diffusion. Unlike traditional GPT-style models that generate one word at a time, Gemini Diffusion creates whole blocks of text by refining random noise step-by-step.
 
 I read the paper [Large Language Diffusion Models](https://arxiv.org/abs/2502.09992) and was surprised to find that discrete language diffusion is just a generalization of masked language modeling (MLM), something we’ve been doing since [2018](https://arxiv.org/abs/1810.04805).
-The first thought I had was, "can we finetune a BERT-like model to do text generation?" I decided to try a quick proof of concept out of curiosity.
-
-> Note: After I wrote the article I stumbled upon the paper [DiffusionBERT](https://arxiv.org/abs/2211.15029) which does essentially the same thing but with more rigorous testing! Check it out if this post interested you.
+The first thought I had was, "can we finetune a BERT-like model to do text generation?"[^1] I decided to try a quick proof of concept out of curiosity.
 
 
 
@@ -70,7 +68,7 @@ By introducing variable masking rates (from 0 to 1) and a scheduled sequence of 
 
 In 2019, [RoBERTa](https://arxiv.org/abs/1907.11692) was released. It was essentially just an enhancement of the original BERT model, with better hyperparameters, data training size, and a more simple training objective (MLM only, removed next sentence prediction).
 
-Here we use the HuggingFace `transformers` and `dataset` libraries to pull in the original RoBERTa weights, tokenizer, and the Trainer class to easily finetune the model on the WikiText dataset.
+Here, we use the HuggingFace `transformers` and `dataset` libraries to pull in the original RoBERTa weights, tokenizer, and the Trainer class to easily finetune the model on the WikiText dataset.
 The main code ([full code here](https://github.com/nathan-barry/RoBERTaDiffusion)) looks like this below:
 
 
@@ -105,7 +103,7 @@ trainer.train()
 trainer.save_model("finetuned-roberta-diffusion")
 ```
 
-Currently we have 10 diffusion steps, so we randomly sample a percentage $p$ out of `mask_probs` (1.0, 0.9, 0.9, ..., 0.1) and mask that percent of the tokens each batch.
+Currently, we have 10 diffusion steps, so we randomly sample a percentage $p$ out of `mask_probs` (1.0, 0.9, 0.9, ..., 0.1) and mask that percent of the tokens in each batch.
 The custom `diffusion_collator` function ([see code here](https://github.com/nathan-barry/RoBERTaDiffusion/blob/main/finetune.py#L77)) samples one mask-probability `p` from `mask_probs` per batch and sets each token to `<MASK>` with `p` probability.
 
 To be able to condition the generation on a "prompt", we currently never mask the first 16 tokens. That means that during training, each step will always have the first 16 tokens as context for generation.
@@ -132,7 +130,7 @@ Simplified code for the `diffusion_collator` looks like:
       return batch
 ```
 
-For inference, we start with an input which is a tensor of size 256 (since we are generating blocks of 256 tokens). The first 16 positions are the token ids that correspond to the prompt, and the last 240 are just `<MASK>` tokens. We iterate through the denoising schedule and each step, we generate a prediction and then remask the sequence again. The process looks like this:
+For inference, we start with an input that is a tensor of size 256 (since we are generating blocks of 256 tokens). The first 16 positions are the token ids that correspond to the prompt, and the last 240 are just `<MASK>` tokens. We iterate through the denoising schedule, and at each step, we generate a prediction and then remask the sequence again. The process looks like this:
 
 ```
 Step 0: [PREFIX] <mask> <mask> <mask> <mask> <mask> ...     (100% masked)
@@ -169,6 +167,13 @@ for step, mask_prob in enumerate(mask_probs):
         input_ids[0, PREFIX_LEN:][mask_indices] = tokenizer.mask_token_id
 ```
 
+> Note: There are many different ways to do inference with these models. In the example above, we did something what might be referred to as "iterative refinement". This method doesn't take into account token confidence and can lead to indiscriminantly remasking "good" tokens.
+>
+> Other methods include `top-k parallel decoding`, where you unmask the top $k$ most confident tokens at each step, and `confidence-aware parallel decoding`, where you unmask all tokens that are above some confidence threshold (or the most confident token, if none meet that criterion). Because these methods prioritize "revealing" the most confident tokens first, it tends to lead to more coherent output.
+> Both these methods never remask, which has also been suggested to have nice mathematical properties.[^2]
+>
+> Interestingly enough, in this experiment, the last method gave less coherent outputs than the first (lots of repeating the same words). I believe this is because the model is heavily undertrained for this new training objective (for the amount of compute I've given it), and the iterative refinement's randomness in remasking actually makes it more robust to this specific type of degeneration. Food for thought!
+
 Here is an example output generation of the fine-tuned model after training on an H200 for 30 minutes (the first line is the initial prompt):
 
 ```
@@ -194,6 +199,10 @@ Below is a comparison between our diffusion model and GPT-2:
 
 We see GPT-2's output is more coherent and slightly faster (~9 seconds vs ~13) but I'm pleasantly surprised with how good my simple implementation was. It is a good proof of concept, and with new approaches like AR-Diffusion and Skip-Step Diffusion (and a more optimized implementation), the quality and speed can be drastically improved.
 
+> Note: This difference in speed is an "apples to oranges" comparison. The GPT-2 inference is using a library that has been heavily optimized, while my code is not.
+>
+> There are serious differences in performance characteristics between the two different architectures, and it is an open question whether diffusion language models can out perform autoregressive models in deployed settings.[^3]
+
 
 
 ## Conclusion
@@ -202,3 +211,10 @@ We see GPT-2's output is more coherent and slightly faster (~9 seconds vs ~13) b
 We’ve seen that masked language models like RoBERTa, originally designed for fill-in-the-blank tasks, can be repurposed into fully generative engines by interpreting variable-rate masking as a discrete diffusion process. By gradually corrupting text with `<MASK>` tokens and training the model to iteratively denoise at increasing mask intensities, we effectively turn the standard MLM objective into a step-by-step generation procedure.
 
 Even without architectural changes, a fine-tuned RoBERTa can generate coherent looking text after slightly modifying the training objective, validating the idea that BERT-style models are essentially just text diffusion models trained on one masking rate.
+
+
+
+### Footnotes
+[^1]: After I wrote the article, I stumbled upon the paper [DiffusionBERT](https://arxiv.org/abs/2211.15029), which does essentially the same thing but with more rigorous testing! Check it out if this post interested you.
+[^2]: The addition of never remasking simplifies [D3PM](https://arxiv.org/abs/2107.03006)'s NELBO training objective and leads to an improved likelihood, according to the paper, [Simple and Effective Masked Diffusion Language Models](https://arxiv.org/abs/2406.07524)
+[^3]: Bidirectional attention disallows the naive use of KVCaching. Additionally, it turns the attention mechanism from a memory-bound to a compute-bound operation, reducing the effectiveness of batching requests together (the GPU is already saturated). This is an area that requires further study and improvements, as there are probably many more tricks to getting around this (like [KVCache approximation](https://arxiv.org/abs/2505.22618)).
