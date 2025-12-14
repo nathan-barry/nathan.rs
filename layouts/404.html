@@ -1,21 +1,9 @@
-<!DOCTYPE html>
-<html lang="{{ .Site.Language.Lang }}">
-<head>
-  {{ partial "docs/html-head" . }}
-</head>
-
-<body class="not-found flex justify-center align-center">
-  <main class="text-center">
-    <h1>
-      <span>Page</span>
-      <span>Not</span>
-      <span>Found</span>
-    </h1>
-    <h3>
-      <a href="{{ .Site.Home.RelPermalink }}">{{ .Site.Title }}</a>
-    </h3>
-  </main>
-
-</body>
-
-</html>
+{{ define "main" }}
+<div class="text-center">
+    <h1>404 Not Found</h1>
+    <p>The page you're looking for doesn't exist.</p>
+    <p>
+        <a href="{{ .Site.Home.RelPermalink }}">Return to {{ .Site.Title }}</a>
+    </p>
+</div>
+{{ end }}
