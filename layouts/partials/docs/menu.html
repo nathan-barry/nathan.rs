@@ -1,49 +1,54 @@
 <nav>
-{{ partial "docs/brand" . }}
-{{ partial "docs/search" . }}
-  <ul>
-    <!-- Main Pages -->
-    <li>
-      <a href="/posts">All Posts</a>
-    </li>
-
-    <!-- Popular Posts -->
-    <li style="margin-top: 8px;"><strong>Popular Posts</strong></li>
+    {{ partial "docs/brand" . }} {{ partial "docs/search" . }}
     <ul>
-      <li>
-	    <a href="/posts/roberta-diffusion/">BERT is just a Single Text Diffusion Step</a>
-      </li>
-      <li>
-	    <a href="/posts/gpu-shader-programming/">Running GPT-2 in WebGL with Classic GPGPU Programming</a>
-      </li>
+        <!-- Main Pages -->
+        <li>
+            <a href="/posts">All Posts</a>
+        </li>
+
+        <!-- Popular Posts -->
+        <li style="margin-top: 8px"><strong>Popular Posts</strong></li>
+        <ul>
+            <li>
+                <a href="/posts/roberta-diffusion/"
+                    >BERT is just a Single Text Diffusion Step</a
+                >
+            </li>
+            <li>
+                <a href="/posts/gpu-shader-programming/"
+                    >Running GPT-2 in WebGL with Classic GPGPU Programming</a
+                >
+            </li>
+        </ul>
+
+        <!-- Recent Posts -->
+        <li style="margin-top: 8px"><strong>Recent Posts</strong></li>
+        <ul>
+            {{ range first 5 (where .Site.RegularPages "Section"
+            "posts").ByDate.Reverse }}
+            <li>
+                <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+            </li>
+            {{ end }}
+        </ul>
+
+        <!-- Socials -->
+        <li>
+            <a href="https://x.com/nathanrs">𝕏</a>
+        </li>
+        <li>
+            <a href="https://github.com/nathan-barry">Github</a>
+        </li>
+        <li>
+            <a href="https://www.linkedin.com/in/nathanrs/">LinkedIn</a>
+        </li>
     </ul>
-
-    <!-- Recent Posts -->
-    <li style="margin-top: 8px;"><strong>Recent Posts</strong></li>
-    <ul>
-      {{ range first 5 (where .Site.RegularPages "Section" "posts").ByDate.Reverse }}
-      <li>
-        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-      </li>
-      {{ end }}
-    </ul>
-
-    <!-- Socials -->
-    <li>
-      <a href="https://x.com/nathanbarrydev">𝕏</a>
-    </li>
-    <li>
-      <a href="https://github.com/nathan-barry">Github</a>
-    </li>
-    <li>
-      <a href="https://www.linkedin.com/in/nathanbarrydev/">LinkedIn</a>
-    </li>
-
-  </ul>
 </nav>
 
 <!-- Restore menu position as soon as possible to avoid flickering -->
-{{ $script := resources.Get "menu-reset.js" | resources.Minify }}
-{{ with $script.Content }}
-  <script>{{ . | safeJS }}</script>
+{{ $script := resources.Get "menu-reset.js" | resources.Minify }} {{ with
+$script.Content }}
+<script>
+    {{ . | safeJS }}
+</script>
 {{ end }}
