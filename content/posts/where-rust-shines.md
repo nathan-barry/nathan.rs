@@ -1,7 +1,7 @@
 +++
 title = "Where Rust Shines: Algebraic Types and Match Statements"
 date = 2023-11-11T08:51:57-06:00
-tags = ["Programming"]
+tags = ["Programming", "2023"]
 +++
 
 Recently I was going through Thorsten Ball's "Writing An Interpreter in Go". In this book, you create a basic interpreted language and write a lexer, parser, evaluator, and REPL for it. 

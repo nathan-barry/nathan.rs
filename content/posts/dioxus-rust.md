@@ -1,10 +1,8 @@
 +++
 title = "Rust Front-End Development with Dioxus"
 date = 2023-08-16 
-tags = ["Programming"]
+tags = ["Programming", "2023"]
 +++
-
-> *October 14th, 2025:* This post is old and is most likely outdated if you're reading this! Dioxus has possibly changed a substantial amount, thus do not read this as a how-to-guide.
 
 
 

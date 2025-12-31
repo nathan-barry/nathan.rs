@@ -1,7 +1,7 @@
 +++
 title = "Intro to Autograd Engines: Karpathy's Micrograd in Go"
 date = 2023-11-11T08:57:53-06:00
-tags = ["Machine Learning", "Programming"]
+tags = ["Machine Learning", "Programming", "2023"]
 +++
 {{< katex >}}{{< /katex >}}
 

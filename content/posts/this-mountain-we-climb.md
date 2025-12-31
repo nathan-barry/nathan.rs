@@ -1,10 +1,10 @@
 +++
 title = "This Mountain We Climb"
 date = 2021-03-03
-tags = ["Miscellaneous"]
+tags = ["Miscellaneous", "2021"]
 +++
 
-> This is a poem that I wrote my senior year of high school in AP Literature.
+> A poem that I wrote my senior year of high school in AP Literature.
 
 <p style="white-space: pre-line">
 Here we all are, this mountain we climb,

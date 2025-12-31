@@ -1,7 +1,7 @@
 +++
 title = "Curserve: Minimizing Agentic Coding End-to-End Latency"
 date = 2025-11-09T10:17:51-06:00
-tags = ["Research", "Programming"]
+tags = ["Programming", "2025"]
 +++
 
 For [Cal Hacks 2025](https://calhacks.io), a few friends and I built [Curserve](https://devpost.com/software/curserve), a fast and scalable server-side engine for agentic coding, which ended up placing for one of the sponsor prizes. We didn't go to Cal Hacks to try and win, but instead to have a good excuse to work on a potential research idea.

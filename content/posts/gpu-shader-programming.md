@@ -1,7 +1,7 @@
 +++
 title = "Running GPT-2 in WebGL with Classic GPGPU Programming"
 date = 2025-05-24T12:20:47-07:00
-tags = ["Machine Learning", "Programming"]
+tags = ["Machine Learning", "Programming", "2025"]
 +++
 
 > This article appeared on Hacker News. Link to the [discussion here](https://news.ycombinator.com/item?id=44109257).

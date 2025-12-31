@@ -1,7 +1,7 @@
 +++
 title = "Local SGD and DiLoCo Research Musings"
 date = 2025-10-14T10:54:27-05:00
-tags = ["Research", "Machine Learning"]
+tags = ["Machine Learning", "2025"]
 +++
 {{< katex >}}{{< /katex >}}
 

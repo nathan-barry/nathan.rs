@@ -1,7 +1,7 @@
 +++
 title = "BERT is just a Single Text Diffusion Step"
 date = 2025-10-20
-tags = ["Machine Learning"]
+tags = ["Machine Learning", "2025"]
 +++
 {{< katex >}}{{< /katex >}}
 

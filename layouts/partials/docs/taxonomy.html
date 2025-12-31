@@ -1,19 +1,32 @@
 <nav>
-  <ul>
-  {{ range $term, $_ := .Site.Taxonomies }}
-    {{ with $.Site.GetPage (printf "/%s" $term | urlize) }}
-    <li class="book-section-flat">
-      <a>{{ .Title }}</a>
-      <ul>
-      {{ range .Pages }}
-        <li class="flex align-center">
-          <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-          <span>{{ len .Pages }}</span>
+    <ul>
+        {{ $allYearPages := slice }} {{ range $term, $_ := .Site.Taxonomies }}
+        {{ with $.Site.GetPage (printf "/%s" $term | urlize) }}
+        <li class="book-section-flat">
+            <a>{{ .Title }}</a>
+            <ul>
+                {{ $pages := .Pages }} {{ range $pages }} {{ $title := .Title }}
+                {{ if (findRE "^\\d{4}$" $title) }} {{ $allYearPages =
+                $allYearPages | append . }} {{ else }}
+                <li class="flex align-center">
+                    <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+                    <span>{{ len .Pages }}</span>
+                </li>
+                {{ end }} {{ end }}
+            </ul>
         </li>
-      {{ end }}
-      </ul>
-    </li>
-    {{ end }}
-  {{ end }}
-  </ul>
+        {{ end }} {{ end }} {{ if gt (len $allYearPages) 0 }}
+        <li class="book-section-flat">
+            <a>Year</a>
+            <ul>
+                {{ range sort $allYearPages ".Title" "desc" }}
+                <li class="flex align-center">
+                    <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+                    <span>{{ len .Pages }}</span>
+                </li>
+                {{ end }}
+            </ul>
+        </li>
+        {{ end }}
+    </ul>
 </nav>

@@ -246,4 +246,3 @@ The decoder attends to the encoder's output. Keys and values come from the encod
 
 1. **Computational Intensity**: Transformers require significant computational resources, particularly for large-scale tasks. Unlike recurrent models, where computation grows linearly with sequence length, transformers have quadratic computational complexity due to the attention mechanism.
 2. **Parameter Count**: The model often has a large number of parameters, making it prone to overfitting on small datasets.
-

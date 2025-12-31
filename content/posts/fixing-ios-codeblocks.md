@@ -1,7 +1,7 @@
 +++
 title = "How to Fix Hugo's iOS Code-Block Text-Size Rendering Issue"
 date = 2024-02-04T17:23:27-06:00
-tags = ["Programming"]
+tags = ["Programming", "2024"]
 +++
 
 Lately, I've been coming across many blogs that have weird font-size rendering issues for code blocks on iOS. Basically, in a code snippet, the text-size would sometimes be much larger for some lines than others.
