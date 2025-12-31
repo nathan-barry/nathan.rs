@@ -10,10 +10,16 @@ Here are a few of my favorite quotes I've liked over the years.
 
 ## General
 > "Work praises the man"
+<br>— Irish Proverb
+
+> "Begin to weave and God will give the thread"
 <br>— German Proverb
 
 > "I believe that a man should strive for only one thing in life, and that is to have a touch of greatness"
 <br>— Félix Martí-Ibáñez
+
+> "It is not the critic who counts; not the man who points out how the strong man stumbles, or where the doer of deeds could have done them better. The credit belongs to the man who is actually in the arena, whose face is marred by dust and sweat and blood; who strives valiantly; who errs, who comes short again and again, because there is no effort without error and shortcoming; but who does actually strive to do the deeds; who knows great enthusiasms, the great devotions; who spends himself in a worthy cause; who at the best knows in the end the triumph of high achievement, and who at the worst, if he fails, at least fails while daring greatly, so that his place shall never be with those cold and timid souls who neither know victory nor defeat."
+<br>— Theodore Roosevelt
 
 > "The average person puts only 25% of his energy and ability into his work. The world takes off its hat to those who put in more than 50% of their capacity, and stands on its head for those few and far between souls who devote 100%"
 <br>— Andrew Carnegie
@@ -24,20 +30,23 @@ Here are a few of my favorite quotes I've liked over the years.
 > "We live together, we act on, and react to, one another; but always and in all circumstances we are by ourselves. The martyrs go hand in hand into the arena; they are crucified alone. Embraced, the lovers desperately try to fuse their insulated ecstasies into a single self-transcendence; in vain. By its very nature every embodied spirit is doomed to suffer and enjoy in solitude. Sensations, feelings, insights, fancies—all these are private and, except through symbols and at second hand, incommunicable. We can pool information about experiences, but never the experiences themselves. From family to nation, every human group is a society of island universes.”
 <br>― Aldous Huxley, The Doors of Perception
 
-> "Of all tyrannies, a tyranny sincerely exercised for the good of its victims may be the most oppressive. It would be better to live under robber barons than under omnipotent moral busybodies. The robber baron's cruelty may sometimes sleep, his cupidity may at some point be satiated; but those who torment us for our own good will torment us without end for they do so with the approval of their own conscience. They may be more likely to go to Heaven yet at the same time likelier to make a Hell of earth. This very kindness stings with intolerable insult. To be "cured" against one's will and cured of states which we may not regard as disease is to be put on a level of those who have not yet reached the age of reason or those who never will; to be classed with infants, imbeciles, and domestic animals."
-<br>― C.S. Lewis
+> "In Three Words, I Can Sum Up Everything I’ve Learned About Life. It Goes On"
+<br>— Robert Frost
 
 > "The highest possible stage in moral culture is when we recognize that we ought to control our thoughts"
 <br>— Charles Darwin
 
-> "In Three Words, I Can Sum Up Everything I’ve Learned About Life. It Goes On"
-<br>— Robert Frost
+> "Of all tyrannies, a tyranny sincerely exercised for the good of its victims may be the most oppressive. It would be better to live under robber barons than under omnipotent moral busybodies. The robber baron's cruelty may sometimes sleep, his cupidity may at some point be satiated; but those who torment us for our own good will torment us without end for they do so with the approval of their own conscience. They may be more likely to go to Heaven yet at the same time likelier to make a Hell of earth. This very kindness stings with intolerable insult. To be "cured" against one's will and cured of states which we may not regard as disease is to be put on a level of those who have not yet reached the age of reason or those who never will; to be classed with infants, imbeciles, and domestic animals."
+<br>― C.S. Lewis
 
 > "No matter how isolated you are and how lonely you feel, if you do your work truly and conscientiously, unknown friends will come and seek you."
 <br>— Carl Jung
 
 > “The day a blind man sees, the first thing he throws away is the stick that has helped him all his life”
 <br>— Unknown
+
+> "I do not like broccoli. And I haven't liked it since I was a little kid and my mother made me eat it. And I'm President of the United States, and I'm not going to eat any more broccoli!"
+<br>— George H. W. Bush
 
 
 
