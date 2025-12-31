@@ -13,6 +13,10 @@ copyright = '© 2025 Nathan Barry'
 disablePathToLower = true
 enableGitInfo = true
 
+# Taxonomy configuration
+[taxonomies]
+  tag = "tags"
+
 # Needed for mermaid/katex shortcodes
 [markup]
 [markup.goldmark.renderer]
