@@ -23,6 +23,10 @@ $mobile-breakpoint: $menu-width + $body-min-width * 1.2 + $toc-width !default;
   --body-font-color: black;
 
   --border-radius: 0.25rem;
+
+  @media (max-width: 600px) {
+    --font-size: 15px;
+  }
 }
 
 // Themes
