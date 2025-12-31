@@ -1,34 +1,24 @@
 {{ define "main" }}
-
-  {{ range sort .Paginator.Pages }}
-  <article class="book-post markdown">
+<article class="book-post markdown">
+    <h1>Blog Posts{{ if ne .Title "Posts" }}: {{ .Title }}{{ end }}</h1>
+    {{ range sort .Paginator.Pages }}
     <h2>
-      <a href="{{ .RelPermalink }}">{{ partial "docs/title" . }}</a>
+        <a href="{{ .RelPermalink }}">{{ partial "docs/title" . }}</a>
     </h2>
     <div class="book-post-container flex gap">
-      <div>
-        {{ partial "docs/post-meta" . }}
-        <div class="book-post-content">
-          {{- .Summary | plainify | htmlUnescape | replaceRE `\s*#\s*` ": " | truncate 128 -}}
+        <div>
+            {{ partial "docs/post-meta" . }}
+            <div class="book-post-content">
+                {{- .Summary | plainify | htmlUnescape | truncate 256| replaceRE
+                `\s*#\s*` ": " -}}
+            </div>
         </div>
-      </div>
     </div>
-  </article>
-  {{ end }}
-{{ end }}
-
-{{ define "toc-container" }}
+    {{ end }}
+</article>
+{{ end }} {{ define "toc-container" }}
 <aside class="book-toc">
-  <div class="book-toc-content">
-    {{ template "toc" . }}
-  </div>
+    <div class="book-toc-content">{{ template "toc" . }}</div>
 </aside>
-{{ end }}
-
-{{ define "toc" }}
-  {{ partial "docs/taxonomy" . }}
-{{ end }}
-
-{{ define "footer" }}
-  {{ partial "docs/pagination.html" . }}
-{{ end }}
+{{ end }} {{ define "toc" }} {{ partial "docs/taxonomy" . }} {{ end }} {{ define
+"footer" }} {{ partial "docs/pagination.html" . }} {{ end }}
