@@ -54,14 +54,14 @@ I think that the *spirit* of my life philosophy is tersely captured by the quote
 While the previous quote expresses the grand and aspirational, the following gives the humbling required dose of conscientiousness.
 
 > "The thoughts of others\
-Were light and fleeting,\
+&emsp;&emsp;Were light and fleeting,\
 Of lovers' meeting\
-Or luck or fame.\
+&emsp;&emsp;Or luck or fame.\
 Mine were of trouble\
-And mine were steady;\
+&emsp;&emsp;And mine were steady;\
 So I was ready\
-When trouble came.”
-<br>— A.E. Housman
+&emsp;&emsp;When trouble came.”
+--- A.E. Housman
 
 Throughout the years, I've tried to collect and curate [pieces of text I enjoy](/posts/favorite-quotes).
 
