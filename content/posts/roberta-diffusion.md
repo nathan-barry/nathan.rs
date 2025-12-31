@@ -37,7 +37,6 @@ Originally, BERT saw immediate use in tasks such as classification, whereas GPT-
 
 ## Discrete Language Diffusion Models
 ---
-
 Diffusion models were first popularized in image generation. In image generation, diffusion models gradually add Gaussian noise to an image (forward process) and then train a neural network to iteratively denoise it (reverse process). A high‐level summary of continuous diffusion with images is:
 
 1. **Forward process**: Start from a clean image _x₀_, then add small amounts of (usually Gaussian) noise at each timestep until you end up with near‐pure noise.  
@@ -65,12 +64,10 @@ By introducing variable masking rates (from 0 to 1) and a scheduled sequence of 
 
 ## RoBERTa Diffusion
 ---
-
 In 2019, [RoBERTa](https://arxiv.org/abs/1907.11692) was released. It was essentially just an enhancement of the original BERT model, with better hyperparameters, data training size, and a more simple training objective (MLM only, removed next sentence prediction).
 
 Here, we use the HuggingFace `transformers` and `dataset` libraries to pull in the original RoBERTa weights, tokenizer, and the Trainer class to easily finetune the model on the WikiText dataset.
 The main code ([full code here](https://github.com/nathan-barry/RoBERTaDiffusion)) looks like this below:
-
 
 ```python
 # Load and tokenize dataset and instantiate the model
@@ -167,12 +164,10 @@ for step, mask_prob in enumerate(mask_probs):
         input_ids[0, PREFIX_LEN:][mask_indices] = tokenizer.mask_token_id
 ```
 
-> Note: There are many different ways to do inference with these models. In the example above, we did something what might be referred to as "iterative refinement". This method doesn't take into account token confidence and can lead to indiscriminantly remasking "good" tokens.
+> Note: There are many different ways to do inference with these models. Our method doesn't take into account token confidence and can lead to indiscriminantly remasking "good" tokens.[^3]
 >
-> Other methods include `top-k parallel decoding`, where you unmask the top $k$ most confident tokens at each step, and `confidence-aware parallel decoding`, where you unmask all tokens that are above some confidence threshold (or the most confident token, if none meet that criterion). Because these methods prioritize "revealing" the most confident tokens first, it tends to lead to more coherent output.
-> Both these methods never remask, which has also been suggested to have nice mathematical properties.[^3]
->
-> Interestingly enough, in this experiment, the last method gave less coherent outputs than the first (lots of repeating the same words). I believe this is because the model is heavily undertrained for this new training objective (for the amount of compute I've given it), and the iterative refinement's randomness in remasking actually makes it more robust to this specific type of degeneration. Food for thought!
+> Other methods include unmasking the top $k$ most confident tokens at each step, or unmasking all tokens above a given confidence threshold. Because these methods prioritize "revealing" the most confident tokens first, it tends to lead to more coherent output.
+> Both these methods never remask, which has also been suggested to have nice mathematical properties.[^4]
 
 Here is an example output generation of the fine-tuned model after training on an H200 for 30 minutes (the first line is the initial prompt):
 
@@ -201,13 +196,12 @@ We see GPT-2's output is more coherent and slightly faster (~9 seconds vs ~13) b
 
 > Note: This difference in speed is an "apples to oranges" comparison. The GPT-2 inference is using a library that has been heavily optimized, while my code is not.
 >
-> There are serious differences in performance characteristics between the two different architectures, and it is an open question whether diffusion language models can out perform autoregressive models in deployed settings.[^4]
+> There are serious differences in performance characteristics between the two different architectures, and it is an open question whether diffusion language models can out perform autoregressive models in deployed settings.[^5]
 
 
 
 ## Conclusion
 ---
-
 We’ve seen that masked language models like RoBERTa, originally designed for fill-in-the-blank tasks, can be repurposed into fully generative engines by interpreting variable-rate masking as a discrete diffusion process. By gradually corrupting text with `<MASK>` tokens and training the model to iteratively denoise at increasing mask intensities, we effectively turn the standard MLM objective into a step-by-step generation procedure.
 
 Even without architectural changes, a fine-tuned RoBERTa can generate coherent looking text after slightly modifying the training objective, validating the idea that BERT-style models are essentially just text diffusion models trained on one masking rate.
@@ -217,5 +211,6 @@ Even without architectural changes, a fine-tuned RoBERTa can generate coherent l
 #### Footnotes
 [^1]: After I wrote the article, I stumbled upon the paper [DiffusionBERT](https://arxiv.org/abs/2211.15029), which does essentially the same thing but with more rigorous testing! Check it out if this post interested you.
 [^2]: The [D3PM](https://arxiv.org/abs/2107.03006) paper mentions, in bold, "BERT is a one-step diffusion model" in section 4. Didn't see this until way after! It's a foundational paper in this space, my oversight is slightly embarrasing.
-[^3]: The addition of never remasking simplifies [D3PM](https://arxiv.org/abs/2107.03006)'s NELBO training objective and leads to an improved likelihood, according to the paper, [Simple and Effective Masked Diffusion Language Models](https://arxiv.org/abs/2406.07524)
-[^4]: Bidirectional attention disallows the naive use of KVCaching. Additionally, it turns the attention mechanism from a memory-bound to a compute-bound operation, reducing the effectiveness of batching requests together (the GPU is already saturated). This is an area that requires further study and improvements, as there are probably many more tricks to getting around this (like [KVCache approximation](https://arxiv.org/abs/2505.22618)).
+[^3]: Confidence based decoding methods tend to perform poorly in undertrained settings or with very small models. The random approach actually led to better generation quality in this experiment.
+[^4]: The addition of never remasking simplifies [D3PM](https://arxiv.org/abs/2107.03006)'s NELBO training objective and leads to an improved likelihood, according to the paper, [Simple and Effective Masked Diffusion Language Models](https://arxiv.org/abs/2406.07524)
+[^5]: Bidirectional attention disallows the naive use of KVCaching. Additionally, it turns the attention mechanism from a memory-bound to a compute-bound operation, reducing the effectiveness of batching requests together (the GPU is already saturated). This is an area that requires further study and improvements, as there are probably many more tricks to getting around this (like [KVCache approximation](https://arxiv.org/abs/2505.22618)).
