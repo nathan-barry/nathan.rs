@@ -5,13 +5,11 @@ tags = ["Machine Learning", "Programming", "2023"]
 +++
 {{< katex >}}{{< /katex >}}
 
-
-
 For a while, I wanted to build a complete autograd engine. What is an autograd engine, you might ask? To find the answer, we first must know what a neural network is.
 
-## Neural Network Crash Course
----
 
+
+## Neural Network Crash Course
 A neural network can just be seen as a black-box function. We pass in an input into this black box and receive an output. Normally, in a function, we define the rules on how to manipulate the input to get an output. For example, if we want a function that doubles the input, i.e $f(x) = 2x$, then all we would write is:
 
 ```python
@@ -67,8 +65,6 @@ Now this is just a very basic example. You can see how things get more complex w
 
 
 ## What is an Autograd Engine?
----
-
 Finally, we can answer our original question. An autograd engine is a program that can automatically calculate the partial derivatives of each weight with respect to the loss. The example above was simple since we only had one weight, but we currently have models with *hundreds of billions* of weights, so having a way to automatically determine these partial derivatives is essential.
 
 This is typically done by creating a computation graph which is a directed acyclic graph (DAG) that represents an expression into its operands and operators. An image is worth a thousand words, the image below should give you a good idea:
@@ -84,8 +80,6 @@ I started implementing an engine that used matrices as its basic unit of operati
 
 
 ## Go Micrograd Implementation
----
-
 The basic building block in go-micrograd is the Value struct. Let's look at the code below: 
 
 ```go
@@ -151,9 +145,7 @@ Now what is this `d.DisplayGraph` method? In Andrej Karpathy's tutorial, he uses
 
 We see that `d` evaluated to 4 and was the result of `Add(-6, 10)`. We see that the -6 was the result of `Mul(2, -3)` which were `a` and `b` respectively.
 
-
 ### Adding Backpropagation functionality
-
 To add backpropagation, we need to add the following fields to the Value struct:
 
 ```go
@@ -227,7 +219,6 @@ func buildTopo(v *Value, topo []*Value, visited map[*Value]bool) []*Value {
 ```
 
 ### Training the `double(x)` Model
-
 Let us train a network that mimics the `double(x)` function from earlier. This will consist of one weight as before. We use two new operations `Pow()` and `Sub()` which we haven't covered but they're very similar to the `Mul()` and `Add()` operations from before.
 
 ```go

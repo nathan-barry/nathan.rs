@@ -4,12 +4,15 @@ date = 2023-11-11T08:51:57-06:00
 tags = ["Programming", "2023"]
 +++
 
+
+
+## Lexical Analysis and ASTs
+
 Recently I was going through Thorsten Ball's "Writing An Interpreter in Go". In this book, you create a basic interpreted language and write a lexer, parser, evaluator, and REPL for it. 
 
 A Lexer takes in source code and turns it into an intermediate representation, usually in the form of a string of tokens. This is called Lexical Analysis. A parser usually takes this stream of tokens and turns it into an Abstract Syntax Tree which is then evaluated and run.
 
 The Lexer in the book keeps track of the input string (source code), and the position we are at in the string.
-
 Below is a method of the Lexer that determines what the next token should be, given the current state of the Lexer:
 
 ```go
@@ -123,13 +126,17 @@ enum Token {
 
 with methods like `Token::lookup_indent()` returning the correct identifier or illegal token if invalid.
 
+
+
+## The Feeling of Writing Code
+
 All this might seem somewhat pedantic, but being able to express code with better tools increases the ergonomics of the language. It *feels* good to write code where algebraic types are perfect and *feels* bad when you don't have access to them.
 
 One of Go's core selling features is its simplicity. I am a large fan of simple languages and find that death by expressiveness is very much a real thing. Metaprogramming is great for creating abstractions for library writers, but in my experience, it often makes it harder for the programmer to understand what is actually going on.
 
 Enums and match statements however boost developer ergonomics while improving code readability and understandability in a code base. It is a pure ergonomic win with many additional benefits.
 
-Then again, we have the code below. This is from my symbolic math crate. Enums and match allow me to express such a complicated method so densely, but perhaps the ability to do encourages one to do so instead of break it up into simpler parts and helper functions. Whether this is a win or not, it's up to you.
+Then again, we have the code below. This is from my symbolic math crate. Enums and match allow me to express such a complicated method so densely, but perhaps the ability to do encourages one to do so, instead of break it up into simpler parts and helper functions. Whether this is a win or not, it's up to you.
 
 ```rust
 impl Expr {

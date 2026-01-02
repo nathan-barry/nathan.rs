@@ -8,7 +8,7 @@ Lately, I've been coming across many blogs that have weird font-size rendering i
 
 Below is a screenshot of the issue from a website where I've seen this occur. I found this example from Hacker News while I was on phone.
 
-<img style="max-width: 450px; width: 100%;" alt="code block issue" src="/images/ios-render-issue.webp">
+<img style="max-width: 256px; width: 100%;" alt="code block issue" src="/images/ios-render-issue.webp">
 
 As you can see, the text-size isn't uniform across code block lines. I've seen this issue across many blogs that compile markdown files to HTML such as sites built using Hugo, Jekyll, or even [custom md-to-html shell scripts](https://github.com/git-bruh/site).
 
@@ -17,8 +17,6 @@ This issue seems to happen on every browser on iOS (Safari, Firefox, and Chrome 
 
 
 ## Solution
----
-
 I previously spotted this issue when I was originally setting up this site. Luckily, there seems to be an easy solution.
 
 All you need to do to fix this is to include the code snippet below in your main CSS file:
@@ -35,18 +33,12 @@ code {
 
 This should fix the rendering issue and make the text-size in code blocks look correct. 
 
-
-
-## What might cause this?
----
-
+### What might cause this?
 The CSS snippet above explicitly tells the browser to render the text size at its original size (the `-ms`, `-moz`, and `-webkit` are for IE, Firefox, and Safari respectively). Without this, the browser decides it's fine to change the text size for certain lines. But why?
 
 I did some investigation on my own site by removing the CSS snippet. After looking at a couple of posts, there was an obvious pattern to what lines were rendered large: **line length**.
 
 In the screenshot above, the only lines that are rendered large are the long ones. This has been true for every code block I've looked at.
-
-### My Guess
 
 Let's look at the code block below:
 
@@ -114,8 +106,9 @@ The first line (long) looks like this:
 
 Perhaps longer lines overflow (in some sense) and the browser tries to handle them differently. It could also be the additional nested span that was for some reason generation. Whatever it is, hopefully the solution worked for you!
 
-### Souls Saved
 
+
+## Souls Saved
 Below is a list of all the websites that added the fix. If this helped you, file an issue [here](https://github.com/nathan-barry/nathan.rs/issues) and I'll add you!
 
 Website | Date

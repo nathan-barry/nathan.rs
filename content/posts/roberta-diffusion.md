@@ -182,7 +182,6 @@ controlled colonial system. Following this period the Non @-@
 Parliamentaryist Party won its influence in Britain in 1890, led by the
 support of settlers from the Irish colonies. Looking inwards, Sinclair,
 Lewis questioned, and debated the need to describe " The New Britain "
-
 ```
 
 The output looks surprisingly coherent! Most of the quirks present are actually just quirks from the formatting of WikiText (spaces around punctuation ` " `, turning hyphens `-` into `@-@`).
