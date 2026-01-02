@@ -11,7 +11,6 @@ This post documents our original hackathon project, our exploration into actual 
 
 
 ## Curserve - Our Hackathon Project
----
 The original idea came from when we came across Cognition's new [agentic search models](https://cognition.ai/blog/swe-grep), which had substantially higher TPS than off-the-shelf models. SWE-grep-mini can generate 2858 tokens per second, 20x the TPS of Claude Haiku 4.5.
 
 In traditional interactive coding agents like Cursor and Claude Code, generally, the code lives on the client. Thus, every time an agent generates a tool call, it must send that request to the client for it to execute it remotely, and then send all the data back before the server can continue generation for this request.
@@ -67,7 +66,6 @@ All this (plus actually placing for something) gave us hope that this might have
 
 
 ## Exploration into Research
----
 Our hackathon project gave us a demo with compelling results. After thinking about the best direction to continue this idea into actual research, we decided to make two small changes:
 
 1. The subprocess overhead is negligible. We felt like network latency would dominate and thus threw out the tool daemon for simplicity. 
@@ -75,11 +73,9 @@ Our hackathon project gave us a demo with compelling results. After thinking abo
 
 This last change gave a few additional benefits as well. Because there is a copy on the client and the server, we can choose to run whitelisted commands such as `ls`, `cat`, `ripgrep`, etc, on the server, while running arbitrary commands on the client. This reduced the vulnerability surface area of our system. We planned on having a [gVisor](https://github.com/google/gvisor) instance run on the server with a container for each user session for security.
 
-
 But before we seriously got started, we needed to do Back-of-The-Napkin Math™ to make sure the benefits of our system weren't marginal.
 
 ### Numbers, Numbers, Numbers
-
 Below is a list of the TPS and Time-Per-Output-Token (TPOT) for a few popular models (including Cognition's new agentic search models):
 
 Model               | TPS   | TPOT
@@ -105,7 +101,6 @@ The additional latency when including the client varies widely, but we can assum
 Our demo did so well partially because the server we were renting from [Vast.ai](https://vast.ai) happened to be located in Taiwan, leading to a potentially 250+ ms round-trip for each tool call. In a more realistic setting, a round-trip call might take an order of magnitude less time. This reduces the real-world benefits of our system, but it still might be significant enough.
 
 ### Potential Benefits
-
 The networking overhead seems substantial enough to where it could lead to underutilized resources or force rescheduling of requests in a colocated serving setting when serving small models. Our system could help that and reduce end-to-end latency for individual requests. The latter additionally give us more flexibility with scheduling and can perhaps lead to fewer SLO violations.
 
 With disaggregated prefill decode serving (which I believe is more common), the benefits might be minimal because for each tool call, the KVcache will be moved from the decoding server to the prefill server anyway and be scheduled again (according to my understanding).
@@ -115,8 +110,6 @@ All in all, there *might* be something here. It would need to be investigated mo
 
 
 ## Conclusion
----
-
 Alex and I have moved on to other research ideas, but this was an exploration of one which might have some legs. The [Parrot paper](https://arxiv.org/abs/2405.19888v1) from Microsoft, which came out earlier this year, explored something similar (in terms of reducing end-to-end latency for individual requests) and found many benefits to be gained from it.
 
 Hackathons are fun! I highly recommend. I had a great experience at Cal Hacks this year. As for the research direction, it is always insightful to explore new ideas.

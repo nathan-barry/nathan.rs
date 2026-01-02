@@ -17,7 +17,6 @@ The first thought I had was, "can we finetune a BERT-like model to do text gener
 
 
 ## A Short History of Transformers
----
 The original Transformer architecture, introduced in [2017](https://arxiv.org/abs/1706.03762), was an encoder-decoder model. In 2018, researchers realized that the encoder and decoder components of the model could be separated (with the advent of [BERT](https://arxiv.org/abs/1810.04805) and [GPT](https://cdn.openai.com/research-covers/language-unsupervised/language_understanding_paper.pdf)), and two distinct families of models were created:
 
 1. **Encoder-only models (BERT-style, bidirectional)**
@@ -36,7 +35,6 @@ Originally, BERT saw immediate use in tasks such as classification, whereas GPT-
 
 
 ## Discrete Language Diffusion Models
----
 Diffusion models were first popularized in image generation. In image generation, diffusion models gradually add Gaussian noise to an image (forward process) and then train a neural network to iteratively denoise it (reverse process). A high‐level summary of continuous diffusion with images is:
 
 1. **Forward process**: Start from a clean image _x₀_, then add small amounts of (usually Gaussian) noise at each timestep until you end up with near‐pure noise.  
@@ -63,7 +61,6 @@ By introducing variable masking rates (from 0 to 1) and a scheduled sequence of 
 
 
 ## RoBERTa Diffusion
----
 In 2019, [RoBERTa](https://arxiv.org/abs/1907.11692) was released. It was essentially just an enhancement of the original BERT model, with better hyperparameters, data training size, and a more simple training objective (MLM only, removed next sentence prediction).
 
 Here, we use the HuggingFace `transformers` and `dataset` libraries to pull in the original RoBERTa weights, tokenizer, and the Trainer class to easily finetune the model on the WikiText dataset.
@@ -134,7 +131,7 @@ Step 0: [PREFIX] <mask> <mask> <mask> <mask> <mask> ...     (100% masked)
 Step 1: [PREFIX] will <mask> over <mask> control ...        (90% masked)
 Step 2: [PREFIX] will begin <mask> greater control ...      (80% masked)
 ...
-Step 10: [PREFIX] will begin to assert greater control ...  (0% masked - DONE)
+Step 10: [PREFIX] will begin to assert greater control ...  (0% masked)
 ```
 
 Simplified code for generation looks like:
@@ -164,7 +161,7 @@ for step, mask_prob in enumerate(mask_probs):
         input_ids[0, PREFIX_LEN:][mask_indices] = tokenizer.mask_token_id
 ```
 
-> Note: There are many different ways to do inference with these models. Our method doesn't take into account token confidence and can lead to indiscriminantly remasking "good" tokens.[^3]
+> **Note:** There are many different ways to do inference with these models. Our method doesn't take into account token confidence and can lead to indiscriminantly remasking "good" tokens.[^3]
 >
 > Other methods include unmasking the top $k$ most confident tokens at each step, or unmasking all tokens above a given confidence threshold. Because these methods prioritize "revealing" the most confident tokens first, it tends to lead to more coherent output.
 > Both these methods never remask, which has also been suggested to have nice mathematical properties.[^4]
@@ -172,18 +169,20 @@ for step, mask_prob in enumerate(mask_probs):
 Here is an example output generation of the fine-tuned model after training on an H200 for 30 minutes (the first line is the initial prompt):
 
 ```
-Following their victory in the French and Indian War, Britain began to assert
-greater...
+Following their victory in the French and Indian War, Britain began to
+assert greater...
 
-...dominion over Europe beginning about the early 19th. There conflict took
-place on the island, between British and Irish Ireland. British officials 
-administered British Ireland, a Celtic empire under the control of the Irish 
-nationalist authorities, defined as a dominion of Britain. As the newly Fortic 
-states acquired independent and powerful status, many former English colonies
-played their part in this new, British @-@ controlled colonial system. Following
-this period the Non @-@ Parliamentaryist Party won its influence in Britain in 
-1890, led by the support of settlers from the Irish colonies. Looking inwards, 
-Sinclair, Lewis questioned, and debated the need to describe " The New Britain "
+...dominion over Europe beginning about the early 19th. There conflict
+took place on the island, between British and Irish Ireland. British
+officials administered British Ireland, a Celtic empire under the control
+of the Irish nationalist authorities, defined as a dominion of Britain.
+As the newly Fortic states acquired independent and powerful status, many
+former English colonies played their part in this new, British @-@
+controlled colonial system. Following this period the Non @-@
+Parliamentaryist Party won its influence in Britain in 1890, led by the
+support of settlers from the Irish colonies. Looking inwards, Sinclair,
+Lewis questioned, and debated the need to describe " The New Britain "
+
 ```
 
 The output looks surprisingly coherent! Most of the quirks present are actually just quirks from the formatting of WikiText (spaces around punctuation ` " `, turning hyphens `-` into `@-@`).
@@ -194,14 +193,13 @@ Below is a comparison between our diffusion model and GPT-2:
 
 We see GPT-2's output is more coherent and slightly faster (~9 seconds vs ~13) but I'm pleasantly surprised with how good my simple implementation was. It is a good proof of concept, and with new approaches like AR-Diffusion and Skip-Step Diffusion (and a more optimized implementation), the quality and speed can be drastically improved.
 
-> Note: This difference in speed is an "apples to oranges" comparison. The GPT-2 inference is using a library that has been heavily optimized, while my code is not.
+> **Note:** This difference in speed is an "apples to oranges" comparison. The GPT-2 inference is using a library that has been heavily optimized, while my code is not.
 >
 > There are serious differences in performance characteristics between the two different architectures, and it is an open question whether diffusion language models can out perform autoregressive models in deployed settings.[^5]
 
 
 
 ## Conclusion
----
 We’ve seen that masked language models like RoBERTa, originally designed for fill-in-the-blank tasks, can be repurposed into fully generative engines by interpreting variable-rate masking as a discrete diffusion process. By gradually corrupting text with `<MASK>` tokens and training the model to iteratively denoise at increasing mask intensities, we effectively turn the standard MLM objective into a step-by-step generation procedure.
 
 Even without architectural changes, a fine-tuned RoBERTa can generate coherent looking text after slightly modifying the training objective, validating the idea that BERT-style models are essentially just text diffusion models trained on one masking rate.

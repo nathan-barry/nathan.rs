@@ -11,22 +11,17 @@ A few weeks back, I implemented GPT-2 using WebGL and shaders ([Github Repo](htt
 
 
 ## The Origins of General-Purpose GPU Programming
----
-
 In the early 2000s, NVIDIA introduced programmable shaders with the GeForce 3 (2001) and GeForce FX (2003). Instead of being limited to predetermined transformations and effects of earlier GPUs, developers were now given unprecedented control over the rendering pipeline, enabling much more sophisticated visual effects. These programmable shaders laid the foundation for modern GPU computing.
 
 Researchers soon discovered that certain computations (like linear algebra involving matrices and vectors) could be accelerated by casting them as graphics operations on the GPU.
 However, using shader languages like OpenGL’s GLSL for no-graphics tasks was cumbersome. By the mid-2000s, the need for a more straightforward, non-graphics interface to GPUs had become clear, and NVIDIA saw a new opportunity.
 
 Inspired by the demand for **general-purpose GPU** (GPGPU) programming, in November 2006, NVIDIA released **CUDA**, the **Compute Unified Device Architecture**. CUDA is a parallel computing platform and programming model that gives developers direct access to the GPU’s computational power without the intermediary of a graphics API.
-
 With CUDA, one could write C/C++ code to execute on the CPU using straightforward extensions for parallel kernels and managing GPU memory explicitly. This meant that developers could now ignore graphics-specific concepts and dramatically lowered the barrier for general-purpose GPU computing. Following CUDA came OpenCL which expanded general purpose computing beyond the NVIDIA ecosystem.
 
 
 
 ## Graphics API vs Compute API
----
-
 Traditional graphics APIs like OpenGL are centered around a fixed-function pipeline tailored for rendering images. The pipeline consists of stages like vertex processing, rasterization, fragment processing, etc. Each stage can be programmable with shaders, but the overall flow is fixed.
 Using the OpenGL graphics pipeline to do general-purpose computation required a lot of boilerplate. One had to pack data into texture formats, use off-screen framebuffers to capture the results, and often perform multiple render passes to accomplish multi-stage algorithms.
 
@@ -43,13 +38,11 @@ In OpenGL, the output would ultimately be pixels in a framebuffer or values in a
 
 
 ## Implementing GPT-2 via Classic GPGPU Programming
----
 Instead of CUDA or OpenCL, I decided to implement the forward pass of GPT-2 using the old school way, using the graphics pipeline.
 
 First, we need to cover textures, framebuffers, vertex and fragment shaders, and other graphics specific concepts needed for this.
 
 ### Textures & Framebuffers: The Data Bus
-
 In traditional graphics rendering, a **texture** is simply a 2D (or 3D) array of pixel data stored in GPU memory. When you map a texture onto a triangle, the fragment shader “samples” it to look up color values. In our compute‐as‐graphics paradigm, we hijack this same mechanism to store and manipulate numerical data instead of colors:
 
 * **Textures as tensors**:
@@ -72,7 +65,6 @@ A **Framebuffer Object (FBO)** is a container that lets us redirect rendering ou
 Together, textures and FBOs form the **data bus** of our shader‐based compute engine: textures hold the raw bits of your neural network (weights, intermediate activations, and outputs), and framebuffers let you chain shader passes seamlessly, keeping everything on the high-speed GPU pipeline until you explicitly pull the final logits back to the CPU.
 
 ### Fragment Shaders as Compute Kernels
-
 Fragment shaders are where the magic happens. Instead of using fragment shaders to shade pixels for display, we hijack them as compute kernels; each fragment invocation becomes one thread that calculates a single output value. The GPU will launch thousands of these in parallel, giving us massive throughput for neural-network operations.
 
 Below is an example fragment shader for matrix multiplication:
@@ -127,7 +119,6 @@ void main() {
 ```
 
 #### Shared Vertex Shader
-
 Every operation gets its own fragment shader since that's where the math for the operation happens. The vertex shader, on the other hand, is simple and the same for each. All it does is draw two triangles which covers the entire view port. 
 
 ```glsl
@@ -149,7 +140,6 @@ With this structure in mind, every “shader pass” is really just:
 2. **Fragment shader**: perform one tiny piece of your transformer math per pixel
 
 ### Chaining Passes
-
 Under the hood, every neural‐network operation, whether it’s a matrix multiply, an activation function, or a bias addition, boils down to four simple GPU steps:
 
 1. Bind inputs as textures (weights, activations, or intermediate results).
@@ -189,7 +179,6 @@ private _runPass(
 ```
 
 #### Forward Pass: Layer by Layer
-
 Because each pass leaves its results in VRAM, we never pay the cost of round-trips back to the CPU until the very end. Below is a high-level description of the entire forward pass:
 
 1. **Upload Embeddings**: Compute the token+position embeddings on the CPU and send them to the GPU as one texture.
@@ -205,7 +194,6 @@ Once logits are back on the CPU, we apply softmax and sample (top-k or top-p) to
 By chaining these operation passes together, we keep the entire GPT-2 pipeline on the GPU until the final logits. This is how programmable shaders let us treat the graphics pipeline as a general-purpose parallel engine.
 
 ## Conclusion
-
 This was a fun project! I chose to do this as a final projects for my Graphics: Honors class at UT Austin (hence why I decided to use the graphics pipeline in the first place).
 
 While WebGL allows us to run machine learning models on the GPU, it has several key limitations:

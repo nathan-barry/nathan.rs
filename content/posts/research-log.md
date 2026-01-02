@@ -5,7 +5,7 @@ tags = ["Machine Learning", "2025"]
 +++
 {{< katex >}}{{< /katex >}}
 
-> Here are some notes I wrote over this topic. I've switched my master's thesis to a different topic, but there are many interesting research directions to explore in this area.
+> Here are some notes I wrote over this topic. I've switched my master's thesis to a different topic, but there were many interesting research directions I found in this area.
 
 
 
@@ -50,7 +50,6 @@ Some relevant papers building upon DiLoCo to improve and scale it are:
 - [DiLoCoX: A Low-Communication Large-Scale Training Framework for Decentralized Cluster](https://arxiv.org/abs/2506.21263)
 
 ### Open Questions and Research Directions
-
 There are many potential research directions I've thought of. The easiest to test and most useful are:
 
 1. Study the impact of heterogeneous workers.
@@ -72,7 +71,6 @@ I have more ideas, but these are two good ones I find compelling.
 
 
 ## HALoS and Async DiLoCo
-
 I've spent much of today reading the [source code](https://github.com/utnslab/halos) of [HALoS](https://icml.cc/virtual/2025/poster/45594). The main idea of the paper is right in the title, "HALoS: Hierarchical Asynchronous Local SGD over Slow Networks for Geo-Distributed Large Language Model Training".
 
 One problem with current DiLoCo variants is that they assume each worker has the same network latency as each other. In reality, inter-region communication might be drastically worse than intra-region communication. Two workers located in the same state will have much higher bandwidth and lower latency than two workers located on different continents, sometimes up to several orders of magnitudes.
@@ -112,7 +110,6 @@ At this layer though, when a LPS communicates with the GPS, because of the lower
 Empirically, their evaluation shows that HALoS achieves up to $7.5\times$ convergence than standard DiLoCo and up to $2.1\times$ faster convergence than Async Local-SGD in geo-distributed environments.
 
 ### Simulator
-
 The main thing of importance to me here is that their open-source simulator currently supports DiLoCo, Async Local-SGD, and HALoS. It would not be hard to add support for Overlap Local-SGD or One-step-delay DiLoCo and Eager Update DiLoCo (although Streaming DiLoCo would require a major rewrite).
 
 I'll read the source-code and run it for my own experiments with heterogeneous workers, and then modify it for my experiments with parameter drift.
@@ -120,7 +117,6 @@ I'll read the source-code and run it for my own experiments with heterogeneous w
 
 
 ## Current Work on Heterogeneous Workers
-
 A desirable problem to solve is being able to use different kinds of hardware for training. Even within the same generation, NVIDIA B300 GPUs are 50% faster than B200s. Companies like Meta have many homogeneous clusters that differ in hardware. It would be ideal to be able to train a model across clusters regardless of the exact underlying hardware used.
 
 The two main recent works I've found on heterogeneous workers is [HALoS](https://icml.cc/virtual/2025/poster/45594) and [Async Local-SGD](https://arxiv.org/abs/2401.09135). The former uses a wide variety of worker speeds in their experiments, but there is no ablation study showing how differing worker speeds specifically impact convergence, so we will mainly focus on the latter. There are perhaps other important works that studied this, but I am unaware of them.
@@ -138,7 +134,7 @@ DiLoCo (Douillard et al., 2023) | 41.35 | 41.35 | 41.35 | 41.35
 Async. DiLoCo | 44.27 | 44.38 | 44.29 | 44.27 
 Async. DN + DyLU (ours) | **41.27** | **41.27** | **41.09** | **41.13**
 
-I found this very strange. In the naive Async DiLoCo implementation, a worker that is twice as slow will apply outer-gradients that are twice as stale, since each worker takes the same number of inner steps. In an earlier part of the paper, they found that just the inherent staleness, which comes from applying individual worker updates sequentially instead of averaging them and applying it once, lead to "considerable performance drops." So I would have imagined that significantly increasing staleness for certain workers would have *some* impact on convergence.
+I found this strange. In the naive Async DiLoCo implementation, a worker that is twice as slow will apply outer-gradients that are twice as stale, since each worker takes the same number of inner steps. In an earlier part of the paper, they found that just the inherent staleness, which comes from applying individual worker updates sequentially instead of averaging them and applying it once, lead to "considerable performance drops." So I would have imagined that significantly increasing staleness for certain workers would have *some* impact on convergence.
 
 In the better version with the new Delayed Nesterov optimizer and Dynamic Local Updates (scaling inner steps $H$ to match worker speed), I would have still imagined some impact on convergence due to a different set of reasons.
 Because outer-gradients (really parameter differences) have similar behavior to normal gradient, let's think about the normal DDP training setting where we synchronize at every step. Having a different inner step per worker in Async Local-SGD is analogous to having a different weight per worker when averaging in the DDP case. This seems like it would fundamentally impact training behavior.
