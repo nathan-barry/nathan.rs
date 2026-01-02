@@ -18,8 +18,12 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-## 2025 -- Age 22
----
+## 2026 (Age 23)
+(None yet!)
+
+
+
+## 2025 (Age 22)
 {{< book
     title="Willpower"
     author="Roy F. Baumeister & John Tierney"
@@ -80,8 +84,9 @@ document.addEventListener("DOMContentLoaded", function() {
     special="true"
     description="A great book about the start of Nvidia. Honestly seems like a great company to work at. High standards, flat structure, collaborative culture, and smart hardworking people. Fantastic vision from leadership (Jensen), predicting the rise of general purpose GPU programming (with CUDA) and the importance of machine learning. One step ahead for 30 years.">}}
 
-## 2024 -- Age 21
----
+
+
+## 2024 (Age 21)
 {{< book
     title="Poor Charlie's Almanack"
     author="Peter D. Kaufman"
@@ -196,8 +201,9 @@ document.addEventListener("DOMContentLoaded", function() {
     special=""
     description="It's always interesting to read about the original titans of the industrial age. Despite so much having changed since then, many fundamental characteristics and behaviors of humans and society seem to stay the same." >}}
 
-## 2023 -- Age 20
----
+
+
+## 2023 (Age 20)
 {{< book
     title="Napoleon"
     author="Andrew Roberts"
@@ -382,8 +388,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-## 2022 -- Age 19
----
+## 2022 (Age 19)
 {{< book
     title="A Beautiful Mind"
     author="Sylvia Nasar"
@@ -467,8 +472,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-## 2021 -- Age 18
----
+## 2021 (Age 18)
 {{< book
     title="The Sovereign Individual"
     author="James Dale Davidson & William Rees-Mogg"
@@ -639,8 +643,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-## 2020 -- Age 17
----
+## 2020 (Age 17)
 {{< book
     title="Memories, Dreams, Reflections"
     author="Carl Jung"
@@ -744,8 +747,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-## 2019 -- Age 16
----
+## 2019 (Age 16)
 {{< book
     title="The Tipping Point"
     author="Malcom Gladwell"
@@ -860,8 +862,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-## 2018 -- Age 15
----
+## 2018 (Age 15)
 {{< book
     title="The Richest Man In Babylon"
     author="George S. Clason"
@@ -915,8 +916,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-## 2017 -- Age 14
----
+## 2017 (Age 14)
 {{< book
     title="To Kill A Mockingbird"
     author="Harper Lee"
@@ -956,8 +956,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-## 2016 -- Age 13
----
+## 2016 (Age 13)
 {{< book
     title="The 48 Laws Of Power"
     author="Robert Greene"

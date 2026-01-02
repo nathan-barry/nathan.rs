@@ -10,8 +10,6 @@ tags = ["Class Notes"]
 
 
 ## Gradient Descent
----
-
 Gradient Descent is a fundamental, first-order iterative optimization algorithm designed for minimizing a function. The primary objective of Gradient Descent is to find the minimum value of a function by iteratively moving towards the minimum of the gradient.
 
 **Update Rule:** The parameters $ \theta $ are updated as follows in each iteration:
@@ -27,8 +25,6 @@ where:
 
 
 ## Adagrad (Adaptive Gradient)
----
-
 Adagrad is an optimization algorithm that adaptively adjusts the learning rates during the training process, which can be especially helpful when dealing with sparse data. The algorithm modifies the general learning rate at each time step $ t $ for every parameter based on the historical gradients that have been computed for that parameter.
 
 **Update Rule:** The update mechanism for Adagrad is as follows:
@@ -47,8 +43,6 @@ where:
 
 
 ## RMSProp
----
-
 RMSprop adjusts the learning rate during training, allowing for the individual adaptation of each parameter’s learning rate during the optimization process. The algorithm works as follows:
 
 **Update Rule:** The gradients, exponentially decaying average, and parameter updates are computed using the following equations:
@@ -63,7 +57,6 @@ where:
 - $ v_{t} $: exponentially decaying average of squared gradients.
 - $ \beta $: decay factor (commonly set to $0.9$).
 - $ \epsilon $: smoothing term to avoid division by zero.
-
 
 ### Comparison with Adagrad
 RMSprop can be seen as a modification of Adagrad. Below is a quick comparison between the two algorithms:
@@ -88,8 +81,6 @@ RMSprop can be seen as a modification of Adagrad. Below is a quick comparison be
 
 
 ## Momentum
----
-
 Momentum is inspired by physical momentum: it helps the optimizer to navigate along the relevant directions and dampens oscillations in the learning process. Momentum works by accumulating an exponential decay of past gradients and continues to move in that direction.
 
 **Update Rule:** The update mechanism for parameters using Momentum is expressed as follows:
@@ -115,8 +106,6 @@ where:
 
 
 ## Adam (Adaptive Moment Estimation)
----
-
 Adam is known for combining the best properties of the algorithms Momentum and RMSprop. It uses both moving averages of the parameters (momentum) and the squared gradients (RMSprop) to adaptively adjust learning rates for each parameter, making it well-suited for problems with noisy or sparse gradients.
 
 **Update Rule:** The update mechanism for Adam is as follows:
@@ -142,8 +131,6 @@ where:
 
 
 ## Stochastic Gradient Descent (SGD)
----
-
 Unlike GD that computes the gradient using the entire dataset, SGD approximates the gradient using a single or a few randomly selected samples, hence the name 'stochastic'. This approach makes SGD faster and able to handle large-scale datasets efficiently.
 
 **Update Rule:** The update mechanism for parameters using SGD is straightforward:
@@ -163,8 +150,6 @@ where:
 
 
 ## Bias-Variance Decomposition of Stochastic Gradient Descent
----
-
 Understanding the bias-variance trade-off is critical for comprehending the behavior of SGD. The error of a machine learning model can be decomposed into bias, variance, and irreducible error.
 
 ### Bias-Variance Decomposition
@@ -196,8 +181,6 @@ Decaying the learning rate is one of several techniques used to balance bias and
 
 
 ## Polyak-Lojasiewicz (PL) Inequality
----
-
 The Polyak-Lojasiewicz (PL) inequality is a crucial concept in the analysis of optimization algorithms, providing valuable insights into their convergence properties. This inequality characterizes the geometry of the objective functions and establishes conditions under which optimization algorithms converge to the unique solution at a linear rate.
 
 **PL Inequality Definition:** Given a differentiable function $ f: \mathbb{R}^d \rightarrow \mathbb{R} $, the function satisfies the PL inequality if there exists a constant $ \mu > 0 $ such that for all $ x \in \mathbb{R}^d $:
@@ -218,8 +201,6 @@ Where:
 
 
 ## Taylor Approximations in Optimization
----
-
 Taylor approximations provide a powerful tool for understanding and approximating the behavior of functions in the vicinity of specific points. In the context of optimization, they offer valuable insights into the landscape of the loss function, facilitating the design and analysis of optimization algorithms.
 
 ### Second-Order Taylor Approximation
