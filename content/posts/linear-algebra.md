@@ -10,8 +10,6 @@ tags = ["Class Notes"]
 
 
 ## Introduction to Vectors
----
-
 The core of linear algebra is vector addition and scalar multiplication. Combining these two operations gives us a set of linear combinations.
 
 $$
@@ -33,7 +31,6 @@ $$
 The vector $c\mathbf{v}$ lie along a line. If vector $\mathbf{w}$ is not on that line, the set of linear combinations $c\mathbf{v} + d\mathbf{w}$ fill the entire two-dimensional plane, because there is a linear combination that reaches every point.
 
 ### Vectors and Linear Combinations
-
 1. $3\mathbf{v} + 5\mathbf{w}$ is an example linear combination $c\mathbf{v} + d\mathbf{w}$ of the vectors $\mathbf{v}$ and $\mathbf{w}$.
 
 2. For $\mathbf{v} = \begin{bmatrix} 1 \\\ 1 \end{bmatrix}$ and $\mathbf{w} = \begin{bmatrix} 2 \\\ 3 \end{bmatrix}$, that combination is:
@@ -51,7 +48,6 @@ $$
 6. The set of equations, $c + 2d = 1$, $c + 3d = 0$, and $c + 4d = 0$, has no solution because its right side, $\begin{bmatrix} 1 \\\ 0 \\\ 0 \end{bmatrix}$, is not on that plane.
 
 ### Lengths and Dot Products
-
 1. The **dot product** of $\mathbf{v} = \begin{bmatrix} 1 \\\ 2 \end{bmatrix}$ and $\mathbf{w} = \begin{bmatrix} 4 \\\ 5 \end{bmatrix}$ is:
 
 $$
@@ -59,7 +55,6 @@ $$
 $$
 
 2. Two vectors $\mathbf{v}$ and $\mathbf{w}$ are perpendicular if their dot product $\mathbf{v}\cdot\mathbf{v}=0$.
-
 
 3. The **length** $\||\mathbf{v}\||$ of a vector is  $\||\mathbf{v}\||=\sqrt{\mathbf{v} \cdot \mathbf{v}}$.
 
@@ -74,7 +69,6 @@ $$
 $$
 
 ### Matrices
-
 1. $A = \begin{bmatrix} 1 & 2 \\\ 4 & 5 \\\ 6 & 7 \end{bmatrix}$ is a 3 by 2 matrix: $m = 3$ rows and $n = 2$ columns.
 
 2. We have that $A \mathbf{x} = \begin{bmatrix} 1 & 2 \\\ 4 & 5 \\\ 6 & 7 \end{bmatrix} \begin{bmatrix} x_1 \\\ x_2 \end{bmatrix}$ is the set of linear combinations of the columns of $A$:
@@ -88,7 +82,6 @@ $$
 $$
 A\mathbf{x} = \begin{bmatrix} 1 & 2 \\\ 4 & 5 \\\ 6 & 7 \end{bmatrix} \begin{bmatrix} x_1 \\\ x_2 \end{bmatrix} = \begin{bmatrix} 1 \cdot x_1 + 2 \cdot x_2 \\\ 4 \cdot x_1 + 5 \cdot x_2 \\\ 6 \cdot x_1 + 7 \cdot x_2 \end{bmatrix}
 $$
-
 
 4. Equations in matrix form $A\mathbf{x} = \mathbf{b}$:
 
@@ -113,8 +106,6 @@ The output $\mathbf{b}$ is a linear combination of the columns in $A$ with eleme
 
 
 ## Solving Linear Equations
----
-
 For solving linear equations, we think of $\mathbf{b}$ as known and we look for $\mathbf{x}$.
 
 1. The **column picture** of $A\mathbf{x} = \mathbf{b}$: A linear combination of $n$ columns of $A$ produces the vector $\mathbf{b}$.
@@ -144,7 +135,6 @@ For the row picture, we want to find the point where each equation from each row
 For the column picture, we want to figure out the coefficients of the column vectors which equals $\mathbf{b}$. These coefficients are the solution $\mathbf{x}$.
 
 ### The Idea of Elimination
-
 1. For $m = n = 3$, there are three equations $A\mathbf{x} = \mathbf{b}$ and three unknowns $x_1, x_2, x_3$.
 
 2. The first two equations are:
@@ -167,7 +157,6 @@ A linear system $A\mathbf{x} = \mathbf{b}$ becomes upper triangular $U\mathbf{x}
 The upper triangular system $U\mathbf{x} = \mathbf{c}$ is solved by back substitution (starting at the bottom).
 
 ### Elimination Using Matrices
-
 1. The first step multiplies the equations $A\mathbf{x} = \mathbf{b}$ by a matrix $E_{21}$ to produce $E_{21}A\mathbf{x} = E_{21}\mathbf{b}$.
 
 2. The matrix $E_{21}A$ has a zero in row 2, column 1 because $x_1$ is eliminated from equation 2.
@@ -185,7 +174,6 @@ The upper triangular system $U\mathbf{x} = \mathbf{c}$ is solved by back substit
 The matrices $E_{ij}$ are "elimination matrices". They execute the elimination steps. They can combine into one matrix $E$ that takes all the steps at once.
 
 ### Rules for Matrix Operations
-
 1. Matrices $A$ with $n$ columns multiply matrices $B$ with $n$ rows: $A_{m \times n} \, B_{n \times p} = C_{m \times p}$.
 
 2. Each entry in $AB = C$ is a dot product: $C_{ij} = (\text{row } i \text{ of } A) \cdot (\text{column } j \text{ of } B)$.
@@ -201,7 +189,6 @@ $$A(B + C) = AB + AC  \quad \text{and} \quad   (A + B)C = AC + BC$$
 6. Matrices can be multiplied by blocks: $A = [A_1 \; A_2]$ times $B = \begin{bmatrix} B_1 \\\ B_2 \end{bmatrix}$ is $A_1B_1 + A_2B_2$.
 
 ### Inverse Matrices
-
 1. If the square matrix $A$ has an inverse, then both $A^{-1}A = I$ and $AA^{-1} = I$.
 
 2. The algorithm to test invertibility is elimination: $A$ must have $n$ (nonzero) pivots.
@@ -215,7 +202,6 @@ $$A(B + C) = AB + AC  \quad \text{and} \quad   (A + B)C = AC + BC$$
 6. $AA^{-1} = I$ represents $n$ equations for $n$ columns of $A^{-1}$. Gauss-Jordan elimination reduces $[A \; I]$ to $[I \; A^{-1}]$.
 
 ### Elimination = Factorization: A = LU
-
 1. Each elimination step $E_{ij}$ is inverted by $L_{ij}$. Off the main diagonal, change $-e_{ij}$ to $+e_{ij}$.
 
 2. The whole forward elimination process (with no row exchanges) is inverted by $L$:
@@ -243,7 +229,6 @@ Thus, for future inputs of $A\mathbf{x} = \mathbf{b}$, since we know $L$, we can
 Note: We also have $A=LDU$ where the diagonal of $U$ has been set to 1 and factored out into it's own diagonal matrix $D$.
 
 ### Transposes and Permutations
-
 1. The transposes of $A\mathbf{x}$, $AB$, and $A^{-1}$ are $\mathbf{x}^T A^T$, $B^T A^T$, and $(A^T)^{-1}$, respectively.
 
 2. The dot product (inner product) is $\mathbf{x} \cdot \mathbf{y} = \mathbf{x}^T \mathbf{y}$. This is a $(1 \times n)(n \times 1) =$ scalar value.  
@@ -266,8 +251,6 @@ If $A$ is invertible then a permutation $P$ will reorder its rows for $PA=LU$.
 
 
 ## Vector Spaces
----
-
 Vector spaces and their subspaces is the next level of understanding.
 
 1. The standard $n$-dimensional space $\mathbb{R}^n$ contains all real column vectors with $n$ elements.
@@ -291,7 +274,6 @@ We can add any vectors in $\mathbb{R}^n$, and we can multiply any vector $\mathb
 To solve $A\mathbf{x}=\mathbf{b}$ is to express $\mathbf{b}$ as a linear combination of the columns. The system $A\mathbf{x}=\mathbf{b}$ is solvable if and only if $\mathbf{b}$ is in the column space of $A$.
 
 ### The Nullspace of A: Solving Ax = 0 and Rx = 0
-
 For an $m\times n$ matrix (as in $m$ rows and $n$ columns):
 
 1. The nullspace $N(A)$ in $\mathbb{R}^n$ contains all solutions $\mathbf{x}$ to $A\mathbf{x} = 0$. This includes $\mathbf{x} = \mathbf{0}$.
@@ -310,15 +292,11 @@ For an $m\times n$ matrix (as in $m$ rows and $n$ columns):
 
 The solution vectors $\mathbf{x}$ have $n$ elements and are vectors in $\mathbb{R}^n$, thus the nullspace is a subspace of $\mathbb{R}^n$. The column space $C(A)$ is a subspace of $\mathbb{R}^m$ since it is the span of all of the columns in $A$, each with $m$ elements.
 
-
-
 All vectors $\mathbf{x}$ in the nullspace must be orthogonal to all row vectors $\mathbf{v}$ in the row space. This is vacuously because the dot product $\mathbf{x}_i \cdot \mathbf{v}_j$ must equal zero for $A\mathbf{x} = 0$. Every free column is a linear combination of earlier pivot columns. The special solutions in the nullspace tells use those combinations. 
-
 
 If the nullspace $N(A) = \mathbb{Z}$ (and thus $\text{rank}(A) = m$), it means that the columns of $A$ are independent. No linear combination of the columns gives the zero vector (except for the zero combination). All columns have pivots and no columns are free.
 
 ### The Complete Solution to Ax = b
-
 For an $m\times n$ matrix (as in $m$ rows and $n$ columns):
 
 1. Complete solution to $A\mathbf{x} = \mathbf{b}$: $\mathbf{x}$ = (one particular solution $\mathbf{x}_p$) + (any $\mathbf{x}_n$  in the nullspace).
@@ -328,7 +306,6 @@ For an $m\times n$ matrix (as in $m$ rows and $n$ columns):
 3. $A\mathbf{x} = \mathbf{b}$ and $R\mathbf{x} = \mathbf{d}$ are solvable only when all zero rows of $R$ have zeros in $\mathbf{d}$.
 
 4. When $R\mathbf{x} = \mathbf{d}$ is solvable, one very particular solution $\mathbf{x}_p$ has all free variables equal to zero.
-
 
 Every matrix $A$ with **full column rank** $(r=n)$ has all these properties:
 
@@ -340,7 +317,6 @@ Every matrix $A$ with **full column rank** $(r=n)$ has all these properties:
 
 4. If $A\mathbf{x}=\mathbf{b}$ has a solution (it might not), then it has only *one solution*.
 
-
 Every matrix $A$ with **full row rank** $(r=m)$ has all these properties:
 
 1. All rows have pivots, and $R$ has no zero rows.
@@ -351,7 +327,6 @@ Every matrix $A$ with **full row rank** $(r=m)$ has all these properties:
 
 4. There are $n-r$ special solutions in the nullspace of $A$.
 
-
 The four cases are:
 - $r = m = n$: (A is square and invertible, $A\mathbf{x} = \mathbf{b}$ has 1 solution)
 - $r = m < n$: (A is short and wide, $A\mathbf{x} = \mathbf{b}$ has $\infty$ solutions)
@@ -359,7 +334,6 @@ The four cases are:
 - $r < m, r < n$: (not full rank, $A\mathbf{x} = \mathbf{b}$ 0 or $\infty$ solutions)
 
 ### Independence, Basis and Dimension
-
 A **basis** is a set of independent vectors that span the space. Four essential ideas are:
 
 1. Independent vectors (no extra vectors)
@@ -393,7 +367,6 @@ $R$ reveals a **basis** for the three fundamental subspaces:
 ***The row space of $A$ is $C(A^T)$. It is the column space of $A^T$.***
 
 ### The Fundamental Theorem of Linear Algebra 
-
 The rank of a matrix is the number of pivots. The dimension of a subspace is the number of vectors in a basis. The rank of $A$ reveals the dimensions of all four fundamental subspaces.
 
 1. The **row space** is $C(A^T)$, a subspace of $\mathbb{R}^n$.
@@ -414,10 +387,7 @@ The **Fundamental Theorem of Linear Algebra** states:
 
 ***$A$ does NOT have the same column space and left nullspace as $R$.*** If the last row in $R$ are all 0s but not the case in $A$, the space has fundamentally changed.
 
-
-#### Why are the dimension of the row space and column space the same?
-
-I thought about this for a long time. Take the matrix $A$ and its reduced form below:
+*Why are the dimension of the row space and column space the same?* I thought about this for a long time. Take the matrix $A$ and its reduced form below:
 
 $$
 A =
@@ -481,8 +451,6 @@ Any time there is a linearly dependent column, we can remove it and find that a 
 
 
 ## Orthogonality
----
-
 Two vectors are orthogonal when their dot product is zero: $\mathbf{v} \cdot \mathbf{w} = \mathbf{v}^T \mathbf{w} = 0$.
 
 1. If two vectors $\mathbf{v}$ and $\mathbf{w}$ are orthogonal, then $\||\mathbf{v}\||^2 + \||\mathbf{w}\||^2 = \||\mathbf{v} + \mathbf{w}\||^2 = \||\mathbf{v} - \mathbf{w}\||^2$.
@@ -502,7 +470,6 @@ Two vectors are orthogonal when their dot product is zero: $\mathbf{v} \cdot \ma
 **Definition:** The orthogonal complement of a subspace $V$ contains **every** vector that is perpendicular to $V$. This orthogonal subspace is denoted by $V^\perp$.
 
 ### Projections
-
 Projections is projecting one vector $\mathbf{b}$ onto another line $\mathbf{a}$ or subspace $S$ to get vector $\mathbf{p}$.
 
 1. The projection of a vector $\mathbf{b}$ onto the line through $\mathbf{a}$ is the closest point $\mathbf{p} = \mathbf{a} \left(\frac{\mathbf{a}^T \mathbf{b}}{\mathbf{a}^T \mathbf{a}}\right)$.
@@ -520,7 +487,6 @@ The left nullspace is important in projections. Our subspace is the column space
 $A^T A$ is invertible (and symmetric) only if $A$ has independent columns (and thus is square).
 
 ### Least Squares Approximations
-
 It often happens that $A\mathbf{x}=\mathbf{b}$ has no solution. The usual reason is too many equations; $A$ has more rows than columns. There are more equations than unknowns ($m$ is greater than $n$) and the $n$ columns span a small part of $m$-dimensional space, where $\mathbf{b}$ is outside the column space of $A$.
 
 We cannot always get the error $\mathbf{e}=\mathbf{b}-A\mathbf{x}$ down to zero. When the error is zero, $\mathbf{x}$ is an exact solution to $A\mathbf{x}=\mathbf{b}$. When the error is as small as possible, $\mathbf{\hat x}$ is a **least squares solution**.
@@ -549,7 +515,6 @@ $$
 where the solution $\mathbf{\hat x} = \begin{bmatrix} x_1 \\\ x_2 \end{bmatrix}$ gives you the line $x_1 + x_2t$.
 
 ### Orthonormal Bases and Gram-Schmidt
-
 Gram-Schmidt chooses combinations of the original basis vectors of $A$ to produce orthonormal basis vectors which will be the columns of a new matrix $Q$.
 
 1. The columns $\mathbf{q}_1, \ldots, \mathbf{q}_n$ are orthonormal if $\mathbf{q}_i^T \mathbf{q}_j = 
@@ -580,8 +545,6 @@ Another is that if the basis vectors are orthonormal, then $A^T A$ simplifies to
 
 
 ## Determinants
----
-
 The determinant of a square matrix is a single number. It contains a great amount of information about the matrix. It is zero when the matrix has no inverse.
 
 1. The determinant of $A = \begin{bmatrix} a & b \\\ c & d \end{bmatrix}$ is $ad - bc$. A singular matrix (non-invertible) $A = \begin{bmatrix} a & xa \\\ c & xc \end{bmatrix}$ has $\det(A) = 0$.
@@ -622,7 +585,6 @@ Applications for determinants are:
 3. For $n$ special numbers $\lambda$, called **eigenvalues**, the determinant of $A - \lambda I$ is zero.
 
 ### Permutations and Cofactors
-
 A computer finds the determinants from the pivots. The two other ways are the "big formula" which uses all $n!$ permutations, and the "cofactor formula" using determinants of size $n-1$.
 
 1. For a $2 \times 2$ matrix, $\det(A) = ad - bc$ has $2!$ terms with $\pm$ signs. For an $n \times n$ matrix, $\det(A)$ adds $n!$ terms with $\pm$ signs.
@@ -636,7 +598,6 @@ A computer finds the determinants from the pivots. The two other ways are the "b
 5. Always $\det(A) = a_{11}C_{11} + a_{12}C_{12} + \cdots + a_{1n} C_{1n}$. Cofactors are determinants of size $n - 1$.
 
 ### Cramer's Rule, Inverses, and Volumes 
-
 To solve an $n\times n$ system, Cramer's rule evaluates $n+1$ determinants (of $A$ and modified $A$s).
 
 1. $A^{-1}$ equals $\frac{C^T}{\det(A)}$. Then $(A^{-1}) _{ij} = \frac{\text{cofactor } C _{ji}}{\det(A)}$.
@@ -668,8 +629,6 @@ The cross product points in the direction of your thumb when your fingers curl f
 
 
 ## Eigenvalues and Eigenvectors
----
-
 All the content before was about solving $A\mathbf{x} = \mathbf{b}$: balance and quilibrium and steady state. Now we're talking about change. Time enters the picture--continuous time in a differential equation $\frac{du}{dt} = A\mathbf{u}$ or time steps in a difference equation $\mathbf{u_{k+1}} = A\mathbf{u_k}$. These equations are NOT solved by elimination.
 
 We can simplify our lives by finding a solution vector $\mathbf{u}(t)$ that stays in the same direction of a fixed vector $\mathbf{x}$. Then we only need to find the number (changing with time) that multiplies $\mathbf{x}$. 
@@ -698,7 +657,6 @@ For each eigenvalue $\lambda$, solve $(A - \lambda I)\mathbf{x} = 0$ to find the
 Exchanging rows or adding/subtracting one from another generally changes the eigenvalues. ***Elimination does not preserve the $\lambda$'s***. The product of eigenvalues is the determinant of $A$ while the sum is the sum of the diagonals of $A$ (called a trace). For a 2 by 2 matrix, we can calculate the eigenvalues just from knowing the trace and determinant.
 
 ### Diagonalizing a Matrix
-
 1. The columns of $AX = X\Lambda$ are $A\mathbf{x}_k = \lambda_k \mathbf{x}_k$. The eigenvalue matrix $\Lambda$ is diagonal.
 
 2. $n$ independent eigenvectors in $X$ diagonalize $A$: $$A = X \Lambda X^{-1} \quad\text{and}\quad \Lambda = X^{-1}AX$$
@@ -714,7 +672,6 @@ Exchanging rows or adding/subtracting one from another generally changes the eig
 6. Every matrix $C = B^{-1}AB$ has the same eigenvalues as $A$. These $C$'s are "similar" to $A$.
 
 ### Systems of Differential Equations
-
 Eigenvalues and eigen vectors and $A=X\Lambda X^{-1}$ are perfect for matrix powers $A^k$. They are also perfect for differential equations $\frac{d\mathbf{u}}{dt}=A\mathbf{u}$. **We can convert constant-coefficient differential equations into linear algebra.**
 
 In linear algebra, the ordinary differential equations $\frac{du}{dt} = u$ and $\frac{du}{dt} = \lambda u$ are solved by exponentials:
@@ -736,7 +693,6 @@ This is a 1 by 1 problem. Linear algebra moves to n by n.
 5. Second-order equation $\frac{d^2 \mathbf{u}}{dt^2} + B \frac{d\mathbf{u}}{dt} + C\mathbf{u} = 0$ is equivalent to a first-order system: $$\begin{bmatrix} \mathbf{u} \\\ \mathbf{u^\prime}\end{bmatrix}^\prime = \begin{bmatrix} 0 & I \\\ -C & -B \end{bmatrix} \begin{bmatrix} \mathbf{u} \\\ \mathbf{u}^\prime \end{bmatrix}$$
 
 ### Symmetric Matrices
-
 Symmetric matrices are one of the most important kind of matrices.
 
 1. A symmetric matrix $S$ has $n$ real eigenvalues $\lambda_i$ and $n$ orthonormal eigenvectors $\mathbf{q}_1, \ldots, \mathbf{q}_n$.
@@ -748,7 +704,6 @@ Symmetric matrices are one of the most important kind of matrices.
 4. Antisymmetric matrices $A = -A^T$ have imaginary eigenvalues $\lambda$ and orthonormal (complex) eigenvectors $\mathbf{q}$.
 
 ### Positive Definite Matrices
-
 Symmetric matrices that have positive (or non-negative) eigenvalues are special.
 
 1. Symmetric $S$: all eigenvalues $> 0$ $\Leftrightarrow$ all pivots $> 0$ $\Leftrightarrow$ all upper left determinants $> 0$.
@@ -764,8 +719,6 @@ Symmetric matrices that have positive (or non-negative) eigenvalues are special.
 
 
 ## The Singular Value Decomposition (SVD)
----
-
 The **Singular Value Decomposition (SVD)** is a fundamental matrix factorization that provides deep insights into the structure of a matrix. It is a versatile tool in numerical linear algebra with a wide range of applications in data science, machine learning, and applied mathematics.
 
 The **Singular Value Decomposition** (SVD) of an $m \times n$ matrix $A$ is a factorization of the form:

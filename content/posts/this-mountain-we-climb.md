@@ -6,6 +6,8 @@ tags = ["Miscellaneous", "2021"]
 
 > A poem that I wrote my senior year of high school in AP Literature.
 
+
+
 <p style="white-space: pre-line">
 Here we all are, this mountain we climb,
 the sure ascent, that lasts a lifetime,
