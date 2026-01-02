@@ -1,6 +1,6 @@
 +++
 title = "{{ .Name | humanize | title }}"
 date = {{ .Date }}
-tags = []
+tags = ["{{ dateFormat "2006" .Date }}"]
 draft = true
 +++
