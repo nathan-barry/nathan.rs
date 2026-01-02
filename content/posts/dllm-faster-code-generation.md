@@ -4,11 +4,10 @@ date = 2025-12-13T08:13:54-06:00
 tags = ["Machine Learning", "2025"]
 +++
 
-> In this post, I run small experiments showing that diffusion language models generate code (and other structured text) at a faster rate. Increased stucture tends to correlate with reduced entropy, which leads to higher confident token predictions, which directly means more tokens decoded in parallel per step.[^1]
+> TLDR: In this post, I run small experiments showing that diffusion language models generate code (and other structured text) at a faster rate. Increased stucture tends to correlate with reduced entropy, which leads to higher confident token predictions, which directly means more tokens decoded in parallel per step.[^1]
 
 
 ## Speculative Decoding and Diffusion Language Models
----
 In speculative decoding (for autoregressive models), we speed up generation by using a smaller model to generate multiple tokens, which are then verified in parallel by a larger model.
 The core idea is that most tokens are easily predictable; thus, we should be able to use a smaller and faster model for them.
 The classic example is the following sentence:
@@ -32,7 +31,6 @@ a diffusion language model could generate the prediction "grape" for the entire 
 
 
 ## Coding is Structured Generation
----
 This benefit of increased parallel decoding partially depends on the structuredness of a text, which exists on a spectrum. An increase in confidence per output token directly leads to more tokens being decoded on average per step.[^1]
 
 > Increased structure -> reduced entropy -> increased confidence -> higher parallel decoding
@@ -46,23 +44,29 @@ I recall reading that [Google Gemini](https://deepmind.google/models/gemini-diff
 
 
 ## Experiments and Results
----
-I threw together a small test and used the model from the paper [Fast dLLM v2](https://arxiv.org/abs/2509.26328) (available on Huggingface) to generate roughly 256 tokens for 10 different prompts (each ran 10 times on A100s with an additional 2 generations for warmup):
-- Trivially Structured:
-  - Repeat the word grape over and over again.
-- Code Generation:
-  - Write a Python function which, when given an array nums of unique integers, returns all the possible permutations. You may return the answer in any order.
-  - Write a Python class for a binary search tree with insert, search, and delete methods.
-  - Implement bubble sort in Python with detailed comments explaining each step.
-- Structured Data:
-  - Generate a comprehensive JSON schema for an e-commerce order system. Include nested objects for: customer information, payment details, shipping information, and order metadata. Populate with realistic example data.
-  - Write complete HTML markup for a responsive user registration form that includes: personal information fields, address fields, and submit/reset buttons. Include proper form structure with fieldsets, labels, appropriate input types, required attributes, and placeholder text.
-- Unstructured Text
-  - Write a creative short story about a time traveler discovering an ancient civilization.
-  - Explain the philosophical implications of artificial consciousness and whether machines can truly think.
-  - Describe the history of the Renaissance period in Europe.
-- Memorized:
-  - Recite to me the Declaration of Independence, word for word, starting with 'The unanimous Declaration of the'.
+I threw together a small test and used the model from the paper [Fast dLLM v2](https://arxiv.org/abs/2509.26328) (available on Huggingface) to generate roughly 256 tokens for 10 different prompts (each ran 10 times on A100s with an additional 2 generations for warmup). These are the prompts below:
+
+```
+Trivially Structured:
+- Repeat the word grape over and over again.
+
+Code Generation:
+- Write a Python function which, when given an array nums of unique integers, returns all the possible permutations. You may return the answer in any order.
+- Write a Python class for a binary search tree with insert, search, and delete methods.
+- Implement bubble sort in Python with detailed comments explaining each step.
+
+Structured Data:
+- Generate a comprehensive JSON schema for an e-commerce order system. Include nested objects for: customer information, payment details, shipping information, and order metadata. Populate with realistic example data.
+- Write complete HTML markup for a responsive user registration form that includes: personal information fields, address fields, and submit/reset buttons. Include proper form structure with fieldsets, labels, appropriate input types, required attributes, and placeholder text.
+
+Unstructured Text
+- Write a creative short story about a time traveler discovering an ancient civilization.
+- Explain the philosophical implications of artificial consciousness and whether machines can truly think.
+- Describe the history of the Renaissance period in Europe.
+
+Memorized:
+- Recite to me the Declaration of Independence, word for word, starting with 'The unanimous Declaration of the'.
+```
   
 The code for everything can be [found here](https://github.com/nathan-barry/dllm-structured-generation-tests), which additionally includes generated output and metadata for each run. Below are the results:
 
@@ -109,7 +113,6 @@ Another interesting result was that generating the start of the Declaration of I
 
 
 ## Conclusion
----
 This was a small test thrown together in under an hour, and more rigorous evaluations should be done, but these preliminary results hint that this idea might be true to some degree.
 
 An important limitation to address: In autoregressive decoding, we [constrained decoding](https://www.aidancooper.co.uk/constrained-decoding/) where we set all syntactically invalid tokens to have a probability of zero, ensuring that we are only generating text which follows some rules (JSON formatting, syntactically correct code, etc). For diffusion language models, this can't naively be applied. However, similar to figuring out KVCache reuse with the advent of [KVCache approximation](https://arxiv.org/abs/2505.22618), we might find a practical solution to this problem.[^2]
