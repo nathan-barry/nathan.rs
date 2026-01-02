@@ -81,13 +81,11 @@
 {{ end }}
 
 {{ define "toc-container" }}
-  {{ if partial "docs/toc-show" . }}
   <aside class="book-toc">
     <div class="book-toc-content">
       {{ template "toc" . }}
     </div>
   </aside>
-  {{ end }}
 {{ end }}
 
 {{ define "toc" }}
