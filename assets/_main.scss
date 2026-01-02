@@ -313,6 +313,10 @@ body[dir="rtl"] .book-menu {
         display: block;
     }
 
+    a.active {
+        font-weight: bold;
+    }
+
     img {
         height: 1em;
         width: 1em;

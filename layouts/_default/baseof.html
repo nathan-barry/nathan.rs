@@ -64,6 +64,10 @@
   {{ with resources.Get "clipboard.js" | resources.Minify }}
     <script>{{ .Content | safeJS }}</script>
   {{ end }}
+  <!-- TOC Scroll Tracking -->
+  {{ with resources.Get "toc-scroll.js" | resources.Minify }}
+    <script>{{ .Content | safeJS }}</script>
+  {{ end }}
 {{ end }}
 
 {{ define "copyright" }}
