@@ -10,17 +10,14 @@ tags = ["Class Notes"]
 
 
 ## Differentiation Rules
----
 
 ### Product Rule
-
 If $f$ and $g$ are both differentiable, then
 
 $$\frac{d}{dx}[f(x)g(x)]=f(x)g^\prime(x)+g(x)f^\prime(x)$$
 
 
 ### Quotient Rule
-
 If $f$ and $g$ are differentiable, then
 
 $$\frac{d}{dx}\bigg[\frac{f(x)}{g(x)}\bigg]=\frac{g(x)f^\prime(x)-f(x)g^\prime(x)}{[g(x)]^2}$$
@@ -28,33 +25,30 @@ $$\frac{d}{dx}\bigg[\frac{f(x)}{g(x)}\bigg]=\frac{g(x)f^\prime(x)-f(x)g^\prime(x
 
 
 ## Integration
---- 
 
 ### The Substitution Rule
 
 If an integral has both an $x$ value and the derivative of that $x$ value, you can use u-substitution.
 $$\int x x^\prime dx = \int u du$$
 
-**Example 1**
+**Example 1:**
 $$\int \sin(x) \cos(x) dx \qquad u=\sin(x)\qquad du=\cos(x) dx$$ $$=\int u du$$
 $$=\frac{1}{2}u^2+C$$
 $$=\frac{1}{2}\sin^2(x)+C$$
 
-**Example 2**
+**Example 2:**
 $$\int x^3 \cos(x^4 + 2) dx \qquad u=x^4+2 \qquad du=3x^3 dx \Rightarrow \frac{1}{3}du = x^3 dx$$ $$=\frac{1}{3}\int \cos(u) du$$
 $$=\frac{1}{3}\sin(u)+C$$
 $$=\frac{1}{3}\sin(x^4 + 2)+C$$
 
 ### Definite Integrals
-
 If $g^\prime$ is continuous on $[ a, b ]$ and $f$ is continuous on the range of $u = g(x)$, then
 
 $$\int_a^b f(g(x)) g^\prime(x) dx = \int_{g(a)}^{g(b)}f(u) du$$
 $$=F(u) \Big|_{g(a)}^{g(b)}$$
 $$=F(g(b))-F(g(a))$$
 
-**Example 1**
-
+**Example 1:**
 $$\int_0^4 \sqrt{2x+1} dx\qquad u=2x+1\qquad du=2 dx \Rightarrow \frac{1}{2}du=dx$$ 
 $$=\frac{1}{2}\int_1^9 \sqrt{u} du$$
 $$=\frac{1}{2}\cdot \frac{2}{3}u^{\frac{3}{2}} \Big|_1^9$$
@@ -62,7 +56,6 @@ $$=\frac{1}{3}\cdot (9^{\frac{3}{2}}-1^{\frac{3}{2}})$$
 $$=\frac{26}{3}$$
 
 ### Integration by Parts
-
 If you see an integral where you can derive one part and integrate another, then
 
 $$\int f(x) g^\prime(x) dx = f(x) g(x) - \int g(x)f^\prime(x) dx$$
@@ -70,20 +63,16 @@ $$\int f(x) g^\prime(x) dx = f(x) g(x) - \int g(x)f^\prime(x) dx$$
 Let $u = f(x)$ and $v = g(x)$. Then the differentials are $du = f^\prime(x) dx$ and $dv=g^\prime(x) dx$, so, by the substitution rule, the formula for integration by parts becomes
 $$\int u dv  = u v - \int v du$$
 
-**Example 1**
-
+**Example 1:**
 $$\int x \sin(x) dx$$
 $$u=x \qquad dv=\sin(x) dx \qquad du=dx \qquad v=-\cos(x)$$
 $$=-x \cos(x)+\int \cos(x) dx$$
 $$=-x \cos(x)+\sin(x)+C$$
 
 ### Improper Integrals
-
 Improper integrals are integrals that either have an infinite discontinuity in $[a,b]$ or where the interval is infinite
 
-#### Type 1 (Infinite Range)
-
-If $\int_a^t f(x)dx$ exists for every number $t\geq a$ (provided the limit exists), then:
+**Type 1 (Infinite Range):** If $\int_a^t f(x)dx$ exists for every number $t\geq a$ (provided the limit exists), then:
 
 $$\int_a^\infty f(x) dx = \lim_{t\rightarrow\infty}\int_a^t f(x)dx$$
 
@@ -97,9 +86,7 @@ $$\int_{-\infty}^\infty f(x) dx = \int_{-\infty}^a f(x)dx + \int_a^\infty f(x)dx
 
 where $a$ can be any number.
 
-#### Type 2 (Discontinuity)
-
-If $f$ is continuous on $[a,b)$ and discontinuous at $b$ (provided the limit exists), then:
+**Type 2 (Discontinuity):** If $f$ is continuous on $[a,b)$ and discontinuous at $b$ (provided the limit exists), then:
 
 $$\int_a^b f(x) dx = \lim_{t\rightarrow b^-}\int_a^t f(x)dx$$
 
@@ -114,10 +101,8 @@ $$\int_a^b f(x) dx = \int_a^c f(x)dx + \int_c^b f(x)dx$$
 
 
 ## Trigonometric Integrals
----
 
 ### Strategy for Evaluating $\int \sin^mx \cos^nx dx$
-
 1. If the power of cosine is odd, save one cosine factor and use $\\cos^2 = 1 - \\sin^2x$ to express the remaining factors in terms of sine:
 
 $$\int \sin^mx \cos^{2k+1}x dx$$
@@ -144,7 +129,6 @@ $$\sin^2x = \frac12(1 - \cos 2x) \qquad \cos^2x = \frac12(1 + \cos 2x)$$
 $$\sin x \cos x = \frac12 \sin2x$$
 
 ### Strategy for Evaluating $\int \tan^mx \sec^nx dx$
-
 1. If the power of secant is even, save a factor of $\sec^2x$ and use $\sec^2x=1+\tan^2x$ to express the remaining factors in terms of $\tan x$:
 
 $$\int \tan^mx \sec^{2k}x dx$$
@@ -162,7 +146,6 @@ $$\int (\sec^2x - 1)^k \sec^{n-1} x \sec x \tan x dx$$
 - Then substitute $u=\sec x$
 
 ### Additional Identities
-
 To evaluate the integrals $\int \sin mx \cos nx dx$, $\int \sin mx \sin nx dx$, or $\int \cos mx \cos nx dx$, use the identities below:
 
 $$\sin A \cos B =  \frac12[\sin(A-B) + \sin(A+B)]$$
@@ -170,7 +153,6 @@ $$\sin A \sin B =  \frac12[\cos(A-B) - \cos(A+B)]$$
 $$\cos A \cos B =  \frac12[\cos(A-B) + \cos(A+B)]$$
 
 ### Trigonometric Substitution
-
 You use trigonometric substitution when you find either of the following below in an Integration problem:
 
 Expression | Subsitution | Identity
@@ -184,7 +166,7 @@ After you integrate, you must convert $\theta$ back to an x:
 - The original trig function you used in the substitution will let you know what leg is what
 
 
-**Example**
+**Example:**
 
 $$\int\frac{\sqrt{9-x^2}}{x^2}dx$$
 
@@ -208,10 +190,8 @@ $$=\quad\frac{\sqrt{9-x^2}}{x}-\\sin^{-1}\Big(\frac{x}{3}\Big)+C$$
 
 
 ## Infinite Sequences and Series
----
 
 ### Sequences
-
 A *sequence* can be thought as a list of numbers written in a definite order:
 
 $$a_1, a_2, a_3, a_4, \dots, a_n, \dots$$
@@ -233,7 +213,6 @@ $$\lim_{n\rightarrow\infty}(a_n + b_n) = \lim_{n\rightarrow\infty}a_n + \lim_{n\
 If a sequence either only increases or decreases, we call it *monotonic*.
 
 ### Series
-
 An *infinite series* (or just a *series*) is the sum of the terms in an infinite sequence ${\\{a_n\\}}_{n=1}^\infty$ which is an expression of the form:
 
 $$a_1+a_2+a_3+\dots+a_n+\dots$$
@@ -257,7 +236,6 @@ Thus the sum of a series is the limit of the sequence of partial sums as $n$ goe
 $$\sum_{n=1}^\infty a_n = \lim_{n\rightarrow\infty}\sum_{i=1}^{n} a_i$$
 
 ### Test for Divergence
-
 If the limit $L$ of a series does not exist and $L \neq 0$, aka:
 
 $$\lim_{n\rightarrow\infty} a_n \quad \text{does not exist}\quad or \quad\lim_{n\rightarrow\infty}\neq0$$ then the series $\sum_{n=1}^\infty a_n$ is divergent.
@@ -265,14 +243,11 @@ $$\lim_{n\rightarrow\infty} a_n \quad \text{does not exist}\quad or \quad\lim_{n
 It makes sense since if the limit of $a_n$ doesn't converge to 0, then you will be adding an infinite amount of positive numbers which will of course sum to infinity (meaning that the series will diverge). Note: Rule does not work in reverse. If the limit does exist and is equal to 0, you cannot conclude that it is convergent.
 
 
-**Example**
-
-Show that the series $\sum_{n=1}^\infty\frac{n^2}{5n^2+4}$ diverges.
+**Example:** Show that the series $\sum_{n=1}^\infty\frac{n^2}{5n^2+4}$ diverges.
 
 $$\lim_{n\rightarrow\infty}a_n=\lim_{n\rightarrow\infty}\frac{n^2}{5n^2+4}=\lim_{n\rightarrow\infty}\frac{1}{5+\frac{4}{n^2}}=\frac15\neq0$$
 
 ### The Integral Test
-
 Suppose $f$ is a continuous, positive, decreasing function on $[1, \infty)$ and let $a_n = f(n)$. Then the series $\sum_{n=1}^\infty a_n$ is convergent if and only if the improper integral $\int_1^\infty f(x) dx$ is convergent. In other words:
 
 1. If $\int_1^\infty f(x) dx$ is convergent, then $\sum_{n=1}^\infty a_n$ is convergent.
@@ -285,8 +260,7 @@ For the integral test to apply to a series, it must satisfy four special conditi
 3. $f(n) = a_n$ for all $n\ge 1$
 4. Function $f$ is *decreasing* on $[1, \infty)$       
 
-#### Process
-
+**Process:**
 - Figure out if the series $\sum_{n=1}^{\infty}a_n$ satisfies the 4 conditions
     - $f(x)$ is positive and continuous on $[1, \infty)$ and $f(n) = a_n$ for all $n\ge 1$. (The first 3)
 	- $f^\prime(x)= \cdots <0$  for all $x\ge1$. (find $f^\prime(x)$ and see whether it's always positive or negative)
@@ -296,7 +270,6 @@ For the integral test to apply to a series, it must satisfy four special conditi
 - Conclude whether the series converges or diverges based on whether the function converges or diverges
 
 ### Sum of a Series Approximation
-
 To find an approximation to the sum $s$ of a series, take the limit of the partial sums as $n$ goes to infinity.
 
 $$s = \lim_{n\rightarrow\infty}s_n = \sum_{n=1}^\infty a_n = a_1+a_2+a_3+\dots$$
@@ -311,9 +284,7 @@ If $R_n=s-s_n$, then:
 
 $$\int_{n+1}^\infty f(x)dx \le R_n \le \int_{n}^\infty f(x)dx$$
 
-**Example**
-
-Approximate $\sum \frac{1}{n^3}$ by using the sum of the first 10 terms, then estimate the level of error
+**Example:** Approximate $\sum \frac{1}{n^3}$ by using the sum of the first 10 terms, then estimate the level of error
 
 The approximation of the series:
 $$\sum_{n=1}^{10}\frac1{n^3}\approx s_{10}=\frac1{1^3}+\frac1{2^3}+\frac1{3^3}+\dots+\frac1{10^3}\approx1.1975$$
@@ -329,14 +300,13 @@ $$R_{10}\le\int_{10}^\infty \frac{1}{x^3}dx=\frac1{2(10)^2}=\frac1{200}=0.005$$
 Therefore the size of the error is at most 0.005.
 
 #### Calculating Accuracy Within a Given Range
-
 Let the calculation be accurate within 0.0005.
 
 $$R_n \le \int_{n}^\infty f(x) dx < 0.0005$$
 
 Integrate the improper integral and solve for n.
 
-**Example (continued)**
+**Example (continued):**
 
 $$R_n \le \int_{n}^\infty \frac1{x^3}dx = \frac1{2n^2} < 0.0005$$
 
@@ -347,7 +317,6 @@ $$n>\sqrt{1000}\approx31.6$$
 Thus we need 32 terms to ensure accuracy to within 0.0005.
 
 ### The Direct Comparison Test
-
 With the comparison tests, we compare a given series with a series that is known to be convergent or divergent to determine whether the given series is or not.
 
 Suppose that $\sum a_n$ and $\sum b_n$ are series with positive terms.
@@ -359,24 +328,18 @@ Suppose that $\sum a_n$ and $\sum b_n$ are series with positive terms.
 In short, if a series is smaller than a convergent series, it also converges. If a series is larger than a divergent series, it also diverges.
 
 
-**Example**
-
-Here we have the given series $\sum_{n=1}^\infty \frac1{2^n+1}$. This series is similar to the geometric series $\sum_{n=1}^\infty \frac1{2^n}$ with a common ratio of $\frac12$. Since we know that the former will always be less than the latter (since the denominator will always be bigger) and that the latter converges, we know that the former converges by the Direct Comparison Test.
+**Example:** Here we have the given series $\sum_{n=1}^\infty \frac1{2^n+1}$. This series is similar to the geometric series $\sum_{n=1}^\infty \frac1{2^n}$ with a common ratio of $\frac12$. Since we know that the former will always be less than the latter (since the denominator will always be bigger) and that the latter converges, we know that the former converges by the Direct Comparison Test.
 
 $$\sum_{n=1}^\infty \frac1{2^n+1} \le \sum_{n=1}^\infty \frac1{2^n}$$
 
 ### The Limit Comparison Test
-
 Suppose that $\sum a_n$ and $\sum b_n$ are series with positive terms. If
 
 $$\lim_{n\rightarrow\infty}\frac{a_n}{b_n}=c \qquad c\neq0$$
 
 then there $c$ is a finite number and $c>0$, then *either both series converge or both diverge.*
 
-
-**Example**
-
-Here we have the given series $\sum_{n=1}^\infty \frac1{2^n+1}$. This series is similar to the geometric series $\sum_{n=1}^\infty \frac1{2^n}$ with a common ratio of $\frac12$. 
+**Example:** Here we have the given series $\sum_{n=1}^\infty \frac1{2^n+1}$. This series is similar to the geometric series $\sum_{n=1}^\infty \frac1{2^n}$ with a common ratio of $\frac12$. 
 $$a_n=\sum_{n=1}^\infty \frac1{2^n+1}\qquad b_n=\sum_{n=1}^\infty \frac1{2^n}$$
 
 Using the Limit Comparison Test, we get
@@ -386,7 +349,6 @@ $$\lim_{n\rightarrow\infty} \frac{a_n}{b_n}=\lim_{n\rightarrow\infty} \frac{\fra
 Since this limit exists (and $\neq 0$) and $\sum \frac1{2^n}$ is a convergent geometric series, the series $\sum_{n=1}^\infty \frac1{2^n+1}$ converges by the Limit Comparison Test.
 
 ### Alternating Series
-
 An *alternating series* is a series whose terms flip from positive to negative each term.
 
 $$a_1-a_2+a_3-a_4+a_5-a_6+\dots$$
@@ -394,15 +356,12 @@ $$a_1-a_2+a_3-a_4+a_5-a_6+\dots$$
 $$1-\frac12+\frac13-\frac14+\frac15-\frac16+\dots=\sum_{n=1}^\infty (-1)^{n-1}\frac1n$$
 
 ### The Alternating Series Test
-
 An alternating series is convergent if it satisfies
 
 1. $\quad b_{n+1} \le b_n \quad$ for all $n$
 2. $\quad \lim_{n\rightarrow\infty}b_n=0$
 
-**Example**
-
-Take the alternating harmonic series
+**Example:** Take the alternating harmonic series
 
 $$1-\frac12+\frac13-\frac14+\dots=\sum_{n=1}^\infty(-1)^{n-1}\frac1n\qquad b_n=\frac1n$$
 
@@ -414,7 +373,6 @@ $$\lim_{n\rightarrow\infty}b_n=0\qquad \Rightarrow\qquad \lim_{n\rightarrow\inft
 Therefore, the series is convergent by the Alternating Series Test.
 
 ### Level of Error for Alternating Series
-
 If $s=\sum (-1)^{n-1}b_n$ where $b_n > 0$ is the sum of an alternating series that is convergent by the alternating series test, then the level of error for the alternating series is:
 
 $$|R_n|=|s-s_n| \le b_{n+1}$$
@@ -426,7 +384,6 @@ In a normal series, the partial sums will always increase as $n$ goes to infinit
 $|s-s_n|$ will decrease as $n\rightarrow\infty$ since you are adding and *subtracting* smaller and smaller numbers. The *subtraction* is why $|s-s_n|$ will always be less than or equal to  $b_{n+1}$.
 
 ### Absolute Convergence
-
 - A series $\sum a_n$ is called *absolutely convergent* if the series of absolute values $\sum |a_n|$ is convergent.
 
 - A series $\sum a_n$ is called *conditionally convergent* if it is convergent but not absolutely convergent.
@@ -434,7 +391,6 @@ $|s-s_n|$ will decrease as $n\rightarrow\infty$ since you are adding and *subtra
 - If a series $\sum a_n$ is absolutely convergent, then it is convergent.
 
 ### The Ratio Test
-
 The series $\sum_{n=1}^\infty a_n$ has absolute convergence (and therefore is convergent) if:
 
 $$\lim_{n\rightarrow\infty}\Big|\frac{a_{n+1}}{a_n}\Big|=L<1$$
@@ -447,7 +403,7 @@ The ratio test is inconclusive (no conclusion can be drawn about the convergence
 
 $$\lim_{n\rightarrow\infty}\Big|\frac{a_{n+1}}{a_n}\Big|=L=1$$
 
-**Example**
+**Example:**
 
 $$\sum_{n=1}^\infty a_n=\sum_{n=1}^\infty(-1)^n\frac{n^3}{3^n}$$
 
@@ -460,7 +416,6 @@ $$\lim_{n\rightarrow\infty}\Bigg|\frac{a_{n+1}}{a_n}\Bigg|=\lim_{n\rightarrow\in
 Justification: Since $\lim_{n\rightarrow\infty}|\frac{a_{n+1}}{a_n}|=\frac13$ and $\frac13<1$, the series $\sum_{n=1}^\infty(-1)^n\frac{n^3}{3^n}$ is absolutely convergent by the Ratio Test.
 
 ### The Root Test
-
 The series $\sum_{n=1}^\infty a_n$ has absolute convergence (and therefore is convergent) if:
 
 $$\lim_{n\rightarrow\infty}\sqrt[n]{|a_n|}=L<1$$
@@ -473,7 +428,7 @@ The root test is inconclusive (no conclusion can be drawn about the convergence 
 
 $$\lim_{n\rightarrow\infty}\sqrt[n]{|a_n|}=L=1$$
 
-**Example**
+**Example:**
 
 $$\sum_{n=1}^\infty a_n=\sum_{n=1}^\infty\frac3{[ln(n)]^n}$$
 
@@ -488,12 +443,9 @@ Justification: Since $\lim_{n\rightarrow\infty}\frac{\sqrt[n]{3}}{ln(n)}=0$ and 
 
 
 ## Common Series
----
-
 These series are good for the Direct Comparison Test and the Limit Comparison Test since we know whether they converge or diverge.
 
 ### Harmonic Series
-
 A Harmonic Series takes the form of:
 
 $$\sum_{n=1}^\infty\frac1n$$
@@ -501,7 +453,6 @@ $$\sum_{n=1}^\infty\frac1n$$
 and is always *divergent.*
 
 ### Geometric Series
-
 A Geometric Series takes the form of:
 
 $$\sum_{n=1}^{\infty}a\cdot r^{n-1}$$
@@ -513,7 +464,6 @@ When $|r|<1$:
 $$s=\sum_{n=1}^{\infty}a\cdot r^{n-1}=\frac{a}{1-r}$$
 
 ### P-Series
-
 The P-Series is any series of the form:
 
 $$\sum_{n=1}^\infty\frac{1}{n^p}dx$$
@@ -523,8 +473,6 @@ and is *convergent* when $p>1$ and *divergent* when $p\le1$.
 
 
 ## Power Series
----
-
 A power series is a series of the form $$\sum_{n=0}^\infty c_nx^n=c_0+c_1x+c_2x^2+c_3x^3+\cdots$$ where $x$ is a variable and the $c_n$'s are constants called the coefficients of the series.
 
 A power series may converge for some values of $x$ and diverge for other values of $x$.
@@ -538,9 +486,7 @@ is called a power series centered at $a$.
 You can use the Ratio Test or the Root Test to determine whether a power series is convergent or divergent.
 
 
-**Example**
-
-Let $a_n=\frac{(x-3)^n}{n}$, then:
+**Example:** Let $a_n=\frac{(x-3)^n}{n}$, then:
 
 $$\lim_{n\rightarrow\infty}\Bigg|\frac{a_n+1}{a_n}\Bigg|=\lim_{n\rightarrow\infty}\Bigg|\frac{(x-3)^{n+1}}{n+1}\cdot\frac{n}{(x-3)^{n}}\Bigg|=\lim_{n\rightarrow\infty}\frac{1}{1+\frac1n}|x-3|=|x-3|$$
 
@@ -551,13 +497,11 @@ $$|x-3|<1 \quad \Rightarrow \quad -1<x-3<1 \quad \Rightarrow \quad 2<x<4$$
 In this case, the *Radius of Convergence* is $1$ and the *Interval of Convergence* is $(2, 4)$.
 
 ### Power Series Representations
-
 We can represent certain types of functions as Power Series. This is sometimes useful for functions that are normally hard to integrate, but which can be represented as a series with terms that are easy to integrate.
 
 We can perform *term-by-term differentiation and integration* of a power series representation of a function to get the integral or derivative of that function.
 
-#### Properties
-
+**Properties:**
 - If the power series $\sum c_n(x-a)^n$ has a *Radius of Convergence* $R > 0$, then the function $f$ defined by
 
   $$f(x)=c_0+c_1(x-a)+c_2(x-a)^2+\dots=\sum_{n=0}^\infty c_n(x-a)^n$$
@@ -575,7 +519,6 @@ $$=\sum_{n=0}^\infty \int c_n(x-a)^{n} dx=C+\sum_{n=0}^\infty \frac1{n+1} c_n(x-
 
 
 ## Taylor Series
----
 Taylor Series is a general way to find a power series representations.
 
 If $f$ has a power series representation at $a$, that is, if:
@@ -595,23 +538,19 @@ $$=f(a)+\frac{f^\prime(a)}{1!}(x-a)+\frac{f^{\prime\prime}(a)}{2!}(x-a)^2+\frac{
 It must be that $|x-a|<R$. If this is the case, then the series will converge to the actual function. If not, then it diverges from it, making it useless.
 
 ### Maclaurin Series
-
 A Maclaurin Series is a Taylor Series that is centered at 0 (aka $a = 0$).
 
 $$f(x)=\sum_{n=0}^\infty \frac{f^{(n)}(0)}{n!}x^n$$
 
 $$=f(0)+\frac{f^\prime(0)}{1!}x+\frac{f^{\prime\prime}(0)}{2!}x^2+\frac{f^{(3)}(0)}{3!}x^3+\dots$$
 
-**Example**
-
-Find the Maclaurin series of the function $f(x) = e^x$.
+**Example:** Find the Maclaurin series of the function $f(x) = e^x$.
 
 If $f(x) = e^x$, then $f^{(n)}(x) = e^x$, so $f^{(n)}(0)=e^0=1$ for all $n$. Therefore, the Taylor series for $f$ at 0 is
 
 $$\sum_{n=0}^\infty \frac{f^{(n)}(0)}{n!}x^n=\sum_{n=0}^\infty \frac{x^n}{n!} = 1+\frac{x}{1!}+\frac{x^2}{2!}+\frac{x^3}{3!}+...$$
 
 ### Taylor Polynomials
-
 A Taylor Polynomial is the sum of the first $n^{th}$ terms in a Taylor Series
 
 $$T_n(x)=\sum_{i=0}^n\frac{f^{(i)}(a)}{i!}(x-a)^n$$
@@ -629,7 +568,6 @@ $$\lim_{n\rightarrow\infty}R_n(x) = 0$$
 for $|x-a|<R$ ($R$ is the Radius of Convergence, also sometimes denoted as $d$), then $f$ is equal to the sum of its Taylor Series on the interval $|x-a|<R$.
 
 ### Taylor's Inequality
-
 If $|f^{(n+1)}(x)| \le M$ for $|x-a| \le d$, then the remainder $R_n(x)$ of a Taylor Polynomial satisfies the inequality:
 
 $$|R_n(x)| \le \frac{M}{(n+1)!}|x-a|^{n+1} \qquad for\quad |x-a|\le d$$
@@ -637,8 +575,6 @@ $$|R_n(x)| \le \frac{M}{(n+1)!}|x-a|^{n+1} \qquad for\quad |x-a|\le d$$
 
 
 ## Parametric Equations
----
-
 Suppose $x$ and $y$ are both given as functions of a third variable $t$ (called a *parameter*) by the equations (called *parametric equations*) below
 
 $$x=f(t)\qquad y=g(t)$$
@@ -656,7 +592,6 @@ $$x=f(t)\qquad y=g(t)\qquad a\le t\le b$$
 which means it has an *initial point* $(f(a), g(a))$ and *terminal point* $(f(b), g(b))$.
 
 ### Eliminating the Parameter
-
 There are two methods for eliminating the parameter $t$. The most obvious method is solve for $t$ in one parametric equation and then plug it in to the other.
 
 $$x=1+t \qquad y=\frac t2$$
@@ -668,7 +603,6 @@ $$x=\cos(t)\qquad y=\sin(t)$$
 $$\cos^2(t) + \sin^2(t) = 1\quad\implies\quad x^2 +y^2=1$$
 
 ### Tangents and Arc Lengths of Parametric Curves
-
 If $f$ and $g$ are differentiable functions and we want to find the tangent line at a point on the Parametric Equations $x=f(t)$, $y=g(t)$.
 
 $$\frac{dy}{dx}=\frac{\frac{dy}{dt}}{\frac{dx}{dt}}\quad \text{if} \quad \frac{dx}{dt}\neq0$$
@@ -680,8 +614,6 @@ $$L=\int_\alpha^\beta\sqrt{\Big(\frac{dx}{dt}\Big)^2+\Big(\frac{dy}{dt}\Big)^2}d
 
 
 ## Polar Coordinates
----
-
 Polar coordinates are another way to plot points on a Cartesian Plane (instead of using Cartesian coordinates we usually see).
 
 We call the origin (labeled $O$) the *pole*. The ray drawn horizontally to the right is called the *polar axis*. The point $P(r, \theta)$ is called the *polar coordinates* of $P$.
@@ -693,7 +625,6 @@ $$P(1, 0) = P(-1, \pi) = P(1, 2\pi) = P(-1, 3\pi),\quad etc$$
 All that changes is how many times you circle around the origin.
 
 ### Polar to Cartesian 
-
 To find the Cartesian coordinates of a point when the polar coordinates are known:
 
 $$x=r \cos \theta\qquad y=r \sin \theta$$
@@ -702,7 +633,6 @@ To find the polar coordinates of a point when the Cartesian coordinates are know
 $$r^2=x^2+y^2\qquad \tan \theta=\frac{y}x$$
 
 ### Tangents of Polar Curves
-
 To find a tangent line to a Polar Curve $r=f(\theta)$, we regard $\theta$ as a parameter and write its parametric equations as:
 
 $$x=r \cos \theta=f(\theta) \cos \theta \qquad y=r \sin \theta =f(\theta) \sin \theta$$
@@ -714,7 +644,6 @@ $$\frac{dy}{dx}=\frac{\frac{dy}{d\theta}}{\frac{dx}{d\theta}}=\frac{\frac{dr}{d\
 We locate *horizontal tangents* by finding where $\frac{dy}{d\theta}=0$ and find *vertical tangents* at points where $\frac{dx}{d\theta}=0$. If they're both 0, undefined behavior happens.
 
 ### Area under Polar Curves
-
 The area under a polar curve can be represented as:
 
 $$A=\int_a^b\frac12[ f(\theta) ]^2 d\theta$$
@@ -723,23 +652,17 @@ which is often written as:
 
 $$A=\int_a^b\frac12 r^2 d\theta$$
 
-#### Finding The Intersections Between Two Curves
-
+Finding The Intersections Between Two Curves:
 - To find the intersections, set $r_1$ and $r_2$ equal to each other and solve for $\theta$.
-
 - You also should check the pole by setting both $r_1$ and $r_2$ to 0 and solving for $\theta$. You should get two valid angles for both if they're both on the curve.
 
-
-#### Finding The Area Between Two Curves
-
+Finding The Area Between Two Curves:
 - To find the area under curve $r_1$ and above curve $r_2$, you find where they intersect and then denote the intersecting angles as $\alpha$ and $\beta$.
-
 - Plug in everything to this equation and solve
 
 $$A=\int_\alpha^\beta \frac12(r_1^2-r_2^2) d\theta$$
 
 ### Arc Length of Polar Curves
-
 The length of a polar curve $r=f(\theta)$ where $\alpha \le \theta\le \beta$ is:
 
 $$L = \int_\alpha^\beta\sqrt{r^2+\Big(\frac{dr}{d\theta}\Big)^2}d\theta$$
@@ -747,8 +670,6 @@ $$L = \int_\alpha^\beta\sqrt{r^2+\Big(\frac{dr}{d\theta}\Big)^2}d\theta$$
 
 
 ## Differential Equations
----
-
 A *differential equation* is an equation that contains an unknown function and one or more of its derivatives. The *order* of a differential equation is the order of the highest derivative that occurs in the equation.
 
 Usually in equations, the independent variable is called $t$ and represents time, but in general the independent variable can be anything. For the differential equation below, it is understood that y is an known function of x.
@@ -765,14 +686,11 @@ When we are asked to *solve* a differential equation, we are expected to find al
 
 In general, solving a differential equation is not an easy matter as there is no systematic technique that allows us to solve all differential equations.
 
-### Steps for solving
-
+**Steps for solving:**
 1. Derive y to the proper order
 2. Get the differential equation and what you just solved to be equal to each other
 
-**Example**
-
-Show that every member of the family of functions below is a solution of the differential equation $y^\prime=\frac12(y^2-1)$:
+**Example:** Show that every member of the family of functions below is a solution of the differential equation $y^\prime=\frac12(y^2-1)$:
 
 $$y=\frac{1+ce^t}{1-ce^t}$$
 
@@ -793,14 +711,11 @@ $$=\frac{2ce^2}{(1-ce^t)^2}$$
 Therefore, for every value of c, the given function is a solution of the differential equation
 
 ### Initial Value Problem
-
 When applying differential equations, we are usually not interested in finding the general solution as we are in finding a solution that satisfies some additional requirement, also known as a *Particular Solution.* 
 
 In many physics problems, we are interested in finding a solution of the form $y(t_0)=y_0$. This is called an *Initial Condition*, and the problem of finding a solution of a differential equation is called an *Initial Value Problem*.
 
-**Example**
-
-Find a solution of the differential equation $y^\prime = \frac12(y^2-1)$ that satisfies the initial condition y(0) = 2.
+**Example:** Find a solution of the differential equation $y^\prime = \frac12(y^2-1)$ that satisfies the initial condition y(0) = 2.
 
 Substituting the values of $t=0$ and $y=2$ into the formula
 
@@ -813,7 +728,6 @@ If we solve for c, we get $2-2c=1+c$, which gives us $c=\frac13$. So the solutio
 $$2=\frac{1+\frac{1}{3}e^t}{1-\frac{1}{3}e^t}=\frac{3+e^t}{3-e^t}$$
 
 ### Direction Fields
-
 Suppose we are asked to sketch the graph of the solution of the Initial Value Problem:
 
 $$y^\prime=x+y\qquad y(0)=1$$
@@ -825,7 +739,6 @@ We can draw the slope of each point to get a *direction field* (also known as a 
 You can figure out the slope field of an equation by plugging numbers into the derivative and then plotting the slope on a graph.
 
 ### Euler's Method
-
 The basic idea behind a direction field can be used to find numerical approximations to solutions of a differential equation.
 
 $$y^\prime=x+y\qquad y(0)=1$$
@@ -835,17 +748,13 @@ As a first approximation to the solution, we could use the linear approximation 
 
 Euler's idea was to update the curve each step (some amount on the x-axis) to approximate the solution curve.
 
-#### Formula
-
-Approximate values for the solution of the initial value problem $y^\prime=F(x, y)$ where $y(x_0)=y_0$ with step size $h$ at $x_n=x_{n-1}+h$ are
+**Formula:** Approximate values for the solution of the initial value problem $y^\prime=F(x, y)$ where $y(x_0)=y_0$ with step size $h$ at $x_n=x_{n-1}+h$ are
 
 $$y_n=y_{n-1}+h F(x_{n-1}, y_{n-1})$$
 
 where $F(x, y)$ is the slope of a solution curve at points $(x, y)$.
 
-**Example**
-
-Use Euler's method with step size 0.1 to construct a table of approximate values for the solution of the initial-value problem
+**Example:** Use Euler's method with step size 0.1 to construct a table of approximate values for the solution of the initial-value problem
 
 $$y^\prime=x+y\qquad y(0)=1$$
 
@@ -858,7 +767,6 @@ $$y_3=y_2+h F(x_2, y_2)=1.22+(0.1)(0.2+1.22)=1.362$$
 You can get more accurate values by decreasing the step size.
 
 ### Separable Equations
-
 A *separable equation* is a first-order differential equation in which the expression for $\frac{dy}{dx}$ can be factored as a function of $x$ times a function of $y$. In other words, it can be written in the form:
 
 $$\frac{dy}{dx}=g(x)f(y)$$
@@ -875,10 +783,7 @@ We can integrate both sides
 
 $$\int h(y) dy=\int g(x) dx$$
 
-
-**Example**
-
-Solve the differential equation $\frac{dy}{dx}=\frac{x^2}{y^2}$ and find the solution that satisfies the Initial Condition $y(0)=2$.
+**Example:** Solve the differential equation $\frac{dy}{dx}=\frac{x^2}{y^2}$ and find the solution that satisfies the Initial Condition $y(0)=2$.
 
 $$y^2 dy=x^2 dx$$
 $$\int y^2 dy=\int x^2 dx$$
@@ -902,7 +807,6 @@ Thus the solution to the initial value problem is
 $$y=\sqrt[3]{x^3+8}$$
 
 ### Logistic Model
-
 The logistic model is usually used for population growth:
 
 $$\frac{dP}{dt}=kP(1-\frac{P}{m})$$
@@ -918,7 +822,6 @@ The Initial Value Problem solution of the logistic model is:
 $$P=\frac{m}{1+Ae^{-kt}}\qquad A=\frac{m-P_0}{P_0}$$
 
 ### Linear Equations
-
 A first order *linear* differential equation is one that can be put into the form:
 
 $$\frac{dy}{dx}+P(x)y=Q(x)$$
@@ -928,7 +831,6 @@ where $P$ and $Q$ are continuous functions on a given interval.
 An example of a linear equation is $xy^\prime+y=2x$ because, for $x\neq0$, it (notice that this is not a separable equation because it is impossible to factor the expression for $y^\prime$ as a function of $x$ times a function of $y$) can be written in the form
 
 $$y^\prime+\frac1xy=2$$
-
 
 We notice, by the product rule, that
 
@@ -947,7 +849,7 @@ Every first order linear differential equation can be solved in a similar fashio
 
 $$I(x)=e^{\int P(x)dx}$$
 
-**Example**
+**Example:**
 
 $$\frac{dy}{dx}+3x^2y=6x^2$$
 $$P(x)=3x^2\qquad Q(x)=6x^2$$
@@ -963,8 +865,6 @@ $$y=2+Ce^{-x^3}$$
 
 
 ## Partial Derivatives
----
-
 If $f$ is a function of two variables, its partial derivatives are the functions $f_x$ and $f_y$ defined by:
 
 $$f_x = lim_{h\rightarrow0} \frac{f(x+h, y)-f(x,y)}{h}$$
@@ -978,7 +878,6 @@ $$f_y(x,y)=f_y=\frac{\partial f}{\partial y}=\frac{\partial}{\partial y}f(x,y)=\
 To compute a partial derivative with respect to x, treat all other variables as constants and differentiate as usual.
 
 ### Higher Derivatives
-
 If $f$ is a function of two variables, the its partial derivatives $f_x$ and $f_y$ are also functions of two variables, so we can differentiate them again to get second order partial derivatives. Below is the notation where the first partial was with respect to x:
 
 $$f_{xx}=f_{11}=\frac{\partial }{\partial x} \frac{\partial f}{\partial x}=\frac{\partial^2 f}{\partial x^2}=\frac{\partial^2 z}{\partial x^2}$$
@@ -987,10 +886,8 @@ $$f_{xy}=f_{12}=\frac{\partial }{\partial y} \frac{\partial f}{\partial x}=\frac
 
 
 ## Appendix
----
 
 ### Common Integrations
-
 $$\int x^n dx = \frac{x^{n+1}}{n+1} \quad (n \neq -1)$$
 $$\int \frac1x dx = \ln|x|$$
 $$\int e^x dx = e^x$$
