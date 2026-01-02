@@ -12,6 +12,7 @@
 
 <!--{{ partial "docs/prev-next" . }}-->
 
+{{ if not .IsHome }}
 <div class="flex flex-wrap justify-between">
   <span>
     <a href="/posts" class="flex align-center">
@@ -20,3 +21,4 @@
     </a>
   </span>
 </div>
+{{ end }}
