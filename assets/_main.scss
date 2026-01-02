@@ -420,6 +420,7 @@ body[dir="rtl"] .book-menu {
     #toc-control:checked ~ main {
         .book-header aside {
             display: block;
+            margin: $padding-16 0;
         }
     }
 
