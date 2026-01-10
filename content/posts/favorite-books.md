@@ -7,7 +7,7 @@ tags = ["Miscellaneous"]
 Below are all the books I've read since middle school, roughly in order. Those highlighted in blue were those I particularly enjoyed :)
 
 <script>
-let bookNumber = 166;
+let bookNumber = 167;
 document.addEventListener("DOMContentLoaded", function() {
   // Auto-increment book numbers
   document.querySelectorAll('.book-number').forEach((book) => {
@@ -19,7 +19,11 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 ## 2026 (Age 23)
-(None yet!)
+{{< book
+    title="The Anatomy of Fascism"
+    author="Robert O. Paxton"
+    special=""
+    description="">}}
 
 
 
