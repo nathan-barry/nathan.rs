@@ -15,11 +15,11 @@ Here are a few of my favorite quotes I've liked over the years.
 > "I wish to preach, not the doctrine of ignoble ease, but the doctrine of the strenuous life, the life of toil and effort, of labor and strife; to preach that highest form of success which comes, not to the man who desires mere easy peace, but to the man who does not shrink from danger, from hardship, or from bitter toil, and who out of these wins the splendid ultimate triumph."
 <br>— Theodore Roosevelt
 
-> "Begin to weave and God will give the thread"
-<br>— German Proverb
-
 > "Work praises the man"
 <br>— Irish Proverb
+
+> "Work will set you free"
+<br>— Entrance gate of Auschwitz concentration camp
 
 > "It is not the critic who counts; not the man who points out how the strong man stumbles, or where the doer of deeds could have done them better. The credit belongs to the man who is actually in the arena, whose face is marred by dust and sweat and blood; who strives valiantly; who errs, who comes short again and again, because there is no effort without error and shortcoming; but who does actually strive to do the deeds; who knows great enthusiasms, the great devotions; who spends himself in a worthy cause; who at the best knows in the end the triumph of high achievement, and who at the worst, if he fails, at least fails while daring greatly, so that his place shall never be with those cold and timid souls who neither know victory nor defeat."
 <br>— Theodore Roosevelt
@@ -29,6 +29,9 @@ Here are a few of my favorite quotes I've liked over the years.
 
 > “The march of Providence is so slow and our desires so impatient; the work of progress so immense and our means of aiding it so feeble; the life of humanity is so long, that of the individual so brief, that we often see only the ebb of the advancing wave and are thus discouraged. It is history that teaches us to hope.”
 <br>― Robert E. Lee
+
+> "Begin to weave and God will give the thread"
+<br>— German Proverb
 
 > "Never throughout history has a man who lived a life of ease left a name worth remembering."
 <br>— Theodore Roosevelt
