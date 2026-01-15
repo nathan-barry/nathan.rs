@@ -105,23 +105,23 @@ To be able to condition the generation on a "prompt", we currently never mask th
 Simplified code for the `diffusion_collator` looks like:
 
 ```python
-  def diffusion_collator(examples):
-      batch = tokenizer.pad(examples, return_tensors="pt")
+def diffusion_collator(examples):
+    batch = tokenizer.pad(examples, return_tensors="pt")
 
-      # Randomly select masking probability for this batch
-      mask_prob = random.choice([1.0, 0.9, 0.8, 0.7, 0.6, 0.5, 0.4, 0.3, 0.2, 0.1])
+    # Randomly select masking probability for this batch
+    mask_prob = random.choice([1.0, 0.9, 0.8, 0.7, 0.6, 0.5, 0.4, 0.3, 0.2, 0.1])
 
-      # Never mask the first PREFIX_LEN tokens (preserved context)
-      maskable_positions = batch.input_ids[:, PREFIX_LEN:]
+    # Never mask the first PREFIX_LEN tokens (preserved context)
+    maskable_positions = batch.input_ids[:, PREFIX_LEN:]
 
-      # Create random mask for the chosen probability
-      mask = torch.rand(maskable_positions.shape) < mask_prob
+    # Create random mask for the chosen probability
+    mask = torch.rand(maskable_positions.shape) < mask_prob
 
-      # Apply masking
-      batch.input_ids[:, PREFIX_LEN:][mask] = tokenizer.mask_token_id
-      batch.labels = batch.input_ids.clone()
+    # Apply masking
+    batch.input_ids[:, PREFIX_LEN:][mask] = tokenizer.mask_token_id
+    batch.labels = batch.input_ids.clone()
 
-      return batch
+    return batch
 ```
 
 For inference, we start with an input that is a tensor of size 256 (since we are generating blocks of 256 tokens). The first 16 positions are the token ids that correspond to the prompt, and the last 240 are just `<MASK>` tokens. We iterate through the denoising schedule, and at each step, we generate a prediction and then remask the sequence again. The process looks like this:
