@@ -24,7 +24,7 @@
         <!-- Recent Posts -->
         <li style="margin-top: 8px"><strong>Recent Posts</strong></li>
         <ul>
-            {{ range first 5 (where .Site.RegularPages "Section"
+            {{ range first 4 (where .Site.RegularPages "Section"
             "posts").ByDate.Reverse }}
             <li>
                 <a href="{{ .RelPermalink }}">{{ .Title }}</a>
