@@ -9,7 +9,9 @@ draft = true
 Learning how to generate Shakespeare has become the "Hello World" of language models. Recently, I've been messing with alternative language models (diffusion language models instead of autoregressive transformers) and the concept of **nonparametric language models** came to my attention.
 A model is nonparametric if it does not have parameters which require training (thus, no neural networks).
 
-I recall reading a paper (elaborated on below) which scaled a variant, an **unbounded n-gram** language model, to trilions of tokens. Their model had applications in helping guide LLMs during generation, but had poor open generation capabilities by itself. I'll explain how this nonparametric model works and the strategies I used to improve its language generation capabilities.
+A year ago, I read paper which scaled a **unbounded n-gram** (nonparametric) language model to trilions of tokens. Their model had applications in helping guide LLMs during generation, but had poor open generation capabilities by itself.
+
+I'll explain how this nonparametric model works and how I improved its standalone language generation capabilities, as visualized below:
 
 <img alt="Infini-gram vs GPT" style="max-width: 100%" src="/images/unbounded-n-gram.gif">
 
@@ -274,20 +276,22 @@ For `numMatches`, the first level's median is $m=1$ (what we expected) and the s
 
 ## Comparison to NanoGPT
 
-Below is an animation comparing the geneartion quality and speed of both the models (same animation as above). We can see that my infini-gram implementation takes `0.08` seconds for generation, **250x** faster than a 10M parameter nanoGPT implementation.
+Below is the same animation as above, comparing the geneartion quality and speed of both the models. The first thing that sticks out is the difference in generation speed. We can see that my infini-gram implementation takes `0.08` seconds for generation, **250x** faster than the 10M parameter nanoGPT implementation (running on my M1 MacBook Pro).
 
 <img alt="Infini-gram vs GPT" style="max-width: 100%" src="/images/unbounded-n-gram.gif">
+    
+An important thing to note is that suffix arrays do not require GPUs at all, and require minimum CPUs and RAM[^0]Although constructing it benefits from more ram. The suffix array can stay entirely on disk when performing the binary search, only pulling in one page at each step in a sequential manner (thus, doesn't benefit form more RAM or CPU cores).
 
-NanoGPT certainly produces more coherent Shakespeare, but I am happy that a nonparametric model was able to produce something as close.
+From the eyeball test, NanoGPT looks like it produces more coherent Shakespeare, but I am happy that our nonparametric model was able to produce something so decent!
 
 ### Likelihood, Loss, and Perplexity
 
 To quantitatively compare these models, we need to understand how language models are evaluated.
 
-Let's say we are trying to predict the $i$th token (denoted as $x_i$) after a sequence of previous $i-1$ tokens (denoted as $x_{<i}$).
-Language models take in $x_{<1}$ and output a probability distribution over possible next characters. The probability it assigned to the actual character $x_i$ correctly is $P(x_i | x_{<i})$. This is known as the **likelihood**.
+Let's say we are trying to predict the $i$th token (denoted as $x_i$) which comes after a sequence of previous $i-1$ tokens (denoted as $x_{<i}$).
+Language models take in $x_{<1}$ and output a probability distribution over the set of possible next characters. The probability it assigned to the actual character $x_i$ correctly is $P(x_i | x_{<i})$. This is known as the **likelihood**.
 
-If we used our previous bigram example as before for the dataset `AABBCCBC`, we see that if the previous token is `B`, we get the following probability distribution:
+With our previous bigram example for the dataset `AABBCCBC`, we see that if the previous token is `B`, we get the following probability distribution:
 
 ```
 Bigram Model:           Probabilities Given B:
@@ -299,25 +303,24 @@ C   0  .66   .5         P(C|B) = .66
 
 If we were trying to predict the last token in the dataset, `C`, we would see that the likelihood is $P(C|B)=0.66$. This shows that the model has a $66\\%$ chance of predicting the correct value.
 
-To get a single number for model quality, we average the negative log of these probabilities across our test set:
+To get a single number for model quality, we average the negative log of these probabilities across an example in our test set:
 
 $$\text{NLL} = -\frac{1}{N}\sum_{i=1}^{N} \log_2 P(x_i | x_{<i})$$
 
-This is called the **negative log-likelihood** (the loss funcion). This function has a nice shape which monotonically decreases between 0 and 1 (the range of probabilities). If the model assigns $100\\%$ probability to the correct token, the loss is 0. If it assigns $0\\%$ to the correct token, the loss is infinite. The more confident and correct the model is, the lower the loss.
-
+This is called the **negative log-likelihood** (the loss funcion) for a sequence. This function has a nice shape which monotonically decreases between 0 and 1 (the range of probabilities). If the model assigns $100\\%$ probability to the correct tokens, the loss is 0. If it assigns a $0\\%$ chance to a correct token, the loss is infinite. The more confident and correct the model is, the lower the loss.
 
 The standard metric for evaluating language models is **perplexity**. Perplexity is a measurement for how well a model predicts text. The formula is simply:
 
 $$\text{Perplexity} = 2^{\text{NLL}}$$
 
-Why exponentiate back? Perplexity has an intuitive interpretation: it represents the **effective vocabulary size** the model is choosing from at each step. A perplexity of 4 means the model is as uncertain as if it were guessing uniformly among 4 characters. Lower perplexity is better.
+Why exponentiate back? Perplexity has an intuitive interpretation: it represents the **effective vocabulary size** the model is choosing from at each step. A perplexity of 4 means the model is as uncertain as if it were guessing uniformly among 4 characters[^0]Show the math below. Lower perplexity is better.
 
 ### NanoGPT Perplexity During Training
 
-During training, we generally split our dataset into two: a train dataset (contains the majority of the dataset) and a validation dataset (usually small).
-We train the model using the train dataset, and use the validation dataset to see how well our model performs on data it hasn't seen before.
+During training, we generally split our dataset into two parts: a train set (contains the majority of the dataset) and a validation set (usually small).
+We train the model using the train set, and use the validation set to see how well our model performs on data it hasn't seen before.
 
-We can see how the perplexity and loss change for both splits during training. At the start, the model generates gibberish since its weights are completely untrained.
+We can see how the perplexity and loss for both splits change during training. At the start, the model generates gibberish since its weights are completely untrained.
 
 ```
 step 0: train(loss=4.2683, ppl=71.40), val(loss=4.2670, ppl=71.31)
@@ -328,7 +331,7 @@ YoR&$LMtofCiEIfB!!&V!OW;KdilWZ,
 e3 ixYe-EYnkciK;lxW;HFGVdroG EsSXUB;qWk J
 ```
 
-At step 1000 is when we see the lowest validation loss and perplexity. We start to see a divergence between the training and validation splits as the model overfits to the dataset.
+At step 1000 is when we see the lowest validation loss and perplexity. A divergence start to form between the train and validation sets as the model overfits to the training dataset.
 
 ```
 step 1000: train(loss=1.1014, ppl=3.01), val(loss=1.5465, ppl=4.69)
@@ -344,7 +347,7 @@ Nurse:
 Well, and thou such as thy weapons, with c
 ```
 
-By the end of training, the validation loss is almost as high as at the start of training, but the training loss shows that the model can produce very similar text as the training dataset.
+By the end of training, the validation loss is almost as high as at the start of training. But the training perplexity shows that the model produces text very similar to the training dataset.
 
 ```
 step 5000: train(loss=0.1260, ppl=1.13), val(loss=4.0455, ppl=57.14)
@@ -358,13 +361,15 @@ KING RICHARD II:
 We pity this young rece
 ```
 
+You can pull the weights and play with the model [here](). Local inference for 500 tokens only takes roughly 10 seconds on an M1 MacBook Pro.
+
 ### Unbounded N-Gram Perplexity
 
 The Infini-gram paper doesn't measure perpelxity for language generation. The main reason is because the sampling technique they used produces an **infinite perplexity**.
 
-Sparse samples (suffixes with only one match) gives us a probability distribution where one token has $100\\%$ probability while every other token has 0. Thus, if we have a sparse sample, the correct token may have a $0\\%$ probability assigned to it, leading to infinite perplexity. Giving each token a tiny amount of probability by default solves the division by zero, but it still produces wildly high perplixity scores.
+Sparse samples (suffixes with only one match) gives us a probability distribution where one token has $100\\%$ probability while every other token has 0. Thus, if we have a sparse sample, the correct token may have a $0\\%$ probability assigned to it, leading to infinite or insanely high (if using n-gram smoothing) perplexity scores.
 
-With Selective Back-off Interpolation Sampling, we can have probability distributions with fewer (and less likely) non-zero probabilities just by increasing $k$ (and thus reducing perplexity scores).
+[Selective Back-off Interpolation Sampling]() solves this by mixing in increasingly diverse probability distributions with fewer (and less likely) zero probabilities.
 
 Here are the train and validation perplexities for a variety of $k$.
 
@@ -376,7 +381,7 @@ Here are the train and validation perplexities for a variety of $k$.
 (k=-1) train ppl: 1.45    val ppl:    6.06   # Uses all levels, maximum k
 ```
 
-We can see that as $k$ increases, the train perplexity increases while the validation perplexity decreases. This is analogous to overfitting in normal neural networks. By overfitting to the training data, you will get a lower loss and perplexity on the training split, but will not generalize (and thus have a higher loss and perplexity) to unseen data.
+We can see that as $k$ increases, so does the train perplexity, while the validation perplexity decreases. This is analogous to overfitting in normal neural networks. By overfitting to the training data, we get a model with lower train loss and perplexity, but worse generalization capabilities (and thus have a higher loss and perplexity) for unseen data.
 
 With language modeling, we are often dealt with a **tradeoff between quality and diversity**. When $k=1$, it generates perfect Shakespeare (literally), but nothing original. If we increase $k$, novelty increases but quality slightly decreases, as by definition, the model is generating output more out of distribution.
 
