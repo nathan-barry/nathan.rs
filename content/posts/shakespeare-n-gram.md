@@ -6,20 +6,20 @@ draft = true
 +++
 {{< katex >}}{{< /katex >}}
 
-Creating a language model to generate Shakespeare has become the "Hello World" of NLP. Recently, I've been messing with diffusion language models to do this task. But the idea of **nonparametric** language models came to my mind.
-A nonparametric language model is one which does not have any parameters to train. Generally, these models grow in capabilities by seeing more data.
+Learning how to generate Shakespeare has become the "Hello World" of language models. Recently, I've been messing with alternative language models (diffusion language models instead of autoregressive transformers) and the concept of **nonparametric language models** came to my attention.
+A model is nonparametric if it does not have parameters which require training (thus, no neural networks).
 
-I recall reading a paper (elaborated on below) which scaled one, an **unbounded n-gram** language model, to trilions of tokens. Their model had applications in helping guide LLMs during generation, but had poor open generation capabilities by itself. I'll explain how this nonparametric model works and the strategies I used to improve its language generation capabilities.
+I recall reading a paper (elaborated on below) which scaled a variant, an **unbounded n-gram** language model, to trilions of tokens. Their model had applications in helping guide LLMs during generation, but had poor open generation capabilities by itself. I'll explain how this nonparametric model works and the strategies I used to improve its language generation capabilities.
 
 <img alt="Infini-gram vs GPT" style="max-width: 100%" src="/images/unbounded-n-gram.gif">
 
-*Above is a visualization of my final implementation compared to a nanoGPT implementation, both using the Tiny Shakespeare dataset.*
+*Speed and quality test of my final implementation compared to a nanoGPT implementation, both using the Tiny Shakespeare dataset.*
 
 
 
 ## Classical N-Grams
 
-A classic example is the humble **n-gram**. An n-gram is essentially a sequence of n items from a given text. These items can be characters, words, or tokens; it is user defined.
+A classic example of a nonparametric language model is the humble **n-gram**. An n-gram is essentially a sequence of n items from a given text. These items can either be characters, words, or tokens (defined in the model).
 
 Normally, datasets consist of many text documents, but for simplicity, let's say our dataset is the following string:
 
@@ -27,58 +27,62 @@ Normally, datasets consist of many text documents, but for simplicity, let's say
 AABBCCBC
 ```
 
-We could model this with n-grams of various sizes. For $n=1$ (AKA a unigram), we would basically create a mapping of each character to the number of times they appear:
+We could model this with n-grams of various sizes. For $n=1$ (AKA a unigram), we would basically create a mapping of each character to the number of times they appear in the dataset:
 
 ```
-Mapping:      Normalized:
+Counts:       Normalized:
 A -> 2        A -> .25
 B -> 3        B -> .375
 C -> 3        C -> .375
 ```
 
-If we wanted to generate more of the sequence, we could just sample from the normalized probabilities. However, this unigram model isn't entirely too useful; it presumes each character is independent. To gain better modeling capability, let's expand $n$ from $1$ to $2$ (AKA a bigram).
+If we wanted to generate more of the sequence, we could just sample from the normalized counts which make a probability distribution of the potential next token. 
 
-This causes our lookup table to go from a list of size $n$ to a matrix of size $n\times n$, where the columns are the previous character and the rows are the current:
+This unigram model isn't entirely too useful as it doesn't use any context of past characters. To gain better modeling capability, we can include the context of the previous character by expanding $n$ from $1$ to $2$ (AKA a bigram).
+
+This causes our lookup table to go from a list of size $n$ to a matrix of size $n\times n$, where the columns are the previous character and the rows are the current character:
 
 ```
-Mapping:           Normalized:
+Counts:            Normalized:
    A  B  C             A    B    C
 A  1  0  0         A  .5    0    0
 B  1  1  1         B  .5  .33   .5
 C  0  2  1         C   0  .66   .5
 ```
 
-If we wanted to generate more of the sequence, we would look at the last character, and sample from that column, as each column represents the probability over the vocabulary. You might have noticed that n-grams are essentially ($n-1$)-order Markov chains.
+If we wanted to generate more of the sequence, we would look at the last character, and sample from its column, as each column represents the probability distribution over the vocabulary. [^0]n-grams are essentially ($n-1$)-order Markov chains.
 
-We can see that the larger $n$ is, the better this model becomes, but that the lookup table increases exponentially, making large $n$ unviable in practice.
+We can see that the larger $n$ is, the more previous tokens the model takes into account. This leads to better language modeling ability, but causes the lookup table increases exponentially in size, making large $n$ unviable in practice.
 
 
 
 ## Unbounded N-Grams
 
-I first came across this concept in the paper, [Infini-gram](). Essentially, instead of computing the lookup table for all n-grams for a specific $n$ (whose space grows exponentially), we can instead simulate any arbitrary n-gram lookup table for a dataset by using a [suffix array]().
+I first came across this concept in the paper, [Infini-gram](). Essentially, instead of computing the lookup table for all n-grams for a specific $n$, we can instead simulate any arbitrary n-gram lookup table for a dataset by using a [suffix array](). This makes using n-grams for large $n$ tractable.
 
-A suffix array is a sorted array of all suffixes of a text. It is easiest to understand with an example. Let's have the same example dataset as before:
+A **suffix array** is a sorted array of all suffixes of a piece of text. It is easiest to understand with an example. Let's have the same example dataset as before, but with each character's index below it:
 
 ```
-AABBCCBC
+A A B B C C B C   # Dataset
+0 1 2 3 4 5 6 7   # Indices
 ```
 
-Below is a list of all suffixes (including their starting index) to this string, along with a sorted version:
+Below is a list of all the suffixes of this string (including their starting position index), along with a lexographically sorted version:
 
 ```
 Suffixes:           Sorted:
-0: AABBCCBC         0 -> AABBCCBC
+0: AABBCCBC         0 -> AABBCCBC   # Lexigraphically smallest
 1:  ABBCCBC         1 -> ABBCCBC
 2:   BBCCBC         6 -> BC
 3:    BCCBC         2 -> BBCCBC
 4:     CCBC         3 -> BCCBC
 5:      CBC         7 -> C
 6:       BC         5 -> CBC
-7:        C         4 -> CCBC
+7:        C         4 -> CCBC       # Lexigraphically largest
 ```
 
-The suffix array is an array of the indices in this new lexigraphically sorted order . Thus, the suffix array for this example is `[0, 1, 6, 2, 3, 7, 5, 4]`.
+The suffix array is an array, not of suffixes, but of their **indices** in this sorted order. These indices act as pointers into the original dataset in which we can retrieve the suffixes.
+We can see that the suffix array for this example is `[0, 1, 6, 2, 3, 7, 5, 4]`.
 
 Below is a simple python implementation for constructing this:
 
@@ -96,7 +100,7 @@ suffix_array = createSuffixArray(text)
 print(suffix_array)  # [0, 1, 6, 2, 3, 7, 5, 4]
 ```
 
-Suffix arrays are good for doing exact-string match queries. If we wanted to see whether the string `CCB` appears in the dataset, we can do this in `O(log(n))` time by performing binary search on the suffix array. This comes from the wonderful property that it is lexigraphically sorted.
+Suffix arrays are useful for efficiently detecting whether a string appears in a dataset. If we wanted to see whether the string `CCB` appears in our toy dataset, we can do this in `O(log(n))` time by performing binary search on the suffix array. This comes from the wonderful property of being lexigraphically sorted.
 
 ```python
 def search(text: str, suffix_array: list[int], query: str) -> bool:
@@ -122,9 +126,10 @@ print(search(text, suffix_array, "ABC"))  # False
 
 ### Next Character Prediction
 
-What we care about, though, is simulating an arbitrary n-gram lookup. Let's say we have the string `BABBC` and we want to know what character would come next. 
+Let's say we have the string `BABBC` and we want to know what characters could come next. 
 
-What we can do is, for the `BABBC`, check to see if (and how many times) it appears in the suffix array. If it does appear, we count which characters come immediately after. If it doesn't appear, shorten the context by one (`ABBC`), and check again. Repeat until eventually you find a match, and sample from the distribution of next characters. This idea is called **synchronous back-off**.
+We can check to see if (and how many times) `BABBC` appears in the suffix array.
+If it does appear, we count which characters come immediately after, giving us a probability distribution of potential next characters. Otherwise, we shorten the context by one (now `ABBC`), and check again. Repeat until eventually you find a match, then sample from the distribution of next characters. This idea is called **synchronous back-off**.
 
 
 ```python
@@ -150,7 +155,7 @@ def generate(text, suffix_array, prompt, max_chars):
     return result
 ```
 
-What this does is look for the **maximum n for which we have a match**. 
+What this does is look for the **maximum n-gram for which we have a match**. 
 
 For `BABBC`, it searches for a 6-gram. Since it doesn't appear in the dataset, it then looks to see if `ABBC` appears. Since this does appear, it finds all the times it occurs (appears only once), and results in `C` being the next character (for the 5-gram, `ABBCC`).
 
@@ -158,11 +163,13 @@ For `BABBC`, it searches for a 6-gram. Since it doesn't appear in the dataset, i
 
 ## Nonparametric Language Generation
 
-I made [tiny-infini-gram](), an efficient unbounded n-gram implementation written in Go, in just 131 lines of code, with [Tiny Shakespeare]() as the dataset. The main reason to choose Go was because it already had an efficient [suffix array implementation]() in its standard library.
+I made [tiny-infini-gram](), an efficient unbounded n-gram implementation written in Go, with [Tiny Shakespeare]() as the dataset. The main reason for Go was because it already had an efficient [suffix array implementation]() in its expansive standard library.
 
-One thing I quickly noticed was that the above sampling method often led to output that was verbatim copied from the dataset. The Infini-gram paper defines a notion of sparsity: a sample is sparse if and only if there is exactly one match and one token to predict.
+**Observation**: One thing I quickly noticed was that the above sampling method often led to output that was **verbatim copied** from the dataset.
 
-For example, let's take the text `First Citizen:\nBefo`. This appears exactly once in the dataset, with the next character being an `r`. If we append the `r` to the original text, we will see that this new version still has only exactly one match, with the next character being an `e`.
+The Infini-gram paper defines a notion of **sparsity**: a sample is sparse if and only if there is exactly one match and **one next-character to predict**. Choosing the only option leads to another sparse sample, creating a cycle. This cycle of sparse sampling results in verbatim copying from the dataset until it reaches the end.
+
+Let's take the text `First Citizen:\nBefo`. This appears exactly once in the dataset, with the next character being an `r`. If we append the `r` to the original text, we will see that this new version still has exactly one match, with the next character being an `e`.
 
 Continuing this process, we end up generating the rest of the document verbatim from this starting point.
 
@@ -174,18 +181,19 @@ First Citizen:\nBefore
 First Citizen:\nBefore we proceed any further, hear me speak...
 ```
 
-In some situations, this might be desirable; it essentially acts as document retrieval mechanism. For language generation though, we want to generate *new* Shakespeare. Thus, we need to think of a sampling algorithm which supports this.
+In some situations, this might be desirable; it essentially acts as document retrieval mechanism.
+We want to generate *new* Shakespeare, however. Thus, we need to think of a new sampling algorithm which allows for novelty without hurting quality.
 
 ### Selective Back-off Interpolation Sampling
 
-This is an idea that I came up with which is a variant of **N-gram interpolation**. N-gram interpolation is where you mix the probability distributions of multiple n-grams models (ex. unigram, bigram, trigram, etc).
+This is the idea that I came up with which is a variant of **N-gram interpolation**. N-gram interpolation is when you mix the probability distributions of multiple n-grams models together (ex. from unigram, bigram, trigram, etc).
 
-In my algorithm, we will select $k$ n-grams to interpolate. To select which ones:
+In my algorithm, we select $k$ n-grams to interpolate. To select which ones:
 1. **First, find the largest n-gram** which contains non-zero probabilities. This $n$ will have $m$ appearances in the dataset (most likely $m=1$).
-2. **Then, back-off** until the next $n$ has a **new $m$ which is greater than the previously seen $m$** (and thus has a different probability distribution).
+2. **Then, back-off** until the next $n$ has a new $m$ **which is greater than the previously seen** $m$ (and thus has a different probability distribution).
 3. **Repeat $k$ times** and **combine these $k$ probability distributions** (with exponential weight decay or something similar).
 
-This gives us a distribution that's heavily weighted toward the longest context (capturing Shakespearean style) but enriched with vocabulary from shorter contexts (preventing verbatim copying).
+This gives us a distribution that's heavily weighted toward the longest context (biasing towards larger $n$) but allows for diversity from shorter contexts (to preventing verbatim copying).
 
 ```python
 # Pseudocode of sampling algorithm
@@ -225,56 +233,91 @@ def sample(context, k):
 
 ### Generation Results
 
-During generation, we track the average and standard deviation for $n$ and `numMatches` for each level. Below is an example generation, along with its statistics below:
+Below is an example generation, along with some statistics. During generation, we track the average and standard deviation for $n$ and `numMatches` for each level.
 
 ```
 First Citizen:
-Our business is not so.
+Ye's Bohemia? sport?
 
-ELBOW:
-Pray now, buy some putter-out of their
-but I shall follow it as apprehension.
-With all her double gain of hairy. Let me have no
-lying:
-And thus most capital: thou be safe? such a sacred vow
-And she to hang before all day.
+LEONTES:
+Bear the sow-hearted friends,
+Unard likes of it.
+
+KING RICHARD III:
+Slave, I have been drinking all night; I think you are. When
+you speak. Boy! O slave!
+Pardon me, Marcius is worthy
+O'er I meet him be revenged on thee.
+
+GLOUCESTER:
+It is a quarrel moves me so, friend? What reply, ha? What
+sayest thou increase the number of the dead;
+And make him good time.
 
 DUKE VINCENTIO:
-I do conspiracy?
-A death.
+The hand that have prevail'd
+With that she should not come.
+Had she affection
 
-ISABELLA:
-Most bound more he would have said, and more he spoke,
-you have cause,
-So him to-morrow's brow; but in the
-extremity of the gentle king,
-Have I defend thee heaven and to you; I mean,
-In this while:
-
-Generated 500 chars in 0.0401s
-  Level 1: n(med=17.0, avg=20.01, std=11.72) m(med=1.0, avg=3.4, std=15.8)
-  Level 2: n(med=8.0, avg=8.59, std=3.75) m(med=4.0, avg=41.1, std=275.8)
+Generated 500 chars in 0.0366s
+  Level 1: n(med=17.0, avg=19.85, std=10.78) m(med=1.0, avg=4.1, std=28.2)
+  Level 2: n(med=8.0, avg=9.06, std=4.34) m(med=4.0, avg=23.3, std=132.8)
 ```
+
+That's pretty *decent* for a model with no parameters! Although Tiny Shakespeare is a very small dataset, its specificity (non-open-endedness, lower entropy domain) makes it easier to get decent generation.
 
 With a $k=2$, we see that the first level's median $n$ is 17 characters (roughly 3-4 full words). The second level median is 8 characters (~1.5 words). Both distibutions of $n$ are slightly skewed right.
 
 For `numMatches`, the first level's median is $m=1$ (what we expected) and the second level median is $4$. The standard deviations are expectedly high due scenarios where a small $n$ leads to very high $m$, leading to high variance.
 
-The main takeaway is that the output actually looks decent! Although Tiny Shakespeare is a very tiny dataset, it is quite specific (not open-ended, lower entropy domain), so it is easier to get better generation.
-
 
 
 ## Comparison to NanoGPT
 
+Below is an animation comparing the geneartion quality and speed of both the models (same animation as above). We can see that my infini-gram implementation takes `0.08` seconds for generation, **250x** faster than a 10M parameter nanoGPT implementation.
+
 <img alt="Infini-gram vs GPT" style="max-width: 100%" src="/images/unbounded-n-gram.gif">
 
-Both look decent. Unbounded n-gram is 250x faster.
+NanoGPT certainly produces more coherent Shakespeare, but I am happy that a nonparametric model was able to produce something as close.
 
-### Perplexity
+### Likelihood, Loss, and Perplexity
 
-In the Infini-gram paper, they didn't measure perplexity of the model.
+To quantitatively compare these models, we need to understand how language models are evaluated.
 
-### NanoGPT Perplexity
+Let's say we are trying to predict the $i$th token (denoted as $x_i$) after a sequence of previous $i-1$ tokens (denoted as $x_{<i}$).
+Language models take in $x_{<1}$ and output a probability distribution over possible next characters. The probability it assigned to the actual character $x_i$ correctly is $P(x_i | x_{<i})$. This is known as the **likelihood**.
+
+If we used our previous bigram example as before for the dataset `AABBCCBC`, we see that if the previous token is `B`, we get the following probability distribution:
+
+```
+Bigram Model:           Probabilities Given B:
+    A    B    C                  
+A  .5    0    0         P(A|B) =   0
+B  .5  .33   .5         P(B|B) = .33
+C   0  .66   .5         P(C|B) = .66
+```
+
+If we were trying to predict the last token in the dataset, `C`, we would see that the likelihood is $P(C|B)=0.66$. This shows that the model has a $66\\%$ chance of predicting the correct value.
+
+To get a single number for model quality, we average the negative log of these probabilities across our test set:
+
+$$\text{NLL} = -\frac{1}{N}\sum_{i=1}^{N} \log_2 P(x_i | x_{<i})$$
+
+This is called the **negative log-likelihood** (the loss funcion). This function has a nice shape which monotonically decreases between 0 and 1 (the range of probabilities). If the model assigns $100\\%$ probability to the correct token, the loss is 0. If it assigns $0\\%$ to the correct token, the loss is infinite. The more confident and correct the model is, the lower the loss.
+
+
+The standard metric for evaluating language models is **perplexity**. Perplexity is a measurement for how well a model predicts text. The formula is simply:
+
+$$\text{Perplexity} = 2^{\text{NLL}}$$
+
+Why exponentiate back? Perplexity has an intuitive interpretation: it represents the **effective vocabulary size** the model is choosing from at each step. A perplexity of 4 means the model is as uncertain as if it were guessing uniformly among 4 characters. Lower perplexity is better.
+
+### NanoGPT Perplexity During Training
+
+During training, we generally split our dataset into two: a train dataset (contains the majority of the dataset) and a validation dataset (usually small).
+We train the model using the train dataset, and use the validation dataset to see how well our model performs on data it hasn't seen before.
+
+We can see how the perplexity and loss change for both splits during training. At the start, the model generates gibberish since its weights are completely untrained.
 
 ```
 step 0: train(loss=4.2683, ppl=71.40), val(loss=4.2670, ppl=71.31)
@@ -284,6 +327,8 @@ b:!PeCkMBbzA$3:.aSGgO-33SM:??gLTauhX:YVXJtpXfNuyqhPM$G.tbVc dXl!Dva.eWDwccHPmRWk
 YoR&$LMtofCiEIfB!!&V!OW;KdilWZ,
 e3 ixYe-EYnkciK;lxW;HFGVdroG EsSXUB;qWk J
 ```
+
+At step 1000 is when we see the lowest validation loss and perplexity. We start to see a divergence between the training and validation splits as the model overfits to the dataset.
 
 ```
 step 1000: train(loss=1.1014, ppl=3.01), val(loss=1.5465, ppl=4.69)
@@ -299,25 +344,7 @@ Nurse:
 Well, and thou such as thy weapons, with c
 ```
 
-```
-step 2500: train(loss=0.3331, ppl=1.40), val(loss=2.7550, ppl=15.72)
-First Citizen:
-Beseeverable less,
-For Warwick shall be found i' the side:
-Sad Boldly beg you home to be prosperited,
-Will within your clords greater post to Ravenspurgh.
-
-DUKE OF I had sigh of this,
-You do munimage t
-
-step 3000: train(loss=0.2153, ppl=1.24), val(loss=3.2137, ppl=24.87)
-First Citizen:
-Bid them if stamper person made a man
-Which serves they can should be a coward which
-Trows growes with your love to the maid.
-Therefore forth live Bolingbroke to beard,
-And let believe it not. Within h
-```
+By the end of training, the validation loss is almost as high as at the start of training, but the training loss shows that the model can produce very similar text as the training dataset.
 
 ```
 step 5000: train(loss=0.1260, ppl=1.13), val(loss=4.0455, ppl=57.14)
@@ -331,10 +358,49 @@ KING RICHARD II:
 We pity this young rece
 ```
 
+### Unbounded N-Gram Perplexity
 
-### Tiny Infini-Gram Perplexity
+The Infini-gram paper doesn't measure perpelxity for language generation. The main reason is because the sampling technique they used produces an **infinite perplexity**.
+
+Sparse samples (suffixes with only one match) gives us a probability distribution where one token has $100\\%$ probability while every other token has 0. Thus, if we have a sparse sample, the correct token may have a $0\\%$ probability assigned to it, leading to infinite perplexity. Giving each token a tiny amount of probability by default solves the division by zero, but it still produces wildly high perplixity scores.
+
+With Selective Back-off Interpolation Sampling, we can have probability distributions with fewer (and less likely) non-zero probabilities just by increasing $k$ (and thus reducing perplexity scores).
+
+Here are the train and validation perplexities for a variety of $k$.
+
+```
+(k=1)  train ppl: 1.00    val ppl: 4036.19   # Verbatim copying
+(k=2)  train ppl: 1.17    val ppl:   97.73
+(k=3)  train ppl: 1.28    val ppl:   18.24
+(k=5)  train ppl: 1.42    val ppl:    7.10 
+(k=-1) train ppl: 1.45    val ppl:    6.06   # Uses all levels, maximum k
+```
+
+We can see that as $k$ increases, the train perplexity increases while the validation perplexity decreases. This is analogous to overfitting in normal neural networks. By overfitting to the training data, you will get a lower loss and perplexity on the training split, but will not generalize (and thus have a higher loss and perplexity) to unseen data.
+
+With language modeling, we are often dealt with a **tradeoff between quality and diversity**. When $k=1$, it generates perfect Shakespeare (literally), but nothing original. If we increase $k$, novelty increases but quality slightly decreases, as by definition, the model is generating output more out of distribution.
+
+```
+First Citizen:
+Ye's come to beg
+Hat this house, if it be souls the place where he abide the encounter of as you have been!
+
+QUEEN ELIZABETH:
+The king! wave thee.
+
+CLAUDIO:
+Nay, 'tis no matter, sir, what had the white and desert thou love me?
+
+ISABELLA:
+Ay, and mine,
+That laint, man? the watce?
+There is no cause to mou against me war the plaines?
+```
+
+*Above is example output where $k$ is set to the maximum. The quality, while still decent, is slightly worse than with smaller $k$.*
 
 
 ## Conclusions
 
+Here, we saw that nonparametric models can 
 Nonparametric models are like transformer models, but more. While people called the latter stochastic parrots, they are quite *literally* stochastic parrots. Hit harder by the tradeoff of accuracy (and memorization) and diversity.
