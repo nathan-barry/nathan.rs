@@ -282,7 +282,7 @@ For `numMatches`, the first level's median is $m=1$ (what we expected) and the s
 
 ## Comparison to NanoGPT
 
-Below is the same animation as above, comparing the generation quality and speed of both models. The first thing that sticks out is the difference in generation speed. We can see that my infini-gram implementation takes `0.08` seconds for generation (running on my M1 CPU), **250x** faster than the 10M parameter nanoGPT implementation (on my M1 GPU).
+Below is the same animation as above, comparing the generation quality and speed of both models. The first thing that sticks out is the difference in generation speed. We can see that my infini-gram implementation takes `0.08` seconds for generation ($k=2$, running on my M1 CPU), **250x** faster than the 10M parameter nanoGPT implementation (trained for 2500 steps on my M1 GPU).
 
 <img alt="Infini-gram vs GPT" style="max-width: 100%" src="/images/unbounded-n-gram.gif">
     
@@ -319,7 +319,7 @@ Nurse:
 Well, and thou such as thy weapons, with c
 ```
 
-By the end of training, the validation loss is almost as high as at the start of training. But the train perplexity shows that the model produces text very similar to the training dataset.
+By the end of training (5000 steps), the validation loss is almost as high as at the start of training. But the train perplexity shows that the model produces text very similar to the training dataset.
 
 ```
 step 5000: train(loss=0.1260, ppl=1.13), val(loss=4.0455, ppl=57.14)
