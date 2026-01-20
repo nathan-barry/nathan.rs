@@ -274,7 +274,9 @@ Generated 500 chars in 0.0366s
 
 That's pretty *decent* for a model with no parameters! Although Tiny Shakespeare is a very small dataset, its specificity (non-open-endedness, lower entropy domain) makes it easier to get decent generation.
 
-With a $k=2$, we see that the first level's median $n$ is 17 characters (roughly 3-4 full words). The second level's median is 8 characters (~1.5 words). Both distibutions of $n$ are slightly skewed right.
+With a $k=2$, we see that the first level's median $n$ is 17 characters (roughly 3-4 full words). The second level's median is 8 characters (~1.5 words). This $n$ is essentially the context length of the model, and fluctuates based on what sequences exist in the dataset.
+
+Unlike transformers with fixed context windows, unbounded n-grams adapt dynamically to available matches. But as context length grows, the combinatorial space becomes exponentially sparse; long matches are rare, so context length is less "scalable" compared to transformers.
 
 For `numMatches`, the first level's median is $m=1$ (what we expected) and the second's level median is $4$. The standard deviations are expectedly high due to scenarios where a small $n$ leads to very high $m$, leading to high variance.
 
