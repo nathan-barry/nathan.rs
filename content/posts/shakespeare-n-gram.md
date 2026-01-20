@@ -2,7 +2,6 @@
 title = "Generating Shakespeare Without Neural Networks"
 date = 2026-01-17T18:47:03-06:00
 tags = ["Machine Learning", "2026"]
-draft = true
 +++
 {{< katex >}}{{< /katex >}}
 
@@ -191,7 +190,7 @@ We want to generate *new* Shakespeare, however. Thus, we need to think of a new 
 
 ### Selective Back-off Interpolation Sampling
 
-The idea that I came up with is a variant of **N-gram interpolation**. N-gram interpolation is when you take the weighted mean of multiple n-gram model probability distributions (ex. from unigram, bigram, trigram, etc).
+The **idea** that I came up with is a variant of **N-gram interpolation**. N-gram interpolation is when you take the weighted mean of multiple n-gram model probability distributions (ex. from unigram, bigram, trigram, etc).
 
 In my algorithm, we select $k$ n-grams to interpolate. To select which ones:
 1. **Find the largest n-gram** that contains non-zero probabilities. This $n$ will have $m$ appearances in the dataset (most likely $m=1$).
@@ -233,8 +232,12 @@ def sample(text, suffix_array, context, k):
             combined[char] += weight * count
     
     # Sample from combined distribution
-    return normalzied_random_choice(combined)
+    return normalized_random_choice(combined)
 ```
+
+The exponential decay weight ($0.1^i$) outperformed count-based weighting in my experiments, especially at larger $k$, though better schemes probably exist.
+
+To my knowledge, this is the first method that enables both novel generation and finite perplexity measurement for unbounded n-gram models. The Infini-gram paper explicitly avoids standalone perplexity evaluation because their sampling method produces zero probabilities; our interpolation approach sidesteps this issue.
 
 ### Generation Results
 
@@ -279,7 +282,7 @@ For `numMatches`, the first level's median is $m=1$ (what we expected) and the s
 
 ## Comparison to NanoGPT
 
-Below is the same animation as above, comparing the generation quality and speed of both models. The first thing that sticks out is the difference in generation speed. We can see that my infini-gram implementation takes `0.08` seconds for generation, **250x** faster than the 10M parameter nanoGPT implementation (running on my M1 MacBook Pro).
+Below is the same animation as above, comparing the generation quality and speed of both models. The first thing that sticks out is the difference in generation speed. We can see that my infini-gram implementation takes `0.08` seconds for generation (running on my M1 CPU), **250x** faster than the 10M parameter nanoGPT implementation (on my M1 GPU).
 
 <img alt="Infini-gram vs GPT" style="max-width: 100%" src="/images/unbounded-n-gram.gif">
     
@@ -287,37 +290,9 @@ An important thing to note is that suffix arrays do not require GPUs at all and 
 
 From the eyeball test, NanoGPT looks like it produces more coherent Shakespeare, but I am happy that our nonparametric model was able to produce something so decent!
 
-### Likelihood, Loss, and Perplexity
-
-To quantitatively compare these models, we need to understand how language models are evaluated.
-
-A language model assigns a probability to each possible next token given the context. The probability the model assigns to a sequence is called the **likelihood**. For a test sequence of tokens, $x_1, x_2, ..., x_N$, the likelihood is:
-
-$$P(x_1, x_2, ..., x_N) = P(x_1) \cdot P(x_2|x_1) \cdot P(x_3|x_1, x_2) \cdots P(x_N|x_{<N})$$
-
-A better model assigns higher probability to the test sequence, so higher likelihood is better. However, likelihood gets exponentially small as sequences get longer (multiplying many probabilities between 0 and 1), making it impractical to work with directly.
-
-To handle this, we take the logarithm. Since $\log(a \cdot b) = \log(a) + \log(b)$, the log-likelihood becomes a sum:
-
-$$\log P(x_1, ..., x_N) = \sum_{i=1}^{N} \log P(x_i | x_{<i})$$
-
-This transforms our exponentially shrinking product into a manageable sum. By convention, we use **negative log-likelihood (NLL)** as a loss function, since we want to *minimize* it (minimizing negative log-likelihood is equivalent to maximizing likelihood). We also average it per character:
-
-$$\text{NLL} = -\frac{1}{N}\sum_{i=1}^{N} \log_2 P(x_i | x_{<i})$$
-
-The standard metric for evaluating language models is **perplexity**. Perplexity is a measurement of how well a model predicts text.
-**Perplexity** is simply the exponential of the NLL:
-
-$$\text{Perplexity} = 2^{\text{NLL}} = 2^{-\frac{1}{N}\sum_{i=1}^{N} \log_2 P(x_i | x_{<i})}$$
-
-Why exponentiate back? Perplexity has an intuitive interpretation: it represents the **effective vocabulary size** the model is choosing from at each step. A perplexity of 3 means the model is as uncertain as if it were guessing uniformly among 3 tokens.[^5] Lower perplexity is better.
-
 ### NanoGPT Perplexity During Training
 
-During training, we generally split our dataset into two parts: a train set (with the majority of the dataset) and a validation set (usually small).
-We train the model using the train set, and use the validation set to see how well our model performs on data it hasn't seen before.
-
-We can see how the perplexity and loss for both splits change during training. At the start, the model generates gibberish since its weights are randomly initialized.
+We track perplexity and loss (see [appendix](/posts/shakespeare-n-gram/#likelihood-loss-and-perplexity) if unfamiliar) on both train and validation splits during training. At step 0, the randomly initialized model outputs gibberish:
 
 ```
 step 0: train(loss=4.2683, ppl=71.40), val(loss=4.2670, ppl=71.31)
@@ -358,11 +333,11 @@ KING RICHARD II:
 We pity this young rece
 ```
 
-You can pull the weights and play with the model [here](). Local inference for 500 tokens only takes roughly 10 seconds on an M1 MacBook Pro.
+You can pull the weights and play with the model [here](https://github.com/nathan-barry/tiny-infini-gram). Local inference for 500 tokens only takes roughly 10 seconds on an M1 MacBook Pro.
 
 ### Unbounded N-Gram Perplexity
 
-The Infini-gram paper doesn't measure perplexity for language generation. The main reason is that the sampling technique they used produces an **infinite perplexity**.
+As mentioned previously, the Infini-gram paper doesn't measure perplexity. The main reason is that the sampling technique they used produces an **infinite perplexity**.
 
 Sparse samples (suffixes with only one match) gives us a probability distribution where one token has $100\\%$ probability while every other token has $0\\%$.
 Thus, the correct token may have a zero probability assigned to it, leading to infinite or insanely high (if using n-gram [smoothing](https://en.wikipedia.org/wiki/Word_n-gram_language_model#Smoothing_techniques)) perplexity scores.
@@ -437,10 +412,36 @@ Or
 ```
 
 
+
+## Appendix: Likelihood, Loss, and Perplexity
+
+A language model assigns a probability to each possible next token given the context. The probability the model assigns to a sequence is called the **likelihood**. For a test sequence of tokens, $x_1, x_2, ..., x_N$, the likelihood is:
+
+$$P(x_1, x_2, ..., x_N) = P(x_1) \cdot P(x_2|x_1) \cdot P(x_3|x_1, x_2) \cdots P(x_N|x_{<N})$$
+
+A better model assigns higher probability to the test sequence, so higher likelihood is better. However, likelihood gets exponentially small as sequences get longer (multiplying many probabilities between 0 and 1), making it impractical to work with directly.
+
+To handle this, we take the logarithm. Since $\log(a \cdot b) = \log(a) + \log(b)$, the log-likelihood becomes a sum:
+
+$$\log P(x_1, ..., x_N) = \sum_{i=1}^{N} \log P(x_i | x_{<i})$$
+
+This transforms our exponentially shrinking product into a manageable sum. By convention, we use **negative log-likelihood (NLL)** as a loss function, since we want to *minimize* it (minimizing negative log-likelihood is equivalent to maximizing likelihood). We also average it per character:
+
+$$\text{NLL} = -\frac{1}{N}\sum_{i=1}^{N} \log_2 P(x_i | x_{<i})$$
+
+The standard metric for evaluating language models is **perplexity**. Perplexity is a measurement of how well a model predicts text.
+**Perplexity** is simply the exponential of the NLL:
+
+$$\text{Perplexity} = 2^{\text{NLL}} = 2^{-\frac{1}{N}\sum_{i=1}^{N} \log_2 P(x_i | x_{<i})}$$
+
+Why exponentiate back? Perplexity has an intuitive interpretation: it represents the **effective vocabulary size** the model is choosing from at each step. A perplexity of 3 means the model is as uncertain as if it were guessing uniformly among 3 tokens.[^5] Lower perplexity is better.
+
+
+
 ## Footnotes
 
 [^1]: Andrej Karpathy's beginner [videos](https://www.youtube.com/watch?v=kCc8FmEb1nY) and [nanoGPT](https://github.com/karpathy/nanoGPT) implementations use [Tiny Shakespeare](https://raw.githubusercontent.com/karpathy/char-rnn/master/data/tinyshakespeare/input.txt).
-[^2]: A keen observer will have noticed that n-grams language model are essentially ($n-1$)-order Markov chains.
+[^2]: A keen observer will have noticed that n-grams language models are essentially ($n-1$)-order Markov chains.
 [^3]: The paper, [Using Suffix Arrays as Language Models: Scaling the n-gram](https://pure.mpg.de/rest/items/item_1222599_3/component/file_1222598/content), says the name, synchronous back-off, came from another paper, which I cannot find a copy of.
 [^4]: Constructing the suffix array can benefit greatly from more RAM, but is unnecessary for querying once it is built.
 [^5]: A uniform distribtuion over $V$ choices gives each choice a probability of $\frac{1}{V}$.The negative log-likelihood of uniformity is: $$\text{NLL}=-\log_2\Big(\frac{1}{V}\Big)=\log_2(V)$$So perplexity becomes: $$\text{Perplexity}=2^{\text{NLL}}=2^{\log_2{V}}=V$$Thus, **the perplexity of a uniform distribution over $V$ items is exactly $V$**.
