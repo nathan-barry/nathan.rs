@@ -406,15 +406,38 @@ There is no cause to mou against me war the plaines?
 
 ## Conclusions
 
-It turns out that n-grams can generate Shakespeare! In many ways, statistical models have greater extremities than deep learning models like transformers. While people called transformers stochastic parrots, these are quite *literally* stochastic parrots. 
+Unbounded n-grams prove that you don't always need neural networks to generate decent text. By combining suffix arrays with novel sampling strategies, we achieved generation quality that approaches small transformers at $250\times$ the speed.
 
-Statistical models regurgitate the data it has seen. Transformers are able to learn abstractions and patterns which generalize better. Unbounded n-grams excel at speed and exact recall but require ingenuity to balance memorization with novelty.
+In many ways, statistical models have greater extremities than deep learning models. While people have called transformers [stochastic parrots](https://dl.acm.org/doi/pdf/10.1145/3442188.3445922), unbounded n-gram models are quite *literally* stochastic parrots.
 
-For retrieval-augmented generation, autocomplete, or scenarios where you want provably grounded outputs from a known corpus, unbounded n-grams offer a compelling alternative that's fast, interpretable, and requires zero training.
+Raw statistical models face an inherent **memorization-novelty tradeoff**. While transformers learn abstractions that can generalize, n-grams are deterministic retrieval systems. Our Selective Back-off Interpolation Sampling method strikes a balance, preventing verbatim copying while preserving coherence.
+
+I wonder how generation quality scales with the size of the dataset. I believe that there are real world use cases for models like this. Perhaps these models are good enough to serve as draft models for speculative decoding. Maybe there are tasks where exact retrieval is desirable or which are easy enough that these models are more than capable of handling.
+Maybe another weekend I'll investigate this!
 
 
 
-#### Footnotes
+## Citation
+
+If you found this post useful for a project, please kindly cite this page:
+
+> Barry, Nathan. "Generating Shakespeare Without Neural Networks". nathan.rs (Jan 2026). http://nathan.rs/posts/shakespeare-n-gram.
+
+Or
+
+```
+@article{barry2026ngram,
+  title   = "Generating Shakespeare Without Neural Networks",
+  author  = "Barry, Nathan",
+  journal = "nathan.rs",
+  year    = "2026",
+  month   = "Jan",
+  url     = "http://nathan.rs/posts/shakespeare-n-gram"
+}
+```
+
+
+## Footnotes
 
 [^1]: Andrej Karpathy's beginner [videos](https://www.youtube.com/watch?v=kCc8FmEb1nY) and [nanoGPT](https://github.com/karpathy/nanoGPT) implementations use [Tiny Shakespeare](https://raw.githubusercontent.com/karpathy/char-rnn/master/data/tinyshakespeare/input.txt).
 [^2]: A keen observer will have noticed that n-grams language model are essentially ($n-1$)-order Markov chains.
