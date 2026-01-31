@@ -1,5 +1,6 @@
 ---
 title: "Home"
+description: "Nathan Barry"
 ---
 
 
