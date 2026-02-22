@@ -3,13 +3,11 @@ title: "Home"
 description: "Nathan Barry"
 ---
 
+## Hi! My name is Nathan Barry!
 
+Welcome to *my* corner of the internet! Salutations! Callooh! Callay!
 
-## This is *my* corner of the internet!
-
-Greetings fellow traveler. Salutations! Callooh, Callay!
-
-My name is Nathan Barry. I'm a CS graduate student at UT Austin and am interested in systems and machine learning.
+I'm a CS graduate student at UT Austin and am interested in systems and machine learning.
 I love working on hard problems with great people. Occasionally, [I write about things that interest me](/posts).
 
 Below are some of the things I've been doing:
@@ -77,23 +75,6 @@ Bouldering Grade | V8
 Starcraft 2 Rank | Diamond (Protoss)
 Balls Juggled | 4
 Bowling Score | 203 (my proudest one!)
-
-
-
-## Hacker News Archive
-
-Some of my posts and projects have appeared on the front page of Hacker News! Below are links to the discussions:
-
-<div class="timeline-tables">
-
-Date | Post
---- | ---
-Nov 2025 | [Show HN: Tiny Diffusion – A character-level text diffusion model from scratch](https://news.ycombinator.com/item?id=45876742) 
-Oct 2025 | [BERT Is Just a Single Text Diffusion Step](https://news.ycombinator.com/item?id=45644328)
-May 2025 | [Running GPT-2 in WebGL with Classic GPGPU Programming](https://news.ycombinator.com/item?id=44109257)
-May 2025 | [Show HN: GPT-2 implemented using graphics shaders](https://news.ycombinator.com/item?id=43870998)
-
-</div>
 
 
 
