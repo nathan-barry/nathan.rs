@@ -7,12 +7,18 @@ $padding-16: 1rem !default;
 $body-min-width: 20rem !default;
 $container-max-width: 82rem !default;
 
-$menu-width: 16.5rem !default;
-$toc-width: 16.5rem !default;
+$menu-width: 16rem !default;
+$toc-width: 16rem !default;
 
 $mobile-breakpoint: $menu-width + $body-min-width * 1.2 + $toc-width !default;
 
 :root {
+    --page-top: 4rem;
+
+    @media (max-width: $mobile-breakpoint) {
+        --page-top: 0;
+    }
+
     --font-size: 16px;
     --font-size-smaller: 0.875rem;
     --font-size-smallest: 0.75rem;

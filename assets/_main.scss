@@ -88,6 +88,7 @@ ul.pagination {
 .container {
     max-width: $container-max-width;
     margin: 0 auto;
+    padding-top: calc(var(--page-top) + 1rem);
 }
 
 .book-icon {
@@ -118,6 +119,7 @@ a .book-icon {
         padding: $padding-16;
 
         @include fixed;
+        top: var(--page-top);
     }
 
     a,
@@ -307,6 +309,7 @@ body[dir="rtl"] .book-menu {
         padding: $padding-16;
 
         @include fixed;
+        top: var(--page-top);
     }
 
     a {
