@@ -12,7 +12,7 @@ Greetings fellow traveler. Salutations! Callooh, Callay!
 My name is Nathan Barry. I'm a CS graduate student at UT Austin and am interested in systems and machine learning.
 I love working on hard problems with great people. Occasionally, [I write about things that interest me](/posts).
 
-Below are some of the things I've been doing.
+Below are some of the things I've been doing:
 
 <div class="timeline-tables">
 
@@ -35,19 +35,12 @@ May 2022 | Participated in the **[Z fellows](https://www.zfellows.com)** program
 
 </div>
 
-<style>
-.timeline-tables table td:first-child,
-.timeline-tables table th:first-child {
-  width: 110px;
-}
-</style>
-
 
 
 ## Life
 
 Outside of school and work, I enjoy [reading](/posts/favorite-books), pickleball, badminton, climbing, pool, and playing the guitar!
-I also love doing hackathons with good friends of mine and have won or placed in every hackathon I've participated in so far.
+I also love doing hackathons with friends! I've won or placed in every hackathon I've participated in so far.
 
 I think that the *spirit* of my life philosophy is tersely captured by the quote below, which I came across in the book [The Empire of Pain](https://en.wikipedia.org/wiki/Empire_of_Pain).
 
@@ -70,19 +63,6 @@ Throughout the years, I've tried to collect and curate [pieces of text I enjoy](
 
 
 
-## Hacker News Archive
-
-Some of my posts and projects have appeared on the front page of Hacker News! Below are links to the discussions:
-
-Post | Date
---- | ---
-[Show HN: Tiny Diffusion – A character-level text diffusion model from scratch](https://news.ycombinator.com/item?id=45876742) | November 14th, 2025
-[BERT Is Just a Single Text Diffusion Step](https://news.ycombinator.com/item?id=45644328) | October 20th, 2025
-[Running GPT-2 in WebGL with Classic GPGPU Programming](https://news.ycombinator.com/item?id=44109257) | May 24th, 2025
-[Show HN: GPT-2 implemented using graphics shaders](https://news.ycombinator.com/item?id=43870998) | May 2nd, 2025
-
-
-
 ## Personal Records
 
 Here is a list of some personal feats I've done (featuring the impressive and the useless).
@@ -97,3 +77,29 @@ Bouldering Grade | V8
 Starcraft 2 Rank | Diamond (Protoss)
 Balls Juggled | 4
 Bowling Score | 203 (my proudest one!)
+
+
+
+## Hacker News Archive
+
+Some of my posts and projects have appeared on the front page of Hacker News! Below are links to the discussions:
+
+<div class="timeline-tables">
+
+Date | Post
+--- | ---
+Nov 2025 | [Show HN: Tiny Diffusion – A character-level text diffusion model from scratch](https://news.ycombinator.com/item?id=45876742) 
+Oct 2025 | [BERT Is Just a Single Text Diffusion Step](https://news.ycombinator.com/item?id=45644328)
+May 2025 | [Running GPT-2 in WebGL with Classic GPGPU Programming](https://news.ycombinator.com/item?id=44109257)
+May 2025 | [Show HN: GPT-2 implemented using graphics shaders](https://news.ycombinator.com/item?id=43870998)
+
+</div>
+
+
+
+<style>
+.timeline-tables table td:first-child,
+.timeline-tables table th:first-child {
+  width: 110px;
+}
+</style>
