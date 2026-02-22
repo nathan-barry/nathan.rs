@@ -5,9 +5,9 @@ description: "Nathan Barry"
 
 
 
-# Welcome to *my* corner of the internet!
+## This is *my* corner of the internet!
 
-Greetings fellow traveler! Salutations! Callooh! Callay!
+Greetings fellow traveler. Salutations! Callooh, Callay!
 
 My name is Nathan Barry. I'm a CS graduate student at UT Austin and am interested in systems and machine learning.
 I love working on hard problems with great people. Occasionally, [I write about things that interest me](/posts).
