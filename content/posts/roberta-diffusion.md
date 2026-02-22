@@ -136,7 +136,7 @@ Step 2: [PREFIX] will begin <mask> greater control ...      (80% masked)
 Step 10: [PREFIX] will begin to assert greater control ...  (0% masked)
 ```
 
-Simplified code for generation looks like:
+Simplified code for generation looks like:[^3]
 
 ```python
 # Generate text through iterative denoising
@@ -163,11 +163,6 @@ for step, mask_prob in enumerate(mask_probs):
         input_ids[0, PREFIX_LEN:][mask_indices] = tokenizer.mask_token_id
 ```
 
-> **Note:** There are many different generation algorithms with these models. Our method doesn't take into account token confidence and can lead to indiscriminantly remasking "good" tokens.[^3]
->
-> Other methods include unmasking the top $k$ most confident tokens at each step, or unmasking all tokens above a given confidence threshold. Because these methods prioritize "revealing" the most confident tokens first, it tends to lead to more coherent output.
-> Both these methods never remask, which leads to nice formalization properties such as a simplified training objective.[^4]
-
 Here is an example output generation of the fine-tuned model after training on an H200 for 30 minutes (the first line is the initial prompt):
 
 ```
@@ -192,11 +187,7 @@ Below is a comparison between our diffusion model and GPT-2:
 
 <img alt="RoBERTa Diffusion vs GPT" style="max-width: 100%" src="/images/roberta-diffusion-gpt.gif">
 
-We see GPT-2's output is more coherent and slightly faster (~9 seconds vs ~13) but I'm pleasantly surprised with how good my simple implementation was. It is a good proof of concept, and with new approaches like AR-Diffusion and Skip-Step Diffusion (and a more optimized implementation), the quality and speed can be drastically improved.
-
-> **Note:** This difference in speed is an "apples to oranges" comparison. The GPT-2 inference is using a library that has been heavily optimized, while my code is not.
->
-> There are serious differences in performance characteristics between the two different architectures, and it is an open question whether diffusion language models can out perform autoregressive models in deployed settings.[^5]
+We see GPT-2's output is more coherent and slightly faster (~9 seconds vs ~13) but I'm pleasantly surprised with how good my simple implementation was.[^4] It is a good proof of concept, and with new approaches for architecture, noise type, and inference, the quality and speed can be drastically improved.
 
 
 
@@ -207,9 +198,12 @@ Even without architectural changes, a fine-tuned RoBERTa can generate coherent l
 
 
 
-#### Footnotes
+## Footnotes
 [^1]: After I wrote the article, I stumbled upon the paper [DiffusionBERT](https://arxiv.org/abs/2211.15029), which does essentially the same thing but with more rigorous testing! Check it out if this post interested you.
 [^2]: The [D3PM](https://arxiv.org/abs/2107.03006) paper mentions, in bold, "BERT is a one-step diffusion model" in section 4. Didn't see this until way after! It's a foundational paper in this space, my oversight is slightly embarrasing.
-[^3]: Confidence based decoding methods tend to perform poorly in undertrained settings or with very small models. The random approach actually led to better generation quality in this experiment.
-[^4]: The addition of never remasking simplifies [D3PM](https://arxiv.org/abs/2107.03006)'s NELBO training objective and leads to an improved likelihood, according to the paper, [Simple and Effective Masked Diffusion Language Models](https://arxiv.org/abs/2406.07524)
-[^5]: Bidirectional attention disallows the naive use of KVCaching. Additionally, it turns the attention mechanism from a memory-bound to a compute-bound operation, reducing the effectiveness of batching requests together (the GPU is already saturated). This is an area that requires further study and improvements, as there are probably many more tricks to getting around this (like [KVCache approximation](https://arxiv.org/abs/2505.22618)).
+[^3]: There are many different generation algorithms with these models. Our method doesn't take into account token confidence and can lead to indiscriminantly remasking "good" tokens.
+Other methods include unmasking the top $k$ most confident tokens at each step, or unmasking all tokens above a given confidence threshold. Because these methods prioritize "revealing" the most confident tokens first, it tends to lead to more coherent output.
+Both these methods never remask, which simplifies [D3PM](https://arxiv.org/abs/2107.03006)'s NELBO training objective to weighted MLM and leads to an improved likelihood, according to the paper, [Simple and Effective Masked Diffusion Language Models](https://arxiv.org/abs/2406.07524)
+[^4]: This difference in speed is an "apples to oranges" comparison. The GPT-2 inference is using a library that has been heavily optimized, while my code is not.
+There are also major differences in performance characteristics between the two different architectures, and it is an open question whether diffusion language models can out perform autoregressive models in deployed settings.
+Bidirectional attention disallows the naive use of KVCaching. Additionally, it turns the attention mechanism from a memory-bound to a compute-bound operation, reducing the effectiveness of batching requests together (the GPU is already saturated). This is an area that requires further study and improvements, as there are probably many more tricks to getting around this (like [KVCache approximation](https://arxiv.org/abs/2505.22618)).
