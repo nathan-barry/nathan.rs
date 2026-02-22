@@ -161,10 +161,10 @@ for step, mask_prob in enumerate(mask_probs):
         input_ids[0, PREFIX_LEN:][mask_indices] = tokenizer.mask_token_id
 ```
 
-> **Note:** There are many different ways to do inference with these models. Our method doesn't take into account token confidence and can lead to indiscriminantly remasking "good" tokens.[^3]
+> **Note:** There are many different generation algorithms with these models. Our method doesn't take into account token confidence and can lead to indiscriminantly remasking "good" tokens.[^3]
 >
 > Other methods include unmasking the top $k$ most confident tokens at each step, or unmasking all tokens above a given confidence threshold. Because these methods prioritize "revealing" the most confident tokens first, it tends to lead to more coherent output.
-> Both these methods never remask, which has also been suggested to have nice mathematical properties.[^4]
+> Both these methods never remask, which leads to nice formalization properties such as a simplified training objective.[^4]
 
 Here is an example output generation of the fine-tuned model after training on an H200 for 30 minutes (the first line is the initial prompt):
 

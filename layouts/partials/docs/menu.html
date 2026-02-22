@@ -15,6 +15,11 @@
                 >
             </li>
             <li>
+                <a href="/posts/shakespeare-n-gram/"
+                    >Generating Shakespeare Without Neural Networks</a
+                >
+            </li>
+            <li>
                 <a href="/posts/gpu-shader-programming/"
                     >Running GPT-2 in WebGL with Classic GPGPU Programming</a
                 >
@@ -24,7 +29,7 @@
         <!-- Recent Posts -->
         <li style="margin-top: 8px"><strong>Recent Posts</strong></li>
         <ul>
-            {{ range first 4 (where .Site.RegularPages "Section"
+            {{ range first 3 (where .Site.RegularPages "Section"
             "posts").ByDate.Reverse }}
             <li>
                 <a href="{{ .RelPermalink }}">{{ .Title }}</a>
