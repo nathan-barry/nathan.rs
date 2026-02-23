@@ -3,7 +3,9 @@ title: "Home"
 description: "Nathan Barry"
 ---
 
-## Hi! My name is Nathan Barry!
+
+
+<h1>My name is Nathan Barry!</h1>
 
 Welcome to *my* corner of the internet! Salutations! Callooh! Callay!
 
