@@ -5,11 +5,11 @@ description: "Nathan Barry"
 
 
 
-<h1>My name is Nathan Barry!</h1>
+<h1>Welcome to <i>my</i> corner of the internet!</h1>
 
-Welcome to *my* corner of the internet! Salutations! Callooh! Callay!
+Greetings fellow traveler! Salutations! Callooh! Callay!
 
-I'm a CS graduate student at UT Austin and am interested in systems and machine learning.
+My name is **Nathan Barry**. I'm a CS graduate student at UT Austin and am interested in systems and machine learning.
 I love working on hard problems with great people. Occasionally, [I write about things that interest me](/posts).
 
 Below are some of the things I've been doing:
