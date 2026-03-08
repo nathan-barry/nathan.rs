@@ -369,6 +369,10 @@ body[dir="rtl"] .book-menu {
 }
 
 @media screen and (max-width: $mobile-breakpoint) {
+    .book-page {
+        padding-inline: clamp(0px, 4vw, #{$padding-16 * 2});
+    }
+
     .book-menu {
         visibility: hidden;
         margin-inline-start: -$menu-width;
