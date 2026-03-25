@@ -216,15 +216,28 @@ body[dir="rtl"] .book-menu {
 
 .book-header {
     margin-bottom: $padding-16;
-
-    label {
-        line-height: 0;
-    }
+    padding: $padding-16 0;
 
     h3 {
         overflow: hidden;
         text-overflow: ellipsis;
         margin: 0 $padding-16;
+    }
+
+    .mobile-logo {
+        flex: 0 0 auto;
+        line-height: 0;
+
+        img {
+            height: 3rem;
+            width: auto;
+        }
+    }
+
+    .mobile-header-label {
+        cursor: pointer;
+        font-size: var(--font-size);
+        opacity: 0.7;
     }
 }
 
@@ -369,6 +382,10 @@ body[dir="rtl"] .book-menu {
 }
 
 @media screen and (max-width: $mobile-breakpoint) {
+    .book-menu .sidebar-logo {
+        display: none;
+    }
+
     .book-page {
         padding-inline: clamp(0px, 4vw, #{$padding-16 * 2});
     }
@@ -428,6 +445,7 @@ body[dir="rtl"] .book-menu {
         .book-header aside {
             display: block;
             margin: $padding-16 0;
+            font-size: var(--font-size);
         }
     }
 

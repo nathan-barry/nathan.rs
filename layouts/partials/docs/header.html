@@ -1,11 +1,12 @@
 <div class="flex align-center justify-between">
-  <label for="menu-control">
-    <img src="{{ partial "docs/icon" "menu" }}" class="book-icon" alt="Menu"/>
-  </label>
+  <a href="/" class="mobile-logo">
+    <img alt="A vignette" src="/vignette.svg"/>
+  </a>
 
-  <label for="toc-control">
+  <div class="flex align-center" style="gap: 1rem;">
+    <label for="menu-control" class="mobile-header-label">Menu</label>
     {{ if partial "docs/toc-show" . }}
-    <img src="{{ partial "docs/icon" "toc" }}" class="book-icon" alt="Table of Contents"/>
+    <label for="toc-control" class="mobile-header-label">Contents</label>
     {{ end }}
-  </label>
+  </div>
 </div>
