@@ -215,8 +215,7 @@ body[dir="rtl"] .book-menu {
 }
 
 .book-header {
-    margin-bottom: $padding-16;
-    padding: $padding-16 0;
+    margin-bottom: $padding-16 * 2;
 
     h3 {
         overflow: hidden;
@@ -229,7 +228,7 @@ body[dir="rtl"] .book-menu {
         line-height: 0;
 
         img {
-            height: 3rem;
+            height: 3.6rem;
             width: auto;
         }
     }
