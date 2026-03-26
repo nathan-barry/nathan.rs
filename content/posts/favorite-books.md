@@ -7,7 +7,7 @@ tags = ["Miscellaneous"]
 Below are all the books I've read since middle school, roughly in order. Those highlighted in <span style="color: #0055bb;">blue</span> were those I particularly enjoyed :)
 
 <script>
-let bookNumber = 168;
+let bookNumber = 169;
 document.addEventListener("DOMContentLoaded", function() {
   // Auto-increment book numbers
   document.querySelectorAll('.book-number').forEach((book) => {
