@@ -13,6 +13,8 @@ new Typewriter('#typewriter-heading', { delay: 30 })
   .start();
 </script>
 
+Greetings fellow traveler! Salutations! Callooh! Callay!
+
 My name is **Nathan Barry**. I'm a CS graduate student at UT Austin and am interested in systems and machine learning.
 I love working on hard problems with great people. Occasionally, [I write about what I'm working on](/posts).
 
@@ -47,12 +49,11 @@ I also love doing hackathons with friends and have won or placed in every hackat
 
 To me, much of life is about creating, instilling, and capturing beauty. It is in that spirit that I pursue photography. You can view [some of my photos here](https://photos.nathan.rs/).
 
-I think that the *spirit* of my life philosophy is tersely captured by the quote below, which I came across in the book [The Empire of Pain](https://en.wikipedia.org/wiki/Empire_of_Pain).
-
 > "I believe that a man should strive for only one thing in life, and that is to have a touch of greatness"
 --- Félix Martí-Ibáñez
 
-While I like the previous quote, the grand and aspirational must be balanced with a dab of conscientiousness to stay grounded in reality.
+I think that the *spirit* of my life philosophy is tersely captured by the above quote, which I came across in the book [The Empire of Pain](https://en.wikipedia.org/wiki/Empire_of_Pain).
+While I like the quote, the grand and aspirational must be conjoined with a dab of conscientiousness to stay grounded in reality.
 
 > "The thoughts of others\
 &emsp;&emsp;Were light and fleeting,\
