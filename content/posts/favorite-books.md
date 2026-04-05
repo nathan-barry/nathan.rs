@@ -4,8 +4,6 @@ date = 2023-10-14T10:45:41-05:00
 tags = ["Miscellaneous"]
 +++
 
-Below are all the books I've read since middle school, roughly in order. Those highlighted in <span style="color: #0055bb;">blue</span> were those I particularly enjoyed :)
-
 <script>
 document.addEventListener("DOMContentLoaded", function() {
   const books = document.querySelectorAll('.book-number');

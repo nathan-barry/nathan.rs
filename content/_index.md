@@ -13,10 +13,8 @@ new Typewriter('#typewriter-heading', { delay: 30 })
   .start();
 </script>
 
-Greetings fellow traveler! Salutations! Callooh! Callay!
-
 My name is **Nathan Barry**. I'm a CS graduate student at UT Austin and am interested in systems and machine learning.
-I love working on hard problems with great people. Occasionally, [I write about things that interest me](/posts).
+I love working on hard problems with great people. Occasionally, [I write about what I'm working on](/posts).
 
 Below are some of the things I've been doing:
 
@@ -29,14 +27,13 @@ Aug 2025 - Present | A **Graduate Researcher** at UT Austin, working on diffusio
 
 Previously |
 --- | ---
-Feb 2026 | Won both the [Neo](https://neo.com/) Prize and the Most Creative Prize at [TreeHacks 2026](https://treehacks.com/). Built [diffuji](https://diffuji.com/), a diffusion-powered instant camera
+Feb 2026 | Won both the [Neo](https://neo.com/) Prize and the Most Creative Prize at [TreeHacks 2026](https://treehacks.com/). Built [Diffuji](https://diffuji.com/), a diffusion-powered instant camera
 Oct 2025 | Placed for the Play-Do Prize at [Cal Hacks 2025](https://www.calhacks.io). Built [Curserve](/posts/curserve/), a coding agent serving framework with significantly faster end-to-end generation
-May 2025 - Aug 2025 | Worked at **Apple** as a **Machine Learning Intern**, working on time-series forecasting for predictive autoscaling
+May 2025 - Aug 2025 | A **Machine Learning Intern** at **Apple**, working on time-series forecasting for predictive autoscaling
 Jun 2025 | Attended Y Combinator's first [AI Startup School](https://events.ycombinator.com/ai-sus) (and other summer events)
 Aug 2021 - May 2025 | Finished my Bachelor's of Science in CS and Math @ UT Austin
-Apr 2025 | Won the Austin Meta 8VC Hackathon. Built an [auto-debugging LLM agent](https://devpost.com/software/gdbuddy) (CLI tool and VSCode extension) that used GDB for you
-Nov 2021 - Jan 2025 | Worked at multiple startups as a **Software Engineer**, doing Rust and TypeScript full-stack development and Python machine learning and robotics work
-Feb 2024 - Sep 2024 | Was an **Undergraduate Researcher** at UT Austin, working on ML infrastructure for LLM dataset contamination research
+Nov 2021 - Jan 2025 | A **Software Engineer** at multiple startups, doing Rust and TypeScript full-stack development and Python machine learning and robotics work
+Feb 2024 - Sep 2024 | An **Undergraduate Researcher** at UT Austin, working on ML infrastructure for LLM dataset contamination research
 May 2022 | Participated in the **[Z fellows](https://www.zfellows.com)** program
 
 </div>
@@ -45,15 +42,17 @@ May 2022 | Participated in the **[Z fellows](https://www.zfellows.com)** program
 
 ## Life
 
-Outside of school and work, I enjoy [reading](/posts/favorite-books), pickleball, badminton, climbing, pool, and playing the guitar!
-I also love doing hackathons with friends! I've won or placed in every hackathon I've participated in so far.
+Outside of school and work, I enjoy [reading](/posts/favorite-books), pickleball, badminton, climbing, pool, ping-pong, hiking, social dance, and playing the guitar!
+I also love doing hackathons with friends and have won or placed in every hackathon I've participated in so far.
+
+To me, much of life is about creating, instilling, and capturing beauty. It is in that spirit that I pursue photography. You can view [some of my photos here](https://photos.nathan.rs/).
 
 I think that the *spirit* of my life philosophy is tersely captured by the quote below, which I came across in the book [The Empire of Pain](https://en.wikipedia.org/wiki/Empire_of_Pain).
 
 > "I believe that a man should strive for only one thing in life, and that is to have a touch of greatness"
 --- Félix Martí-Ibáñez
 
-While the previous quote expresses the grand and aspirational, the following gives the humbling required dose of conscientiousness.
+While I like the previous quote, the grand and aspirational must be balanced with a dab of conscientiousness to stay grounded in reality.
 
 > "The thoughts of others\
 &emsp;&emsp;Were light and fleeting,\
@@ -66,6 +65,8 @@ So I was ready\
 --- A.E. Housman
 
 Throughout the years, I've tried to collect and curate [pieces of text I enjoy](/posts/favorite-quotes).
+
+
 
 
 
