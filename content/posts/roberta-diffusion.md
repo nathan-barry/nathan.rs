@@ -5,7 +5,7 @@ tags = ["Machine Learning", "2025"]
 +++
 {{< katex >}}{{< /katex >}}
 
-> This article appeared on Hacker News. Link to the [discussion here](https://news.ycombinator.com/item?id=45644328). Additionally, [Andrej Karpathy](https://karpathy.ai) wrote his thoughts about the post, [linked here](https://x.com/karpathy/status/1980347971935068380?s=20).
+> This article appeared on Hacker News. Link to the [discussion here](https://news.ycombinator.com/item?id=45644328). Additionally, Andrej Karpathy wrote his thoughts about the post, [linked here](https://x.com/karpathy/status/1980347971935068380?s=20).
 
 A while back, Google DeepMind unveiled [Gemini Diffusion](https://deepmind.google/models/gemini-diffusion/), an experimental language model that generates text using diffusion. Unlike traditional GPT-style models that generate one word at a time, Gemini Diffusion creates whole blocks of text by refining random noise step-by-step.
 

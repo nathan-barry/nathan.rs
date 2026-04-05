@@ -13,6 +13,16 @@
     }
 */
 
+.Typewriter__cursor {
+    font-size: 1.25em;
+    vertical-align: -0.1em;
+}
+
+.highlight,
+pre {
+    background: var(--gray-100) !important;
+}
+
 // Make KaTeX responsive on mobile
 .katex-display {
     overflow-x: auto;

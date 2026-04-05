@@ -5,7 +5,13 @@ description: "Nathan Barry"
 
 
 
-<h1>Welcome to <i>my</i> corner of the internet!</h1>
+<h1 id="typewriter-heading"></h1>
+<script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
+<script>
+new Typewriter('#typewriter-heading', { delay: 30 })
+  .typeString('Welcome to <i>my</i> corner of the internet')
+  .start();
+</script>
 
 Greetings fellow traveler! Salutations! Callooh! Callay!
 
