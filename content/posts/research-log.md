@@ -77,9 +77,7 @@ One problem with current DiLoCo variants is that they assume each worker has the
 
 For standard [DiLoCo](https://arxiv.org/abs/2311.08105) (and [Streaming DiLoCo](https://arxiv.org/abs/2501.18512)), that means that we suffer from the straggler effect because of network limitations, where the outer-parameter synchronization is bottlenecked by the worker with the worst bandwidth and latency.
 
-For variants that mask communication with computation, it leads to either:
-- A higher required number of inner step to fully mask the communication (in the case of One-Step-Delay DiLoCo and variants like [Eager Update DiLoCo](https://arxiv.org/abs/2502.12996)) which negatively impacts convergence.
-- A higher number of steps taken while waiting for the updated parameters (in the case of [Overlap Local-SGD](https://arxiv.org/abs/2002.09539)) before model merging, which is undesirable due to more compute being used on advancing stale parameters.
+For variants that mask communication with computation, it leads to a higher required number of inner step to fully mask the communication ([Overlap Local-SGD](https://arxiv.org/abs/2002.09539) and One-Step-Delay DiLoCo variants like [Eager Update DiLoCo](https://arxiv.org/abs/2502.12996)), which negatively impacts convergence due to more compute being used on advancing unecessarily "stale" parameters.
 
 To first understand HALoS, we need to first understand [Async Local-SGD](https://arxiv.org/abs/2401.09135) (also known as Async DiLoCo). Essentially, instead of each worker synchronizing every $H$ steps, instead when they finish, they independently push their updates to a parameter server without waiting on others.
 

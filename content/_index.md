@@ -25,7 +25,7 @@ Below are some of the things I've been doing:
 Currently |
 --- | ---
 Aug 2024 - Present | Finishing my Master's of Science in CS @ UT Austin
-Aug 2025 - Present | A **Graduate Researcher** at UT Austin, working on diffusion language models and previously [distributed low-communication training](/posts/research-log)
+Aug 2025 - Present | A **Graduate Researcher** at UT Austin, working on diffusion language models and previously distributed low-communication training
 
 Previously |
 --- | ---
