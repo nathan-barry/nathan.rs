@@ -12,6 +12,10 @@
 // Custom defined styles, theme mixins also placed there
 @import "custom";
 
+// Syntax highlighting: dark by default, light when toggled
+@import "syntax-dark";
+@import "syntax-light-scoped";
+
 // Select theme mixing based on site parameter
 :root {
   @include theme-{{ default "light" .Site.Params.BookTheme }};

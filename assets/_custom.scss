@@ -13,14 +13,35 @@
     }
 */
 
+html.light-mode {
+    @include theme-light;
+
+    .chroma, .bg {
+        background-color: var(--gray-100) !important;
+    }
+}
+
+.theme-toggle {
+    cursor: pointer;
+    background: none;
+    border: none;
+    font-size: var(--font-size-smaller);
+    font-family: inherit;
+    color: inherit;
+    opacity: 0.7;
+    padding: 0;
+
+    &:hover { opacity: 1; }
+}
+
+.sidebar-logo img,
+.mobile-logo img {
+    filter: var(--icon-filter);
+}
+
 .Typewriter__cursor {
     font-size: 1.25em;
     vertical-align: -0.1em;
-}
-
-.highlight,
-pre {
-    background: var(--gray-100) !important;
 }
 
 // Make KaTeX responsive on mobile

@@ -14,6 +14,7 @@
         {{ template "header" . }} <!-- Mobile layout header -->
       </header>
 
+      {{ template "theme-toggle" . }}
       {{ template "main" . }} <!-- Page Content -->
 
       <footer class="book-footer">
@@ -55,6 +56,35 @@
 
 {{ define "footer" }}
   {{ partial "docs/footer" . }}
+{{ end }}
+
+{{ define "theme-toggle" }}
+<script>
+  (function() {
+    var light = localStorage.getItem('theme') === 'light';
+    if (light) document.documentElement.classList.add('light-mode');
+    function updateIcons() {
+      var isLight = document.documentElement.classList.contains('light-mode');
+      document.querySelectorAll('.theme-toggle').forEach(function(btn) {
+        if (btn.textContent.length > 2) {
+          btn.textContent = isLight ? '☾ Dark Mode' : '☼ Light Mode';
+        } else {
+          btn.textContent = isLight ? '☾' : '☼';
+        }
+      });
+    }
+    document.addEventListener('DOMContentLoaded', function() {
+      updateIcons();
+      document.querySelectorAll('.theme-toggle').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          document.documentElement.classList.toggle('light-mode');
+          localStorage.setItem('theme', document.documentElement.classList.contains('light-mode') ? 'light' : 'dark');
+          updateIcons();
+        });
+      });
+    });
+  })();
+</script>
 {{ end }}
 
 {{ define "clipboard" }}
