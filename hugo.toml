@@ -31,8 +31,7 @@ enableGitInfo = true
 
 [params]
   # Open Graph
-  description = 'Nathan Barry and his thoughts'
-  images = ['site.jpg']
+  description = "This is the website of Nathan Barry"
   title = 'nathan.rs'
 
   # (Optional, default light) Sets color theme: light, dark or auto.
