@@ -53,7 +53,7 @@ May 2022 | Participated in the **[Z fellows](https://www.zfellows.com)** program
 Outside of school and work, I enjoy [reading](/posts/favorite-books), pickleball, badminton, climbing, pool, ping-pong, hiking, social dance, and playing the guitar!
 I also love doing hackathons with friends and have won or placed in every hackathon I've participated in so far.
 
-To me, much of life is about creating, instilling, and capturing beauty. It is in that spirit that I pursue photography. You can view [some of my photos here](https://photos.nathan.rs/).
+To me, much of life is about creating, instilling, and immortalizing beauty. It is in that spirit that I pursue photography. You can view [some of my photos here](https://photos.nathan.rs/).
 
 > "I believe that a man should strive for only one thing in life, and that is to have a touch of greatness"
 --- Félix Martí-Ibáñez
