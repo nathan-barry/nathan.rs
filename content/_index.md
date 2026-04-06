@@ -99,3 +99,4 @@ Check out my friends' websites! They're all super cool and great people!
 - [Dorsa Rohani](https://dorsarohani.com/)
 - [Annie Hu](https://anniehu.com/)
 - [Arpan Dhatt](https://arpan.one/)
+- [Nate Williams](https://nate.town/)
