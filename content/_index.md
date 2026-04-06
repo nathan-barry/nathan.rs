@@ -94,9 +94,4 @@ Bowling Score | 203 (my proudest one!)
 
 ## Friends
 Check out my friends' websites! They're all super cool and great people!
-- [Alex Kranias](https://alexkranias.com/)
-- [Daniel Kasabov-Nouvion](https://danielkasabov.com/)
-- [Dorsa Rohani](https://dorsarohani.com/)
-- [Annie Hu](https://anniehu.com/)
-- [Arpan Dhatt](https://arpan.one/)
-- [Nate Williams](https://nate.town/)
+[Alex Kranias](https://alexkranias.com/), [Daniel Kasabov-Nouvion](https://danielkasabov.com/), [Dorsa Rohani](https://dorsarohani.com/), [Annie Hu](https://anniehu.com/), [Arpan Dhatt](https://arpan.one/), [Nate Williams](https://nate.town/)
