@@ -51,6 +51,10 @@ html:not(.light-mode) .markdown a[href] {
     text-decoration: underline;
     text-decoration-style: dotted;
     text-underline-offset: 3px;
+
+    &:hover {
+        text-decoration-style: solid;
+    }
 }
 
 .sidebar-logo img,
