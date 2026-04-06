@@ -1,10 +1,3 @@
----
-title: "Home"
-description: "Nathan Barry"
----
-
-
-
 <h1 id="typewriter-heading"></h1>
 <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
 <script>
