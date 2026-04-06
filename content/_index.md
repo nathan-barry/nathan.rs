@@ -39,6 +39,13 @@ May 2022 | Participated in the **[Z fellows](https://www.zfellows.com)** program
 
 </div>
 
+<style>
+.timeline-tables table td:first-child,
+.timeline-tables table th:first-child {
+  width: 110px;
+}
+</style>
+
 
 
 ## Life
@@ -68,8 +75,6 @@ Throughout the years, I've tried to collect and curate [pieces of text I enjoy](
 
 
 
-
-
 ## Personal Records
 
 Here is a list of some personal feats I've done (featuring the impressive and the useless).
@@ -87,9 +92,10 @@ Bowling Score | 203 (my proudest one!)
 
 
 
-<style>
-.timeline-tables table td:first-child,
-.timeline-tables table th:first-child {
-  width: 110px;
-}
-</style>
+## Friends
+Check out my friends' websites! They're all super cool and great people!
+- [Alex Kranias](https://alexkranias.com/)
+- [Daniel Kasabov-Nouvion](https://danielkasabov.com/)
+- [Dorsa Rohani](https://dorsarohani.com/)
+- [Annie Hu](https://anniehu.com/)
+- [Arpan Dhatt](https://arpan.one/)
