@@ -55,6 +55,8 @@ html.light-mode {
 .Typewriter__cursor {
     font-size: 1.25em;
     vertical-align: -0.1em;
+    position: relative;
+    left: -0.2em;
 }
 
 // Make KaTeX responsive on mobile
