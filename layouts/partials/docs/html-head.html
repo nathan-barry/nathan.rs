@@ -15,7 +15,6 @@ https://github.com/alex-shpak/hugo-book
 {{- end -}}
 
 {{ partial "opengraph.html" . }}
-<meta property="og:description" content="{{ or .Description .Summary | plainify | htmlUnescape | truncate 64 }}">
 {{/* Uncomment if you want Schema.org meta tags
 {{ partial "schema.html" . }}
 */}}
