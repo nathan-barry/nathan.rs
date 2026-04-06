@@ -47,6 +47,12 @@ html.light-mode {
     }
 }
 
+html:not(.light-mode) .markdown a[href] {
+    text-decoration: underline;
+    text-decoration-style: dotted;
+    text-underline-offset: 3px;
+}
+
 .sidebar-logo img,
 .mobile-logo img {
     filter: var(--icon-filter);
