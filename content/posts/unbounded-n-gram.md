@@ -1,16 +1,16 @@
 +++
-title = "Generating Shakespeare Without Neural Networks"
-date = 2026-01-17T18:47:03-06:00
+title = "Language Modeling Without Neural Networks"
+date = 2026-04-19T21:29:11-05:00
 tags = ["Machine Learning", "2026"]
 +++
 {{< katex >}}{{< /katex >}}
 
-Learning how to generate Shakespeare has become the ["Hello World"](https://en.wikipedia.org/wiki/%22Hello,_World!%22_program) of language models.[^1]
-Recently, I've been messing with [alternative language models](https://github.com/nathan-barry/tiny-diffusion) (diffusion language models instead of autoregressive transformers) and came across **unbounded n-gram** models. These models are purely statistical and don't require optimizing weights or training.
+Generating Shakespeare has become the ["Hello World"](https://en.wikipedia.org/wiki/%22Hello,_World!%22_program) of language models.[^1]
+Recently, I've been messing with [alternative language models](https://github.com/nathan-barry/tiny-diffusion) and came across **unbounded n-gram** models. These models are purely statistical and don't require optimizing weights or training.
 
-A year ago, I read the paper [Infini-gram](https://arxiv.org/abs/2401.17377), which scaled an unbounded n-gram model to trillions of tokens. While their model had applications like supplementing and helping guide LLMs during generation, it did not explore the standalone generation capabilities of the model.
+A year ago, I read the paper [Infini-gram](https://arxiv.org/abs/2401.17377), which scaled an unbounded n-gram model to trillions of tokens. While their model had applications helping guide neural LLMs during generation, standalone language generation was not explored.
 
-In this post, I'll explain how this model works and how I improved its language generation capabilities, as visualized below:
+In this post, I'll explain how unbounded n-gram models work and how I improved their language generation capabilities.
 
 <img alt="Infini-gram vs GPT" style="max-width: 100%" src="/images/unbounded-n-gram.gif">
 
@@ -20,7 +20,7 @@ In this post, I'll explain how this model works and how I improved its language 
 
 ## Classical N-Grams
 
-An **n-gram** is a sequence of n tokens from a given text, and an **n-gram language model** estimates the probability of each token by **counting how frequently it follows the previous n-1 tokens** in the training dataset.
+An **n-gram** is a sequence of n tokens from a given text, and an **n-gram language model** estimates the probability of each token by **counting how frequently it follows the previous $n-1$ tokens** in the training dataset.
 
 Normally, datasets consist of many text documents, but for simplicity, let's say our dataset is the following string of characters, with each token being a single character:
 
@@ -28,7 +28,7 @@ Normally, datasets consist of many text documents, but for simplicity, let's say
 AABBCCBC
 ```
 
-We could model this with n-grams of various sizes. For $n=1$ (AKA a unigram), since there are no previous tokens ($n-1=0$), we just count how many times each character appears in the dataset:
+We could model this with n-grams of various sizes. For a unigram ($n=1$), since there are no previous tokens, we just count how many times each character appears in the dataset:
 
 ```
 Counts:       Probabilities:
@@ -37,9 +37,7 @@ B: 3          B: .375
 C: 3          C: .375
 ```
 
-If we wanted to generate more of the sequence, we could just sample from the probability distribution to generate the next token. 
-
-This unigram model isn't entirely too useful as it doesn't use any context of past characters. To gain better modeling capability, we can include the context of the previous character by expanding $n$ from $1$ to $2$ (AKA a bigram).
+If we wanted to generate more of the sequence, we could sample from this probability distribution to generate the next token. To gain better modeling capability, we can expand $n$ from $1$ to $2$ to include the context of the previous character (thus, a bigram).
 
 This causes our lookup table to go from a list of size $n$ to a matrix of size $n\times n$, where the columns are the previous character and the rows are the current character:
 
@@ -53,13 +51,13 @@ C  0  2  1         C   0  .66   .5
 
 To generate more of the sequence, we would look at the last character and sample from its column, as each column represents the probability distribution over the potential next tokens.[^2]
 
-We can see that the larger $n$ is, the more previous tokens the model takes into account. This leads to more accurate language modeling ability, but causes the lookup table to **grow exponentially in size**, which makes using large values of $n$ intractable in practice.
+Increasing $n$ allows us to have a larger context length, but it also causes the lookup table to **grow exponentially in size** with great sparsity.
 
 
 
 ## Suffix Arrays and Unbounded N-Grams
 
-Essentially, instead of computing the lookup table for all n-grams for a specific $n$, we can instead simulate any arbitrary n-gram lookup table for a dataset by using a [suffix array](https://en.wikipedia.org/wiki/Suffix_array). This makes using n-grams for large $n$ tractable.
+Instead of computing the lookup table for all n-grams for a specific $n$, we can instead simulate any arbitrary n-gram lookup table for a dataset by using a [suffix array](https://en.wikipedia.org/wiki/Suffix_array). This makes using n-grams for large $n$ tractable.
 
 A **suffix array** is a sorted array of all suffixes of a piece of text. It is easiest to understand with an example. Let's take the same example as before, but with each character's index below it:
 
@@ -278,7 +276,7 @@ With a $k=2$, we see that the first level's median $n$ is 17 characters (roughly
 
 Unlike transformers with fixed context windows, unbounded n-grams adapt dynamically to available matches. But as context length grows, the combinatorial space becomes exponentially sparse; long matches are rare, so context length is less "scalable" compared to transformers.
 
-For `numMatches`, the first level's median is $m=1$ (what we expected) and the second's level median is $4$. The standard deviations are expectedly high due to scenarios where a small $n$ leads to very high $m$, leading to high variance.
+For `numMatches`, the first level's median is $m=1$ (what we expected) and the second level's median is $4$. The standard deviations are expectedly high due to scenarios where a small $n$ leads to very high $m$, leading to high variance.
 
 
 
@@ -381,7 +379,7 @@ There is no cause to mou against me war the plaines?
 
 
 
-## Conclusions
+## Conclusion
 
 Unbounded n-grams prove that you don't always need neural networks to generate decent text. By combining suffix arrays with novel sampling strategies, we achieved generation quality that approaches small transformers at $250\times$ the speed.
 
@@ -391,27 +389,6 @@ Raw statistical models face an inherent **memorization-novelty tradeoff**. While
 
 I wonder how generation quality scales with the size of the dataset. I believe that there are real world use cases for models like this. Perhaps these models are good enough to serve as draft models for speculative decoding. Maybe there are tasks where exact retrieval is desirable or which are easy enough that these models are more than capable of handling.
 Maybe another weekend I'll investigate this!
-
-
-
-## Citation
-
-If you found this post useful for a project, please kindly cite this page:
-
-> Barry, Nathan. "Generating Shakespeare Without Neural Networks". nathan.rs (Jan 2026). http://nathan.rs/posts/shakespeare-n-gram.
-
-Or
-
-```
-@article{barry2026ngram,
-  title   = "Generating Shakespeare Without Neural Networks",
-  author  = "Barry, Nathan",
-  journal = "nathan.rs",
-  year    = "2026",
-  month   = "Jan",
-  url     = "http://nathan.rs/posts/shakespeare-n-gram"
-}
-```
 
 
 
@@ -437,6 +414,27 @@ The standard metric for evaluating language models is **perplexity**. Perplexity
 $$\text{Perplexity} = 2^{\text{NLL}} = 2^{-\frac{1}{N}\sum_{i=1}^{N} \log_2 P(x_i | x_{<i})}$$
 
 Why exponentiate back? Perplexity has an intuitive interpretation: it represents the **effective vocabulary size** the model is choosing from at each step. A perplexity of 3 means the model is as uncertain as if it were guessing uniformly among 3 tokens.[^5] Lower perplexity is better.
+
+
+
+## Citation
+
+If you found this post useful for a project, please kindly cite this page:
+
+> Barry, Nathan. "Generating Shakespeare Without Neural Networks". nathan.rs (Jan 2026). http://nathan.rs/posts/shakespeare-n-gram.
+
+Or
+
+```
+@article{barry2026ngram,
+  title   = "Language Modeling Without Neural Networks",
+  author  = "Barry, Nathan",
+  journal = "nathan.rs",
+  year    = "2026",
+  month   = "Apr",
+  url     = "http://nathan.rs/posts/shakespeare-n-gram"
+}
+```
 
 
 
