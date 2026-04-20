@@ -198,14 +198,5 @@ Once logits are back on the CPU, we apply softmax and sample (top-k or top-p) to
 By chaining these operation passes together, we keep the entire GPT-2 pipeline on the GPU until the final logits. This is how programmable shaders let us treat the graphics pipeline as a general-purpose parallel engine.
 
 ## Conclusion
-This was a fun project! I chose to do this as a final projects for my Graphics: Honors class at UT Austin (hence why I decided to use the graphics pipeline in the first place).
-
-While WebGL allows us to run machine learning models on the GPU, it has several key limitations:
-
-- **No shared/local memory**: Fragment shaders can only read/write global textures. There’s no access to on-chip scratchpad for blocking or data reuse, so you’re limited to element-wise passes.
-- **Texture size limits**: WebGL enforces a maximum 2D texture dimension (e.g. 16 K×16 K). Anything larger must be manually split into tiles, adding bookkeeping and extra draw calls.
-- **No synchronization or atomics**: You can’t barrier or coordinate between fragments in a pass, making reductions, scatter/gather, and other data-dependent patterns difficult or impossible.
-- **Draw-call and precision overhead**: Every neural-net operation requires binding an FBO, swapping textures, and issuing a draw call (dozens per layer) which incurs CPU overhead. Plus, you’re bound to 16- or 32-bit floats (via `EXT_color_buffer_float`), with no double precision or integer textures.
-
-Compute APIs like CUDA or OpenCL have better APIs and require substantially less host boilerplate code to achieve the same thing.
-Now go forth and never look back. Appreciate CUDA for all it does for you.
+This was a fun project! I chose to do this as a final projects for my Graphics Honors class at UT Austin (hence why I decided to use the graphics pipeline in the first place).
+Compute APIs like CUDA or OpenCL have better APIs and require substantially less host boilerplate code to achieve the same thing. It was neat learning how people did scientific computation on GPUs before compute APIs existed!
