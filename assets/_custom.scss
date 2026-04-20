@@ -47,7 +47,7 @@ html.light-mode {
     }
 }
 
-html:not(.light-mode) .markdown a[href] {
+.markdown a[href] {
     text-decoration: underline;
     text-decoration-style: dotted;
     text-underline-offset: 3px;
