@@ -89,6 +89,7 @@ ul.pagination {
     max-width: $container-max-width;
     margin: 0 auto;
     padding-top: calc(var(--page-top) + 1rem);
+    gap: 2rem;
 }
 
 .book-icon {
@@ -378,6 +379,12 @@ body[dir="rtl"] .book-menu {
     transition: 0.2s ease-in-out;
     transition-property: transform, margin, opacity, visibility;
     will-change: transform, margin, opacity;
+}
+
+@media screen and (max-width: $container-max-width) {
+    .container {
+        gap: 0;
+    }
 }
 
 @media screen and (max-width: $mobile-breakpoint) {
