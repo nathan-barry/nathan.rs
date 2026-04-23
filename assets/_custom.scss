@@ -62,6 +62,10 @@ html.light-mode {
     filter: var(--icon-filter);
 }
 
+html:not(.light-mode) .markdown img[src$=".gif"] {
+    filter: invert(0.92);
+}
+
 .Typewriter__cursor {
     font-size: 1.25em;
     vertical-align: -0.1em;
