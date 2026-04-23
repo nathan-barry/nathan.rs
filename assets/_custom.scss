@@ -22,6 +22,10 @@ html.light-mode {
     }
 }
 
+html:not(.light-mode) {
+    @include theme-dark;
+}
+
 .book-menu a,
 .book-menu label,
 .book-menu strong {

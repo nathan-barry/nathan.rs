@@ -26,7 +26,7 @@ enableGitInfo = true
   startLevel = 1
 
 [markup.highlight]
-  style = 'gruvbox'
+  style = 'gruvbox-light'
   noClasses = false
 
 [params]
@@ -36,7 +36,7 @@ enableGitInfo = true
 
   # (Optional, default light) Sets color theme: light, dark or auto.
   # Theme 'auto' switches between dark and light modes based on browser/os preferences
-  BookTheme = 'dark'
+  BookTheme = 'light'
 
   # (Optional, default favicon.png) Set the path to a favicon file.
   # If the favicon is /static/favicon.png then the path would be favicon.png

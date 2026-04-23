@@ -61,8 +61,8 @@
 {{ define "theme-toggle" }}
 <script>
   (function() {
-    var light = localStorage.getItem('theme') === 'light';
-    if (light) document.documentElement.classList.add('light-mode');
+    var stored = localStorage.getItem('theme');
+    if (stored !== 'dark') document.documentElement.classList.add('light-mode');
     function updateIcons() {
       var isLight = document.documentElement.classList.contains('light-mode');
       document.querySelectorAll('.theme-toggle').forEach(function(btn) {
