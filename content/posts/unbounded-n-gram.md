@@ -1,6 +1,6 @@
 +++
 title = "Language Modeling Without Neural Networks"
-date = 2026-04-19T21:29:11-05:00
+date = 2026-01-17T18:47:03-06:00
 tags = ["Machine Learning", "2026"]
 +++
 {{< katex >}}{{< /katex >}}
