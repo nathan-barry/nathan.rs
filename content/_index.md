@@ -23,19 +23,19 @@ Below are some of the things I've been doing:
 
 Currently |
 --- | ---
-May 2026 - Present | An **AI Engineer** at **[Zed](https://zed.dev/)**, building *beautiful* software and open-source AI research
+May 2026 - Present | An **AI Engineer** at **[Zed](https://zed.dev/)**, working on post-training code autocomplete models (and other stuff)
 
 Previously |
 --- | ---
 May 2026 | Finished my Master's of Science in CS @ UT Austin
 Aug 2025 - May 2026 | A **Graduate Researcher** at UT Austin, working on [inference optimization for diffusion language models](/thesis.pdf) (and previously, distributed training)
 Feb 2026 | Won both the [Neo](https://neo.com/) Prize and the Most Creative Prize at [TreeHacks 2026](https://treehacks.com/). Built [Diffuji](https://diffuji.com/), a diffusion-powered instant camera
-Oct 2025 | Placed for the Play-Do Prize at [Cal Hacks 2025](https://www.calhacks.io). Built [Curserve](/posts/curserve/), a coding agent serving framework with significantly faster end-to-end generation
+Oct 2025 | Placed for the Play-Do Prize at [Cal Hacks 2025](https://www.calhacks.io). Built [Curserve](/posts/curserve/), a coding agent serving framework with faster end-to-end generation
 May 2025 - Aug 2025 | A **Machine Learning Intern** at **Apple**, working on time-series forecasting for predictive autoscaling
 Jun 2025 | Attended Y Combinator's first [AI Startup School](https://events.ycombinator.com/ai-sus) (and other summer events)
 May 2025 | Finished my Bachelor's of Science in CS and Math @ UT Austin
 Nov 2021 - Jan 2025 | A **Software Engineer** at multiple startups, doing Rust and TypeScript full-stack development and Python machine learning and robotics work
-Feb 2024 - Sep 2024 | An **Undergraduate Researcher** at UT Austin, working on ML infrastructure for LLM dataset contamination research
+Feb 2024 - Sep 2024 | An **Undergraduate Researcher** at UT Austin, working on efficient exact-match search for LLM dataset contamination detection
 May 2022 | Participated in the **[Z fellows](https://www.zfellows.com)** program
 
 </div>
