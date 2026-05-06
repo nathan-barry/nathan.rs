@@ -7,7 +7,7 @@ append . }} {{ end }} {{ end }}
 
 <div class="tag-columns">
     <div>
-        <h3><a href="/posts">Popular Posts</a></h3>
+        <h3>Popular Posts</h3>
         <hr />
         <p class="list-link">
             &#x2727;&nbsp;
@@ -37,7 +37,7 @@ append . }} {{ end }} {{ end }}
 
     <!-- Recent Posts -->
     <div>
-        <h3><a href="/posts">Recent Posts</a></h3>
+        <h3>Recent Posts</h3>
         <hr />
         {{ range first 4 (sort $posts "Date" "desc") }}
         <p class="list-link">
