@@ -2,7 +2,7 @@
 description = "This is the website of Nathan Barry"
 +++
 
-<div class="typewriter-wrap" style="padding-bottom: 1.2em;">
+<div class="typewriter-wrap" style="padding-bottom: 0.8em;">
     <h1 class="typewriter-placeholder">Welcome to <i>my</i> corner of the internet<span class="Typewriter__cursor">|</span></h1>
     <h1 class="typewriter-target" aria-hidden="true"></h1>
 </div>

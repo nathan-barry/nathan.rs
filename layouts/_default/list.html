@@ -1,6 +1,10 @@
 {{ define "main" }}
 <article class="book-post markdown">
-    <h1>Writing{{ if ne .Title "Posts" }}: {{ .Title }}{{ end }}</h1>
+    {{ $title := printf "Writing%s" (cond (ne .Title "Posts") (printf ": %s" .Title) "") }}
+    <div class="typewriter-wrap">
+        <h1 class="typewriter-placeholder">{{ $title }}<span class="Typewriter__cursor">|</span></h1>
+        <h1 class="typewriter-target" aria-hidden="true"></h1>
+    </div>
     {{ range sort .Paginator.Pages }}
     <h2>
         <a href="{{ .RelPermalink }}">{{ partial "docs/title" . }}</a>
