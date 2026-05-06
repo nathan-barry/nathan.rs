@@ -421,7 +421,7 @@ Why exponentiate back? Perplexity has an intuitive interpretation: it represents
 
 If you found this post useful for a project, please kindly cite this page:
 
-> Barry, Nathan. "Generating Shakespeare Without Neural Networks". nathan.rs (Jan 2026). http://nathan.rs/posts/shakespeare-n-gram.
+> Barry, Nathan. "Language Modeling Without Neural Networks". nathan.rs (Jan 2026). http://nathan.rs/posts/unbounded-n-gram.
 
 Or
 
@@ -432,7 +432,7 @@ Or
   journal = "nathan.rs",
   year    = "2026",
   month   = "Apr",
-  url     = "http://nathan.rs/posts/shakespeare-n-gram"
+  url     = "http://nathan.rs/posts/unbounded-n-gram"
 }
 ```
 
