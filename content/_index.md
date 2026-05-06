@@ -16,6 +16,9 @@ Greetings fellow traveler! Salutations! Callooh! Callay!
 
 My name is **Nathan Barry**. I'm a engineer/researcher interested in systems and machine learning.
 I love working on hard problems with great people. Occasionally, [I write about what I'm working on](/posts).
+Here's a few featured blog posts.
+
+{{< home-columns >}}
 
 Below are some of the things I've been doing:
 
@@ -51,10 +54,7 @@ May 2022 | Participated in the **[Z fellows](https://www.zfellows.com)** program
 
 ## Life
 
-Outside of school and work, I enjoy [reading](/posts/favorite-books), pickleball, badminton, climbing, pool, ping-pong, hiking, social dance, and playing the guitar!
-I also love doing hackathons with friends and have won or placed in every hackathon I've participated in so far.
-
-To me, much of life is about creating, instilling, and immortalizing beauty. It is in that spirit that I pursue photography. You can view [some of my photos here](https://photos.nathan.rs/).
+Outside of school and work, I enjoy [reading](/posts/favorite-books), pickleball, badminton, climbing, pool, ping-pong, hiking, social dance, playing the guitar, and [photography](https://photos.nathan.rs/)!
 
 > "I believe that a man should strive for only one thing in life, and that is to have a touch of greatness"
 --- Félix Martí-Ibáñez
@@ -95,4 +95,4 @@ Bowling Score | 203 (my proudest one!)
 
 ## Friends
 Check out my friends' websites! They're all super cool and great people!
-[Alex Kranias](https://alexkranias.com/), [Daniel Kasabov-Nouvion](https://danielkasabov.com/), [Dorsa Rohani](https://dorsarohani.com/), [Annie Hu](https://anniehu.com/), [Arpan Dhatt](https://arpan.one/), [Nate Williams](https://nate.town/)
+[Alex Kranias](https://alexkranias.com/), [Daniel Kasabov-Nouvion](https://danielkasabov.com/), [Dorsa Rohani](https://dorsarohani.com/), [Annie Hu](https://anniehu.com/), [Arpan Dhatt](https://arpan.one/), [Nate Williams](https://nate.town/).

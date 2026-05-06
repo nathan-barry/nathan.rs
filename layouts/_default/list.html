@@ -1,6 +1,6 @@
 {{ define "main" }}
 <article class="book-post markdown">
-    <h1>Blog Posts{{ if ne .Title "Posts" }}: {{ .Title }}{{ end }}</h1>
+    <h1>Writing{{ if ne .Title "Posts" }}: {{ .Title }}{{ end }}</h1>
     {{ range sort .Paginator.Pages }}
     <h2>
         <a href="{{ .RelPermalink }}">{{ partial "docs/title" . }}</a>

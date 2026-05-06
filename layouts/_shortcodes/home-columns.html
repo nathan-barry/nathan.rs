@@ -1,0 +1,48 @@
+{{/* Partition all posts into Notes vs. regular Posts based on tags */}} {{
+$posts := slice }} {{ $notes := slice }} {{ range where .Site.RegularPages
+"Section" "posts" }} {{ $isNote := false }} {{ range .Params.tags }} {{ if
+strings.HasSuffix (lower .) "notes" }}{{ $isNote = true }}{{ end }} {{ end }} {{
+if $isNote }} {{ $notes = $notes | append . }} {{ else }} {{ $posts = $posts |
+append . }} {{ end }} {{ end }}
+
+<div class="tag-columns">
+    <div>
+        <h3><a href="/posts">Popular Posts</a></h3>
+        <hr />
+        <p class="list-link">
+            &#x2727;&nbsp;
+            <a href="/posts/roberta-diffusion/"
+                >BERT is just a Single Text Diffusion Step</a
+            >
+        </p>
+        <p class="list-link">
+            &#x2727;&nbsp;
+            <a href="/posts/unbounded-n-gram/"
+                >Language Modeling Without Neural Networks</a
+            >
+        </p>
+        <p class="list-link">
+            &#x2727;&nbsp;
+            <a href="/posts/gpu-shader-programming/"
+                >Running GPT-2 in WebGL with Classic GPGPU Programming</a
+            >
+        </p>
+        <p class="list-link">
+            &#x2727;&nbsp;
+            <a href="/posts/dllm-faster-code-generation//"
+                >Text Diffusion Models are Faster at Writing Code</a
+            >
+        </p>
+    </div>
+
+    <!-- Recent Posts -->
+    <div>
+        <h3><a href="/posts">Recent Posts</a></h3>
+        <hr />
+        {{ range first 4 (sort $posts "Date" "desc") }}
+        <p class="list-link">
+            &#x2727;&nbsp; <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        </p>
+        {{ end }}
+    </div>
+</div>

@@ -3,39 +3,20 @@
     <ul>
         <!-- Main Pages -->
         <li>
-            <a href="/posts">All Posts</a>
+            <a href="/">Home</a>
+        </li>
+        <li>
+            <a href="/posts">Writing</a>
         </li>
 
-        <!-- Popular Posts -->
-        <li style="margin-top: 8px"><strong>Popular Posts</strong></li>
-        <ul>
-            <li>
-                <a href="/posts/roberta-diffusion/"
-                    >BERT is just a Single Text Diffusion Step</a
-                >
-            </li>
-            <li>
-                <a href="/posts/unbounded-n-gram/"
-                    >Language Modeling Without Neural Networks</a
-                >
-            </li>
-            <li>
-                <a href="/posts/gpu-shader-programming/"
-                    >Running GPT-2 in WebGL with Classic GPGPU Programming</a
-                >
-            </li>
-        </ul>
+        <!-- Theme Toggle -->
+        <li style="margin: 8px 0">
+            <button class="theme-toggle" aria-label="Toggle theme">
+                ☾ Dark Mode
+            </button>
+        </li>
 
-        <!-- Recent Posts -->
-        <li style="margin-top: 8px"><strong>Recent Posts</strong></li>
-        <ul>
-            {{ range first 3 (where .Site.RegularPages "Section"
-            "posts").ByDate.Reverse }}
-            <li>
-                <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-            </li>
-            {{ end }}
-        </ul>
+        <br />
 
         <!-- Socials -->
         <li>
@@ -46,12 +27,6 @@
         </li>
         <li>
             <a href="https://www.linkedin.com/in/nathanrs/">LinkedIn</a>
-        </li>
-        <!-- Theme Toggle -->
-        <li style="margin-top: 8px">
-            <button class="theme-toggle" aria-label="Toggle theme">
-                ☾ Dark Mode
-            </button>
         </li>
     </ul>
 </nav>
