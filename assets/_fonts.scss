@@ -1,8 +1,10 @@
-/*
-  This is an empty file for backward compatibility.
-  Custom font used to be defined here.
-  It will be removed eventually.
-*/
 body {
     font-family: Palatino, Georgia, serif;
+}
+
+@font-face {
+    font-family: "Romantik";
+    src: url("/fonts/romantik.ttf") format("truetype");
+    font-display: swap;
+    unicode-range: U+0041-005A; // A-Z only — drop-cap use; never fetched if first-letter is non-Latin
 }

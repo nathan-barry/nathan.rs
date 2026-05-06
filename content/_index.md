@@ -2,25 +2,22 @@
 description = "This is the website of Nathan Barry"
 +++
 
+<div class="typewriter-wrap" style="padding-bottom: 1.2em;">
+    <h1 class="typewriter-placeholder">Welcome to <i>my</i> corner of the internet<span class="Typewriter__cursor">|</span></h1>
+    <h1 class="typewriter-target" aria-hidden="true"></h1>
+</div>
 
 
-<h1 id="typewriter-heading"></h1>
-<script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
-<script>
-new Typewriter('#typewriter-heading', { delay: 30 })
-  .typeString('Welcome to <i>my</i> corner of the internet')
-  .start();
-</script>
 
 Greetings fellow traveler! Salutations! Callooh! Callay!
 
 My name is **Nathan Barry**. I'm a engineer/researcher interested in systems and machine learning.
 I love working on hard problems with great people. Occasionally, [I write about what I'm working on](/posts).
-Here's a few featured blog posts.
+Below are a few selected blog posts.
 
 {{< home-columns >}}
 
-Below are some of the things I've been doing:
+For information about me, below are a few things I've been doing:
 
 <div class="timeline-tables">
 
@@ -42,13 +39,6 @@ Feb 2024 - Sep 2024 | An **Undergraduate Researcher** at UT Austin, working on e
 May 2022 | Participated in the **[Z fellows](https://www.zfellows.com)** program
 
 </div>
-
-<style>
-.timeline-tables table td:first-child,
-.timeline-tables table th:first-child {
-  width: 110px;
-}
-</style>
 
 
 

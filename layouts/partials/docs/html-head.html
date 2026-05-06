@@ -5,6 +5,7 @@ https://github.com/alex-shpak/hugo-book
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>document.documentElement.classList.add('js');</script>
 <meta name="description" content="{{ or .Description .Summary | plainify | htmlUnescape | truncate 160 | replaceRE `\s*#\s*` `: ` }}">
 <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
 <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
@@ -44,6 +45,11 @@ https://github.com/alex-shpak/hugo-book
 
 	gtag('config', 'G-1Y735N717D');
 </script>
+
+<!-- Typewriter (animates [data-typewriter] elements) -->
+<script defer src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
+{{- $typewriter := resources.Get "typewriter.js" | resources.Minify | resources.Fingerprint }}
+<script defer src="{{ $typewriter.RelPermalink }}" {{ template "integrity" $typewriter }}></script>
 
 <!-- RSS -->
 {{- with .OutputFormats.Get "rss" -}}
