@@ -118,7 +118,7 @@ html:not(.light-mode) .markdown img[src$=".gif"] {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
     gap: 1.25rem 2rem;
-    margin: 1.8rem 0 2rem 0;
+    margin: 1.8rem 0;
 
     > div {
         min-width: 0;

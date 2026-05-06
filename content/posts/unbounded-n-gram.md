@@ -292,7 +292,7 @@ From the eyeball test, NanoGPT looks like it produces more coherent Shakespeare,
 
 ### NanoGPT Perplexity During Training
 
-We track perplexity and loss (see [appendix](/posts/shakespeare-n-gram/#likelihood-loss-and-perplexity) if unfamiliar) on both train and validation splits during training. At step 0, the randomly initialized model outputs gibberish:
+We track perplexity and loss (see [appendix](#appendix-likelihood-loss-and-perplexity) if unfamiliar) on both train and validation splits during training. At step 0, the randomly initialized model outputs gibberish:
 
 ```
 step 0: train(loss=4.2683, ppl=71.40), val(loss=4.2670, ppl=71.31)
