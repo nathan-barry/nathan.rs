@@ -2,7 +2,7 @@
 description = "This is the website of Nathan Barry"
 +++
 
-Greetings visitor! This is the website and digital garden of **Nathan Barry**. I'm an engineer/researcher interested in systems and machine learning.
+Greetings visitor! This is the website and digital garden of **Nathan Barry**. I'm an engineer and researcher interested in systems and machine learning.
 I love working on hard problems with great people. Occasionally, [I write about what I'm working on](/posts).
 Below are a few selected blog posts:
 
