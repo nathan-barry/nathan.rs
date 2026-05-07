@@ -1,5 +1,5 @@
 +++
-title = "Running GPT-2 in WebGL with Classic GPGPU Programming"
+title = "Running GPT-2 in WebGL with Classic GPU Programming"
 date = 2025-05-24T12:20:47-07:00
 tags = ["Machine Learning", "Programming", "2025"]
 +++
