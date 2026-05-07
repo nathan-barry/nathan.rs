@@ -26,6 +26,26 @@ html:not(.light-mode) {
     @include theme-dark;
 }
 
+// Shrink menu/toc on mid-sized screens (between mobile and full).
+// Above $container-max-width: full sizes from _defaults. Below mobile: hidden.
+@media screen and (min-width: $mobile-breakpoint) and (max-width: $container-max-width) {
+    .book-menu {
+        flex-basis: 10rem;
+
+        .book-menu-content {
+            width: 10rem;
+        }
+    }
+
+    .book-toc {
+        flex-basis: 12rem;
+
+        .book-toc-content {
+            width: 12rem;
+        }
+    }
+}
+
 .book-menu a,
 .book-menu label,
 .book-menu strong {
