@@ -196,7 +196,3 @@ Because each pass leaves its results in VRAM, we never pay the cost of round-tri
 Once logits are back on the CPU, we apply softmax and sample (top-k or top-p) to pick the next token. Then the process starts over again with the new token being appended to the context.
 
 By chaining these operation passes together, we keep the entire GPT-2 pipeline on the GPU until the final logits. This is how programmable shaders let us treat the graphics pipeline as a general-purpose parallel engine.
-
-## Conclusion
-This was a fun project! I chose to do this as a final projects for my Graphics Honors class at UT Austin (hence why I decided to use the graphics pipeline in the first place).
-Compute APIs like CUDA or OpenCL have better APIs and require substantially less host boilerplate code to achieve the same thing. It was neat learning how people did scientific computation on GPUs before compute APIs existed!
