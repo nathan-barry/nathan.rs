@@ -2,13 +2,9 @@
 description = "This is the website of Nathan Barry"
 +++
 
-Greetings visitor!
-Welcome to <i>my</i> corner of the internet!
-Salutations! Callooh! Callay!
-
-My name is **Nathan Barry**. I'm a engineer/researcher interested in systems and machine learning.
+Greetings visitor! This is the website and digital garden of **Nathan Barry**. I'm an engineer/researcher interested in systems and machine learning.
 I love working on hard problems with great people. Occasionally, [I write about what I'm working on](/posts).
-Below are a few selected blog posts.
+Below are a few selected blog posts:
 
 {{< home-columns >}}
 
