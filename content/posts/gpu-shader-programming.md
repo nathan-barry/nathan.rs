@@ -4,13 +4,13 @@ date = 2025-05-24T12:20:47-07:00
 tags = ["Machine Learning", "Programming", "2025"]
 +++
 
-> This article appeared on Hacker News. Link to the [discussion here](https://news.ycombinator.com/item?id=44109257)!
-
 A few weeks back, I implemented GPT-2 using WebGL and shaders ([Github Repo](https://github.com/nathan-barry/gpt2-webgl/tree/main)) which made the front page of [Hacker News](https://news.ycombinator.com/item?id=43870998). Here is a short write-up over what I learned about old-school general-purpose GPU programming over the course of this project!
 
 <img alt="GPT2 WebGL demo" style="max-width: 100%" src="/images/gpt2-webgl-demo.gif">
 
 *Above is a gif of the final demo, which you can run locally via the github repo above.*
+
+> *This article appeared on Hacker News. Link to the [discussion here](https://news.ycombinator.com/item?id=44109257).*
     
     
 
