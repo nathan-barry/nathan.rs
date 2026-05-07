@@ -2,14 +2,9 @@
 description = "This is the website of Nathan Barry"
 +++
 
-<div class="typewriter-wrap" style="padding-bottom: 0.8em;">
-    <h1 class="typewriter-placeholder">Welcome to <i>my</i> corner of the internet<span class="Typewriter__cursor">|</span></h1>
-    <h1 class="typewriter-target" aria-hidden="true"></h1>
-</div>
-
-
-
-Greetings fellow traveler! Salutations! Callooh! Callay!
+Greetings visitor!
+Welcome to <i>my</i> corner of the internet!
+Salutations! Callooh! Callay!
 
 My name is **Nathan Barry**. I'm a engineer/researcher interested in systems and machine learning.
 I love working on hard problems with great people. Occasionally, [I write about what I'm working on](/posts).
