@@ -1,7 +1,9 @@
 {{ define "main" }}
 <article class="markdown book-post">
     <div class="typewriter-wrap">
-        <h1 class="typewriter-placeholder">{{ .Title }}<span class="Typewriter__cursor">|</span></h1>
+        <h1 class="typewriter-placeholder">
+            {{ .Title }}<span class="Typewriter__cursor">|</span>
+        </h1>
         <h1 class="typewriter-target" aria-hidden="true"></h1>
     </div>
     {{ partial "docs/post-meta" . }}

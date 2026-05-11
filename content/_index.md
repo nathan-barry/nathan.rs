@@ -2,7 +2,14 @@
 description = "This is the website of Nathan Barry"
 +++
 
-Greetings visitor! This is the website and digital garden of **Nathan Barry**. I'm an engineer and researcher interested in systems and machine learning.
+<div style="text-align: center; margin: 0; padding: 0 0 2rem 0;">
+  <h2 style="margin: 0; line-height: 1.2;">nathan.rs</h2>
+  <span style="display: block; text-transform: uppercase; letter-spacing: 2px; color: #555; font-size: 0.6rem; margin-top: -5px;">
+      A Digital Garden
+  </span>
+</div>
+
+Greetings visitor! This is the website and *digital garden* of **Nathan Barry**. I'm an engineer and researcher interested in systems and machine learning.
 I love working on hard problems with great people. Occasionally, [I write about what I'm working on](/posts).
 Below are a few selected blog posts:
 
@@ -76,4 +83,4 @@ Bowling Score | 203 (my proudest one!)
 
 ## Friends
 Check out my friends' websites! They're all super cool and great people!
-[Alex Kranias](https://alexkranias.com/), [Daniel Kasabov-Nouvion](https://danielkasabov.com/), [Dorsa Rohani](https://dorsarohani.com/), [Annie Hu](https://anniehu.com/), [Arpan Dhatt](https://arpan.one/), [Nate Williams](https://nate.town/).
+[Alex Kranias](https://alexkranias.com/), [Daniel Kasabov-Nouvion](https://danielkasabov.com/), [Dorsa Rohani](https://dorsarohani.com/), [Annie Hu](https://anniehu.com/), [Manal Sultan](https://www.man-al.net/), [Arpan Dhatt](https://arpan.one/), [Nate Williams](https://nate.town/).
