@@ -2,7 +2,7 @@
 description = "This is the website of Nathan Barry"
 +++
 
-<div style="text-align: center; margin: 0; padding: 0 0 2rem 0;">
+<div style="text-align: center; margin: 0; padding: 0 0 1rem 0;">
   <h2 style="margin: 0; line-height: 1.2;">nathan.rs</h2>
   <span style="display: block; text-transform: uppercase; letter-spacing: 2px; color: #555; font-size: 0.6rem; margin-top: -5px;">
       A Digital Garden
