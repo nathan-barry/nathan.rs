@@ -7,7 +7,7 @@
     </div>
     {{ range sort .Paginator.Pages }}
     <h2>
-        <a href="{{ .RelPermalink }}">{{ partial "docs/title" . }}</a>
+        <a href="{{ if .Params.external_url }}{{ .Params.external_url }}{{ else }}{{ .Permalink }}{{ end }}">{{ partial "docs/title" . }}</a>
     </h2>
     <div class="book-post-container flex gap" style="margin-bottom: 40px">
         <div>

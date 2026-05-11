@@ -1,5 +1,5 @@
 +++
-title = "Text Diffusion Models are Faster at Writing Code"
+title = "Diffusion LLMs are Faster at Writing Code"
 date = 2025-12-13T08:13:54-06:00
 tags = ["Machine Learning", "2025"]
 +++
@@ -120,6 +120,6 @@ An important limitation to address: In autoregressive decoding, we [constrained 
 
 
 
-#### Footnotes
+## Footnotes
 [^1]: Read the section "Confidence-Aware Parallel Decoding" in the paper, [Fast-dLLM](https://arxiv.org/abs/2505.22618).
 [^2]: There are lots of papers of doing semi-autoregressive generation using diffusion language models. See [AR-Diffusion](https://arxiv.org/abs/2305.09515), [Fast-dLLM](https://arxiv.org/abs/2505.22618), [Block Diffusion](https://arxiv.org/abs/2503.09573), etc.
