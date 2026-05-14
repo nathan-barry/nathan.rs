@@ -13,7 +13,10 @@
 
     let ticking = false;
     function update() {
-      menu.classList.toggle("book-menu-faded", window.scrollY > window.innerHeight);
+      menu.classList.toggle(
+        "book-menu-faded",
+        window.scrollY > window.innerHeight * 0.5,
+      );
       ticking = false;
     }
 
