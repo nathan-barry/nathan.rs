@@ -96,6 +96,10 @@
   {{ with resources.Get "toc-scroll.js" | resources.Minify }}
     <script>{{ .Content | safeJS }}</script>
   {{ end }}
+  <!-- Menu Fade -->
+  {{ with resources.Get "menu-fade.js" | resources.Minify }}
+    <script>{{ .Content | safeJS }}</script>
+  {{ end }}
 {{ end }}
 
 {{ define "copyright" }}

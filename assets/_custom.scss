@@ -56,6 +56,18 @@ html:not(.light-mode) {
     }
 }
 
+.book-menu {
+    transition: opacity 0.25s ease;
+
+    &.book-menu-faded {
+        opacity: 0;
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+}
+
 .theme-toggle {
     cursor: pointer;
     background: none;
