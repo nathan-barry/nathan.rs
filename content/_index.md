@@ -2,8 +2,8 @@
 description = "This is the website of Nathan Barry"
 +++
 
-<h2 style="text-align: center; line-height: 1.2; font-variant: small-caps; margin-bottom: 1.25rem;">
-    Nathan's Digital Garden
+<h2 style="text-align: center; margin-bottom: 2rem;">
+    nathan.rs
 </h2>
 
 Greetings visitor! This is the website and *digital garden* of **Nathan Barry**. I'm an engineer and researcher interested in systems and machine learning.
