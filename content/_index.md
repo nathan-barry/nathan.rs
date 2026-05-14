@@ -35,17 +35,14 @@ May 2022 | Participated in the **[Z fellows](https://www.zfellows.com)** program
 
 </div>
 
+<p style="margin: 3rem 0 2.5rem 0;" class="text-center">&#x2735; &#x2735; &#x2735;</p>
 
-
-## Life
-
-Outside of school and work, I enjoy [reading](/posts/favorite-books), pickleball, badminton, climbing, pool, ping-pong, hiking, social dance, playing the guitar, and [photography](https://photos.nathan.rs/)!
+I think that the *spirit* of my life philosophy is tersely captured by the following quote (which I keep a [list](/posts/favorite-quotes) of), that I came across in the book [The Empire of Pain](https://en.wikipedia.org/wiki/Empire_of_Pain).
 
 > "I believe that a man should strive for only one thing in life, and that is to have a touch of greatness"
 --- Félix Martí-Ibáñez
 
-I think that the *spirit* of my life philosophy is tersely captured by the above quote, which I came across in the book [The Empire of Pain](https://en.wikipedia.org/wiki/Empire_of_Pain).
-While I like the quote, the grand and aspirational must be conjoined with a dab of conscientiousness to stay grounded in reality.
+While I like the quote, it is incomplete individually. The grand and aspirational must always be conjoined with a dose of conscientiousness.
 
 > "The thoughts of others\
 &emsp;&emsp;Were light and fleeting,\
@@ -57,13 +54,9 @@ So I was ready\
 &emsp;&emsp;When trouble came.”
 --- A.E. Housman
 
-Throughout the years, I've tried to collect and curate [pieces of text I enjoy](/posts/favorite-quotes).
+Outside of school and work, I enjoy [reading](/posts/favorite-books), pickleball, badminton, climbing, pool, ping-pong, hiking, social dance, playing the guitar, and [photography](https://photos.nathan.rs/)!
 
-
-
-## Personal Records
-
-Here is a list of some personal feats I've done (featuring the impressive and the useless).
+In addition, here is a list of some personal feats I've done (featuring the impressive and the useless).
 
 Event | Record
 --- | ---
@@ -76,8 +69,5 @@ Starcraft 2 Rank | Diamond (Protoss)
 Balls Juggled | 4
 Bowling Score | 203 (my proudest one!)
 
-
-
-## Friends
-Check out my friends' websites! They're all super cool and great people!
+Lastly, I have plenty of super cool and great friends! Check out their websites!
 [Alex Kranias](https://alexkranias.com/), [Daniel Kasabov-Nouvion](https://danielkasabov.com/), [Dorsa Rohani](https://dorsarohani.com/), [Annie Hu](https://anniehu.com/), [Manal Sultan](https://www.man-al.net/), [Sid Sabhnani](https://www.sidsabhnani.com/), [Arpan Dhatt](https://arpan.one/), [Nate Williams](https://nate.town/).
