@@ -35,14 +35,16 @@ May 2022 | Participated in the **[Z fellows](https://www.zfellows.com)** program
 
 </div>
 
-<p style="margin: 3rem 0 2.5rem 0;" class="text-center">&#x2735; &#x2735; &#x2735;</p>
+<p style="margin: 2rem 0 1.5rem 0;" class="text-center">&#x2735; &#x2735; &#x2735;</p>
 
-I think that the *spirit* of my life philosophy is tersely captured by the following quote (which I keep a [list](/posts/favorite-quotes) of), that I came across in the book [The Empire of Pain](https://en.wikipedia.org/wiki/Empire_of_Pain).
+Outside of school and work, I enjoy [reading](/posts/favorite-books), pickleball, badminton, climbing, pool, ping-pong, hiking, social dance, playing the guitar, and [photography](https://photos.nathan.rs/)!
 
 > "I believe that a man should strive for only one thing in life, and that is to have a touch of greatness"
 --- Félix Martí-Ibáñez
 
-While I like the quote, it is incomplete individually. The grand and aspirational must always be conjoined with a dose of conscientiousness.
+I think that the *spirit* of my life philosophy is tersely captured by the above quote, which I came across in the book [The Empire of Pain](https://en.wikipedia.org/wiki/Empire_of_Pain).
+
+While a lovely quote, the grand and aspirational must always be conjoined with a dose of conscientiousness.
 
 > "The thoughts of others\
 &emsp;&emsp;Were light and fleeting,\
@@ -54,18 +56,15 @@ So I was ready\
 &emsp;&emsp;When trouble came.”
 --- A.E. Housman
 
-Outside of school and work, I enjoy [reading](/posts/favorite-books), pickleball, badminton, climbing, pool, ping-pong, hiking, social dance, playing the guitar, and [photography](https://photos.nathan.rs/)!
-
-In addition, here is a list of some personal feats I've done (featuring the impressive and the useless).
+For historical reasons (every version of my site has included this), here is a list of some personal feats I've done (featuring the impressive and the useless).
 
 Event | Record
 --- | ---
 Mile | 4:28
 2 Mile | 9:51
 5k | 15:56
-Bench | 275 lbs
+Bench Press | 275 lbs
 Bouldering Grade | V8
-Starcraft 2 Rank | Diamond (Protoss)
 Balls Juggled | 4
 Bowling Score | 203 (my proudest one!)
 
