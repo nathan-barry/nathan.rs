@@ -59,11 +59,23 @@ html:not(.light-mode) {
 .book-menu {
     transition: opacity 0.3s ease;
 
+    .sidebar-logo {
+        transition: opacity 0.3s ease;
+    }
+
     &.book-menu-faded {
-        opacity: 0;
+        opacity: 0.15;
+
+        .sidebar-logo {
+            opacity: 0.5;
+        }
 
         &:hover {
             opacity: 1;
+
+            .sidebar-logo {
+                opacity: 1;
+            }
         }
     }
 }
@@ -149,7 +161,7 @@ html:not(.light-mode) .markdown img[src$=".gif"] {
 .tag-columns {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
-    gap: 1.25rem 2rem;
+    gap: 1.8rem;
     margin: 1.8rem 0;
 
     > div {
@@ -179,5 +191,11 @@ html:not(.light-mode) .markdown img[src$=".gif"] {
     td:first-child,
     th:first-child {
         width: 110px;
+    }
+}
+
+@media screen and (max-width: $mobile-breakpoint) {
+    .home-title {
+        display: none;
     }
 }

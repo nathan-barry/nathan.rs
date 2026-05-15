@@ -2,7 +2,7 @@
 description = "This is the website of Nathan Barry"
 +++
 
-<h2 style="text-align: center; margin-bottom: 2rem;">
+<h2 class="home-title" style="text-align: center; margin-bottom: 2rem;">
     nathan.rs
 </h2>
 
