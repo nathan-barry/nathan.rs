@@ -393,7 +393,7 @@ body[dir="rtl"] .book-menu {
     }
 
     .book-page {
-        padding-inline: clamp(0px, 4vw, #{$padding-16 * 2});
+        padding-inline: clamp(0px, 6vw, #{$padding-16 * 2});
     }
 
     .book-menu {
