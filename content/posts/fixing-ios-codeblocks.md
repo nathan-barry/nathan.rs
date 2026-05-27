@@ -8,7 +8,7 @@ Lately, I've been coming across many blogs that have weird font-size rendering i
 
 Below is a screenshot of the issue from a website where I've seen this occur. I found this example from Hacker News while I was on phone.
 
-<img style="max-width: 256px; width: 100%;" alt="code block issue" src="/images/ios-render-issue.webp">
+<img style="max-width: 512px; width: 100%;" alt="code block issue" src="/images/ios-render-issue.webp">
 
 As you can see, the text-size isn't uniform across code block lines. I've seen this issue across many blogs that compile markdown files to HTML such as sites built using Hugo, Jekyll, or even [custom md-to-html shell scripts](https://github.com/git-bruh/site).
 
@@ -119,3 +119,4 @@ shyam.blog | 2024-02-08
 robinsonz.me | 2024-12-27
 netbros.com | 2025-08-02
 prose.nsood.in | 2025-09-27
+kn4ughty.com | 2026-05-27
