@@ -1,9 +1,3 @@
 {{ define "main" }}
-  <article class="markdown book-article">
-    {{- .Content -}}
-  </article>
-{{ end }}
-
-{{ define "toc" }}
-  {{ partial "docs/toc" . }}
-{{ end }}
+<article class="markdown book-article">{{- .Content -}}</article>
+{{ end }} {{ define "toc" }} {{ partial "docs/home-columns" . }} {{ end }}
