@@ -81,6 +81,10 @@ html:not(.light-mode) {
     }
 }
 
+#TableOfContents > ul > li > ul {
+    padding-inline-start: 0;
+}
+
 .sidebar-logo img,
 .mobile-logo img {
     filter: var(--icon-filter);
