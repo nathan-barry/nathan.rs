@@ -46,11 +46,6 @@ https://github.com/alex-shpak/hugo-book
 	gtag('config', 'G-1Y735N717D');
 </script>
 
-<!-- Typewriter (animates [data-typewriter] elements) -->
-<script defer src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
-{{- $typewriter := resources.Get "typewriter.js" | resources.Minify | resources.Fingerprint }}
-<script defer src="{{ $typewriter.RelPermalink }}" {{ template "integrity" $typewriter }}></script>
-
 <!-- RSS -->
 {{- with .OutputFormats.Get "rss" -}}
   {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}

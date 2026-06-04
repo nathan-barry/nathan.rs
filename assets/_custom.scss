@@ -94,39 +94,6 @@ html:not(.light-mode) .markdown img[src$=".gif"] {
     filter: invert(0.92);
 }
 
-// Cursor visual is scaled via transform (not font-size) so it doesn't grow the
-// line-box — keeps every line the same height as text wraps.
-.Typewriter__cursor {
-    display: inline-block;
-    transform: scaleY(1.25);
-    transform-origin: center;
-    position: relative;
-    left: -0.15em;
-}
-
-// Stack placeholder + target in the same grid cell so the wrap reserves the
-// placeholder's height. Without JS the placeholder stays visible (title shows).
-// With JS the placeholder is hidden and the target gets typed into.
-.typewriter-wrap {
-    display: grid;
-    margin-bottom: 1rem;
-
-    > h1 {
-        grid-column: 1;
-        grid-row: 1;
-        margin: 0;
-    }
-}
-
-// Cursor inside the placeholder only reserves space; never visible.
-.typewriter-placeholder .Typewriter__cursor {
-    visibility: hidden;
-}
-
-.js .typewriter-placeholder {
-    visibility: hidden;
-}
-
 // Make KaTeX responsive on mobile
 .katex-display {
     overflow-x: auto;
