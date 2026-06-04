@@ -1,10 +1,14 @@
 {{ define "main" }}
 <article class="book-post markdown">
-    {{ $title := printf "Writing%s" (cond (ne .Title "Posts") (printf ": %s" .Title) "") }}
+    {{ $title := printf "Blog Posts%s" (cond (ne .Title "Posts") (printf ": %s"
+    .Title) "") }}
     <h1>{{ $title }}</h1>
     {{ range sort .Paginator.Pages }}
     <h2>
-        <a href="{{ if .Params.external_url }}{{ .Params.external_url }}{{ else }}{{ .Permalink }}{{ end }}">{{ partial "docs/title" . }}</a>
+        <a
+            href="{{ if .Params.external_url }}{{ .Params.external_url }}{{ else }}{{ .Permalink }}{{ end }}"
+            >{{ partial "docs/title" . }}</a
+        >
     </h2>
     <div class="book-post-container flex gap" style="margin-bottom: 40px">
         <div>
