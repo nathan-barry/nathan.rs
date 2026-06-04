@@ -56,30 +56,6 @@ html:not(.light-mode) {
     }
 }
 
-.book-menu {
-    transition: opacity 0.3s ease;
-
-    .sidebar-logo {
-        transition: opacity 0.3s ease;
-    }
-
-    &.book-menu-faded {
-        opacity: 0.15;
-
-        .sidebar-logo {
-            opacity: 0.5;
-        }
-
-        &:hover {
-            opacity: 1;
-
-            .sidebar-logo {
-                opacity: 1;
-            }
-        }
-    }
-}
-
 .theme-toggle {
     cursor: pointer;
     background: none;
