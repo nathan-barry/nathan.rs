@@ -9,7 +9,7 @@
   }
 
   function initTocScroll() {
-    const toc = document.querySelector(".book-toc nav");
+    const toc = document.querySelector(".book-toc nav, .post-toc nav");
     if (!toc) return; // No TOC on this page
 
     const tocLinks = Array.from(toc.querySelectorAll('a[href^="#"]'));

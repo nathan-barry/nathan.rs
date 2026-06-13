@@ -3,9 +3,24 @@
 <head>
   {{ partial "docs/html-head" . }}
 </head>
-<body dir="{{ default "ltr" .Site.Language.LanguageDirection }}" class="book-kind-{{ .Kind }} book-type-{{ .Type }}{{ with .Layout }} book-layout-{{ . }}{{ end }}">
+{{- $isPost := and (eq .Kind "page") (eq .Type "posts") -}}
+<body dir="{{ default "ltr" .Site.Language.LanguageDirection }}" class="book-kind-{{ .Kind }} book-type-{{ .Type }}{{ with .Layout }} book-layout-{{ . }}{{ end }}{{ if $isPost }} site-post-page{{ end }}">
   <input type="checkbox" class="hidden toggle" id="menu-control" />
   <input type="checkbox" class="hidden toggle" id="toc-control" />
+  {{ if $isPost }}
+  {{ template "theme-toggle" . }}
+  <header class="site-top-nav">
+    {{ partial "docs/top-nav" . }}
+  </header>
+  <main class="post-shell">
+    {{ template "main" . }}
+  </main>
+  <footer class="book-footer post-footer">
+    {{ template "footer" . }}
+    {{ template "copyright" . }}
+    {{ template "clipboard" . }}
+  </footer>
+  {{ else }}
   <main class="container flex">
     {{ template "menu-container" . }} <!-- Left menu -->
 
@@ -28,6 +43,7 @@
 
     {{ template "toc-container" . }} <!-- Table of Contents -->
   </main>
+  {{ end }}
 
 </body>
 </html>
@@ -94,6 +110,9 @@
   {{ end }}
   <!-- TOC Scroll Tracking -->
   {{ with resources.Get "toc-scroll.js" | resources.Minify }}
+    <script>{{ .Content | safeJS }}</script>
+  {{ end }}
+  {{ with resources.Get "post-hero.js" | resources.Minify }}
     <script>{{ .Content | safeJS }}</script>
   {{ end }}
 
