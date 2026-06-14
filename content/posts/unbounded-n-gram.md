@@ -416,11 +416,8 @@ Why exponentiate back? Perplexity has an intuitive interpretation: it represents
 
 ## Citation
 
-If you found this post useful for a project, please kindly cite this page:
 
-> Barry, Nathan. "Language Modeling Without Neural Networks". nathan.rs (Jan 2026). http://nathan.rs/posts/unbounded-n-gram.
-
-Or
+> Barry, Nathan. "Language Modeling Without Neural Networks". nathan.rs (Jan 2026). https://nathan.rs/posts/unbounded-n-gram.
 
 ```
 @article{barry2026ngram,
@@ -428,8 +425,8 @@ Or
   author  = "Barry, Nathan",
   journal = "nathan.rs",
   year    = "2026",
-  month   = "Apr",
-  url     = "http://nathan.rs/posts/unbounded-n-gram"
+  month   = "Jan",
+  url     = "https://nathan.rs/posts/unbounded-n-gram"
 }
 ```
 
