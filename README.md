@@ -10,12 +10,6 @@ Posts can opt into a hero (the visual block under the title). The default is **n
 | --- | --- |
 | `hero = "/images/foo.gif"` | `<img>` — `gif`, `png`, `jpg`, `jpeg`, `webp`, `avif`, `svg` |
 | `hero = "/videos/demo.mp4"` | autoplaying, looping, muted `<video>` — `mp4`, `webm`, `mov` |
-| `hero = "my-slug"` | `<canvas>` + the script at `assets/heroes/my-slug.js` (anything without a media extension is treated as a script slug) |
-
-To add a custom canvas animation:
-
-1. Write `assets/heroes/<slug>.js`. The canvas is handed to you as `.post-hero-canvas` (its `data-title` holds the post title). See `assets/heroes/roberta-diffusion.js` for an example.
-2. Add `hero = "<slug>"` to that post's frontmatter.
 
 Sidenotes/footnote logic lives separately in `assets/post-enhancements.js`, which loads globally on every post.
 

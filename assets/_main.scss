@@ -93,12 +93,6 @@ a .book-icon {
 .book-post {
     margin-bottom: $padding-16 * 4;
 
-    .book-post-date img {
-        height: 1em;
-        width: 1em;
-        margin-inline-end: 0.5em;
-    }
-
     .book-post-content {
         margin-top: $padding-16;
     }
@@ -124,8 +118,3 @@ a .book-icon {
     }
 }
 
-@media screen and (max-width: $mobile-breakpoint) {
-    .book-post-container {
-        flex-direction: column-reverse;
-    }
-}

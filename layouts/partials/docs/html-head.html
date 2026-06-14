@@ -6,7 +6,7 @@ https://github.com/alex-shpak/hugo-book
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script>document.documentElement.classList.add('js');</script>
-<meta name="description" content="{{ or .Description .Summary | plainify | htmlUnescape | truncate 160 | replaceRE `\s*#\s*` `: ` }}">
+<meta name="description" content="{{ or .Description .Summary .Site.Params.description | plainify | htmlUnescape | truncate 160 | replaceRE `\s*#\s*` `: ` }}">
 <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
 <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
 <meta name="color-scheme" content="light dark">
