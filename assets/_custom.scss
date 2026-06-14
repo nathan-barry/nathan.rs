@@ -26,18 +26,6 @@ html:not(.light-mode) {
     @include theme-dark;
 }
 
-// Shrink toc on mid-sized screens (between mobile and full).
-// Above $container-max-width: full sizes from _defaults. Below mobile: hidden.
-@media screen and (min-width: $mobile-breakpoint) and (max-width: $container-max-width) {
-    .book-toc {
-        flex-basis: 12rem;
-
-        .book-toc-content {
-            width: 12rem;
-        }
-    }
-}
-
 .theme-toggle {
     cursor: pointer;
     background: none;

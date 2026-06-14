@@ -5,7 +5,6 @@ tags = ["Machine Learning"]
 featured = true
 hero = "/images/roberta-diffusion.gif"
 +++
-{{< katex >}}{{< /katex >}}
 
 A while back, Google DeepMind unveiled [Gemini Diffusion](https://deepmind.google/models/gemini-diffusion/), an experimental language model that generates text using diffusion. Unlike traditional GPT-style models that generate one word at a time, Gemini Diffusion creates whole blocks of text by refining random noise step-by-step.
 

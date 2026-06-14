@@ -34,28 +34,6 @@
 </body>
 </html>
 
-{{ define "menu-container" }}
-<aside class="book-menu">
-  <div class="book-menu-content">
-    {{ template "menu" . }}
-  </div>
-</aside>
-{{ end }}
-
-{{ define "menu" }}
-  {{ partial "docs/menu" . }}
-{{ end }}
-
-{{ define "header" }}
-  {{ partial "docs/header" . }}
-
-  {{ if partial "docs/toc-show" . }}
-  <aside class="hidden">
-    {{ template "toc" . }}
-  </aside>
-  {{ end }}
-{{ end }}
-
 {{ define "footer" }}
   {{ partial "docs/footer" . }}
 {{ end }}
@@ -116,16 +94,4 @@
   <article class="markdown book-article">
     {{- .Content -}}
   </article>
-{{ end }}
-
-{{ define "toc-container" }}
-  <aside class="book-toc">
-    <div class="book-toc-content">
-      {{ template "toc" . }}
-    </div>
-  </aside>
-{{ end }}
-
-{{ define "toc" }}
-  {{ partial "docs/toc" . }}
 {{ end }}

@@ -3,7 +3,6 @@ title = "Common Probability Distributions"
 date = 2024-02-08T12:29:32-06:00
 tags = ["Class Notes"]
 +++
-{{< katex >}}{{< /katex >}}
 
 > An overview of common discrete and continuous distributions found in probability and statistics, from Mark Maxwell's textbook, Probability & Statistics with Applications, Second Edition.
 

@@ -104,36 +104,6 @@ a .book-icon {
     }
 }
 
-.book-toc {
-    flex: 0 0 $toc-width;
-    font-size: var(--font-size-smallest);
-
-    .book-toc-content {
-        width: $toc-width;
-        padding: $padding-16;
-
-        @include fixed;
-        top: var(--page-top);
-    }
-
-    a {
-        display: block;
-    }
-
-    a.active {
-        font-weight: bold;
-    }
-
-    img {
-        height: 1em;
-        width: 1em;
-    }
-
-    nav > ul > li:first-child {
-        margin-top: 0;
-    }
-}
-
 .book-footer {
     padding-top: $padding-16;
     font-size: var(--font-size-smaller);
@@ -148,13 +118,6 @@ a .book-icon {
     margin-top: $padding-16;
 }
 
-// Responsive styles
-.book-toc-content {
-    transition: 0.2s ease-in-out;
-    transition-property: transform, margin, opacity, visibility;
-    will-change: transform, margin, opacity;
-}
-
 @media screen and (max-width: $container-max-width) {
     .container {
         gap: 0;
@@ -162,18 +125,7 @@ a .book-icon {
 }
 
 @media screen and (max-width: $mobile-breakpoint) {
-    .book-toc {
-        display: none;
-    }
-
     .book-post-container {
         flex-direction: column-reverse;
-    }
-}
-
-// Extra space for big screens
-@media screen and (min-width: $container-max-width) {
-    .book-toc .book-toc-content {
-        padding: $padding-16 * 2 $padding-16;
     }
 }

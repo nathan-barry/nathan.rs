@@ -13,6 +13,18 @@ copyright = '© 2025 Nathan Barry'
 disablePathToLower = true
 enableGitInfo = true
 
+# The homepage is the only index. Drop the /posts/ section list page outright,
+# and stop /tags/ + /tags/<term>/ pages from rendering while KEEPING the taxonomy
+# data (disabling the taxonomy *kind* would wipe .Site.Taxonomies, which the
+# homepage's tag grouping needs — so use a build cascade instead).
+disableKinds = ["section"]
+
+[[cascade]]
+  [cascade.build]
+    render = "never"
+  [cascade.target]
+    kind = "{taxonomy,term}"
+
 # Taxonomy configuration
 [taxonomies]
   tag = "tags"
@@ -59,10 +71,8 @@ enableGitInfo = true
   # https://gohugo.io/functions/time/format/
   BookDateFormat = 'January 2, 2006'
 
-  # (Optional, default true) Enables search function with fuse.js.,
-  # Index is built on fly, therefore it might slowdown your website.
-  # Configuration for indexing can be adjusted in i18n folder per language.
-  BookSearch = true
+  # Search is disabled — the search UI lived in the removed sidebar menu.
+  BookSearch = false
 
   # (Optional, default true) Enables comments template on pages
   # By default partials/docs/comments.html includes Disqus template
@@ -76,9 +86,3 @@ enableGitInfo = true
   # Hugo Book will print warning or error if page referenced in markdown does not exists.
   # Possible values are false | 'warning' | 'error'
   BookPortableLinks = 'warning'
-
-  # /!\ This is an experimental feature, might be removed or changed at any time
-  # (Optional, experimental, default false)
-  # When set to 'preache' it enables a service worker that caches visited pages and resources for offline use.
-  # Possible values are false | true | 'precache'
-  BookServiceWorker = 'precache'

@@ -3,7 +3,6 @@ title = "Linear Algebra"
 date = 2023-08-30T11:10:18-05:00
 tags = ["Class Notes"]
 +++
-{{< katex >}}{{< /katex >}}
 
 > These are my notes over my review of Linear Algebra, going through Gilbert Strang's Introduction To Linear Algebra.
 

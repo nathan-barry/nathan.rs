@@ -1,15 +1,5 @@
 .markdown {
 
-  // Emitted by the blockquote render hook (layouts/_markup/render-blockquote.html)
-  .book-hint {
-    @each $name in (note, tip, important, warning, caution, default, info, success, danger) {
-      &.#{$name} {
-        border-color: var(--color-accent-#{$name});
-        background-color: var(--color-accent-#{$name}-tint);
-      }
-    }
-  }
-
   // Emitted by the codeblock render hook (layouts/_markup/render-codeblock.html)
   .book-codeblock-filename {
     background: var(--gray-100);
