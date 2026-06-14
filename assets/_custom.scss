@@ -257,6 +257,13 @@ html:not(.light-mode) .markdown img[src$=".gif"] {
         font-size: 1.15rem;
     }
 
+    // Lead paragraph on the home page (the bare intro line above the index).
+    .site-home-main > p {
+        max-width: 42rem;
+        margin: 0 auto ($padding-16 * 1.5);
+        text-align: center;
+    }
+
     .site-writing-index {
         margin-top: clamp(#{$padding-16 * 2}, 6vw, #{$padding-16 * 4});
     }
