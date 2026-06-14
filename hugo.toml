@@ -34,6 +34,14 @@ disableKinds = ["section"]
 [markup.goldmark.renderer]
   unsafe = true
 
+# Pass math delimiters through untouched so Goldmark doesn't mangle
+# backslashes/underscores before KaTeX renders them.
+[markup.goldmark.extensions.passthrough]
+  enable = true
+  [markup.goldmark.extensions.passthrough.delimiters]
+    block = [['$$', '$$'], ['\[', '\]']]
+    inline = [['$', '$'], ['\(', '\)']]
+
 [markup.tableOfContents]
   startLevel = 1
   endLevel = 2
