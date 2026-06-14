@@ -5,12 +5,12 @@
         {{ with or .Description .Params.subtitle }}
         <p class="post-description">{{ . | plainify }}</p>
         {{ end }}
+        {{ if not .Date.IsZero }}
         <div class="post-byline">
             <span>{{ default "Nathan Barry" .Params.author }}</span>
-            {{ with .Date }}
-            <span>{{ partial "docs/date" (dict "Date" . "Format" $.Site.Params.BookDateFormat) }}</span>
-            {{ end }}
+            <span>{{ partial "docs/date" (dict "Date" .Date "Format" $.Site.Params.BookDateFormat) }}</span>
         </div>
+        {{ end }}
     </header>
 
     {{ partial "docs/hero" . }}

@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 </script>
 
-> I found that my life has largely been shaped by the books I've read (especially when I was younger). I've aggregated them all here. Below is a list of all the books I've read since I was 13. The ones in *italics* are ones that stood out to me.
+Below is a list of the books I've read since I was 13. The ones in *italics* stood out to me.
 
 
 ## 2026 - Age 23

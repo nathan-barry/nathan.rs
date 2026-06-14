@@ -4,7 +4,7 @@ tags:
   - "Miscellaneous"
 ---
 
-Greetings visitor! Welcome to my website and *digital garden*. I'm an engineer and researcher interested in systems and machine learning.
+Greetings visitor! My name is **Nathan Barry**.
 I love working on hard problems with great people. Occasionally, [I write about what I'm working on](/).
 
 For information about me, below are a few things I've been doing:
@@ -63,5 +63,5 @@ Bouldering Grade | V8
 Balls Juggled | 4
 Bowling Score | 203 (my proudest one!)
 
-Lastly, I have plenty of super cool and great friends! Check out their websites!
+Lastly, check out my super cool and great friends!
 [Alex Kranias](https://alexkranias.com/), [Daniel Kasabov-Nouvion](https://danielkasabov.com/), [Dorsa Rohani](https://dorsarohani.com/), [Annie Hu](https://anniehu.com/), [Manal Sultan](https://www.man-al.net/), [Sid Sabhnani](https://www.sidsabhnani.com/), [Arpan Dhatt](https://arpan.one/), [Nate Williams](https://nate.town/).
