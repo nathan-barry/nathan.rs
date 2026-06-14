@@ -1,28 +1,108 @@
 # nathan.rs
 
-Hey welcome to my site! Currently, the site is based on a ***heavily modified*** version of [hugo-book](https://github.com/alex-shpak/hugo-book/). Hugo-Book was designed for documentation, and I have many substantial changes to the repo (and removed many things) to make it suitable for a beautiful blog.
+Source for [nathan.rs](https://nathan.rs), a personal writing site built with [Hugo](https://gohugo.io/).
 
-## Post Heroes
+The site started from a heavily modified version of [hugo-book](https://github.com/alex-shpak/hugo-book), but most of the documentation-theme structure has been removed or reshaped for a blog-style reading experience.
 
-Posts can opt into a hero (the visual block under the title). The default is **nothing** — a post has no hero unless its frontmatter sets a `hero` key. The value is dispatched on its file extension by `layouts/partials/docs/hero.html`:
+## Development
+
+Requires Hugo Extended. The GitHub Actions workflow currently builds with Hugo `0.151.0`; local development also works with newer Hugo Extended versions.
+
+Run the local dev server:
+
+```sh
+make run
+```
+
+Equivalent command:
+
+```sh
+hugo server -D --noHTTPCache
+```
+
+Build the production site locally:
+
+```sh
+hugo --minify
+```
+
+The generated site is written to `public/`, which is intentionally ignored by git.
+
+## Project structure
+
+- `content/posts/` — blog posts.
+- `layouts/` — Hugo templates and render hooks.
+- `layouts/index.html` — homepage / writing index.
+- `layouts/_default/single.html` — blog post layout.
+- `layouts/partials/docs/top-nav.html` — top navigation.
+- `assets/` — SCSS and JS processed by Hugo Pipes.
+- `static/` — files copied directly into the built site.
+- `static/CNAME` — custom domain file copied into `public/CNAME` for GitHub Pages.
+
+## Writing posts
+
+Posts live in `content/posts/`. The default archetype is `archetypes/posts.md`.
+
+Common frontmatter fields include:
+
+```toml
+title = "Post title"
+date = 2026-01-01
+tags = ["rust", "ml"]
+description = "Optional subtitle/description shown under the title."
+hero = "/images/example.gif"
+```
+
+## Post heroes
+
+Posts can opt into a hero visual below the title with the `hero` frontmatter key. No hero is shown unless `hero` is set.
+
+Hero rendering is handled in `layouts/partials/docs/hero.html` and is based on the file extension:
 
 | Frontmatter | Renders |
 | --- | --- |
-| `hero = "/images/foo.gif"` | `<img>` — `gif`, `png`, `jpg`, `jpeg`, `webp`, `avif`, `svg` |
-| `hero = "/videos/demo.mp4"` | autoplaying, looping, muted `<video>` — `mp4`, `webm`, `mov` |
+| `hero = "/images/foo.gif"` | Image: `gif`, `png`, `jpg`, `jpeg`, `webp`, `avif`, `svg` |
+| `hero = "/videos/demo.mp4"` | Autoplaying, looping, muted video: `mp4`, `webm`, `mov` |
 
-Sidenotes/footnote logic lives separately in `assets/post-enhancements.js`, which loads globally on every post.
+Hero assets should usually live under `static/images/` or another `static/` subdirectory, then be referenced from the site root path.
 
-## Shortcodes
+## Markdown features
 
-These are shortcodes that I don't use (other than katex) but might be useful one day so I'm keeping them here!
+- Code blocks use Hugo/Chroma highlighting.
+- Optional code block filenames are rendered by `layouts/_markup/render-codeblock.html`.
+- Mermaid code blocks are rendered by `layouts/_markup/render-codeblock-mermaid.html`.
+- KaTeX assets live in `static/katex/`, with math delimiter passthrough configured in `hugo.toml`.
+- Sidenotes and footnote enhancements live in `assets/post-enhancements.js`.
 
-> **Note:** the unused shortcode CSS in `assets/_shortcodes.scss` was pruned — only the styling for the two live markdown render hooks (`.book-hint` from `render-blockquote.html` and `.book-codeblock-filename` from `render-codeblock.html`) is kept. The shortcode *templates* below still exist, but re-enabling one (buttons, columns, tabs, badge, steps, card, image, asciinema) means restoring its styles.
+## Styling
 
-- [Buttons](https://hugo-book-demo.netlify.app/docs/shortcodes/buttons/)
-- [Columns](https://hugo-book-demo.netlify.app/docs/shortcodes/columns/)
-- [Details](https://hugo-book-demo.netlify.app/docs/shortcodes/details/)
-- [Hints](https://hugo-book-demo.netlify.app/docs/shortcodes/hints/)
-- [Mermaid](https://hugo-book-demo.netlify.app/docs/shortcodes/mermaid/)
-- [Tabs](https://hugo-book-demo.netlify.app/docs/shortcodes/tabs/)
-- [KaTeX](https://hugo-book-demo.netlify.app/docs/shortcodes/katex/)
+The main stylesheet entrypoint is `assets/book.scss`.
+
+Important partials:
+
+- `assets/_defaults.scss` — CSS variables and base theme defaults.
+- `assets/_markdown.scss` — markdown content styling.
+- `assets/_custom.scss` — site-specific layout and visual customization.
+- `assets/syntax-dark.scss` and `assets/syntax-light-scoped.scss` — Chroma syntax themes.
+
+## Deployment
+
+Deployment is handled by GitHub Actions in `.github/workflows/deploy.yml`:
+
+1. Checkout the repo.
+2. Install Hugo Extended.
+3. Run `hugo --minify`.
+4. Upload `./public` as a GitHub Pages artifact.
+5. Deploy via `actions/deploy-pages`.
+
+GitHub Pages should be configured with:
+
+- **Source:** GitHub Actions
+
+If Pages is set to “Deploy from a branch,” GitHub may serve the repository root instead of the Hugo build output. Since the repo root has a `README.md` but no `index.html`, that can make Pages display this README rather than the actual site.
+
+The custom domain is `nathan.rs`. Keep `static/CNAME` in place so Hugo includes `CNAME` in the deployed `public/` artifact.
+
+## Notes
+
+The repo also contains `.github/workflows/main.yml`, which runs Hugo builds on pushes and pull requests as a CI check.
