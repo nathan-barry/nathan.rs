@@ -1,8 +1,16 @@
 {{/* Renders a block list of pages with a left year gutter.
-     The year is shown only on the first item of each run of the same year. */}}
+     The year is shown only on the first item of each run of the same year.
+     Undated posts are floated to the top, preserving the incoming order
+     within the dated and undated groups. */}}
+{{ $undated := slice }}
+{{ $dated := slice }}
+{{ range . }}
+    {{ if .Date.IsZero }}{{ $undated = $undated | append . }}{{ else }}{{ $dated = $dated | append . }}{{ end }}
+{{ end }}
+{{ $ordered := $undated | append $dated }}
 {{ $lastYear := "" }}
 <ul class="block-list">
-    {{ range . }}
+    {{ range $ordered }}
     {{ $year := "" }}{{ with .Date }}{{ $year = .Format "2006" }}{{ end }}
     <li>
         <span class="block-year">{{ if ne $year $lastYear }}{{ $year }}{{ end }}</span>

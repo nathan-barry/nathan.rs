@@ -4,8 +4,6 @@ tags:
   - "Miscellaneous"
 ---
 
-Here's a list of quotes I've collected from over the years.
-
 
 
 ## General

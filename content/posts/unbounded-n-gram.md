@@ -435,8 +435,6 @@ Or
 
 
 
-## Footnotes
-
 [^1]: Andrej Karpathy's beginner [videos](https://www.youtube.com/watch?v=kCc8FmEb1nY) and [nanoGPT](https://github.com/karpathy/nanoGPT) implementations use [Tiny Shakespeare](https://raw.githubusercontent.com/karpathy/char-rnn/master/data/tinyshakespeare/input.txt).
 [^2]: A keen observer will have noticed that n-grams language models are essentially ($n-1$)-order Markov chains.
 [^3]: The paper, [Using Suffix Arrays as Language Models: Scaling the n-gram](https://pure.mpg.de/rest/items/item_1222599_3/component/file_1222598/content), says the name, synchronous back-off, came from another paper, which I cannot find a copy of.

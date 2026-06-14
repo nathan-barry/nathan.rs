@@ -200,7 +200,6 @@ Even without architectural changes, a fine-tuned RoBERTa can generate coherent l
 
 
 
-## Footnotes
 [^1]: After I wrote the article, I stumbled upon the paper [DiffusionBERT](https://arxiv.org/abs/2211.15029), which does essentially the same thing but with more rigorous testing! Check it out if this post interested you.
 [^2]: The [D3PM](https://arxiv.org/abs/2107.03006) paper mentions, in bold, "BERT is a one-step diffusion model" in section 4. Didn't see this until way after! It's a foundational paper in this space, my oversight is slightly embarrasing.
 [^3]: There are many different generation algorithms with these models. Our method doesn't take into account token confidence and can lead to indiscriminantly remasking "good" tokens.
