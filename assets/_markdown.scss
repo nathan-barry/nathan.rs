@@ -73,8 +73,11 @@
     }
 
     img {
+        display: block;
         max-width: 100%;
         height: auto;
+        margin-inline: auto;
+        border-radius: var(--border-radius);
     }
 
     code {
@@ -84,7 +87,7 @@
         background: var(--gray-100);
         border: $padding-1 solid var(--gray-200);
         border-radius: var(--border-radius);
-        font-size: 0.875em;
+        font-size: var(--font-size-smaller);
     }
 
     pre {
