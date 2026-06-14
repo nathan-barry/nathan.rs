@@ -6,14 +6,17 @@
         <p>
             This is the website and <em>digital garden</em> of
             <a href="/posts/about">Nathan Barry</a>. I’m an engineer/researcher
-            interested in systems and machine learning. Occasionally, I write
-            about things that interest me.
+            interested in systems and machine learning. I currently post-train
+            edit prediction models at <a href="https://zed.dev">Zed</a>, and
+            have recently graduated from UT Austin with a BS in CS & Math and an
+            MS in CS. Occasionally, I write about things that interest me.
         </p>
 
-        {{ $posts := where .Site.RegularPages "Section" "posts" }}
-        {{ $posts = sort $posts "Date" "desc" }}
-        {{ $featured := where $posts "Params.featured" true }}
-        {{ $searchData := resources.Get "search-data.json" | resources.ExecuteAsTemplate "search-data.json" . | resources.Minify | resources.Fingerprint }}
+        {{ $posts := where .Site.RegularPages "Section" "posts" }} {{ $posts =
+        sort $posts "Date" "desc" }} {{ $featured := where $posts
+        "Params.featured" true }} {{ $searchData := resources.Get
+        "search-data.json" | resources.ExecuteAsTemplate "search-data.json" . |
+        resources.Minify | resources.Fingerprint }}
 
         <section class="site-writing-index" id="writing">
             <div class="writing-search">
@@ -43,13 +46,15 @@
                 {{ range .Site.Taxonomies.tags.ByCount }}
                 <section class="writing-block">
                     <h3>{{ .Page.Title }}</h3>
-                    {{ partial "docs/writing-list.html" (sort .Pages "Date" "desc") }}
+                    {{ partial "docs/writing-list.html" (sort .Pages "Date"
+                    "desc") }}
                 </section>
                 {{ end }}
             </div>
         </section>
 
-        {{ with resources.Get "home-search.js" | resources.Minify | resources.Fingerprint }}
+        {{ with resources.Get "home-search.js" | resources.Minify |
+        resources.Fingerprint }}
         <script defer src="{{ .RelPermalink }}"></script>
         {{ end }}
     </div>

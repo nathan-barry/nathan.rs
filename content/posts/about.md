@@ -4,12 +4,12 @@ tags:
   - "Miscellaneous"
 ---
 
-Greetings visitor! My name is **Nathan Barry**.
-I love working on hard problems with great people. Occasionally, [I write about what I'm working on](/).
 
-For information about me, below are a few things I've been doing:
+My name is **Nathan Barry**.
 
-<div class="timeline-tables">
+Outside of school and work, I enjoy [reading](/posts/favorite-books), pickleball, badminton, climbing, pool, ping-pong, hiking, social dance, playing the guitar, and [photography](https://photos.nathan.rs/)!
+
+For information about me, below are a few things I've been doing.
 
 Currently |
 --- | ---
@@ -27,29 +27,6 @@ May 2025 | Finished my Bachelor's of Science in CS and Math @ UT Austin
 Nov 2021 - Jan 2025 | A **Software Engineer** at multiple startups, doing Rust and TypeScript full-stack development and Python machine learning and robotics work
 Feb 2024 - Sep 2024 | An **Undergraduate Researcher** at UT Austin, working on efficient exact-match search for LLM dataset contamination detection
 May 2022 | Participated in the **[Z fellows](https://www.zfellows.com)** program
-
-</div>
-
-<p style="margin: 2rem 0 1.5rem 0;" class="text-center">&#x2735; &#x2735; &#x2735;</p>
-
-Outside of school and work, I enjoy [reading](/posts/favorite-books), pickleball, badminton, climbing, pool, ping-pong, hiking, social dance, playing the guitar, and [photography](https://photos.nathan.rs/)!
-
-> "I believe that a man should strive for only one thing in life, and that is to have a touch of greatness"
---- Félix Martí-Ibáñez
-
-I think that the *spirit* of my life philosophy is tersely captured by the above quote, which I came across in the book [The Empire of Pain](https://en.wikipedia.org/wiki/Empire_of_Pain).
-
-While a lovely quote, the grand and aspirational must always be conjoined with a dose of conscientiousness.
-
-> "The thoughts of others\
-&emsp;&emsp;Were light and fleeting,\
-Of lovers' meeting\
-&emsp;&emsp;Or luck or fame.\
-Mine were of trouble\
-&emsp;&emsp;And mine were steady;\
-So I was ready\
-&emsp;&emsp;When trouble came.”
---- A.E. Housman
 
 For historical reasons (every version of my site has included this), here is a list of some personal feats I've done (featuring the impressive and the useless).
 
