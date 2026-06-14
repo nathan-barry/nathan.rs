@@ -121,6 +121,5 @@ An important limitation to address: In autoregressive decoding, we [constrained 
 
 
 
-## Footnotes
 [^1]: Read the section "Confidence-Aware Parallel Decoding" in the paper, [Fast-dLLM](https://arxiv.org/abs/2505.22618).
 [^2]: There are lots of papers of doing semi-autoregressive generation using diffusion language models. See [AR-Diffusion](https://arxiv.org/abs/2305.09515), [Fast-dLLM](https://arxiv.org/abs/2505.22618), [Block Diffusion](https://arxiv.org/abs/2503.09573), etc.
