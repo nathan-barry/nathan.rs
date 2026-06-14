@@ -6,24 +6,8 @@
   }
 }
 
-.flex-auto {
-  flex: 1 1 auto;
-}
-
-.flex-even {
-  flex: 1 1;
-}
-
 .flex-wrap {
   flex-wrap: wrap;
-}
-
-.justify-start {
-  justify-content: flex-start;
-}
-
-.justify-end {
-  justify-content: flex-end;
 }
 
 .justify-center {
@@ -38,20 +22,8 @@
   align-items: center;
 }
 
-.mx-auto {
-  margin: 0 auto;
-}
-
 .text-center {
   text-align: center;
-}
-
-.text-left {
-  text-align: left;
-}
-
-.text-right {
-  text-align: right;
 }
 
 .text-small {

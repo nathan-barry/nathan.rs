@@ -26,33 +26,15 @@ html:not(.light-mode) {
     @include theme-dark;
 }
 
-// Shrink menu/toc on mid-sized screens (between mobile and full).
+// Shrink toc on mid-sized screens (between mobile and full).
 // Above $container-max-width: full sizes from _defaults. Below mobile: hidden.
 @media screen and (min-width: $mobile-breakpoint) and (max-width: $container-max-width) {
-    .book-menu {
-        flex-basis: 10rem;
-
-        .book-menu-content {
-            width: 10rem;
-        }
-    }
-
     .book-toc {
         flex-basis: 12rem;
 
         .book-toc-content {
             width: 12rem;
         }
-    }
-}
-
-.book-menu a,
-.book-menu label,
-.book-menu strong {
-    opacity: 0.8;
-
-    &:hover {
-        opacity: 1;
     }
 }
 
@@ -85,11 +67,6 @@ html:not(.light-mode) {
     padding-inline-start: 0;
 }
 
-.sidebar-logo img,
-.mobile-logo img {
-    filter: var(--icon-filter);
-}
-
 .markdown img.home-vignette {
     display: block;
     width: 100%;
@@ -117,12 +94,6 @@ html:not(.light-mode) .markdown img[src$=".gif"] {
     td:first-child,
     th:first-child {
         width: 110px;
-    }
-}
-
-@media screen and (max-width: $mobile-breakpoint) {
-    .home-title {
-        display: none;
     }
 }
 
@@ -186,75 +157,17 @@ html:not(.light-mode) .markdown img[src$=".gif"] {
     }
 
     .site-page-shell > .book-article:not(.site-home-grid),
-    .site-page-shell > .book-post:not(.site-list-index) {
+    .site-page-shell > .book-post {
         max-width: 42rem;
     }
 
     .site-home-grid,
-    .site-combined-home,
-    .site-list-index {
+    .site-combined-home {
         max-width: 72rem;
     }
 
     .site-home-main {
         min-width: 0;
-    }
-
-    .home-ledger {
-        display: grid;
-        max-width: 72rem;
-        margin: 0 auto;
-    }
-
-    .home-ledger-row {
-        display: grid;
-        grid-template-columns: minmax(8rem, 12rem) minmax(0, 42rem);
-        justify-content: center;
-        gap: clamp(#{$padding-16 * 2}, 5vw, #{$padding-16 * 4});
-        padding: clamp(#{$padding-16 * 1.75}, 5vw, #{$padding-16 * 3}) 0;
-        border-top: $padding-1 solid var(--gray-200);
-    }
-
-    .home-ledger-row:first-child {
-        border-top: 0;
-        padding-top: 0;
-    }
-
-    .home-ledger-label {
-        color: var(--color-link);
-        font-size: var(--font-size-smallest);
-        letter-spacing: 0.08em;
-        line-height: 1.4;
-        text-transform: uppercase;
-    }
-
-    .home-intro-label {
-        display: grid;
-        gap: $padding-16;
-
-        img {
-            width: 100%;
-            max-width: 9rem;
-            aspect-ratio: 1;
-            filter: var(--icon-filter);
-        }
-    }
-
-    .home-ledger-content {
-        min-width: 0;
-
-        > :first-child {
-            margin-top: 0;
-        }
-
-        > :last-child {
-            margin-bottom: 0;
-        }
-    }
-
-    .home-intro p {
-        max-width: 38rem;
-        font-size: 1.15rem;
     }
 
     // Lead paragraph on the home page (the bare intro line above the index).
@@ -266,21 +179,6 @@ html:not(.light-mode) .markdown img[src$=".gif"] {
 
     .site-writing-index {
         margin-top: clamp(#{$padding-16 * 2}, 6vw, #{$padding-16 * 4});
-    }
-
-    .site-index-header {
-        margin-bottom: $padding-16 * 2;
-
-        h2 {
-            margin: 0 0 $padding-8;
-        }
-
-        p {
-            margin: 0;
-            max-width: 42rem;
-            color: var(--color-link);
-            font-size: var(--font-size-smaller);
-        }
     }
 
     .writing-blocks {
@@ -327,56 +225,6 @@ html:not(.light-mode) .markdown img[src$=".gif"] {
             color: var(--color-link);
             font-size: var(--font-size-smallest);
             font-variant-numeric: tabular-nums;
-        }
-    }
-
-    .home-timeline {
-        display: grid;
-        border-top: $padding-1 solid var(--gray-200);
-    }
-
-    .home-timeline-item {
-        display: grid;
-        grid-template-columns: 10rem minmax(0, 1fr);
-        gap: $padding-16 * 2;
-        align-items: baseline;
-        padding: $padding-16 0;
-        border-bottom: $padding-1 solid var(--gray-200);
-
-        time {
-            color: var(--color-link);
-            font-size: var(--font-size-smallest);
-        }
-
-        p {
-            margin: 0;
-        }
-    }
-
-    .home-two-column {
-        display: grid;
-        grid-template-columns: minmax(0, 1fr) minmax(10rem, 14rem);
-        gap: clamp(#{$padding-16 * 1.5}, 4vw, #{$padding-16 * 3});
-        align-items: start;
-
-        p:first-child {
-            margin-top: 0;
-        }
-
-        table {
-            margin-top: 0;
-            font-size: var(--font-size-smaller);
-        }
-    }
-
-    .home-quote blockquote {
-        margin: 0 0 $padding-16;
-        padding-top: 0;
-        padding-bottom: 0;
-
-        span {
-            color: var(--color-link);
-            font-size: var(--font-size-smallest);
         }
     }
 
@@ -598,16 +446,6 @@ html:not(.light-mode) .markdown img[src$=".gif"] {
 
 @media screen and (max-width: 800px) {
     .site-modern {
-        .home-ledger-row,
-        .home-two-column {
-            grid-template-columns: minmax(0, 42rem);
-        }
-
-        .home-timeline-item {
-            grid-template-columns: minmax(0, 1fr);
-            gap: $padding-4;
-        }
-
         .writing-blocks {
             grid-template-columns: minmax(0, 1fr);
         }

@@ -23,6 +23,8 @@ Sidenotes/footnote logic lives separately in `assets/post-enhancements.js`, whic
 
 These are shortcodes that I don't use (other than katex) but might be useful one day so I'm keeping them here!
 
+> **Note:** the unused shortcode CSS in `assets/_shortcodes.scss` was pruned — only the styling for the two live markdown render hooks (`.book-hint` from `render-blockquote.html` and `.book-codeblock-filename` from `render-codeblock.html`) is kept. The shortcode *templates* below still exist, but re-enabling one (buttons, columns, tabs, badge, steps, card, image, asciinema) means restoring its styles.
+
 - [Buttons](https://hugo-book-demo.netlify.app/docs/shortcodes/buttons/)
 - [Columns](https://hugo-book-demo.netlify.app/docs/shortcodes/columns/)
 - [Details](https://hugo-book-demo.netlify.app/docs/shortcodes/details/)
