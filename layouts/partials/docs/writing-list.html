@@ -6,7 +6,7 @@
     {{ $year := "" }}{{ with .Date }}{{ $year = .Format "2006" }}{{ end }}
     <li>
         <span class="block-year">{{ if ne $year $lastYear }}{{ $year }}{{ end }}</span>
-        <a href="{{ with .Params.redirect_url }}{{ . }}{{ else }}{{ .RelPermalink }}{{ end }}">{{ .Title }}</a>
+        <a href="{{ with .Params.redirect_url }}{{ . }}{{ else }}{{ .RelPermalink }}{{ end }}" data-href="{{ .RelPermalink }}">{{ .Title }}</a>
     </li>
     {{ $lastYear = $year }}
     {{ end }}

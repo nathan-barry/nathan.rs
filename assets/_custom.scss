@@ -137,7 +137,9 @@ html:not(.light-mode) .markdown img[src$=".gif"] {
     .site-page-shell {
         max-width: 72rem;
         margin: 0 auto;
-        padding: clamp(3rem, 7vw, 6rem) clamp(#{$padding-16}, 5vw, #{$padding-16 * 2}) clamp(4rem, 8vw, 7rem);
+        padding: clamp(3rem, 7vw, 6rem)
+            clamp(#{$padding-16}, 5vw, #{$padding-16 * 2})
+            clamp(4rem, 8vw, 7rem);
     }
 
     .site-page-shell > .markdown {
@@ -166,7 +168,45 @@ html:not(.light-mode) .markdown img[src$=".gif"] {
     }
 
     .site-writing-index {
-        margin-top: clamp(#{$padding-16 * 2}, 6vw, #{$padding-16 * 4});
+        margin-top: clamp(#{$padding-16}, 3vw, #{$padding-16 * 1.5});
+    }
+
+    .writing-search {
+        margin-bottom: clamp(#{$padding-16 * 2.5}, 6vw, #{$padding-16 * 4});
+    }
+
+    .writing-search-input {
+        // Normalize the native search-field rendering (fixes odd vertical
+        // text alignment in WebKit and the inconsistent box model).
+        appearance: none;
+        -webkit-appearance: none;
+
+        display: block;
+        width: 100%;
+        max-width: 20rem;
+        margin-inline: auto;
+        padding: $padding-8 $padding-16;
+        font-family: inherit;
+        font-size: var(--font-size-smaller);
+        color: var(--body-font-color);
+        background: var(--body-background);
+        border: $padding-1 solid var(--gray-200);
+        border-radius: var(--border-radius);
+
+        &::placeholder {
+            color: var(--color-link);
+        }
+
+        &:focus {
+            outline: none;
+            border-color: var(--color-link);
+        }
+    }
+
+    // Search filtering toggles [hidden]; override .block-list li { display: grid }.
+    .block-list > li[hidden],
+    .writing-block[hidden] {
+        display: none;
     }
 
     .writing-blocks {
@@ -334,13 +374,17 @@ html:not(.light-mode) .markdown img[src$=".gif"] {
 
     .post-reading-grid {
         display: grid;
-        grid-template-columns: minmax(10rem, 15rem) minmax(0, 42rem) minmax(10rem, 15rem);
+        grid-template-columns: minmax(10rem, 15rem) minmax(0, 42rem) minmax(
+                10rem,
+                15rem
+            );
         gap: clamp(#{$padding-16 * 1.5}, 4vw, #{$padding-16 * 3});
         align-items: start;
         justify-content: center;
         max-width: 92rem;
         margin: 0 auto;
-        padding: 0 clamp(#{$padding-16}, 4vw, #{$padding-16 * 2}) clamp(4rem, 8vw, 7rem);
+        padding: 0 clamp(#{$padding-16}, 4vw, #{$padding-16 * 2})
+            clamp(4rem, 8vw, 7rem);
     }
 
     .post-toc {
