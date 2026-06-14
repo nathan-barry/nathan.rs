@@ -393,22 +393,22 @@ Maybe another weekend I'll investigate this!
 
 A language model assigns a probability to each possible next token given the context. The probability the model assigns to a sequence is called the **likelihood**. For a test sequence of tokens, $x_1, x_2, ..., x_N$, the likelihood is:
 
-$$P(x_1, x_2, ..., x_N) = P(x_1) \cdot P(x_2|x_1) \cdot P(x_3|x_1, x_2) \cdots P(x_N|x_{<N})$$
+$$P(x_1, x_2, ..., x_N) = P(x_1) \cdot P(x_2|x_1) \cdot P(x_3|x_1, x_2) \cdots P(x_N|x_{\lt N})$$
 
 A better model assigns higher probability to the test sequence, so higher likelihood is better. However, likelihood gets exponentially small as sequences get longer (multiplying many probabilities between 0 and 1), making it impractical to work with directly.
 
 To handle this, we take the logarithm. Since $\log(a \cdot b) = \log(a) + \log(b)$, the log-likelihood becomes a sum:
 
-$$\log P(x_1, ..., x_N) = \sum_{i=1}^{N} \log P(x_i | x_{<i})$$
+$$\log P(x_1, ..., x_N) = \sum_{i=1}^{N} \log P(x_i | x_{\lt i})$$
 
 This transforms our exponentially shrinking product into a manageable sum. By convention, we use **negative log-likelihood (NLL)** as a loss function, since we want to *minimize* it (minimizing negative log-likelihood is equivalent to maximizing likelihood). We also average it per character:
 
-$$\text{NLL} = -\frac{1}{N}\sum_{i=1}^{N} \log_2 P(x_i | x_{<i})$$
+$$\text{NLL} = -\frac{1}{N}\sum_{i=1}^{N} \log_2 P(x_i | x_{\lt i})$$
 
 The standard metric for evaluating language models is **perplexity**. Perplexity is a measurement of how well a model predicts text.
 **Perplexity** is simply the exponential of the NLL:
 
-$$\text{Perplexity} = 2^{\text{NLL}} = 2^{-\frac{1}{N}\sum_{i=1}^{N} \log_2 P(x_i | x_{<i})}$$
+$$\text{Perplexity} = 2^{\text{NLL}} = 2^{-\frac{1}{N}\sum_{i=1}^{N} \log_2 P(x_i | x_{\lt i})}$$
 
 Why exponentiate back? Perplexity has an intuitive interpretation: it represents the **effective vocabulary size** the model is choosing from at each step. A perplexity of 3 means the model is as uncertain as if it were guessing uniformly among 3 tokens.[^5] Lower perplexity is better.
 

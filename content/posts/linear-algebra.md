@@ -288,7 +288,7 @@ For an $m\times n$ matrix (as in $m$ rows and $n$ columns):
  
 6. The true size of a matrix $A$ is given by its **rank**. The rank is the *dimension* of the *column space* and of the *row space*. $n-r$ is the dimension of the *nullspace*.
 
-7. Every matrix with $m < n$ (more columns than rows) has nonzero solutions to $A\mathbf{x} = 0$ in its nullspace.
+7. Every matrix with $m \lt  n$ (more columns than rows) has nonzero solutions to $A\mathbf{x} = 0$ in its nullspace.
 
 The solution vectors $\mathbf{x}$ have $n$ elements and are vectors in $\mathbb{R}^n$, thus the nullspace is a subspace of $\mathbb{R}^n$. The column space $C(A)$ is a subspace of $\mathbb{R}^m$ since it is the span of all of the columns in $A$, each with $m$ elements.
 
@@ -329,9 +329,9 @@ Every matrix $A$ with **full row rank** $(r=m)$ has all these properties:
 
 The four cases are:
 - $r = m = n$: (A is square and invertible, $A\mathbf{x} = \mathbf{b}$ has 1 solution)
-- $r = m < n$: (A is short and wide, $A\mathbf{x} = \mathbf{b}$ has $\infty$ solutions)
-- $r = n < m$: (A is tall and thin, $A\mathbf{x} = \mathbf{b}$ has 1 or 0 solutions)
-- $r < m, r < n$: (not full rank, $A\mathbf{x} = \mathbf{b}$ 0 or $\infty$ solutions)
+- $r = m \lt  n$: (A is short and wide, $A\mathbf{x} = \mathbf{b}$ has $\infty$ solutions)
+- $r = n \lt  m$: (A is tall and thin, $A\mathbf{x} = \mathbf{b}$ has 1 or 0 solutions)
+- $r \lt  m, r \lt  n$: (not full rank, $A\mathbf{x} = \mathbf{b}$ 0 or $\infty$ solutions)
 
 ### Independence, Basis and Dimension
 A **basis** is a set of independent vectors that span the space. Four essential ideas are:
@@ -347,7 +347,7 @@ For an $m\times n$ matrix (as in $m$ rows and $n$ columns):
 
 2. Independent vectors: The only zero combination $c_1 \mathbf{v}_1 + \cdots + c_k \mathbf{v}_k = 0$ has all $c_i = 0$.
 
-3. A matrix with $m < n$ has dependent columns: At least $n - m$ free variables / special solutions in the nullspace.
+3. A matrix with $m \lt  n$ has dependent columns: At least $n - m$ free variables / special solutions in the nullspace.
 
 4. The vectors $\mathbf{v}_1, \ldots, \mathbf{v}_k$ **span** the space $S$ if $S =$ all linear combinations of the $\mathbf{v}$'s.
 
@@ -686,7 +686,7 @@ This is a 1 by 1 problem. Linear algebra moves to n by n.
 
 2. If $A = X \Lambda X^{-1}$, then: $$\mathbf{u}(t) = e^{At}\mathbf{u}(0) = X e^{\Lambda t} X^{-1} \mathbf{u}(0) = c_1 e^{\lambda_1 t} \mathbf{x}_1 + \cdots + c_n e^{\lambda_n t} \mathbf{x}_n$$
 
-3. $A$ is stable and $\mathbf{u}(t) \to 0$ and $e^{At} \to 0$ when all eigenvalues of $A$ have real parts $< 0$.
+3. $A$ is stable and $\mathbf{u}(t) \to 0$ and $e^{At} \to 0$ when all eigenvalues of $A$ have real parts $\lt  0$.
 
 4. Matrix exponential $e^{At} = I + At + \cdots + \frac{(At)^n}{n!} + \cdots = X e^{\Lambda t} X^{-1}$ if $A$ is diagonalizable.
 
@@ -706,9 +706,9 @@ Symmetric matrices are one of the most important kind of matrices.
 ### Positive Definite Matrices
 Symmetric matrices that have positive (or non-negative) eigenvalues are special.
 
-1. Symmetric $S$: all eigenvalues $> 0$ $\Leftrightarrow$ all pivots $> 0$ $\Leftrightarrow$ all upper left determinants $> 0$.
+1. Symmetric $S$: all eigenvalues $\gt  0$ $\Leftrightarrow$ all pivots $\gt  0$ $\Leftrightarrow$ all upper left determinants $\gt  0$.
 
-2. The matrix $S$ is then **positive definite**. The energy test is $\mathbf{x}^T S \mathbf{x} > 0$ for all vectors $\mathbf{x} \neq 0$.
+2. The matrix $S$ is then **positive definite**. The energy test is $\mathbf{x}^T S \mathbf{x} \gt  0$ for all vectors $\mathbf{x} \neq 0$.
 
 3. One more test for positive definiteness: $S = A^T A$ with independent columns in $A$.
 

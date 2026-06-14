@@ -181,13 +181,13 @@ $$Var[aX + b] = a^2 \cdot Var[X]$$
 
 ### Tail Bounds: Chebyshev and Markov
 
-Even without knowing a distribution's exact shape, we can bound how much probability sits in its tails. **Chebyshev's Theorem** says that for any $k > 1$, the chance of landing more than $k$ standard deviations from the mean is at most $1/k^2$:
+Even without knowing a distribution's exact shape, we can bound how much probability sits in its tails. **Chebyshev's Theorem** says that for any $k \gt  1$, the chance of landing more than $k$ standard deviations from the mean is at most $1/k^2$:
 
-$$Pr\big(|X - \mu_X| > k\,\sigma_X\big) \le \frac{1}{k^2}$$
+$$Pr\big(|X - \mu_X| \gt  k\,\sigma_X\big) \le \frac{1}{k^2}$$
 
-**Markov's Inequality** bounds the upper tail of a non-negative random variable using only its mean: for $a > 0$,
+**Markov's Inequality** bounds the upper tail of a non-negative random variable using only its mean: for $a \gt  0$,
 
-$$Pr[Y > a] \le \frac{\mu_Y}{a}$$
+$$Pr[Y \gt  a] \le \frac{\mu_Y}{a}$$
 
 
 
@@ -304,13 +304,13 @@ Its moments are the same weighted blend of the component moments: $E[X^n] = p\,E
 
 Continuous distributions model insurance losses nicely. If $X$ is a loss on $(A, B)$ and the policy has a **deductible** $d$, the insurer pays nothing until the loss exceeds $d$:
 
-$$Y = \begin{cases} 0 & A \le X < d \\ X - d & d \le X < B \end{cases}$$
+$$Y = \begin{cases} 0 & A \le X \lt  d \\ X - d & d \le X \lt  B \end{cases}$$
 
 The expected payout integrates only over the region where the policy pays:
 
 $$E[Y] = \int_d^B (x - d) \cdot f_X(x)\, dx$$
 
-A **cap** $C$ works the other way, limiting the maximum payout, giving $E[Y] = \int_A^C x\,f_X(x)\,dx + C \cdot Pr[X > C]$. Both have compact CDF forms — for a benefit capped at $C$ and one with deductible $d$:
+A **cap** $C$ works the other way, limiting the maximum payout, giving $E[Y] = \int_A^C x\,f_X(x)\,dx + C \cdot Pr[X \gt  C]$. Both have compact CDF forms — for a benefit capped at $C$ and one with deductible $d$:
 
 $$E[Y^C] = A + \int_A^C [1 - F_X(x)]\, dx, \qquad E[Y_d] = \int_d^B [1 - F_X(x)]\, dx$$
 
@@ -396,13 +396,13 @@ Probabilities are just length ratios: $Pr[a \le X \le b] = \frac{b - a}{B - A} =
 
 The continuous partner of the Poisson distribution. Where a Poisson counts *occurrences* in a period, the exponential models the **waiting time until the next occurrence**. Here $\lambda$ is the mean rate and $\beta = 1/\lambda$ is the mean time between events.
 
-$$f_X(x) = \lambda e^{-\lambda x} = \tfrac{1}{\beta} e^{-x/\beta}, \qquad F_X(x) = 1 - e^{-\lambda x}, \qquad 0 \le x < \infty$$
+$$f_X(x) = \lambda e^{-\lambda x} = \tfrac{1}{\beta} e^{-x/\beta}, \qquad F_X(x) = 1 - e^{-\lambda x}, \qquad 0 \le x \lt  \infty$$
 
-$$E[X] = \frac{1}{\lambda} = \beta, \qquad Var[X] = \frac{1}{\lambda^2} = \beta^2, \qquad M_X(t) = \frac{\lambda}{\lambda - t}\ \ (t < \lambda)$$
+$$E[X] = \frac{1}{\lambda} = \beta, \qquad Var[X] = \frac{1}{\lambda^2} = \beta^2, \qquad M_X(t) = \frac{\lambda}{\lambda - t}\ \ (t \lt  \lambda)$$
 
 Its defining trait is the **memoryless property**: having already waited time $a$ tells you nothing about the remaining wait.
 
-$$Pr[X > a + b \mid X > a] = Pr[X > b]$$
+$$Pr[X \gt  a + b \mid X \gt  a] = Pr[X \gt  b]$$
 
 ### Normal — $X \sim \text{Normal}(\mu, \sigma^2)$
 
@@ -420,7 +420,7 @@ $$f_X(x) = \frac{1}{\sigma_X\sqrt{2\pi}} e^{-\frac{1}{2}\left(\frac{x - \mu}{\si
 
 There's no closed form for the CDF, so we write it with $\Phi$, the standard normal CDF, and use tables: $F_X(x) = \Phi\big(\frac{x - \mu_X}{\sigma_X}\big)$. Normals are closed under addition — $(X + Y) \sim N(\mu_X + \mu_Y,\, \sigma_X^2 + \sigma_Y^2)$.
 
-> **Example.** If $X \sim N(5, 2^2)$, find $Pr(X < 9.3)$. Standardizing, $z = \frac{9.3 - 5}{2} = 2.15$, so $Pr(X < 9.3) = Pr(Z < 2.15) = .9842$ from the table.
+> **Example.** If $X \sim N(5, 2^2)$, find $Pr(X \lt  9.3)$. Standardizing, $z = \frac{9.3 - 5}{2} = 2.15$, so $Pr(X \lt  9.3) = Pr(Z \lt  2.15) = .9842$ from the table.
 
 ### Lognormal
 
@@ -434,7 +434,7 @@ $$E[Y] = e^{\mu_X + \frac{1}{2}\sigma_X^2}, \qquad Var[Y] = e^{2\mu_X + \sigma_X
 
 A generalization of the exponential, built on the **gamma function** $\Gamma(\alpha) = \int_0^\infty x^{\alpha-1} e^{-x}\, dx$ (which satisfies $\Gamma(n) = (n-1)!$ for integer $n$, and $\Gamma(\tfrac{1}{2}) = \sqrt{\pi}$). The shape parameter $\alpha$ can be read as a number of events and the scale $\beta$ as the time between them.
 
-$$f_X(x) = \frac{1}{\beta^\alpha \Gamma(\alpha)} x^{\alpha-1} e^{-x/\beta}, \qquad 0 \le x < \infty$$
+$$f_X(x) = \frac{1}{\beta^\alpha \Gamma(\alpha)} x^{\alpha-1} e^{-x/\beta}, \qquad 0 \le x \lt  \infty$$
 
 $$E[X] = \alpha\beta, \qquad Var[X] = \alpha\beta^2, \qquad M_X(t) = \left(\frac{1}{1 - \beta t}\right)^\alpha$$
 
@@ -444,7 +444,7 @@ Independent gammas with a shared scale add: $X + Y \sim \Gamma(\alpha_X + \alpha
 
 Lives on the unit interval $[0, 1]$, which makes it the go-to distribution for modeling *probabilities and proportions*. It's built on the **beta function** $B(\alpha, \beta) = \int_0^1 x^{\alpha-1}(1-x)^{\beta-1}\, dx = \frac{\Gamma(\alpha)\Gamma(\beta)}{\Gamma(\alpha + \beta)}$.
 
-$$f_X(x) = \frac{\Gamma(\alpha + \beta)}{\Gamma(\alpha)\Gamma(\beta)} x^{\alpha-1}(1-x)^{\beta-1}, \qquad 0 < x < 1$$
+$$f_X(x) = \frac{\Gamma(\alpha + \beta)}{\Gamma(\alpha)\Gamma(\beta)} x^{\alpha-1}(1-x)^{\beta-1}, \qquad 0 \lt  x \lt  1$$
 
 $$E[X] = \frac{\alpha}{\alpha + \beta}, \qquad Var[X] = \frac{\alpha\beta}{(\alpha + \beta)^2(\alpha + \beta + 1)}$$
 
@@ -533,7 +533,7 @@ Results are often reported as a **p-value**: the probability, assuming $H_0$ is 
 
 ### The General Procedure
 
-1. State $H_0$ (a simple hypothesis, $\theta = \theta_0$) and $H_1$ (a composite one: $\theta \ne \theta_0$ two-tailed, $\theta > \theta_0$ right-tailed, or $\theta < \theta_0$ left-tailed).
+1. State $H_0$ (a simple hypothesis, $\theta = \theta_0$) and $H_1$ (a composite one: $\theta \ne \theta_0$ two-tailed, $\theta \gt  \theta_0$ right-tailed, or $\theta \lt  \theta_0$ left-tailed).
 2. Pick the significance level $\alpha$.
 3. Choose a test statistic whose distribution under $H_0$ is one of the standard ones — $z$, $t$, $\chi^2$, or $F$.
 4. Build the rejection region from $\alpha$, that distribution, and the appropriate tail.

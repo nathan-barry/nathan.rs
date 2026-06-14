@@ -127,7 +127,7 @@ The result is an optimizer that needs little memory, is invariant to rescaling t
 
 The optimizers above are practical recipes, but it's natural to ask when they're *guaranteed* to reach the minimum, and how fast. For general non-convex losses the honest answer is "no guarantees" — but under a surprisingly mild condition, you can prove a strong one.
 
-That condition is the **Polyak–Łojasiewicz (PL) inequality**. A differentiable function $L$ satisfies it if there's a constant $\mu > 0$ such that, everywhere:
+That condition is the **Polyak–Łojasiewicz (PL) inequality**. A differentiable function $L$ satisfies it if there's a constant $\mu \gt  0$ such that, everywhere:
 
 $$
 \|\nabla L(x)\|^2 \geq 2\mu \, \big(L(x) - L(x^*)\big)

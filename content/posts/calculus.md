@@ -263,8 +263,8 @@ For the integral test to apply to a series, it must satisfy four special conditi
 **Process:**
 - Figure out if the series $\sum_{n=1}^{\infty}a_n$ satisfies the 4 conditions
     - $f(x)$ is positive and continuous on $[1, \infty)$ and $f(n) = a_n$ for all $n\ge 1$. (The first 3)
-	- $f^\prime(x)= \cdots <0$  for all $x\ge1$. (find $f^\prime(x)$ and see whether it's always positive or negative)
-	- Since $f^\prime(x)<0$ on $[1, \infty)$, $f(x)$ is decreasing on $[1, \infty)$.
+	- $f^\prime(x)= \cdots \lt 0$  for all $x\ge1$. (find $f^\prime(x)$ and see whether it's always positive or negative)
+	- Since $f^\prime(x)\lt 0$ on $[1, \infty)$, $f(x)$ is decreasing on $[1, \infty)$.
 - Treat the series like a continuous function
 - Find the improper definite integral $\int_1^\infty f(x) dx$ (where $f(x)$ is just $a_n$)
 - Conclude whether the series converges or diverges based on whether the function converges or diverges
@@ -302,17 +302,17 @@ Therefore the size of the error is at most 0.005.
 #### Calculating Accuracy Within a Given Range
 Let the calculation be accurate within 0.0005.
 
-$$R_n \le \int_{n}^\infty f(x) dx < 0.0005$$
+$$R_n \le \int_{n}^\infty f(x) dx \lt  0.0005$$
 
 Integrate the improper integral and solve for n.
 
 **Example (continued):**
 
-$$R_n \le \int_{n}^\infty \frac1{x^3}dx = \frac1{2n^2} < 0.0005$$
+$$R_n \le \int_{n}^\infty \frac1{x^3}dx = \frac1{2n^2} \lt  0.0005$$
 
-$$n^2>\frac1{0.001}=1000$$
+$$n^2\gt \frac1{0.001}=1000$$
 
-$$n>\sqrt{1000}\approx31.6$$
+$$n\gt \sqrt{1000}\approx31.6$$
 
 Thus we need 32 terms to ensure accuracy to within 0.0005.
 
@@ -337,14 +337,14 @@ Suppose that $\sum a_n$ and $\sum b_n$ are series with positive terms. If
 
 $$\lim_{n\rightarrow\infty}\frac{a_n}{b_n}=c \qquad c\neq0$$
 
-where $c$ is a finite number and $c>0$, then *either both series converge or both diverge.*
+where $c$ is a finite number and $c\gt 0$, then *either both series converge or both diverge.*
 
 **Example:** Here we have the given series $\sum_{n=1}^\infty \frac1{2^n+1}$. This series is similar to the geometric series $\sum_{n=1}^\infty \frac1{2^n}$ with a common ratio of $\frac12$. 
 $$a_n=\frac1{2^n+1}\qquad b_n=\frac1{2^n}$$
 
 Using the Limit Comparison Test, we get
 
-$$\lim_{n\rightarrow\infty} \frac{a_n}{b_n}=\lim_{n\rightarrow\infty} \frac{\frac{1}{2^n+1}}{\frac1{2^n}}=\lim_{n\rightarrow\infty} \frac{2^n}{2^n+1}=\lim_{n\rightarrow\infty}\frac{1}{1+\frac1{2^n}}=1>0$$
+$$\lim_{n\rightarrow\infty} \frac{a_n}{b_n}=\lim_{n\rightarrow\infty} \frac{\frac{1}{2^n+1}}{\frac1{2^n}}=\lim_{n\rightarrow\infty} \frac{2^n}{2^n+1}=\lim_{n\rightarrow\infty}\frac{1}{1+\frac1{2^n}}=1\gt 0$$
 
 Since this limit exists (and $\neq 0$) and $\sum \frac1{2^n}$ is a convergent geometric series, the series $\sum_{n=1}^\infty \frac1{2^n+1}$ converges by the Limit Comparison Test.
 
@@ -367,13 +367,13 @@ $$1-\frac12+\frac13-\frac14+\dots=\sum_{n=1}^\infty(-1)^{n-1}\frac1n\qquad b_n=\
 
 The series satisfies the two conditions
 
-$$b_{n+1}\le b_n\qquad \Rightarrow\qquad \frac1{n+1}<\frac1n$$
+$$b_{n+1}\le b_n\qquad \Rightarrow\qquad \frac1{n+1}\lt \frac1n$$
 $$\lim_{n\rightarrow\infty}b_n=0\qquad \Rightarrow\qquad \lim_{n\rightarrow\infty}\frac1n=0$$
 
 Therefore, the series is convergent by the Alternating Series Test.
 
 ### Level of Error for Alternating Series
-If $s=\sum (-1)^{n-1}b_n$ where $b_n > 0$ is the sum of an alternating series that is convergent by the alternating series test, then the level of error for the alternating series is:
+If $s=\sum (-1)^{n-1}b_n$ where $b_n \gt  0$ is the sum of an alternating series that is convergent by the alternating series test, then the level of error for the alternating series is:
 
 $$|R_n|=|s-s_n| \le b_{n+1}$$
 
@@ -393,11 +393,11 @@ $|s-s_n|$ will decrease as $n\rightarrow\infty$ since you are adding and *subtra
 ### The Ratio Test
 The series $\sum_{n=1}^\infty a_n$ has absolute convergence (and therefore is convergent) if:
 
-$$\lim_{n\rightarrow\infty}\Big|\frac{a_{n+1}}{a_n}\Big|=L<1$$
+$$\lim_{n\rightarrow\infty}\Big|\frac{a_{n+1}}{a_n}\Big|=L\lt 1$$
 
 The series $\sum_{n=1}^\infty a_n$ is divergent if:
 
-$$\lim_{n\rightarrow\infty}\Big|\frac{a_{n+1}}{a_n}\Big|=L>1$$
+$$\lim_{n\rightarrow\infty}\Big|\frac{a_{n+1}}{a_n}\Big|=L\gt 1$$
 
 The ratio test is inconclusive (no conclusion can be drawn about the convergence or divergence) if:
 
@@ -413,16 +413,16 @@ $$|a_n|=\frac{n^3}{3^n} \qquad |a_{n+1}|=\frac{(n+1)^3}{3^{n+1}}$$
 
 $$\lim_{n\rightarrow\infty}\Bigg|\frac{a_{n+1}}{a_n}\Bigg|=\lim_{n\rightarrow\infty}\frac{(n+1)^3}{3^{n+1}}\cdot\frac{3^n}{n^3}=\lim_{n\rightarrow\infty}\frac13\frac{(n+1)^3}{n^3}=\lim_{n\rightarrow\infty}\frac13\Bigg(\frac{n+1}{n}\Bigg)^3=\frac13(1)^3=\frac13$$
 
-Justification: Since $\lim_{n\rightarrow\infty}|\frac{a_{n+1}}{a_n}|=\frac13$ and $\frac13<1$, the series $\sum_{n=1}^\infty(-1)^n\frac{n^3}{3^n}$ is absolutely convergent by the Ratio Test.
+Justification: Since $\lim_{n\rightarrow\infty}|\frac{a_{n+1}}{a_n}|=\frac13$ and $\frac13\lt 1$, the series $\sum_{n=1}^\infty(-1)^n\frac{n^3}{3^n}$ is absolutely convergent by the Ratio Test.
 
 ### The Root Test
 The series $\sum_{n=1}^\infty a_n$ has absolute convergence (and therefore is convergent) if:
 
-$$\lim_{n\rightarrow\infty}\sqrt[n]{|a_n|}=L<1$$
+$$\lim_{n\rightarrow\infty}\sqrt[n]{|a_n|}=L\lt 1$$
 
 The series $\sum_{n=1}^\infty a_n$ is divergent if
 
-$$\lim_{n\rightarrow\infty}\sqrt[n]{|a_n|}=L>1$$
+$$\lim_{n\rightarrow\infty}\sqrt[n]{|a_n|}=L\gt 1$$
 
 The root test is inconclusive (no conclusion can be drawn about the convergence or divergence) if:
 
@@ -436,9 +436,9 @@ Does the given series $\sum a_n$ converge or diverge?
 
 $$|a_n|=\Bigg|\frac3{[\ln(n)]^n}\Bigg|$$
 
-$$\lim_{n\rightarrow\infty}\sqrt[n]{|a_n|}=\lim_{n\rightarrow\infty}\frac{\sqrt[n]{3}}{\ln(n)}=0=L<1$$
+$$\lim_{n\rightarrow\infty}\sqrt[n]{|a_n|}=\lim_{n\rightarrow\infty}\frac{\sqrt[n]{3}}{\ln(n)}=0=L\lt 1$$
 
-Justification: Since $\lim_{n\rightarrow\infty}\frac{\sqrt[n]{3}}{\ln(n)}=0$ and $0<1$, the series $\sum_{n=1}^\infty\frac3{[\ln(n)]^n}$ is Absolutely Convergent by the Root Test.
+Justification: Since $\lim_{n\rightarrow\infty}\frac{\sqrt[n]{3}}{\ln(n)}=0$ and $0\lt 1$, the series $\sum_{n=1}^\infty\frac3{[\ln(n)]^n}$ is Absolutely Convergent by the Root Test.
 
 
 
@@ -457,9 +457,9 @@ A Geometric Series takes the form of:
 
 $$\sum_{n=1}^{\infty}a\cdot r^{n-1}$$
 
-is convergent if $|r|<1$ and divergent if $|r|\ge1$.  $r$ is known as the *Common Ratio*.
+is convergent if $|r|\lt 1$ and divergent if $|r|\ge1$.  $r$ is known as the *Common Ratio*.
 
-When $|r|<1$:
+When $|r|\lt 1$:
 
 $$s=\sum_{n=1}^{\infty}a\cdot r^{n-1}=\frac{a}{1-r}$$
 
@@ -468,7 +468,7 @@ The P-Series is any series of the form:
 
 $$\sum_{n=1}^\infty\frac{1}{n^p}$$
 
-and is *convergent* when $p>1$ and *divergent* when $p\le1$.
+and is *convergent* when $p\gt 1$ and *divergent* when $p\le1$.
 
 
 
@@ -490,9 +490,9 @@ You can use the Ratio Test or the Root Test to determine whether a power series 
 
 $$\lim_{n\rightarrow\infty}\Bigg|\frac{a_{n+1}}{a_n}\Bigg|=\lim_{n\rightarrow\infty}\Bigg|\frac{(x-3)^{n+1}}{n+1}\cdot\frac{n}{(x-3)^{n}}\Bigg|=\lim_{n\rightarrow\infty}\frac{1}{1+\frac1n}|x-3|=|x-3|$$
 
-By the Ratio Test, the series is absolutely convergent, when $|x-3|<1$ and divergent when $|x-3|>1$. Solving for $x$, we get
+By the Ratio Test, the series is absolutely convergent, when $|x-3|\lt 1$ and divergent when $|x-3|\gt 1$. Solving for $x$, we get
 
-$$|x-3|<1 \quad \Rightarrow \quad -1<x-3<1 \quad \Rightarrow \quad 2<x<4$$
+$$|x-3|\lt 1 \quad \Rightarrow \quad -1\lt x-3\lt 1 \quad \Rightarrow \quad 2\lt x\lt 4$$
 
 In this case, the *Radius of Convergence* is $1$ and the *Interval of Convergence* is $(2, 4)$.
 
@@ -502,7 +502,7 @@ We can represent certain types of functions as Power Series. This is sometimes u
 We can perform *term-by-term differentiation and integration* of a power series representation of a function to get the integral or derivative of that function.
 
 **Properties:**
-- If the power series $\sum c_n(x-a)^n$ has a *Radius of Convergence* $R > 0$, then the function $f$ defined by
+- If the power series $\sum c_n(x-a)^n$ has a *Radius of Convergence* $R \gt  0$, then the function $f$ defined by
 
   $$f(x)=c_0+c_1(x-a)+c_2(x-a)^2+\dots=\sum_{n=0}^\infty c_n(x-a)^n$$
 
@@ -523,7 +523,7 @@ Taylor Series is a general way to find a power series representations.
 
 If $f$ has a power series representation at $a$, that is, if:
 
-$$f(x)=\sum_{n=0}^\infty c_n(x-a)^n\qquad |x-a|<R$$
+$$f(x)=\sum_{n=0}^\infty c_n(x-a)^n\qquad |x-a|\lt R$$
 
 then its coefficients are given by the formula:
 
@@ -535,7 +535,7 @@ $$f(x)=\sum_{n=0}^\infty \frac{f^{(n)}(a)}{n!}(x-a)^n$$
 
 $$=f(a)+\frac{f^\prime(a)}{1!}(x-a)+\frac{f^{\prime\prime}(a)}{2!}(x-a)^2+\frac{f^{(3)}(a)}{3!}(x-a)^3+\dots$$
 
-It must be that $|x-a|<R$. If this is the case, then the series will converge to the actual function. If not, then it diverges from it, making it useless.
+It must be that $|x-a|\lt R$. If this is the case, then the series will converge to the actual function. If not, then it diverges from it, making it useless.
 
 ### Maclaurin Series
 A Maclaurin Series is a Taylor Series that is centered at 0 (aka $a = 0$).
@@ -565,7 +565,7 @@ If $f(x) = T_n(x) + R_n(x)$, where $T_n$ is the nth-degree Taylor polynomial of 
 
 $$\lim_{n\rightarrow\infty}R_n(x) = 0$$
 
-for $|x-a|<R$ ($R$ is the Radius of Convergence, also sometimes denoted as $d$), then $f$ is equal to the sum of its Taylor Series on the interval $|x-a|<R$.
+for $|x-a|\lt R$ ($R$ is the Radius of Convergence, also sometimes denoted as $d$), then $f$ is equal to the sum of its Taylor Series on the interval $|x-a|\lt R$.
 
 ### Taylor's Inequality
 If $|f^{(n+1)}(x)| \le M$ for $|x-a| \le d$, then the remainder $R_n(x)$ of a Taylor Polynomial satisfies the inequality:
