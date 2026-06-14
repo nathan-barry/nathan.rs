@@ -6,5 +6,5 @@
 <meta property="og:url" content="{{ .Permalink }}" />
 <meta
     property="og:description"
-    content="{{ or .Description .Summary | plainify | htmlUnescape | truncate 160 }}"
+    content="{{ or .Description .Summary .Site.Params.description | plainify | htmlUnescape | truncate 160 }}"
 />

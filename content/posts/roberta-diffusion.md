@@ -1,16 +1,18 @@
-+++
-title = "BERT is just a Single Text Diffusion Step"
-date = 2025-10-20
-tags = ["Machine Learning", "2025"]
-+++
-{{< katex >}}{{< /katex >}}
+---
+title: "BERT is just a Single Text Diffusion Step"
+date: 2025-10-20
+tags:
+  - "Machine Learning"
+featured: true
+hero: "/images/roberta-diffusion.gif"
+---
 
 A while back, Google DeepMind unveiled [Gemini Diffusion](https://deepmind.google/models/gemini-diffusion/), an experimental language model that generates text using diffusion. Unlike traditional GPT-style models that generate one word at a time, Gemini Diffusion creates whole blocks of text by refining random noise step-by-step.
 
 I read the paper [Large Language Diffusion Models](https://arxiv.org/abs/2502.09992) and was surprised to find that discrete language diffusion is just a generalization of masked language modeling (MLM), something we’ve been doing since [2018](https://arxiv.org/abs/1810.04805).
 The first thought I had was, "can we finetune a BERT-like model to do text generation?"[^1] I decided to try a quick proof of concept out of curiosity.[^2]
 
-<img alt="Text Diffusion" style="max-width: 100%" src="/images/roberta-diffusion.gif">
+<!--<img alt="Text Diffusion" style="max-width: 100%" src="/images/roberta-diffusion.gif">-->
     
 *Above is a visualization of masked diffusion generation with a finetuned BERT-like model.*
 
@@ -198,7 +200,6 @@ Even without architectural changes, a fine-tuned RoBERTa can generate coherent l
 
 
 
-## Footnotes
 [^1]: After I wrote the article, I stumbled upon the paper [DiffusionBERT](https://arxiv.org/abs/2211.15029), which does essentially the same thing but with more rigorous testing! Check it out if this post interested you.
 [^2]: The [D3PM](https://arxiv.org/abs/2107.03006) paper mentions, in bold, "BERT is a one-step diffusion model" in section 4. Didn't see this until way after! It's a foundational paper in this space, my oversight is slightly embarrasing.
 [^3]: There are many different generation algorithms with these models. Our method doesn't take into account token confidence and can lead to indiscriminantly remasking "good" tokens.

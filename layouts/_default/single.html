@@ -1,9 +1,29 @@
 {{ define "main" }}
 <article class="markdown book-post">
-    <h1>{{ .Title }}</h1>
-    {{ partial "docs/post-meta" . }}
-    <br />
-    <div class="book-post-content markdown-inner">{{- .Content -}}</div>
+    <header class="post-masthead">
+        <h1>{{ .Title }}</h1>
+        {{ with or .Description .Params.subtitle }}
+        <p class="post-description">{{ . | plainify }}</p>
+        {{ end }}
+        <div class="post-byline">
+            <span>{{ default "Nathan Barry" .Params.author }}</span>
+            {{ with .Date }}
+            <span>{{ partial "docs/date" (dict "Date" . "Format" $.Site.Params.BookDateFormat) }}</span>
+            {{ end }}
+        </div>
+    </header>
+
+    {{ partial "docs/hero" . }}
+
+    <div class="post-reading-grid">
+        <aside class="post-toc">
+            {{ partial "docs/toc" . }}
+        </aside>
+        <div class="book-post-content markdown-inner">{{- .Content -}}</div>
+        <aside class="post-sidenotes" aria-label="Footnotes"></aside>
+    </div>
 </article>
-{{ end }} {{ define "toc" }} {{ partial "docs/toc" . }} {{ end }} {{ define
-"footer" }} {{ partial "docs/footer" . }} {{ end }}
+{{ end }}
+
+{{ define "toc" }}{{ end }}
+{{ define "footer" }}{{ partial "docs/footer" . }}{{ end }}

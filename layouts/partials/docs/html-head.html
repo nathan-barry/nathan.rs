@@ -6,7 +6,7 @@ https://github.com/alex-shpak/hugo-book
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script>document.documentElement.classList.add('js');</script>
-<meta name="description" content="{{ or .Description .Summary | plainify | htmlUnescape | truncate 160 | replaceRE `\s*#\s*` `: ` }}">
+<meta name="description" content="{{ or .Description .Summary .Site.Params.description | plainify | htmlUnescape | truncate 160 | replaceRE `\s*#\s*` `: ` }}">
 <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
 <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
 <meta name="color-scheme" content="light dark">
@@ -27,15 +27,17 @@ https://github.com/alex-shpak/hugo-book
 
 <!-- Theme stylesheet, you can customize scss by creating `assets/custom.scss` in your website -->
 {{- $styles := resources.Get "book.scss" | resources.ExecuteAsTemplate "book.scss" . | css.Sass | resources.Minify | resources.Fingerprint }}
-<link rel="stylesheet" href="{{ partial "docs/links/resource-precache" $styles }}" {{ template "integrity" $styles }}>
+<link rel="stylesheet" href="{{ $styles.RelPermalink }}" {{ template "integrity" $styles }}>
 
-<!-- Search -->
-{{- if default true .Site.Params.BookSearch -}}
-  {{- $searchJSFile := printf "%s.search.js" (default "en" .Language.Lang) }}
-  {{- $searchJS := resources.Get "search.js" | resources.ExecuteAsTemplate $searchJSFile . | resources.Minify | resources.Fingerprint }}
-  <script defer src="{{ "fuse.min.js" | relURL }}"></script>
-  <script defer src="{{ partial "docs/links/resource-precache" $searchJS }}" {{ template "integrity" $searchJS }}></script>
-{{ end -}}
+<!-- KaTeX: loaded on all post pages; auto-renders math in the body.
+     Fonts are only fetched by the browser when math actually renders. -->
+{{- if eq .Type "posts" -}}
+  <link rel="stylesheet" href="{{ "katex/katex.min.css" | relURL }}" />
+  <script defer src="{{ "katex/katex.min.js" | relURL }}"></script>
+  {{- with resources.Get "katex.json" | minify -}}
+  <script defer src="{{ "katex/auto-render.min.js" | relURL }}" onload="renderMathInElement(document.body, {{ .Content | safeJS }});"></script>
+  {{- end -}}
+{{- end -}}
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-1Y735N717D"></script>
 <script>

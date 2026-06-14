@@ -1,10 +1,8 @@
-+++
-title = "Favorite Quotes"
-date = 2023-10-14T10:45:41-05:00
-tags = ["Miscellaneous"]
-+++
-
-Here's a list of quotes I've collected from over the years.
+---
+title: "Favorite Quotes"
+tags:
+  - "Miscellaneous"
+---
 
 
 

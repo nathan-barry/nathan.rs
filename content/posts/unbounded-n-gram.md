@@ -1,9 +1,11 @@
-+++
-title = "Language Modeling Without Neural Networks"
-date = 2026-01-17T18:47:03-06:00
-tags = ["Machine Learning", "2026"]
-+++
-{{< katex >}}{{< /katex >}}
+---
+title: "Language Modeling Without Neural Networks"
+date: 2026-01-17T18:47:03-06:00
+tags:
+  - "Machine Learning"
+featured: true
+hero: "/images/unbounded-n-gram.gif"
+---
 
 Generating Shakespeare has become the ["Hello World"](https://en.wikipedia.org/wiki/%22Hello,_World!%22_program) of language models.[^1]
 Recently, I've been messing with [alternative language models](https://github.com/nathan-barry/tiny-diffusion) and came across **unbounded n-gram** models. These models are purely statistical and don't require optimizing weights or training.
@@ -11,11 +13,6 @@ Recently, I've been messing with [alternative language models](https://github.co
 A year ago, I read the paper [Infini-gram](https://arxiv.org/abs/2401.17377), which scaled an unbounded n-gram model to trillions of tokens. While their model had applications helping guide neural LLMs during generation, standalone language generation was not explored.
 
 In this post, I'll explain how unbounded n-gram models work and how I improved their language generation capabilities.
-
-<img alt="Infini-gram vs GPT" style="max-width: 100%" src="/images/unbounded-n-gram.gif">
-
-*Speed and quality test of my final implementation compared to a nanoGPT implementation, both using the Tiny Shakespeare dataset.*
-
 
 
 ## Classical N-Grams
@@ -437,8 +434,6 @@ Or
 ```
 
 
-
-## Footnotes
 
 [^1]: Andrej Karpathy's beginner [videos](https://www.youtube.com/watch?v=kCc8FmEb1nY) and [nanoGPT](https://github.com/karpathy/nanoGPT) implementations use [Tiny Shakespeare](https://raw.githubusercontent.com/karpathy/char-rnn/master/data/tinyshakespeare/input.txt).
 [^2]: A keen observer will have noticed that n-grams language models are essentially ($n-1$)-order Markov chains.

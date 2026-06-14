@@ -1,8 +1,8 @@
-+++
-title = "Favorite Books"
-date = 2023-10-14T10:45:41-05:00
-tags = ["Miscellaneous"]
-+++
+---
+title: "Favorite Books"
+tags:
+  - "Miscellaneous"
+---
 
 <script>
 document.addEventListener("DOMContentLoaded", function() {
@@ -14,10 +14,10 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 </script>
 
-I found that my life has largely been shaped by the books I've read (especially when I was younger). I've aggregated them all here. Below is a list of all the books I've read since I was 13. The ones in *italics* are ones that stood out to me.
+> I found that my life has largely been shaped by the books I've read (especially when I was younger). I've aggregated them all here. Below is a list of all the books I've read since I was 13. The ones in *italics* are ones that stood out to me.
 
 
-## 2026 (Age 23)
+## 2026 - Age 23
 {{< book
     title="Breakneck"
     author="Dan Wang">}}
@@ -36,7 +36,7 @@ I found that my life has largely been shaped by the books I've read (especially 
 
 
 
-## 2025 (Age 22)
+## 2025 - Age 22
 {{< book
     title="Willpower"
     author="Roy F. Baumeister & John Tierney">}}
@@ -83,7 +83,7 @@ I found that my life has largely been shaped by the books I've read (especially 
 
 
 
-## 2024 (Age 21)
+## 2024 - Age 21
 {{< book
     title="Poor Charlie's Almanack"
     author="Peter D. Kaufman">}}
@@ -167,7 +167,7 @@ I found that my life has largely been shaped by the books I've read (especially 
 
 
 
-## 2023 (Age 20)
+## 2023 - Age 20
 {{< book
     title="Napoleon"
     author="Andrew Roberts"
@@ -315,7 +315,7 @@ I found that my life has largely been shaped by the books I've read (especially 
 
 
 
-## 2022 (Age 19)
+## 2022 - Age 19
 {{< book
     title="A Beautiful Mind"
     author="Sylvia Nasar">}}
@@ -383,7 +383,7 @@ I found that my life has largely been shaped by the books I've read (especially 
 
 
 
-## 2021 (Age 18)
+## 2021 - Age 18
 {{< book
     title="The Sovereign Individual"
     author="James Dale Davidson & William Rees-Mogg"
@@ -523,7 +523,7 @@ I found that my life has largely been shaped by the books I've read (especially 
 
 
 
-## 2020 (Age 17)
+## 2020 - Age 17
 {{< book
     title="Memories, Dreams, Reflections"
     author="Carl Jung">}}
@@ -608,7 +608,7 @@ I found that my life has largely been shaped by the books I've read (especially 
 
 
 
-## 2019 (Age 16)
+## 2019 - Age 16
 {{< book
     title="The Tipping Point"
     author="Malcom Gladwell">}}
@@ -702,7 +702,7 @@ I found that my life has largely been shaped by the books I've read (especially 
 
 
 
-## 2018 (Age 15)
+## 2018 - Age 15
 {{< book
     title="The Richest Man In Babylon"
     author="George S. Clason"
@@ -746,7 +746,7 @@ I found that my life has largely been shaped by the books I've read (especially 
 
 
 
-## 2017 (Age 14)
+## 2017 - Age 14
 {{< book
     title="To Kill A Mockingbird"
     author="Harper Lee">}}
@@ -779,7 +779,7 @@ I found that my life has largely been shaped by the books I've read (especially 
 
 
 
-## 2016 (Age 13)
+## 2016 - Age 13
 {{< book
     title="The 48 Laws Of Power"
     author="Robert Greene"
