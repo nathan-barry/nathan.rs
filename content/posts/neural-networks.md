@@ -1,8 +1,9 @@
-+++
-title = "Neural Networks: RNNs, Seq2Seq, & CNNs"
-date = 2023-10-07T14:55:20-05:00
-tags = ["Class Notes"]
-+++
+---
+title: "Neural Networks: RNNs, Seq2Seq, & CNNs"
+date: 2023-10-07T14:55:20-05:00
+tags:
+  - "Class Notes"
+---
 
 > These are a few of my notes from Eunsol Choi's NLP class at UT Austin.
 

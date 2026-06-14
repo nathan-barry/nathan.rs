@@ -1,8 +1,9 @@
-+++
-title = "Classifiers: Generative & Discriminative Models"
-date = 2023-10-07T14:36:35-05:00
-tags = ["Class Notes"]
-+++
+---
+title: "Classifiers: Generative & Discriminative Models"
+date: 2023-10-07T14:36:35-05:00
+tags:
+  - "Class Notes"
+---
 
 > These are a few of my notes from Eunsol Choi's NLP class at UT Austin.
 

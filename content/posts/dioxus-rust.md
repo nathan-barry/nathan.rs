@@ -1,8 +1,9 @@
-+++
-title = "Rust Front-End Development with Dioxus"
-date = 2023-08-16 
-tags = ["Programming"]
-+++
+---
+title: "Rust Front-End Development with Dioxus"
+date: 2023-08-16
+tags:
+  - "Programming"
+---
 
 
 

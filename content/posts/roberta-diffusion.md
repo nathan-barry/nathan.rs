@@ -1,10 +1,11 @@
-+++
-title = "BERT is just a Single Text Diffusion Step"
-date = 2025-10-20
-tags = ["Machine Learning"]
-featured = true
-hero = "/images/roberta-diffusion.gif"
-+++
+---
+title: "BERT is just a Single Text Diffusion Step"
+date: 2025-10-20
+tags:
+  - "Machine Learning"
+featured: true
+hero: "/images/roberta-diffusion.gif"
+---
 
 A while back, Google DeepMind unveiled [Gemini Diffusion](https://deepmind.google/models/gemini-diffusion/), an experimental language model that generates text using diffusion. Unlike traditional GPT-style models that generate one word at a time, Gemini Diffusion creates whole blocks of text by refining random noise step-by-step.
 

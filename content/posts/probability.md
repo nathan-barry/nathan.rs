@@ -1,8 +1,9 @@
-+++
-title = "Probability"
-date = 2023-09-02T11:14:53-05:00
-tags = ["Class Notes"]
-+++
+---
+title: "Probability"
+date: 2023-09-02T11:14:53-05:00
+tags:
+  - "Class Notes"
+---
 
 > My notes over Mark Maxwell's course, Probability I, and his textbook, Probability & Statistics with Applications, Second Edition.
 

@@ -1,10 +1,11 @@
-+++
-title = "Language Modeling Without Neural Networks"
-date = 2026-01-17T18:47:03-06:00
-tags = ["Machine Learning"]
-featured = true
-hero = "/images/unbounded-n-gram.gif"
-+++
+---
+title: "Language Modeling Without Neural Networks"
+date: 2026-01-17T18:47:03-06:00
+tags:
+  - "Machine Learning"
+featured: true
+hero: "/images/unbounded-n-gram.gif"
+---
 
 Generating Shakespeare has become the ["Hello World"](https://en.wikipedia.org/wiki/%22Hello,_World!%22_program) of language models.[^1]
 Recently, I've been messing with [alternative language models](https://github.com/nathan-barry/tiny-diffusion) and came across **unbounded n-gram** models. These models are purely statistical and don't require optimizing weights or training.

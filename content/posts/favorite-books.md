@@ -1,7 +1,8 @@
-+++
-title = "Favorite Books"
-tags = ["Miscellaneous"]
-+++
+---
+title: "Favorite Books"
+tags:
+  - "Miscellaneous"
+---
 
 <script>
 document.addEventListener("DOMContentLoaded", function() {

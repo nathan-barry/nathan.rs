@@ -1,8 +1,9 @@
-+++
-title = "Where Rust Shines: Algebraic Types and Match Statements"
-date = 2023-11-11T08:51:57-06:00
-tags = ["Programming"]
-+++
+---
+title: "Where Rust Shines: Algebraic Types and Match Statements"
+date: 2023-11-11T08:51:57-06:00
+tags:
+  - "Programming"
+---
 
 
 

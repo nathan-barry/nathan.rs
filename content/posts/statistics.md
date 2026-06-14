@@ -1,8 +1,9 @@
-+++
-title = "Mathematical Statistics"
-date = 2024-02-21T14:07:21-06:00
-tags = ["Class Notes"]
-+++
+---
+title: "Mathematical Statistics"
+date: 2024-02-21T14:07:21-06:00
+tags:
+  - "Class Notes"
+---
 
 > My notes over Mark Maxwell's course, Introduction to Mathematical Statistics, and his textbook, Probability & Statistics with Applications, Second Edition.
 

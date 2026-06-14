@@ -1,8 +1,9 @@
-+++
-title = "Language Modeling: Word Embedings & Architectures"
-date = 2023-10-07T15:54:05-05:00
-tags = ["Class Notes"]
-+++
+---
+title: "Language Modeling: Word Embedings & Architectures"
+date: 2023-10-07T15:54:05-05:00
+tags:
+  - "Class Notes"
+---
 
 > These are a few of my notes from Eunsol Choi's NLP class at UT Austin.
 

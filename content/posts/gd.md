@@ -1,8 +1,9 @@
-+++
-title = "Gradient Descent & Optimizers"
-date = 2023-10-10T10:24:32-05:00
-tags = ["Class Notes"]
-+++
+---
+title: "Gradient Descent & Optimizers"
+date: 2023-10-10T10:24:32-05:00
+tags:
+  - "Class Notes"
+---
 
 > Theses are some of my over Qiang Liu's course, Machine Learning II.
 

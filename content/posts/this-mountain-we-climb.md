@@ -1,8 +1,9 @@
-+++
-title = "This Mountain We Climb"
-date = 2021-03-03
-tags = ["Miscellaneous"]
-+++
+---
+title: "This Mountain We Climb"
+date: 2021-03-03
+tags:
+  - "Miscellaneous"
+---
 
 > A poem that I wrote my senior year of high school in AP Literature.
 

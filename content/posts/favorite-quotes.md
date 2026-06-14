@@ -1,7 +1,8 @@
-+++
-title = "Favorite Quotes"
-tags = ["Miscellaneous"]
-+++
+---
+title: "Favorite Quotes"
+tags:
+  - "Miscellaneous"
+---
 
 Here's a list of quotes I've collected from over the years.
 
