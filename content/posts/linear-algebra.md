@@ -5,7 +5,7 @@ tags:
   - "Class Notes"
 ---
 
-> These are my notes over my review of Linear Algebra, going through Gilbert Strang's Introduction To Linear Algebra.
+> These are my notes from working through Gilbert Strang's *Introduction to Linear Algebra*.
 
 
 
@@ -28,7 +28,7 @@ c + 3d \\\
 \end{bmatrix}.
 $$
 
-The vector $c\mathbf{v}$ lie along a line. If vector $\mathbf{w}$ is not on that line, the set of linear combinations $c\mathbf{v} + d\mathbf{w}$ fill the entire two-dimensional plane, because there is a linear combination that reaches every point.
+The vectors $c\mathbf{v}$ lie along a line. If vector $\mathbf{w}$ is not on that line, the set of linear combinations $c\mathbf{v} + d\mathbf{w}$ fill the entire two-dimensional plane, because there is a linear combination that reaches every point.
 
 ### Vectors and Linear Combinations
 1. $3\mathbf{v} + 5\mathbf{w}$ is an example linear combination $c\mathbf{v} + d\mathbf{w}$ of the vectors $\mathbf{v}$ and $\mathbf{w}$.
@@ -54,11 +54,11 @@ $$
 \mathbf{v} \cdot \mathbf{w} = (1)(4) + (2)(5) = 4 + 10 = 14.
 $$
 
-2. Two vectors $\mathbf{v}$ and $\mathbf{w}$ are perpendicular if their dot product $\mathbf{v}\cdot\mathbf{v}=0$.
+2. Two vectors $\mathbf{v}$ and $\mathbf{w}$ are perpendicular if their dot product $\mathbf{v}\cdot\mathbf{w}=0$.
 
 3. The **length** $\||\mathbf{v}\||$ of a vector is  $\||\mathbf{v}\||=\sqrt{\mathbf{v} \cdot \mathbf{v}}$.
 
-4. A **unit vector** $\mathbf{u}$ is a vector who's length equals one. A vector divided by it's length, $\mathbf{u} = \frac{\mathbf{v}}{\||\mathbf{v}\||}$, always has length $||\mathbf{u}||=1$ and thus is a unit vector with the same direction as $\mathbf{v}$.
+4. A **unit vector** $\mathbf{u}$ is a vector whose length equals one. A vector divided by its length, $\mathbf{u} = \frac{\mathbf{v}}{\||\mathbf{v}\||}$, always has length $||\mathbf{u}||=1$ and thus is a unit vector with the same direction as $\mathbf{v}$.
 
 5. The angle $\theta$ between $\mathbf{v}$ and $\mathbf{w}$ has $\cos \theta = \frac{\mathbf{v} \cdot \mathbf{w}}{\||\mathbf{v}\||\cdot \||\mathbf{w}\||}$. 
 
@@ -226,7 +226,7 @@ $$LEA\mathbf{x} = LE\mathbf{b} \\\ LU\mathbf{x} = \mathbf{b} \\\ L\mathbf{c} = \
 
 Thus, for future inputs of $A\mathbf{x} = \mathbf{b}$, since we know $L$, we can solve via forward elimination on $L\mathbf{c} = \mathbf{b}$ and then backwards substitution on $U\mathbf{x} = \mathbf{c}$, which is quadratic in time instead of cubic.
 
-Note: We also have $A=LDU$ where the diagonal of $U$ has been set to 1 and factored out into it's own diagonal matrix $D$.
+Note: We also have $A=LDU$ where the diagonal of $U$ has been set to 1 and factored out into its own diagonal matrix $D$.
 
 ### Transposes and Permutations
 1. The transposes of $A\mathbf{x}$, $AB$, and $A^{-1}$ are $\mathbf{x}^T A^T$, $B^T A^T$, and $(A^T)^{-1}$, respectively.
@@ -265,11 +265,11 @@ Vector spaces and their subspaces is the next level of understanding.
 
 6. The column space contains all the vectors $A\mathbf{x}$. So $A\mathbf{x} = \mathbf{b}$ is solvable when $\mathbf{b}$ is in $C(A)$.
 
-A real vector space is a set of vectors together with rules for vector addition and for scalar multiplication. Those operations must also produce vectors that are in the space. Some vector spaces other than $\mathbb{R}^n$ are the vector space fo all real 2x2 matrices, the vector space of all real functions $f(x)$, and the vector space $\mathbb{Z}$ that contains only a zero vector.
+A real vector space is a set of vectors together with rules for vector addition and for scalar multiplication. Those operations must also produce vectors that are in the space. Some vector spaces other than $\mathbb{R}^n$ are the vector space of all real $2\times2$ matrices, the vector space of all real functions $f(x)$, and the vector space $\mathbb{Z}$ that contains only a zero vector.
 
 We can add any vectors in $\mathbb{R}^n$, and we can multiply any vector $\mathbf{v}$ by scalar $c$. These operations are closed under $\mathbb{R}^n$. A subspace containing $\mathbf{v}$ and $\mathbf{w}$ must contain all linear combinations $c\mathbf{v} + d\mathbf{w}$ (and thus must contain the zero vector for $c, d = 0$).
 
-**Definition:** The **column space** consists of **all linear combinations of the columns**. The set of linear combinations are all possible bectors $A\mathbf{x}$. They fill the column space $C(A)$.
+**Definition:** The **column space** consists of **all linear combinations of the columns**. The set of linear combinations are all possible vectors $A\mathbf{x}$. They fill the column space $C(A)$.
 
 To solve $A\mathbf{x}=\mathbf{b}$ is to express $\mathbf{b}$ as a linear combination of the columns. The system $A\mathbf{x}=\mathbf{b}$ is solvable if and only if $\mathbf{b}$ is in the column space of $A$.
 
@@ -288,11 +288,11 @@ For an $m\times n$ matrix (as in $m$ rows and $n$ columns):
  
 6. The true size of a matrix $A$ is given by its **rank**. The rank is the *dimension* of the *column space* and of the *row space*. $n-r$ is the dimension of the *nullspace*.
 
-7. Every matrix with $m < n$ (more column than rows) has nonzero solutions to $A\mathbf{x} = 0$ in its nullspace.
+7. Every matrix with $m < n$ (more columns than rows) has nonzero solutions to $A\mathbf{x} = 0$ in its nullspace.
 
 The solution vectors $\mathbf{x}$ have $n$ elements and are vectors in $\mathbb{R}^n$, thus the nullspace is a subspace of $\mathbb{R}^n$. The column space $C(A)$ is a subspace of $\mathbb{R}^m$ since it is the span of all of the columns in $A$, each with $m$ elements.
 
-All vectors $\mathbf{x}$ in the nullspace must be orthogonal to all row vectors $\mathbf{v}$ in the row space. This is vacuously because the dot product $\mathbf{x}_i \cdot \mathbf{v}_j$ must equal zero for $A\mathbf{x} = 0$. Every free column is a linear combination of earlier pivot columns. The special solutions in the nullspace tells use those combinations. 
+All vectors $\mathbf{x}$ in the nullspace must be orthogonal to all row vectors $\mathbf{v}$ in the row space. This is because the dot product $\mathbf{x} \cdot \mathbf{v}_j$ of $\mathbf{x}$ with each row must equal zero for $A\mathbf{x} = 0$. Every free column is a linear combination of earlier pivot columns. The special solutions in the nullspace tell us those combinations.
 
 If the nullspace $N(A) = \mathbb{Z}$ (and thus $\text{rank}(A) = m$), it means that the columns of $A$ are independent. No linear combination of the columns gives the zero vector (except for the zero combination). All columns have pivots and no columns are free.
 
@@ -311,7 +311,7 @@ Every matrix $A$ with **full column rank** $(r=n)$ has all these properties:
 
 1. All columns of $A$ are pivot columns.
 
-2. There are no free variables or special solutions
+2. There are no free variables or special solutions.
 
 3. The nullspace $N(A)$ contains only the zero vector $\mathbf{x}=0$.
 
@@ -338,7 +338,7 @@ A **basis** is a set of independent vectors that span the space. Four essential 
 
 1. Independent vectors (no extra vectors)
 2. Spanning a space (enough vectors to produce the rest)
-3. Basis for a space (not to many or too few)
+3. Basis for a space (not too many or too few)
 4. Dimension of a space (the number of vectors in every basis)
 
 For an $m\times n$ matrix (as in $m$ rows and $n$ columns):
@@ -380,12 +380,12 @@ The **Fundamental Theorem of Linear Algebra** states:
 
 2. The nullspace $N(A)$ has dimension $n - r$. The left nullspace $N(A^T)$ has dimension $m - r$.
 
-3. The column space $C(A)$ and left nullspace $N(A^T)$ are orthogonal compliments in $\mathbb{R}^m$. The row space $C(A^T)$ and nullspace $N(A)$ are orthogonal compliments in $\mathbb{R}^n$.
+3. The column space $C(A)$ and left nullspace $N(A^T)$ are orthogonal complements in $\mathbb{R}^m$. The row space $C(A^T)$ and nullspace $N(A)$ are orthogonal complements in $\mathbb{R}^n$.
 
 
 ***$A$ has the same row space and nullspace as $R$.*** Elimination changes rows but doesn't affect the row space or special solutions. 
 
-***$A$ does NOT have the same column space and left nullspace as $R$.*** If the last row in $R$ are all 0s but not the case in $A$, the space has fundamentally changed.
+***$A$ does NOT have the same column space and left nullspace as $R$.*** If the last rows of $R$ are all 0s but that is not the case in $A$, the space has fundamentally changed.
 
 *Why are the dimension of the row space and column space the same?* I thought about this for a long time. Take the matrix $A$ and its reduced form below:
 
@@ -484,7 +484,7 @@ Projections is projecting one vector $\mathbf{b}$ onto another line $\mathbf{a}$
 
 The left nullspace is important in projections. Our subspace is the column space of $A$. The error vector $\mathbf{e}=\mathbf{b}-P\mathbf{b}$ is perpendicular to that column space. Therefore, $\mathbf{e}=\mathbf{b}-P\mathbf{b}$ is in the nullspace of $A^T$. That means $A^T(\mathbf{b}-P\mathbf{b})=0$.
 
-$A^T A$ is invertible (and symmetric) only if $A$ has independent columns (and thus is square).
+$A^T A$ is always symmetric, and it is invertible exactly when $A$ has independent columns.
 
 ### Least Squares Approximations
 It often happens that $A\mathbf{x}=\mathbf{b}$ has no solution. The usual reason is too many equations; $A$ has more rows than columns. There are more equations than unknowns ($m$ is greater than $n$) and the $n$ columns span a small part of $m$-dimensional space, where $\mathbf{b}$ is outside the column space of $A$.
@@ -629,7 +629,7 @@ The cross product points in the direction of your thumb when your fingers curl f
 
 
 ## Eigenvalues and Eigenvectors
-All the content before was about solving $A\mathbf{x} = \mathbf{b}$: balance and quilibrium and steady state. Now we're talking about change. Time enters the picture--continuous time in a differential equation $\frac{du}{dt} = A\mathbf{u}$ or time steps in a difference equation $\mathbf{u_{k+1}} = A\mathbf{u_k}$. These equations are NOT solved by elimination.
+All the content before was about solving $A\mathbf{x} = \mathbf{b}$: balance and equilibrium and steady state. Now we're talking about change. Time enters the picture--continuous time in a differential equation $\frac{du}{dt} = A\mathbf{u}$ or time steps in a difference equation $\mathbf{u_{k+1}} = A\mathbf{u_k}$. These equations are NOT solved by elimination.
 
 We can simplify our lives by finding a solution vector $\mathbf{u}(t)$ that stays in the same direction of a fixed vector $\mathbf{x}$. Then we only need to find the number (changing with time) that multiplies $\mathbf{x}$. 
 
@@ -672,7 +672,7 @@ Exchanging rows or adding/subtracting one from another generally changes the eig
 6. Every matrix $C = B^{-1}AB$ has the same eigenvalues as $A$. These $C$'s are "similar" to $A$.
 
 ### Systems of Differential Equations
-Eigenvalues and eigen vectors and $A=X\Lambda X^{-1}$ are perfect for matrix powers $A^k$. They are also perfect for differential equations $\frac{d\mathbf{u}}{dt}=A\mathbf{u}$. **We can convert constant-coefficient differential equations into linear algebra.**
+Eigenvalues and eigenvectors and $A=X\Lambda X^{-1}$ are perfect for matrix powers $A^k$. They are also perfect for differential equations $\frac{d\mathbf{u}}{dt}=A\mathbf{u}$. **We can convert constant-coefficient differential equations into linear algebra.**
 
 In linear algebra, the ordinary differential equations $\frac{du}{dt} = u$ and $\frac{du}{dt} = \lambda u$ are solved by exponentials:
 

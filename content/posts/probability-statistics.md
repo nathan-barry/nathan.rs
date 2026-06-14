@@ -5,7 +5,7 @@ tags:
   - "Class Notes"
 ---
 
-> These are my notes from Mark Maxwell's courses — Probability I and Introduction to Mathematical Statistics — and his textbook, *Probability & Statistics with Applications, Second Edition*. I've stitched them together into one reference (with the future help of GPT-5.5).
+> These are my notes from Mark Maxwell's courses — Probability I and Introduction to Mathematical Statistics — and his textbook, *Probability & Statistics with Applications, Second Edition*. I've stitched them together into one reference (with much help from Claude).
 
 There's a clean way to think about the difference between probability and statistics. **Probability reasons forward**: given a known model of the world, what's the chance of seeing some outcome? **Statistics reasons backward**: given outcomes we actually observed, what was the model that produced them?
 

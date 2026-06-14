@@ -5,7 +5,7 @@ tags:
   - "Class Notes"
 ---
 
-> A small review over Calculus 1, 2, and 3, based on the textbook, Calculus: Early Transcendentals (Eight Edition).
+> A short review of Calculus 1, 2, and 3, based on *Calculus: Early Transcendentals* (Eighth Edition).
 
 
 
@@ -103,7 +103,7 @@ $$\int_a^b f(x) dx = \int_a^c f(x)dx + \int_c^b f(x)dx$$
 ## Trigonometric Integrals
 
 ### Strategy for Evaluating $\int \sin^mx \cos^nx dx$
-1. If the power of cosine is odd, save one cosine factor and use $\\cos^2 = 1 - \\sin^2x$ to express the remaining factors in terms of sine:
+1. If the power of cosine is odd, save one cosine factor and use $\cos^2 = 1 - \sin^2x$ to express the remaining factors in terms of sine:
 
 $$\int \sin^mx \cos^{2k+1}x dx$$
 $$\int \sin^mx (\cos^2x)^k \cos x dx$$
@@ -117,10 +117,10 @@ $$\int \sin^{2k+1}x \cos^nx dx$$
 $$\int (\sin^2x)^k \cos^nx \sin x dx$$
 $$\int (1 - \cos^2x)^k \cos^nx \sin x dx$$
 
-- Then substitute $u=\\cos x$
+- Then substitute $u=\cos x$
 - If both powers of sine and cosine are odd, either (1) or (2) can be used
 
-3. If the powers aof both sine and cosine are even, use the half-angle identities
+3. If the powers of both sine and cosine are even, use the half-angle identities
 
 $$\sin^2x = \frac12(1 - \cos 2x) \qquad \cos^2x = \frac12(1 + \cos 2x)$$
 
@@ -158,7 +158,7 @@ You use trigonometric substitution when you find either of the following below i
 Expression | Subsitution | Identity
 --- | --- | ---
 $\sqrt{a^2 - x^2}$ | $x=a\sin\theta \quad -\frac\pi2\leq\theta\leq\frac\pi2$ | $1-\sin^2\theta = \cos^2\theta$
-$\sqrt{a^2 + x^2}$ | $x=a\tan\theta \quad -\frac\pi2\leq\theta\leq\frac\pi2$ | $1-\tan^2\theta = \sec^2\theta$
+$\sqrt{a^2 + x^2}$ | $x=a\tan\theta \quad -\frac\pi2\leq\theta\leq\frac\pi2$ | $1+\tan^2\theta = \sec^2\theta$
 $\sqrt{x^2 - a^2}$ | $x=a\sec\theta \quad 0\leq\theta\le\frac\pi2$ or $\pi\leq\theta\le\frac{3\pi}2$| $\sec^2\theta-1 = \tan^2\theta$
 
 After you integrate, you must convert $\theta$ back to an x:
@@ -171,21 +171,21 @@ After you integrate, you must convert $\theta$ back to an x:
 $$\int\frac{\sqrt{9-x^2}}{x^2}dx$$
 
 - This is a scenario $\sqrt{a^2-x^2}$ where $a=3$
-	- $x=3\\sin\theta\qquad\implies\quad\frac{x}{3}=\\sin\theta\qquad\implies\quad\\sin^{-1}(\frac{x}{3})=\theta$
-	- $dx=3\\cos\theta d\theta$
+	- $x=3\sin\theta\qquad\implies\quad\frac{x}{3}=\sin\theta\qquad\implies\quad\sin^{-1}(\frac{x}{3})=\theta$
+	- $dx=3\cos\theta d\theta$
 
-$$\sqrt{9-x^2}=\sqrt{9-9\\sin^2\theta}=\sqrt{9(1-\\sin^2\theta)}=\sqrt{9\\cos^2\theta}=3\\cos\theta$$
+$$\sqrt{9-x^2}=\sqrt{9-9\sin^2\theta}=\sqrt{9(1-\sin^2\theta)}=\sqrt{9\cos^2\theta}=3\cos\theta$$
 
-- Since $\frac{x}{3}=\\sin\theta$, we can draw the triangle to see what leg is what
+- Since $\frac{x}{3}=\sin\theta$, we can draw the triangle to see what leg is what
 
 - Substituting the values in:
 
-$$\int\frac{\sqrt{9-x^2}}{x^2}dx\quad=\quad\int\frac{3\\cos\theta}{9\\sin^2\theta} 3\\cos\theta d\theta$$
-$$=\quad\int\frac{\\cos^2\theta}{\\sin^2\theta}d\theta$$
-$$=\quad\int\\cot^2\theta d\theta$$
+$$\int\frac{\sqrt{9-x^2}}{x^2}dx\quad=\quad\int\frac{3\cos\theta}{9\sin^2\theta} 3\cos\theta d\theta$$
+$$=\quad\int\frac{\cos^2\theta}{\sin^2\theta}d\theta$$
+$$=\quad\int\cot^2\theta d\theta$$
 $$=\quad\int(\csc^2\theta-1) d\theta$$
-$$=\quad-\\cot\theta-\theta+C$$
-$$=\quad\frac{\sqrt{9-x^2}}{x}-\\sin^{-1}\Big(\frac{x}{3}\Big)+C$$
+$$=\quad-\cot\theta-\theta+C$$
+$$=\quad\frac{\sqrt{9-x^2}}{x}-\sin^{-1}\Big(\frac{x}{3}\Big)+C$$
 
 
 
@@ -198,7 +198,7 @@ $$a_1, a_2, a_3, a_4, \dots, a_n, \dots$$
 
 The sequence $a_1, a_2, a_3, \dots$ can be denoted by
 
-$${a_n} \quad or \quad {\\{a_n\\}}_{n=1}^\infty$$
+$${a_n} \quad or \quad {\{a_n\}}_{n=1}^\infty$$
 
 If the limit $\lim_{n\rightarrow\infty}a_n$ exists for the sequence $\{a_n\}$, we write
 
@@ -213,7 +213,7 @@ $$\lim_{n\rightarrow\infty}(a_n + b_n) = \lim_{n\rightarrow\infty}a_n + \lim_{n\
 If a sequence either only increases or decreases, we call it *monotonic*.
 
 ### Series
-An *infinite series* (or just a *series*) is the sum of the terms in an infinite sequence ${\\{a_n\\}}_{n=1}^\infty$ which is an expression of the form:
+An *infinite series* (or just a *series*) is the sum of the terms in an infinite sequence ${\{a_n\}}_{n=1}^\infty$ which is an expression of the form:
 
 $$a_1+a_2+a_3+\dots+a_n+\dots$$
 
@@ -236,9 +236,9 @@ Thus the sum of a series is the limit of the sequence of partial sums as $n$ goe
 $$\sum_{n=1}^\infty a_n = \lim_{n\rightarrow\infty}\sum_{i=1}^{n} a_i$$
 
 ### Test for Divergence
-If the limit $L$ of a series does not exist and $L \neq 0$, aka:
+If the limit of $a_n$ does not exist or is not equal to 0, i.e.:
 
-$$\lim_{n\rightarrow\infty} a_n \quad \text{does not exist}\quad or \quad\lim_{n\rightarrow\infty}\neq0$$ then the series $\sum_{n=1}^\infty a_n$ is divergent.
+$$\lim_{n\rightarrow\infty} a_n \quad \text{does not exist} \quad\text{or}\quad \lim_{n\rightarrow\infty}a_n\neq0$$ then the series $\sum_{n=1}^\infty a_n$ is divergent.
 
 It makes sense since if the limit of $a_n$ doesn't converge to 0, then you will be adding an infinite amount of positive numbers which will of course sum to infinity (meaning that the series will diverge). Note: Rule does not work in reverse. If the limit does exist and is equal to 0, you cannot conclude that it is convergent.
 
@@ -276,7 +276,7 @@ $$s = \lim_{n\rightarrow\infty}s_n = \sum_{n=1}^\infty a_n = a_1+a_2+a_3+\dots$$
 
 The Remainder $R_n$ is the level of error in the series approximation. In short:
 
-$$R_n = s - s_n = a_{n+1}+a_{n+1}+a_{n+3}+\dots$$
+$$R_n = s - s_n = a_{n+1}+a_{n+2}+a_{n+3}+\dots$$
 
 We use the remainder to estimate how good $s$ is as an approximation of the total sum of a series.
 
@@ -337,14 +337,14 @@ Suppose that $\sum a_n$ and $\sum b_n$ are series with positive terms. If
 
 $$\lim_{n\rightarrow\infty}\frac{a_n}{b_n}=c \qquad c\neq0$$
 
-then there $c$ is a finite number and $c>0$, then *either both series converge or both diverge.*
+where $c$ is a finite number and $c>0$, then *either both series converge or both diverge.*
 
 **Example:** Here we have the given series $\sum_{n=1}^\infty \frac1{2^n+1}$. This series is similar to the geometric series $\sum_{n=1}^\infty \frac1{2^n}$ with a common ratio of $\frac12$. 
-$$a_n=\sum_{n=1}^\infty \frac1{2^n+1}\qquad b_n=\sum_{n=1}^\infty \frac1{2^n}$$
+$$a_n=\frac1{2^n+1}\qquad b_n=\frac1{2^n}$$
 
 Using the Limit Comparison Test, we get
 
-$$\lim_{n\rightarrow\infty} \frac{a_n}{b_n}=\lim_{n\rightarrow\infty} \frac{\frac{1}{2^n-1}}{\frac1{2^n}}=\lim_{n\rightarrow\infty} \frac{2^n}{2^n-1}=\lim_{n\rightarrow\infty}\frac{1}{1-\frac1{2^n}}=1>0$$
+$$\lim_{n\rightarrow\infty} \frac{a_n}{b_n}=\lim_{n\rightarrow\infty} \frac{\frac{1}{2^n+1}}{\frac1{2^n}}=\lim_{n\rightarrow\infty} \frac{2^n}{2^n+1}=\lim_{n\rightarrow\infty}\frac{1}{1+\frac1{2^n}}=1>0$$
 
 Since this limit exists (and $\neq 0$) and $\sum \frac1{2^n}$ is a convergent geometric series, the series $\sum_{n=1}^\infty \frac1{2^n+1}$ converges by the Limit Comparison Test.
 
@@ -411,7 +411,7 @@ Does the given series $\sum a_n$ converge or diverge?
 
 $$|a_n|=\frac{n^3}{3^n} \qquad |a_{n+1}|=\frac{(n+1)^3}{3^{n+1}}$$
 
-$$\lim_{n\rightarrow\infty}\Bigg|\frac{a_{n+1}}{a_n}\Bigg|=\lim_{n\rightarrow\infty}\frac{(n+1)^3}{3^{n+1}}\cdot\frac{3^n}{n^3}=\lim_{n\rightarrow\infty}\frac13\frac{(n+1)^3}{n^3}=\lim_{n\rightarrow\infty}\frac13\Bigg(\frac{n+1}{n}\Bigg)^2=\frac13(1)^2=\frac13$$
+$$\lim_{n\rightarrow\infty}\Bigg|\frac{a_{n+1}}{a_n}\Bigg|=\lim_{n\rightarrow\infty}\frac{(n+1)^3}{3^{n+1}}\cdot\frac{3^n}{n^3}=\lim_{n\rightarrow\infty}\frac13\frac{(n+1)^3}{n^3}=\lim_{n\rightarrow\infty}\frac13\Bigg(\frac{n+1}{n}\Bigg)^3=\frac13(1)^3=\frac13$$
 
 Justification: Since $\lim_{n\rightarrow\infty}|\frac{a_{n+1}}{a_n}|=\frac13$ and $\frac13<1$, the series $\sum_{n=1}^\infty(-1)^n\frac{n^3}{3^n}$ is absolutely convergent by the Ratio Test.
 
@@ -430,15 +430,15 @@ $$\lim_{n\rightarrow\infty}\sqrt[n]{|a_n|}=L=1$$
 
 **Example:**
 
-$$\sum_{n=1}^\infty a_n=\sum_{n=1}^\infty\frac3{[ln(n)]^n}$$
+$$\sum_{n=1}^\infty a_n=\sum_{n=1}^\infty\frac3{[\ln(n)]^n}$$
 
 Does the given series $\sum a_n$ converge or diverge?
 
-$$|a_n|=\Bigg|\frac3{[ln(n)]^n}\Bigg|$$
+$$|a_n|=\Bigg|\frac3{[\ln(n)]^n}\Bigg|$$
 
-$$\lim_{n\rightarrow\infty}\sqrt[n]{|a_n|}=\lim_{n\rightarrow\infty}\frac{\sqrt[n]{3}}{ln(n)}=0=L<1$$
+$$\lim_{n\rightarrow\infty}\sqrt[n]{|a_n|}=\lim_{n\rightarrow\infty}\frac{\sqrt[n]{3}}{\ln(n)}=0=L<1$$
 
-Justification: Since $\lim_{n\rightarrow\infty}\frac{\sqrt[n]{3}}{ln(n)}=0$ and $0<1$, the series $\sum_{n=1}^\infty\frac3{[ln(n)]^n}$ is Absolutely Convergent by the Root Test.
+Justification: Since $\lim_{n\rightarrow\infty}\frac{\sqrt[n]{3}}{\ln(n)}=0$ and $0<1$, the series $\sum_{n=1}^\infty\frac3{[\ln(n)]^n}$ is Absolutely Convergent by the Root Test.
 
 
 
@@ -466,7 +466,7 @@ $$s=\sum_{n=1}^{\infty}a\cdot r^{n-1}=\frac{a}{1-r}$$
 ### P-Series
 The P-Series is any series of the form:
 
-$$\sum_{n=1}^\infty\frac{1}{n^p}dx$$
+$$\sum_{n=1}^\infty\frac{1}{n^p}$$
 
 and is *convergent* when $p>1$ and *divergent* when $p\le1$.
 
@@ -488,7 +488,7 @@ You can use the Ratio Test or the Root Test to determine whether a power series 
 
 **Example:** Let $a_n=\frac{(x-3)^n}{n}$, then:
 
-$$\lim_{n\rightarrow\infty}\Bigg|\frac{a_n+1}{a_n}\Bigg|=\lim_{n\rightarrow\infty}\Bigg|\frac{(x-3)^{n+1}}{n+1}\cdot\frac{n}{(x-3)^{n}}\Bigg|=\lim_{n\rightarrow\infty}\frac{1}{1+\frac1n}|x-3|=|x-3|$$
+$$\lim_{n\rightarrow\infty}\Bigg|\frac{a_{n+1}}{a_n}\Bigg|=\lim_{n\rightarrow\infty}\Bigg|\frac{(x-3)^{n+1}}{n+1}\cdot\frac{n}{(x-3)^{n}}\Bigg|=\lim_{n\rightarrow\infty}\frac{1}{1+\frac1n}|x-3|=|x-3|$$
 
 By the Ratio Test, the series is absolutely convergent, when $|x-3|<1$ and divergent when $|x-3|>1$. Solving for $x$, we get
 
@@ -511,9 +511,9 @@ We can perform *term-by-term differentiation and integration* of a power series 
 - The integral or derivative of the function can be represented by a sum of the *term-by-term integration or differentiation* of a series:
 
 $$(i)\quad f^\prime(x)=c_1+2c_2(x-a)+3c_3(x-a)^2+\cdots$$
-$$=\sum_{n=0}^\infty \frac{d}{dx}\Big[c_n(x-a)^n\Big]=\sum_{n=1}^\infty n c_n(x-a)^n$$
+$$=\sum_{n=0}^\infty \frac{d}{dx}\Big[c_n(x-a)^n\Big]=\sum_{n=1}^\infty n c_n(x-a)^{n-1}$$
 
-$$(ii)\quad \int f(x) dx=C+c_0(x-a)+\frac12 c_1(x-a)^2+\frac13 c_3(x-a)^3+\cdots$$
+$$(ii)\quad \int f(x) dx=C+c_0(x-a)+\frac12 c_1(x-a)^2+\frac13 c_2(x-a)^3+\cdots$$
 $$=\sum_{n=0}^\infty \int c_n(x-a)^{n} dx=C+\sum_{n=0}^\infty \frac1{n+1} c_n(x-a)^{n+1}$$
 
 
@@ -529,7 +529,7 @@ then its coefficients are given by the formula:
 
 $$c_n = \frac{f^{(n)}(a)}{n!}$$
 
-If $f$ has a power series at expansion $a$, then it is in the form:
+If $f$ has a power series expansion at $a$, then it is in the form:
 
 $$f(x)=\sum_{n=0}^\infty \frac{f^{(n)}(a)}{n!}(x-a)^n$$
 
@@ -553,7 +553,7 @@ $$\sum_{n=0}^\infty \frac{f^{(n)}(0)}{n!}x^n=\sum_{n=0}^\infty \frac{x^n}{n!} = 
 ### Taylor Polynomials
 A Taylor Polynomial is the sum of the first $n^{th}$ terms in a Taylor Series
 
-$$T_n(x)=\sum_{i=0}^n\frac{f^{(i)}(a)}{i!}(x-a)^n$$
+$$T_n(x)=\sum_{i=0}^n\frac{f^{(i)}(a)}{i!}(x-a)^i$$
 
 $$=f(a)+\frac{f^\prime(a)}{1!}(x-a)+\frac{f^{\prime\prime}(a)}{2!}(x-a)^2+\dots+\frac{f^{(n)}(a)}{n!}(x-a)^n$$
 
@@ -672,7 +672,7 @@ $$L = \int_\alpha^\beta\sqrt{r^2+\Big(\frac{dr}{d\theta}\Big)^2}d\theta$$
 ## Differential Equations
 A *differential equation* is an equation that contains an unknown function and one or more of its derivatives. The *order* of a differential equation is the order of the highest derivative that occurs in the equation.
 
-Usually in equations, the independent variable is called $t$ and represents time, but in general the independent variable can be anything. For the differential equation below, it is understood that y is an known function of x.
+Usually in equations, the independent variable is called $t$ and represents time, but in general the independent variable can be anything. For the differential equation below, it is understood that $y$ is an unknown function of $x$.
 
 $$y^\prime=xy$$
 
@@ -682,7 +682,7 @@ $$f^\prime(x)=xf(x)$$
 
 for all values of x in some interval.
 
-When we are asked to *solve* a differential equation, we are expected to find all possible solutions of the equation. For instance, let us look at the new differential equation $y^\prime=x^3$. We know that the solution the differential equation is given by $y=\frac{x^4}4+C$ where C is an arbitrary constant. This is known as the *general solution.*
+When we are asked to *solve* a differential equation, we are expected to find all possible solutions of the equation. For instance, let us look at the new differential equation $y^\prime=x^3$. We know that the solution to the differential equation is given by $y=\frac{x^4}4+C$ where C is an arbitrary constant. This is known as the *general solution.*
 
 In general, solving a differential equation is not an easy matter as there is no systematic technique that allows us to solve all differential equations.
 
@@ -705,8 +705,8 @@ The right hand side of the differential equation becomes
 $$y^\prime=\frac12(y^2-1)=\frac12\bigg[\bigg(\frac{1+ce^t}{1-ce^t}\bigg)^2-1\bigg]$$
 $$=\frac12\bigg[\frac{(1+ce^t)^2}{(1-ce^t)^2}-1\bigg]$$
 $$=\frac12\bigg[\frac{(1+ce^t)^2-(1-ce^t)^2}{(1-ce^t)^2}\bigg]$$
-$$=\frac12\bigg[\frac{4ce^2}{(1-ce^t)^2}\bigg]$$
-$$=\frac{2ce^2}{(1-ce^t)^2}$$
+$$=\frac12\bigg[\frac{4ce^t}{(1-ce^t)^2}\bigg]$$
+$$=\frac{2ce^t}{(1-ce^t)^2}$$
 
 Therefore, for every value of c, the given function is a solution of the differential equation
 
@@ -725,7 +725,7 @@ $$2=\frac{1+ce^0}{1-ce^0}=\frac{1+c}{1-c}$$
 
 If we solve for c, we get $2-2c=1+c$, which gives us $c=\frac13$. So the solution to the initial value problem is
 
-$$2=\frac{1+\frac{1}{3}e^t}{1-\frac{1}{3}e^t}=\frac{3+e^t}{3-e^t}$$
+$$y=\frac{1+\frac{1}{3}e^t}{1-\frac{1}{3}e^t}=\frac{3+e^t}{3-e^t}$$
 
 ### Direction Fields
 Suppose we are asked to sketch the graph of the solution of the Initial Value Problem:
@@ -867,10 +867,10 @@ $$y=2+Ce^{-x^3}$$
 ## Partial Derivatives
 If $f$ is a function of two variables, its partial derivatives are the functions $f_x$ and $f_y$ defined by:
 
-$$f_x = lim_{h\rightarrow0} \frac{f(x+h, y)-f(x,y)}{h}$$
-$$f_y = lim_{h\rightarrow0} \frac{f(x, y+h)-f(x,y)}{h}$$
+$$f_x = \lim_{h\rightarrow0} \frac{f(x+h, y)-f(x,y)}{h}$$
+$$f_y = \lim_{h\rightarrow0} \frac{f(x, y+h)-f(x,y)}{h}$$
 
-Below are several differnt notations for partial derivatives. If $z=f(x,y)$, we write:
+Below are several different notations for partial derivatives. If $z=f(x,y)$, we write:
 
 $$f_x(x,y)=f_x=\frac{\partial f}{\partial x}=\frac{\partial}{\partial x}f(x,y)=\frac{\partial z}{\partial x}=f_1=D_1 f=D_x f$$
 $$f_y(x,y)=f_y=\frac{\partial f}{\partial y}=\frac{\partial}{\partial y}f(x,y)=\frac{\partial z}{\partial y}=f_2=D_2 f=D_y f$$
@@ -878,7 +878,7 @@ $$f_y(x,y)=f_y=\frac{\partial f}{\partial y}=\frac{\partial}{\partial y}f(x,y)=\
 To compute a partial derivative with respect to x, treat all other variables as constants and differentiate as usual.
 
 ### Higher Derivatives
-If $f$ is a function of two variables, the its partial derivatives $f_x$ and $f_y$ are also functions of two variables, so we can differentiate them again to get second order partial derivatives. Below is the notation where the first partial was with respect to x:
+If $f$ is a function of two variables, then its partial derivatives $f_x$ and $f_y$ are also functions of two variables, so we can differentiate them again to get second order partial derivatives. Below is the notation where the first partial was with respect to x:
 
 $$f_{xx}=f_{11}=\frac{\partial }{\partial x} \frac{\partial f}{\partial x}=\frac{\partial^2 f}{\partial x^2}=\frac{\partial^2 z}{\partial x^2}$$
 $$f_{xy}=f_{12}=\frac{\partial }{\partial y} \frac{\partial f}{\partial x}=\frac{\partial^2 f}{\partial y\partial x}=\frac{\partial^2 z}{\partial y\partial x}$$
@@ -925,5 +925,5 @@ $$\frac1{1-x}=\sum_{n=0}^\infty x^n=1+x+x^2+x^3+... \qquad R=1$$
 $$e^x=\sum_{n=0}^\infty \frac{x^n}{n!}=1+\frac{x}{1!}+\frac{x^2}{2!}+\frac{x^3}{3!}+... \qquad R=\infty$$
 $$\sin x=\sum_{n=0}^\infty (-1)^n\frac{x^{2n+1}}{(2n+1)!}=x-\frac{x^3}{3!}+\frac{x^5}{5!}-\frac{x^7}{7!}+... \qquad R=\infty$$
 $$\cos x=\sum_{n=0}^\infty (-1)^n\frac{x^{2n}}{(2n)!}=1-\frac{x^2}{2!}+\frac{x^4}{4!}-\frac{x^6}{6!}+... \qquad R=\infty$$
-$$\tan^{-1} x=\sum_{n=0}^\infty (-1)^n\frac{x^{2n}}{(2n)}=x-\frac{x^3}{3}+\frac{x^5}{5}-\frac{x^7}{7}+... \qquad R=\infty$$
-$$ln(1+x)=\sum_{n=1}^\infty (-1)^{n-1}\frac{x^{n}}n=x-\frac{x^2}{2}+\frac{x^3}{3}-\frac{x^4}{4}+... \qquad R=\infty$$
+$$\tan^{-1} x=\sum_{n=0}^\infty (-1)^n\frac{x^{2n+1}}{2n+1}=x-\frac{x^3}{3}+\frac{x^5}{5}-\frac{x^7}{7}+... \qquad R=1$$
+$$\ln(1+x)=\sum_{n=1}^\infty (-1)^{n-1}\frac{x^{n}}n=x-\frac{x^2}{2}+\frac{x^3}{3}-\frac{x^4}{4}+... \qquad R=1$$

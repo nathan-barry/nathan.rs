@@ -5,7 +5,7 @@ tags:
   - "Class Notes"
 ---
 
-> These are my notes from Eunsol Choi's NLP class at UT Austin, cleaned up and stitched together into a single story (with the future help of GPT-5.5).
+> These are my notes from Eunsol Choi's NLP class at UT Austin, cleaned up and stitched together into a single story (with much help from Claude).
 
 Before Transformers ate the world, NLP was a patchwork of ideas that each solved one piece of the puzzle. You had classifiers that could tell spam from not-spam, sequence models that could read a sentence left to right, and embeddings that turned words into geometry. None of these were dead ends. The Transformer is best understood not as a clean break but as the moment all of these threads got braided together.
 
@@ -221,7 +221,7 @@ RNNs and LSTMs read a sequence, but many tasks (translation, summarization) requ
 Training maximizes the conditional likelihood of the correct output given the input, predicting each output token from the input and all previously generated tokens:
 
 $$
-\max \; \sum_{x,y} \sum_{i=1}^{n} \log P(y_i^\* \mid x,\, y_1^\*, \dots, y_{i-1}^\*)
+\max \; \sum_{x,y} \sum_{i=1}^{n} \log P(y_i^* \mid x,\, y_1^*, \dots, y_{i-1}^*)
 $$
 
 At inference time the decoder generates left to right, starting from a `<SOS>` token and feeding each prediction back in. How you pick each token matters: greedy decoding takes the single most likely token, while beam search and top-k sampling trade a little speed for noticeably better output.
