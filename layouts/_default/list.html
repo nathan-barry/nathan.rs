@@ -1,6 +1,6 @@
 {{ define "main" }}
 <article class="book-post markdown">
-    {{ $title := printf "Blog Posts%s" (cond (ne .Title "Posts") (printf ": %s"
+    {{ $title := printf "Writing%s" (cond (ne .Title "Posts") (printf ": %s"
     .Title) "") }}
     <h1>{{ $title }}</h1>
     {{ range sort .Paginator.Pages }}

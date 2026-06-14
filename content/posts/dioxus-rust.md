@@ -1,7 +1,7 @@
 +++
 title = "Rust Front-End Development with Dioxus"
 date = 2023-08-16 
-tags = ["Programming", "2023"]
+tags = ["Programming"]
 +++
 
 

@@ -4,45 +4,31 @@
   {{ partial "docs/html-head" . }}
 </head>
 {{- $isPost := and (eq .Kind "page") (eq .Type "posts") -}}
-<body dir="{{ default "ltr" .Site.Language.LanguageDirection }}" class="book-kind-{{ .Kind }} book-type-{{ .Type }}{{ with .Layout }} book-layout-{{ . }}{{ end }}{{ if $isPost }} site-post-page{{ end }}">
+<body dir="{{ default "ltr" .Site.Language.LanguageDirection }}" class="site-modern book-kind-{{ .Kind }} book-type-{{ .Type }}{{ with .Layout }} book-layout-{{ . }}{{ end }}{{ if $isPost }} site-post-page{{ end }}">
   <input type="checkbox" class="hidden toggle" id="menu-control" />
   <input type="checkbox" class="hidden toggle" id="toc-control" />
-  {{ if $isPost }}
   {{ template "theme-toggle" . }}
   <header class="site-top-nav">
     {{ partial "docs/top-nav" . }}
   </header>
+  {{ if $isPost }}
   <main class="post-shell">
     {{ template "main" . }}
   </main>
-  <footer class="book-footer post-footer">
+  <footer class="book-footer site-footer post-footer">
     {{ template "footer" . }}
     {{ template "copyright" . }}
     {{ template "clipboard" . }}
   </footer>
   {{ else }}
-  <main class="container flex">
-    {{ template "menu-container" . }} <!-- Left menu -->
-
-    <div class="book-page">
-      <header class="book-header hidden">
-        {{ template "header" . }} <!-- Mobile layout header -->
-      </header>
-
-      {{ template "theme-toggle" . }}
-      {{ template "main" . }} <!-- Page Content -->
-
-      <footer class="book-footer">
-        {{ template "footer" . }} <!-- Footer under page content -->
-        {{ template "copyright" . }} <!-- Copyright block -->
-        {{ template "clipboard" . }}
-      </footer>
-
-      <label for="menu-control" class="hidden book-menu-overlay"></label>
-    </div>
-
-    {{ template "toc-container" . }} <!-- Table of Contents -->
+  <main class="site-page-shell">
+    {{ template "main" . }}
   </main>
+  <footer class="book-footer site-footer">
+    {{ template "footer" . }}
+    {{ template "copyright" . }}
+    {{ template "clipboard" . }}
+  </footer>
   {{ end }}
 
 </body>

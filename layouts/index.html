@@ -1,3 +1,7 @@
 {{ define "main" }}
-<article class="markdown book-article">{{- .Content -}}</article>
+<article class="markdown book-article site-home-grid site-combined-home">
+    <div class="site-home-main">
+        {{- .Content -}}
+    </div>
+</article>
 {{ end }} {{ define "toc" }} {{ partial "docs/home-columns" . }} {{ end }}

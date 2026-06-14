@@ -1,7 +1,7 @@
 +++
 title = "Running GPT-2 in WebGL with Classic GPU Programming"
 date = 2025-05-24T12:20:47-07:00
-tags = ["Machine Learning", "Programming", "2025"]
+tags = ["Machine Learning", "Programming"]
 +++
 
 A few weeks back, I implemented GPT-2 using WebGL and shaders ([Github Repo](https://github.com/nathan-barry/gpt2-webgl/tree/main)) which made the front page of [Hacker News](https://news.ycombinator.com/item?id=43870998). Here is a short write-up over what I learned about old-school general-purpose GPU programming over the course of this project!

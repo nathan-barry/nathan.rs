@@ -1,0 +1,13 @@
+{{/* Renders a block list of pages with a left year gutter.
+     The year is shown only on the first item of each run of the same year. */}}
+{{ $lastYear := "" }}
+<ul class="block-list">
+    {{ range . }}
+    {{ $year := "" }}{{ with .Date }}{{ $year = .Format "2006" }}{{ end }}
+    <li>
+        <span class="block-year">{{ if ne $year $lastYear }}{{ $year }}{{ end }}</span>
+        <a href="{{ with .Params.redirect_url }}{{ . }}{{ else }}{{ .RelPermalink }}{{ end }}">{{ .Title }}</a>
+    </li>
+    {{ $lastYear = $year }}
+    {{ end }}
+</ul>
