@@ -45,12 +45,12 @@ Posts live in `content/posts/`. The default archetype is `archetypes/posts.md`.
 
 Common frontmatter fields include:
 
-```toml
-title = "Post title"
-date = 2026-01-01
-tags = ["rust", "ml"]
-description = "Optional subtitle/description shown under the title."
-hero = "/images/example.gif"
+```yaml
+title: "Post title"
+date: 2026-01-01
+tags: ["Machine Learning"]
+description: "Optional subtitle/description shown under the title."
+hero: "/images/example.gif"
 ```
 
 ## Post heroes
@@ -61,8 +61,8 @@ Hero rendering is handled in `layouts/partials/docs/hero.html` and is based on t
 
 | Frontmatter | Renders |
 | --- | --- |
-| `hero = "/images/foo.gif"` | Image: `gif`, `png`, `jpg`, `jpeg`, `webp`, `avif`, `svg` |
-| `hero = "/videos/demo.mp4"` | Autoplaying, looping, muted video: `mp4`, `webm`, `mov` |
+| `hero: "/images/foo.gif"` | Image: `gif`, `png`, `jpg`, `jpeg`, `webp`, `avif`, `svg` |
+| `hero: "/videos/demo.mp4"` | Autoplaying, looping, muted video: `mp4`, `webm`, `mov` |
 
 Hero assets should usually live under `static/images/` or another `static/` subdirectory, then be referenced from the site root path.
 
