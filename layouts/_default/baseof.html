@@ -98,7 +98,7 @@
   {{ with resources.Get "toc-scroll.js" | resources.Minify }}
     <script>{{ .Content | safeJS }}</script>
   {{ end }}
-  {{ with resources.Get "post-hero.js" | resources.Minify }}
+  {{ with resources.Get "post-enhancements.js" | resources.Minify }}
     <script>{{ .Content | safeJS }}</script>
   {{ end }}
 

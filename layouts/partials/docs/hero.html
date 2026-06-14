@@ -1,0 +1,26 @@
+{{/*
+  Post hero dispatch. Opt-in via the `hero` frontmatter string; default is nothing.
+  Routes on the value's extension:
+    - image (.gif/.png/.jpg/.jpeg/.webp/.avif/.svg) -> <img>
+    - video (.mp4/.webm/.mov)                        -> autoplaying muted <video>
+    - anything else (a bare slug)                    -> <canvas> + assets/heroes/<slug>.js
+*/}}
+{{ with .Params.hero }}
+{{ $ext := lower (strings.TrimPrefix "." (path.Ext .)) }}
+{{ $images := slice "gif" "png" "jpg" "jpeg" "webp" "avif" "svg" }}
+{{ $videos := slice "mp4" "webm" "mov" }}
+<figure class="post-hero" aria-label="Post visual">
+  {{ if in $images $ext }}
+  <img class="post-hero-media" src="{{ . | relURL }}" alt="{{ $.Title }}" loading="lazy" />
+  {{ else if in $videos $ext }}
+  <video class="post-hero-media" autoplay loop muted playsinline>
+    <source src="{{ . | relURL }}" type="video/{{ if eq $ext "mov" }}mp4{{ else }}{{ $ext }}{{ end }}" />
+  </video>
+  {{ else }}
+  <canvas class="post-hero-canvas" data-title="{{ $.Title }}"></canvas>
+  {{ with resources.Get (printf "heroes/%s.js" .) | resources.Minify | resources.Fingerprint }}
+  <script src="{{ .RelPermalink }}" defer></script>
+  {{ end }}
+  {{ end }}
+</figure>
+{{ end }}

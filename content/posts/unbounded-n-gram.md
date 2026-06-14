@@ -2,6 +2,8 @@
 title = "Language Modeling Without Neural Networks"
 date = 2026-01-17T18:47:03-06:00
 tags = ["Machine Learning"]
+featured = true
+hero = "/images/unbounded-n-gram.gif"
 +++
 {{< katex >}}{{< /katex >}}
 
@@ -11,11 +13,6 @@ Recently, I've been messing with [alternative language models](https://github.co
 A year ago, I read the paper [Infini-gram](https://arxiv.org/abs/2401.17377), which scaled an unbounded n-gram model to trillions of tokens. While their model had applications helping guide neural LLMs during generation, standalone language generation was not explored.
 
 In this post, I'll explain how unbounded n-gram models work and how I improved their language generation capabilities.
-
-<img alt="Infini-gram vs GPT" style="max-width: 100%" src="/images/unbounded-n-gram.gif">
-
-*Speed and quality test of my final implementation compared to a nanoGPT implementation, both using the Tiny Shakespeare dataset.*
-
 
 
 ## Classical N-Grams

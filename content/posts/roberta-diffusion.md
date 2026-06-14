@@ -2,6 +2,8 @@
 title = "BERT is just a Single Text Diffusion Step"
 date = 2025-10-20
 tags = ["Machine Learning"]
+featured = true
+hero = "/images/roberta-diffusion.gif"
 +++
 {{< katex >}}{{< /katex >}}
 
@@ -10,7 +12,7 @@ A while back, Google DeepMind unveiled [Gemini Diffusion](https://deepmind.googl
 I read the paper [Large Language Diffusion Models](https://arxiv.org/abs/2502.09992) and was surprised to find that discrete language diffusion is just a generalization of masked language modeling (MLM), something we’ve been doing since [2018](https://arxiv.org/abs/1810.04805).
 The first thought I had was, "can we finetune a BERT-like model to do text generation?"[^1] I decided to try a quick proof of concept out of curiosity.[^2]
 
-<img alt="Text Diffusion" style="max-width: 100%" src="/images/roberta-diffusion.gif">
+<!--<img alt="Text Diffusion" style="max-width: 100%" src="/images/roberta-diffusion.gif">-->
     
 *Above is a visualization of masked diffusion generation with a finetuned BERT-like model.*
 

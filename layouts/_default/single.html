@@ -13,9 +13,7 @@
         </div>
     </header>
 
-    <figure class="post-hero" aria-label="Post visual">
-        <canvas class="post-hero-canvas" data-title="{{ .Title }}"></canvas>
-    </figure>
+    {{ partial "docs/hero" . }}
 
     <div class="post-reading-grid">
         <aside class="post-toc">

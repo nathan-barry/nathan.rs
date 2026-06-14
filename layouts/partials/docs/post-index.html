@@ -1,12 +1,8 @@
 {{ $posts := where .Site.RegularPages "Section" "posts" }} {{ $posts = sort
-$posts "Date" "desc" }} {{ $featuredPaths := slice "/posts/roberta-diffusion"
-"/posts/unbounded-n-gram" "/posts/gpu-shader-programming" "/posts/curserve" }}
+$posts "Date" "desc" }} {{ $featured := where $posts "Params.featured" true }}
 
 <section class="site-writing-index" id="writing">
     <div class="writing-blocks">
-        {{ $featured := slice }} {{ range $featuredPaths }} {{ with
-        $.Site.GetPage . }}{{ $featured = $featured | append . }}{{ end }} {{
-        end }}
         <section class="writing-block" id="featured">
             <h3>Featured</h3>
             {{ partial "docs/writing-list.html" $featured }}

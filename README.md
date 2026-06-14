@@ -2,6 +2,23 @@
 
 Hey welcome to my site! Currently, the site is based on a ***heavily modified*** version of [hugo-book](https://github.com/alex-shpak/hugo-book/). Hugo-Book was designed for documentation, and I have many substantial changes to the repo (and removed many things) to make it suitable for a beautiful blog.
 
+## Post Heroes
+
+Posts can opt into a hero (the visual block under the title). The default is **nothing** — a post has no hero unless its frontmatter sets a `hero` key. The value is dispatched on its file extension by `layouts/partials/docs/hero.html`:
+
+| Frontmatter | Renders |
+| --- | --- |
+| `hero = "/images/foo.gif"` | `<img>` — `gif`, `png`, `jpg`, `jpeg`, `webp`, `avif`, `svg` |
+| `hero = "/videos/demo.mp4"` | autoplaying, looping, muted `<video>` — `mp4`, `webm`, `mov` |
+| `hero = "my-slug"` | `<canvas>` + the script at `assets/heroes/my-slug.js` (anything without a media extension is treated as a script slug) |
+
+To add a custom canvas animation:
+
+1. Write `assets/heroes/<slug>.js`. The canvas is handed to you as `.post-hero-canvas` (its `data-title` holds the post title). See `assets/heroes/roberta-diffusion.js` for an example.
+2. Add `hero = "<slug>"` to that post's frontmatter.
+
+Sidenotes/footnote logic lives separately in `assets/post-enhancements.js`, which loads globally on every post.
+
 ## Shortcodes
 
 These are shortcodes that I don't use (other than katex) but might be useful one day so I'm keeping them here!

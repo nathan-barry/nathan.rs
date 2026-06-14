@@ -93,7 +93,7 @@ html:not(.light-mode) {
 .markdown img.home-vignette {
     display: block;
     width: 100%;
-    max-width: 8rem;
+    max-width: 10rem;
     height: auto;
     margin: 0 auto $padding-16 * 2;
     filter: var(--icon-filter);
@@ -452,7 +452,7 @@ html:not(.light-mode) .markdown img[src$=".gif"] {
 
         h1 {
             margin: 0;
-            font-size: clamp(2.25rem, 5vw, 4rem);
+            font-size: clamp(2rem, 4.4vw, 3.5rem);
             line-height: 1.08;
         }
     }
@@ -479,8 +479,6 @@ html:not(.light-mode) .markdown img[src$=".gif"] {
         width: calc(100vw - 2rem);
         max-width: 78rem;
         margin: 0 auto clamp(3rem, 7vw, 5rem);
-        border: $padding-1 solid var(--gray-200);
-        background: var(--body-background);
         overflow: hidden;
     }
 
@@ -488,6 +486,14 @@ html:not(.light-mode) .markdown img[src$=".gif"] {
         display: block;
         width: 100%;
         aspect-ratio: 16 / 7;
+        background: var(--body-background);
+    }
+
+    .post-hero-media {
+        display: block;
+        width: 70%;
+        height: auto;
+        margin: 0 auto;
     }
 
     .post-reading-grid {
@@ -532,14 +538,6 @@ html:not(.light-mode) .markdown img[src$=".gif"] {
 
     .book-post-content {
         min-width: 0;
-
-        > :first-child::first-letter {
-            float: none;
-            font-family: inherit;
-            font-size: inherit;
-            line-height: inherit;
-            padding: 0;
-        }
     }
 
     .post-sidenotes {
