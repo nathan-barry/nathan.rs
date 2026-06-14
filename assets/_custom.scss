@@ -168,11 +168,11 @@ html:not(.light-mode) .markdown img[src$=".gif"] {
     }
 
     .site-writing-index {
-        margin-top: clamp(#{$padding-16}, 3vw, #{$padding-16 * 1.5});
+        margin-top: clamp(#{$padding-16}, 3vw, #{$padding-16 * 2});
     }
 
     .writing-search {
-        margin-bottom: clamp(#{$padding-16 * 2.5}, 6vw, #{$padding-16 * 4});
+        margin-bottom: clamp(#{$padding-16 * 2.5}, 6vw, #{$padding-16 * 6});
     }
 
     .writing-search-input {
