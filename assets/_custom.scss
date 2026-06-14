@@ -58,7 +58,7 @@ html:not(.light-mode) {
 .markdown img.home-vignette {
     display: block;
     width: 100%;
-    max-width: 10rem;
+    max-width: 8rem;
     height: auto;
     margin: 0 auto $padding-16 * 2;
     filter: var(--icon-filter);
@@ -494,6 +494,10 @@ html:not(.light-mode) .markdown img[src$=".gif"] {
 }
 
 @media screen and (max-width: 640px) {
+    .markdown img.home-vignette {
+        max-width: 6rem;
+    }
+
     .site-post-page {
         .site-top-nav-inner {
             align-items: center;
