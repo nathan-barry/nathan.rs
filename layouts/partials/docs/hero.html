@@ -3,12 +3,18 @@
   Routes on the value's extension:
     - image (.gif/.png/.jpg/.jpeg/.webp/.avif/.svg) -> <img>
     - video (.mp4/.webm/.mov)                        -> autoplaying muted <video>
+    - script (.js)                                   -> <canvas> + ES-module that draws it
 */}}
 {{ with .Params.hero }}
 {{ $ext := lower (strings.TrimPrefix "." (path.Ext .)) }}
 {{ $images := slice "gif" "png" "jpg" "jpeg" "webp" "avif" "svg" }}
 {{ $videos := slice "mp4" "webm" "mov" }}
-{{ if or (in $images $ext) (in $videos $ext) }}
+{{ if eq $ext "js" }}
+<figure class="post-hero" aria-label="Post visual">
+  <canvas class="post-hero-canvas" data-hero-canvas role="img" aria-label="{{ $.Title }}"></canvas>
+</figure>
+<script type="module" src="{{ . | relURL }}"></script>
+{{ else if or (in $images $ext) (in $videos $ext) }}
 <figure class="post-hero" aria-label="Post visual">
   {{ if in $images $ext }}
   <img class="post-hero-media" src="{{ . | relURL }}" alt="{{ $.Title }}" loading="lazy" />
