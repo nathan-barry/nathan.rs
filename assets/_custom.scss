@@ -316,7 +316,7 @@ html:not(.light-mode) .markdown img[src$=".gif"] {
     .post-masthead {
         max-width: 48rem;
         margin: 0 auto;
-        padding: clamp(4rem, 10vw, 7rem) $padding-16 clamp(2rem, 5vw, 4rem);
+        padding: clamp(4rem, 8vw, 6rem) $padding-16 clamp(2rem, 5vw, 4rem);
         text-align: center;
 
         h1 {
@@ -354,7 +354,8 @@ html:not(.light-mode) .markdown img[src$=".gif"] {
     .post-hero-canvas {
         display: block;
         width: 100%;
-        aspect-ratio: 16 / 7;
+        max-width: 50rem;
+        margin: 0 auto;
         background: var(--body-background);
     }
 
