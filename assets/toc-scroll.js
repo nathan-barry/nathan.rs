@@ -22,24 +22,25 @@
       linkMap.set(id, link);
     });
 
-    // Get all headings that are linked in the TOC
-    const headings = Array.from(
-      document.querySelectorAll(
-        "h1[id], h2[id], h3[id], h4[id], h5[id], h6[id]",
-      ),
-    )
-      .filter((heading) => linkMap.has(heading.id))
-      .sort((a, b) => {
-        // Sort by position in document
-        const posA = a.getBoundingClientRect().top + window.scrollY;
-        const posB = b.getBoundingClientRect().top + window.scrollY;
-        return posA - posB;
-      });
+    // Get the element each TOC link points at. These are usually headings, but
+    // the "Introduction" entry targets the content wrapper <div>, so we resolve
+    // by id rather than restricting to heading tags.
+    const headings = Array.from(linkMap.keys())
+      .map((id) => document.getElementById(id))
+      .filter((el) => el !== null)
+      .sort((a, b) => absoluteTop(a) - absoluteTop(b));
 
     if (headings.length === 0) return;
 
     let activeLink = null;
     let ticking = false;
+
+    // Absolute document offset. Used instead of offsetTop because the tracked
+    // elements (headings vs the positioned content wrapper) can have different
+    // offsetParents, which makes their offsetTop values incomparable.
+    function absoluteTop(el) {
+      return el.getBoundingClientRect().top + window.scrollY;
+    }
 
     function setActiveLink(link) {
       if (activeLink === link) return;
@@ -65,7 +66,7 @@
 
       for (let i = headings.length - 1; i >= 0; i--) {
         const heading = headings[i];
-        const headingTop = heading.offsetTop;
+        const headingTop = absoluteTop(heading);
 
         if (triggerPoint >= headingTop) {
           currentHeading = heading;

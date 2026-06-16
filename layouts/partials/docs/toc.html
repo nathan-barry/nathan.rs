@@ -1,1 +1,11 @@
-{{ .TableOfContents }}
+{{- $toc := .TableOfContents -}}
+{{- /* If the article opens with body text before its first heading, add an
+       "Introduction" entry pointing at the top of the content. We prepend it
+       before the first heading link so it sits at the same level as the rest. */ -}}
+{{- $c := trim .Content " \n\r\t" -}}
+{{- $startsWithHeading := or (hasPrefix $c "<h1") (hasPrefix $c "<h2") (hasPrefix $c "<h3") (hasPrefix $c "<h4") -}}
+{{- if not $startsWithHeading -}}
+  {{- $intro := "<li><a href=\"#introduction\">Introduction</a></li>" -}}
+  {{- $toc = replace $toc "<li><a " (printf "%s<li><a " $intro) 1 -}}
+{{- end -}}
+{{- $toc | safeHTML -}}
