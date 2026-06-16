@@ -1,5 +1,5 @@
 ---
-title: "Is gzip a language model?"
+title: "Can gzip be a language model?"
 date: 2026-06-14T11:01:18-07:00
 tags:
   - "Machine Learning"
