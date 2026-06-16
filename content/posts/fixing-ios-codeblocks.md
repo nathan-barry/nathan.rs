@@ -114,10 +114,11 @@ Below is a list of all the websites that added the fix. If this helped you, file
 
 Website | Date
 --- | ---
-nathan.rs | 2023-09-06
-iovec.net | 2024-02-03
-shyam.blog | 2024-02-08
-robinsonz.me | 2024-12-27
-netbros.com | 2025-08-02
-prose.nsood.in | 2025-09-27
-kn4ughty.com | 2026-05-27
+[nathan.rs](https://nathan.rs) | 2023-09-06
+[iovec.net](https://iovec.net) | 2024-02-03
+[shyam.blog](https://shyam.blog) | 2024-02-08
+[robinsonz.me](https://robinsonz.me) | 2024-12-27
+[netbros.com](https://netbros.com) | 2025-08-02
+[prose.nsood.in](https://prose.nsood.in) | 2025-09-27
+[kn4ughty.com](https://kn4ughty.com) | 2026-05-27
+[michaelhoward.kiwi](https://michaelhoward.kiwi) | 2026-06-15
