@@ -260,54 +260,6 @@ html:not(.light-mode) .markdown img[src$=".gif"] {
         width: 100%;
     }
 
-    .site-top-nav {
-        position: sticky;
-        top: 0;
-        z-index: 10;
-        background: color-mix(in srgb, var(--body-background) 92%, transparent);
-        border-bottom: $padding-1 solid var(--gray-200);
-        backdrop-filter: blur(12px);
-    }
-
-    .site-top-nav-inner {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: $padding-16;
-        max-width: 92rem;
-        margin: 0 auto;
-        padding: $padding-16 clamp(#{$padding-16}, 4vw, #{$padding-16 * 2});
-        font-size: var(--font-size-smaller);
-    }
-
-    .site-top-nav-brand {
-        flex: 0 0 auto;
-        color: inherit;
-        font-size: 0.95rem;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-    }
-
-    .site-top-nav-links {
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
-        gap: clamp(#{$padding-8}, 2vw, #{$padding-16 * 1.5});
-        flex-wrap: wrap;
-
-        a {
-            flex: 0 0 auto;
-            color: inherit;
-            padding: 0;
-        }
-    }
-
-    .theme-toggle {
-        flex: 0 0 auto;
-        font-size: inherit;
-        opacity: 1;
-    }
-
     .book-post {
         margin: 0;
     }
@@ -448,12 +400,6 @@ html:not(.light-mode) .markdown img[src$=".gif"] {
         color: var(--color-link);
         font-size: var(--font-size-smallest);
     }
-
-    .post-footer {
-        max-width: 42rem;
-        margin: 0 auto;
-        padding: 0 $padding-16 $padding-16 * 3;
-    }
 }
 
 @media screen and (max-width: 1100px) {
@@ -492,16 +438,6 @@ html:not(.light-mode) .markdown img[src$=".gif"] {
     }
 
     .site-post-page {
-        .site-top-nav-inner {
-            align-items: center;
-            flex-direction: row;
-        }
-
-        .site-top-nav-links {
-            justify-content: flex-end;
-            text-align: right;
-        }
-
         .post-masthead {
             padding-top: $padding-16 * 3;
         }
