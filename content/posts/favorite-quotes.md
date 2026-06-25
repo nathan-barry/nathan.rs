@@ -52,6 +52,9 @@ tags:
 > "I do not like broccoli. And I haven't liked it since I was a little kid and my mother made me eat it. And I'm President of the United States, and I'm not going to eat any more broccoli!"
 <br>— George H. W. Bush
 
+> There is a particular shape of soul that mistakes the fortress for freedom. It denies itself pleasure not because it has outgrown desire but because it is at war, and in wartime every appetite is a liability. Its discipline looks like transcendence and is really vigilance.
+<br>— Kelsey (Zippy) Monaghan-Bergson
+
 
 
 ## Literature
