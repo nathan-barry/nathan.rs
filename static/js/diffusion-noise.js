@@ -500,7 +500,7 @@ function uniformAnim(canvas) {
       drawTiles(ctx, 0, TOP, W, uniform.at(now), now, C, true);
       legend(
         ctx,
-        [{ c: heat(0.85), label: "every tile is a real word · any can change" }],
+        [{ c: heat(0.2), label: "changed this step" }],
         W / 2,
         H - CAP / 2,
         C,
@@ -642,21 +642,24 @@ function hero(canvas) {
   );
 }
 
-// ---- confidence fills in left to right --------------------------------------
-// Confidence is highest next to already-resolved context, and the prompt anchors
-// the left, so confidence-based decoding fills in roughly left to right on its
-// own. Grey = unresolved, blue = confident/decoded. Discrete: one more token
-// turns blue each step, left to right.
+// ---- confidence level, higher toward resolved context ----------------------
+// Confidence is a continuous, fluctuating field — not a binary resolved/unresolved
+// flag. It runs higher on the left (next to the prompt) and a soft front sweeps
+// rightward over the steps, but every position jitters each step, so it is never
+// monotonic. Greyer = lower confidence, bluer = higher.
 
 function confidenceLtr(canvas) {
   const N = 20,
-    STEP = 240,
-    HOLD = 10;
+    STEP = 420,
+    STEPS = N,
+    HOLD = 5;
   const sq = (W) => squareSize(W, N, 30);
   const TOP = 14,
     CAP = 30;
-  const conf = new Array(N).fill(0);
-  let lastNow = performance.now();
+  const conf = new Array(N).fill(0.1);
+  const target = new Array(N).fill(0.1);
+  let lastStep = -1,
+    lastNow = performance.now();
   run(
     canvas,
     (W) => TOP + sq(W) + CAP,
@@ -671,14 +674,29 @@ function confidenceLtr(canvas) {
 
       const dt = Math.min((now - lastNow) / 1000, 0.05);
       lastNow = now;
-      const step = Math.floor(now / STEP) % (N + HOLD);
-      const filled = Math.min(N, step); // tokens turned blue so far
-      // each square is discretely resolved or not; the flip eases in per token
+      const cycle = STEPS + HOLD;
+      const step = Math.floor(now / STEP) % cycle;
+      if (step !== lastStep) {
+        lastStep = step;
+        const WIN = 7; // confidence only ramps across this sliding window
+        const front = step + 2.5; // window center slides rightward
+        for (let i = 0; i < N; i++) {
+          // resolved (high) to the left of the window, untouched (low) to the
+          // right, a short ramp inside it
+          const base = Math.max(0, Math.min(1, (front + WIN / 2 - i) / WIN));
+          // plus per-step jitter so the field is noisy, never monotonic
+          const noise = (hash(i * 9 + step * 5) - 0.5) * 0.4;
+          target[i] = Math.max(0.05, Math.min(1, base + noise));
+        }
+      }
       for (let i = 0; i < N; i++)
-        conf[i] += ((i < filled ? 1 : 0) - conf[i]) * Math.min(1, dt * 12);
+        conf[i] += (target[i] - conf[i]) * Math.min(1, dt * 9);
 
+      // quantize to a few discrete shades so the levels read clearly
+      const LEVELS = 4;
       for (let i = 0; i < N; i++) {
-        ctx.fillStyle = mix(grey, COOL, conf[i]);
+        const q = Math.round(conf[i] * (LEVELS - 1)) / (LEVELS - 1);
+        ctx.fillStyle = mix(grey, COOL, q);
         rrect(ctx, x0 + i * (s + gap), y, s, s, 6);
         ctx.fill();
       }
@@ -686,8 +704,9 @@ function confidenceLtr(canvas) {
       legend(
         ctx,
         [
-          { c: mix(grey, COOL, 0), label: "unresolved" },
-          { c: mix(grey, COOL, 1), label: "confident → decoded" },
+          { c: mix(grey, COOL, 0.05), label: "low confidence" },
+          { c: mix(grey, COOL, 0.5), label: "" },
+          { c: mix(grey, COOL, 1), label: "high confidence" },
         ],
         W / 2,
         y + s + CAP / 2,
