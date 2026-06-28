@@ -234,11 +234,15 @@
     }
 
     figure {
-        margin: $padding-16 0;
+        margin: $padding-16 0 ($padding-16 * 1.5);
 
         figcaption {
             @extend .markdown-inner;
-            margin-top: $padding-16;
+            margin-top: $padding-8;
+            color: var(--color-link);
+            font-size: var(--font-size-smallest);
+            line-height: 1.5;
+            text-align: center;
         }
     }
 }
