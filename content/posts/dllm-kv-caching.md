@@ -4,7 +4,6 @@ date: 2026-06-26T18:31:55-07:00
 tags: ['2026']
 featured: true
 hero: "/js/diffusion-noise.js"
-draft: true
 ---
 
 The typical language model is **autoregressive** (AR): it predicts one token at a time, left to right, each token conditioned on the ones before it. This bakes in two limitations: it cannot revise earlier tokens if later context makes them appear wrong, and its latency grows linearly with length, since every token takes its own forward pass.
