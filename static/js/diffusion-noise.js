@@ -35,6 +35,17 @@ function heat(t) {
   return `rgb(${c(0)},${c(1)},${c(2)})`;
 }
 
+function hexToRgb(h) {
+  const m = h.replace("#", "").trim();
+  const n = m.length === 3 ? m.split("").map((c) => c + c).join("") : m;
+  return [0, 2, 4].map((i) => parseInt(n.slice(i, i + 2), 16) || 0);
+}
+function mix(a, b, t) {
+  t = Math.max(0, Math.min(1, t));
+  const c = (i) => Math.round(a[i] + (b[i] - a[i]) * t);
+  return `rgb(${c(0)},${c(1)},${c(2)})`;
+}
+
 function rrect(ctx, x, y, w, h, r) {
   ctx.beginPath();
   ctx.roundRect(x, y, Math.max(0, w), Math.max(0, h), r);
@@ -221,9 +232,9 @@ function diffusionDrift(canvas) {
       const step = Math.floor(now / STEP) % cycle;
       if (step !== lastStep) {
         lastStep = step;
-        // base drift decays over the denoising steps but never reaches zero
+        // drift accumulates across positions as more steps change tokens
         const prog = Math.min(1, step / STEPS);
-        const base = 0.06 + 0.82 * Math.pow(1 - prog, 1.4);
+        const base = 0.06 + 0.82 * Math.pow(prog, 1.4);
         for (let i = 0; i < N; i++)
           target[i] = Math.min(1, base * (0.5 + hash(i * 9 + step * 5)) + 0.04);
       }
@@ -383,10 +394,9 @@ const uniform = {
       let flash = 0;
       if (resolved && rank === reviseRank && step === reviseStep) {
         text = POOL[(tile * 7 + 2) % POOL.length]; // revised to a different word
-        warm = true;
-        flash = 1 - tIn * 0.5;
+        flash = 1 - tIn * 0.5; // same flash as any other change — it's just a word swap
       } else if (rank === step - 1 && step <= this.N) {
-        flash = 1 - tIn; // cool flash when a tile resolves
+        flash = 1 - tIn; // flash when a tile changes
       }
       return { i: tile, text, decoded: resolved, flash, warm };
     }).sort((a, b) => a.i - b.i);
@@ -407,7 +417,9 @@ function tileLayout(ctx, w, N) {
   return { ...m, cols, rows, blockH: rows * (m.th + m.gap) - m.gap };
 }
 
-function drawTiles(ctx, x, y, w, tiles, now, C) {
+// flat = uniform style: every tile reads the same (cool, no grey), so nothing
+// in the visuals reveals which positions are "done"
+function drawTiles(ctx, x, y, w, tiles, now, C, flat) {
   const L = tileLayout(ctx, w, tiles.length);
   const rowW = (n) => n * L.tw + (n - 1) * L.gap;
   ctx.font = MONO;
@@ -420,9 +432,9 @@ function drawTiles(ctx, x, y, w, tiles, now, C) {
     const tx = cx0 + (k - r * L.cols) * (L.tw + L.gap);
     const ty = y + r * (L.th + L.gap);
 
-    if (t.decoded) {
+    if (flat || t.decoded) {
       ctx.fillStyle = heat(0.05);
-      ctx.globalAlpha = 0.18;
+      ctx.globalAlpha = flat ? 0.22 : 0.18;
       rrect(ctx, tx, ty, L.tw, L.th, 7);
       ctx.fill();
       ctx.globalAlpha = 1;
@@ -441,7 +453,7 @@ function drawTiles(ctx, x, y, w, tiles, now, C) {
       ctx.stroke();
       ctx.globalAlpha = 1;
     }
-    ctx.fillStyle = t.decoded ? C.fg : t.text === "[ ? ]" ? C.mute : C.fg;
+    ctx.fillStyle = !flat && !t.decoded && t.text === "[ ? ]" ? C.mute : C.fg;
     if (t.warm) ctx.fillStyle = heat(0.85);
     ctx.fillText(t.text, tx + L.tw / 2, ty + L.th / 2 + 1);
   });
@@ -485,7 +497,7 @@ function uniformAnim(canvas) {
     },
     (ctx, W, H, now) => {
       const C = colors();
-      drawTiles(ctx, 0, TOP, W, uniform.at(now), now, C);
+      drawTiles(ctx, 0, TOP, W, uniform.at(now), now, C, true);
       legend(
         ctx,
         [{ c: heat(0.85), label: "every tile is a real word · any can change" }],
@@ -602,22 +614,22 @@ function hero(canvas) {
       const pw = narrow ? W - PAD * 2 : (W - PAD * 3) / 2;
       const bh = tileLayout(ctx, pw, TARGET.length).blockH;
 
-      const panel = (x, y, title, anim) => {
+      const panel = (x, y, title, anim, flat) => {
         ctx.font = "600 13px ui-sans-serif, system-ui, sans-serif";
         ctx.fillStyle = C.fg;
         ctx.textAlign = "center";
         ctx.textBaseline = "middle";
         ctx.fillText(title, x + pw / 2, y + LABEL / 2);
-        drawTiles(ctx, x, y + LABEL, pw, anim.at(now), now, C);
+        drawTiles(ctx, x, y + LABEL, pw, anim.at(now), now, C, flat);
       };
 
       if (narrow) {
         const ph = LABEL + bh + CAP;
-        panel(PAD, TOP, "Masked diffusion", masked);
-        panel(PAD, TOP + ph + PAD, "Uniform diffusion", uniform);
+        panel(PAD, TOP, "Masked diffusion", masked, false);
+        panel(PAD, TOP + ph + PAD, "Uniform diffusion", uniform, true);
       } else {
-        panel(PAD, TOP, "Masked diffusion", masked);
-        panel(PAD * 2 + pw, TOP, "Uniform diffusion", uniform);
+        panel(PAD, TOP, "Masked diffusion", masked, false);
+        panel(PAD * 2 + pw, TOP, "Uniform diffusion", uniform, true);
         // divider
         ctx.strokeStyle = C.line;
         ctx.lineWidth = 1;
@@ -630,12 +642,68 @@ function hero(canvas) {
   );
 }
 
+// ---- confidence fills in left to right --------------------------------------
+// Confidence is highest next to already-resolved context, and the prompt anchors
+// the left, so confidence-based decoding fills in roughly left to right on its
+// own. Grey = unresolved, blue = confident/decoded. Discrete: one more token
+// turns blue each step, left to right.
+
+function confidenceLtr(canvas) {
+  const N = 20,
+    STEP = 240,
+    HOLD = 10;
+  const sq = (W) => squareSize(W, N, 30);
+  const TOP = 14,
+    CAP = 30;
+  const conf = new Array(N).fill(0);
+  let lastNow = performance.now();
+  run(
+    canvas,
+    (W) => TOP + sq(W) + CAP,
+    (ctx, W, H, now) => {
+      const C = colors();
+      const grey = hexToRgb(C.mute);
+      const s = sq(W);
+      const gap = s * 0.34;
+      const rowW = N * s + (N - 1) * gap;
+      const x0 = (W - rowW) / 2;
+      const y = TOP;
+
+      const dt = Math.min((now - lastNow) / 1000, 0.05);
+      lastNow = now;
+      const step = Math.floor(now / STEP) % (N + HOLD);
+      const filled = Math.min(N, step); // tokens turned blue so far
+      // each square is discretely resolved or not; the flip eases in per token
+      for (let i = 0; i < N; i++)
+        conf[i] += ((i < filled ? 1 : 0) - conf[i]) * Math.min(1, dt * 12);
+
+      for (let i = 0; i < N; i++) {
+        ctx.fillStyle = mix(grey, COOL, conf[i]);
+        rrect(ctx, x0 + i * (s + gap), y, s, s, 6);
+        ctx.fill();
+      }
+
+      legend(
+        ctx,
+        [
+          { c: mix(grey, COOL, 0), label: "unresolved" },
+          { c: mix(grey, COOL, 1), label: "confident → decoded" },
+        ],
+        W / 2,
+        y + s + CAP / 2,
+        C,
+      );
+    },
+  );
+}
+
 // ---- dispatch ---------------------------------------------------------------
 
 const ANIMS = {
   "ar-cache": arCache,
   "diffusion-drift": diffusionDrift,
   "drift-local": driftLocal,
+  "confidence-ltr": confidenceLtr,
   masked: maskedAnim,
   uniform: uniformAnim,
   blockwise: blockwise,
